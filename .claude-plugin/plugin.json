@@ -1,0 +1,21 @@
+{
+  "name": "motion-prompt",
+  "displayName": "Motion Prompt",
+  "version": "0.1.0",
+  "description": "A numbered library of the names of motion-graphics moves, camera moves and transitions, each with a moving sample. Tell your agent which numbers to use and it rebuilds them in your video project, keeping the published timings and easing.",
+  "author": {
+    "name": "Shohei Ohtaki",
+    "url": "https://x.com/showheyohtaki"
+  },
+  "homepage": "https://showheyohtaki.github.io/motion-prompt/",
+  "repository": "https://github.com/showheyohtaki/motion-prompt",
+  "license": "MIT",
+  "keywords": [
+    "motion-graphics",
+    "animation",
+    "video",
+    "canvas",
+    "remotion",
+    "skill"
+  ]
+}

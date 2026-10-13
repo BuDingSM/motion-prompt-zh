@@ -1,0 +1,49 @@
+# Motion Prompt catalog (ja) · 48 elements · https://showheyohtaki.github.io/motion-prompt/ · columns: id	pack	category	title	tags	summary
+001	motion	登場・文字の演出	ポップイン (Pop-in)	pop,pop-in,spring,bounce,scale,icon,badge,entrance	アプリのアイコンがポンと弾んで現れ、通知バッジが遅れてポンと出る。
+002	motion	登場・文字の演出	スタガー (Stagger)	stagger,sequence,delay,cascade,bar-chart,list,entrance	グラフの棒が、少しずつ時間をずらして左から順に立ち上がる。
+003	motion	登場・文字の演出	バースト (Burst)	burst,explosion,radial,like,heart,celebrate,accent,sparkle	「いいね」のハートが点くと同時に、まわりに輪・線・粒が弾ける。
+004	motion	登場・文字の演出	ラインドロー (Line draw)	line-draw,trim-path,stroke,draw-on,chart,path,write-on	グラフの線が描かれるように伸び、消えるときは後ろから追いかけて消える。
+005	motion	登場・文字の演出	マスクリビール (Mask reveal)	mask,reveal,clip,wipe,title,text,slide-up,headline	1本の線を境に、見えない枠の向こうから見出しがせり上がる。
+006	motion	登場・文字の演出	タイプライター (Typewriter)	typewriter,typing,text,cursor,input,prompt,chat,type-on	入力欄に1文字ずつ打たれ、打ち終わると送信ボタンが点いて押される。
+007	motion	登場・文字の演出	カウントアップ (Count-up)	count-up,counter,number,odometer,stats,kpi,progress	数字が勢いよく増えて、最後にピタッと決まる。
+008	motion	登場・文字の演出	キネティックタイポグラフィ (Kinetic typography)	kinetic-typography,text,typography,lyric,word,bounce,spin,slam	言葉の意味に合わせて文字が動く（のびる／はねる／まわる／ドン！）。
+009	motion	動きの味付け	イージング (Easing)	easing,ease-in-out,cubic-bezier,linear,timing,curve,acceleration	同じ距離を同じ時間で動く2つの四角。上は一定の速さ、下は緩急あり。
+010	motion	動きの味付け	オーバーシュート (Overshoot)	overshoot,spring,bounce,settle,elastic,gauge,meter,needle	メーターの針が、目標を行き過ぎてから戻って止まる。
+011	motion	動きの味付け	スクワッシュ＆ストレッチ (Squash & stretch)	squash,stretch,squash-and-stretch,bounce,character,ball,animation-principle	弾むキャラクターが、着地でつぶれ、飛ぶときに伸びる。
+012	motion	動きの味付け	モーフィング (Shape morph)	morph,morphing,shape,path,interpolate,transform,icon	丸 → 四角 → 星 → ハートと、形と色がなめらかに変わる。
+013	motion	動きの味付け	リキッドモーション (Liquid motion)	liquid,blob,goo,gooey,metaball,fluid,organic,drip	しずくが伸びて、ちぎれて、ぬるっと1つにまとまる。
+014	motion	動きの味付け	モーショントレイル (Motion trail)	trail,motion-trail,echo,afterimage,ghost,path,speed	8の字に動く丸の跡に、残像が尾を引く。
+015	motion	動きの味付け	パーティクル (Particles)	particles,confetti,emitter,fountain,gravity,celebration,sparks	粒が下の口から次々と噴き出して、飛び散って落ちる。
+016	motion	動きの味付け	パララックス (Parallax)	parallax,depth,layers,pan,2.5d,background,landscape	横に動く景色。手前ほど大きく、奥ほど小さく動いて、奥行きが出る。
+017	motion	切り替え・見せ場	マスクトランジション (Mask transition)	mask,transition,iris,wipe,shape-wipe,reveal,scene-change	丸や星の形の「窓」が広がり、その中に次の画面が見える。
+018	motion	切り替え・見せ場	シェイプトランジション (Shape transition)	shape-transition,transition,wipe,bands,stripes,cover,scene-change	色のついた帯が画面を覆い隠し、抜けると次の画面になっている。
+019	motion	切り替え・見せ場	リキッドトランジション (Liquid transition)	liquid,transition,drip,paint,goo,fluid,wipe,scene-change	ペンキのような液体が上から垂れて流れ込み、次の画面になる。
+020	motion	切り替え・見せ場	ズームスルー (Zoom through)	zoom,zoom-through,transition,push-in,scale,tunnel,scene-change	文字の「O」の穴へ突っ込んで、その先の画面へ抜ける。
+021	motion	切り替え・見せ場	フリップ (Flip)	flip,card,3d,rotate,turn,reveal,question-answer	カードが縦の軸で回って裏返り、裏の面が出る。
+022	motion	切り替え・見せ場	ライトスイープ (Light sweep)	light-sweep,shine,sheen,glint,highlight,logo,badge,premium	ロゴの表面を、光の帯が斜めに横切る。
+023	motion	切り替え・見せ場	グリッチ (Glitch)	glitch,rgb-split,chromatic-aberration,distortion,digital,error,slice	文字が横にずれ、色がずれ、帯が走る。明るさの点滅はさせない。
+024	motion	切り替え・見せ場	インパクトシェイク (Impact shake)	shake,impact,camera-shake,slam,drop,thud,headline,emphasis	重い見出しの板がドンと落ち、その衝撃で画面ごと揺れる。
+025	camera	カメラの動き	パン (Pan)	pan,panning,yaw,rotate,horizontal,camera move,reveal	カメラの位置は変えず、首を左から右へ振る。回転なので手前も奥も同じ量だけ横に流れる。
+026	camera	カメラの動き	ティルト (Tilt)	tilt,tilt up,pitch,vertical,look up,camera move	カメラの位置は変えず、首を下から上へ振る。足元の人物から塔の先端まで見上げていく。
+027	camera	カメラの動き	ドリーイン (Dolly in)	dolly,dolly in,push in,track in,move forward,parallax,camera move	カメラそのものが被写体へ前進する。手前の物ほど大きく速く流れ、奥の山はほとんど変わらない。
+028	camera	カメラの動き	ズームイン (Zoom in)	zoom,zoom in,focal length,lens,magnify,telephoto,camera move	カメラの位置は動かさず、レンズの焦点距離だけを伸ばす。画面全体が同じ比率で拡大する。
+029	camera	カメラの動き	トラッキング (Tracking shot)	tracking,tracking shot,follow,truck,lateral,sideways,parallax,walk	歩く人物と同じ速さでカメラが真横に並走する。人物は画面中央のまま、手前の杭ほど速く後ろへ流れる。
+030	camera	カメラの動き	オービット (Orbit (Arc shot))	orbit,arc shot,circle,360,rotate around,revolve,camera move	被写体を中心に、カメラが円を描いて回り込む。人物は中央のまま、背景の木と建物が横に大きく流れる。
+031	camera	カメラの動き	クレーンアップ (Crane up)	crane,crane up,jib,boom up,rise,high angle,camera move	カメラが真上へ上昇しながら下を向き、人物を見下ろす構図になる。
+032	camera	カメラの動き	ドリーズーム (Dolly zoom (Vertigo))	dolly zoom,vertigo,zolly,push pull,background stretch,unease,camera move	カメラを引きながら同じ比率でズームする。人物の大きさは変わらず、背景だけが迫ってくる。
+033	camera	撮り方・時間の演出	ラックフォーカス (Rack focus)	rack focus,focus pull,pull focus,depth of field,blur,bokeh,foreground	カメラは動かさず、ピントを手前の花から奥の人物へ送る。ぼけている側が入れ替わる。
+034	camera	撮り方・時間の演出	手持ち (Handheld)	handheld,camera shake,shaky,documentary,wobble,noise,realism	三脚を使わず手で持ったような、小さく不規則な揺れを画面全体に加える。
+035	camera	撮り方・時間の演出	FPV (FPV drone shot)	fpv,drone,fly through,first person,banking,speed,aerial	並木の間を低空・高速で前進しながら、機体を左右に傾けて蛇行する一人称視点。
+036	camera	撮り方・時間の演出	ダッチアングル (Dutch angle)	dutch angle,dutch tilt,canted angle,oblique,roll,tension,tilted horizon	水平だったカメラを光軸まわりに傾け、地平線を斜めにしたまま止める。
+037	camera	撮り方・時間の演出	スローモーション (Slow motion)	slow motion,slow-mo,slomo,high frame rate,120fps,time stretch,jump	固定カメラの前で人物がゆっくり跳び上がり、葉もゆっくり落ちる。動き全体を引き伸ばして見せる。
+038	camera	撮り方・時間の演出	スピードランプ (Speed ramp)	speed ramp,time remap,ramping,fast to slow,variable speed,velocity	1つのショットの途中で再生速度を速い状態から遅い状態へ滑らかに変える。左下のグラフが速度を示す。
+039	camera	撮り方・時間の演出	タイムラプス (Time-lapse)	time-lapse,timelapse,fast forward,time compression,sun,clouds,day to night	固定カメラのまま、朝6時から夕方18時までを数秒に縮める。太陽・雲・人・影が早送りで動く。
+040	camera	撮り方・時間の演出	フリーズフレーム (Freeze frame)	freeze frame,still frame,pause,hold,stop motion,highlight	跳び上がった人物が頂点に来た瞬間に映像を止め、1.4秒後に続きから再開する。
+041	camera	切り替え（トランジション）	ジャンプカット (Jump cut)	jump cut,cut,time skip,same framing,vlog,ellipsis,edit	カメラの位置も画角も同じまま、人物の位置と時刻だけが飛ぶ。同じ場面の中で時間を省く切り方。
+042	camera	切り替え（トランジション）	マッチカット (Match cut)	match cut,graphic match,shape match,cut,transition,edit	投げ上げたボールが、次のカットでは同じ位置・同じ大きさの太陽になる。形をそろえて別の場面へつなぐ。
+043	camera	切り替え（トランジション）	ホイップパン (Whip pan)	whip pan,swish pan,motion blur,fast pan,transition,energy	カメラを素早く横に振り、流れてぼけた映像の中で次の場面に入れ替える。
+044	camera	切り替え（トランジション）	クロスディゾルブ (Cross dissolve)	cross dissolve,dissolve,crossfade,fade,opacity,blend,transition	前の絵に次の絵を重ね、不透明度を上げていって入れ替える。途中は2つの絵が透けて重なる。
+045	camera	切り替え（トランジション）	ワイプ (Wipe)	wipe,linear wipe,reveal,clip,edge,left to right,transition	縦の境界線が左から右へ動き、通過した側から次の絵に置き換わる。
+046	camera	切り替え（トランジション）	スマッシュカット (Smash cut)	smash cut,hard cut,abrupt,contrast,quiet to loud,comedy,transition	人物が寝ている静かな場面から、前触れなく激しい場面へ直結で切り替える。音量メーターも一気に上がる。
+047	camera	切り替え（トランジション）	Jカット (J-cut)	j-cut,j cut,split edit,audio lead,sound first,audio transition,edit	映像が切り替わる前に、次の場面の音が先に入る。上に映像、下に映像と音のタイムラインを表示する。
+048	camera	切り替え（トランジション）	Lカット (L-cut)	l-cut,l cut,split edit,audio lag,sound carries over,audio transition,edit	映像が次の場面に切り替わったあとも、前の場面の音がしばらく残る。上に映像、下に映像と音のタイムラインを表示する。

@@ -1,0 +1,16 @@
+{
+  "name": "motion-prompt",
+  "description": "Marketplace for the Motion Prompt skill (gallery: showheyohtaki.github.io/motion-prompt)",
+  "owner": {
+    "name": "Shohei Ohtaki",
+    "url": "https://x.com/showheyohtaki"
+  },
+  "plugins": [
+    {
+      "name": "motion-prompt",
+      "source": "./",
+      "description": "A library of names to use with AI (motion-graphics moves, camera moves and transitions), each with a moving sample. Ask by name or number and the agent rebuilds it in your video project with the published timings and easing.",
+      "category": "design"
+    }
+  ]
+}
