@@ -1,0 +1,47 @@
+// Motion Prompt #109 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#109
+//
+// レンズフレア / Lens flare
+// パック: photo (写真の表現・光と画風) · element 13 · カテゴリ: レンズ・カメラの効果
+// 何が起きるか: 画面の中の太陽が左右に動くと、色のついた光の玉（ゴースト）が、太陽と画面の中心を結ぶ線の上を、太陽と逆向きに動く。
+// 動きの仕様:
+//   - 太陽: x = 269.5 − 190·sin(2πu/5)、y = 48 + 16·cos(2πu/5)。光のにじみ半径170px、6本の光芒（長さ140px）
+//   - ゴースト: 太陽→中心の距離の 0.42・0.7・1.18・1.45・1.78・2.15 倍の位置。半径 5・15・9・26・12・40px
+//   - 色: 緑・橙・紫・青緑・黄・青。3つは六角形（絞り羽根の形）。加算合成で透明度12〜50%
+//   - 1周5秒で太陽が左右に1往復（効果の切り替えはなし）
+// 使いどころ: 太陽や照明のまぶしさ、夏の日差し、映画のような光を足したいとき。
+// タグ: lens flare, flare, ghosting, sun flare, starburst, cinematic
+// サイズ: 539x208 px · 1周: 5 s
+// Needs: kit photo -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/photo.js
+// 動く見本: https://showheyohtaki.github.io/motion-prompt/#109
+//
+// cells[i](k, w, h, u) … k = CanvasRenderingContext2D（呼ぶ側でクリアと save/restore 済み）、w・h = サイズ、u = 秒（0 以上 1周 未満）。u だけで絵が決まる。
+// ここから要素のコード。CELLS や定数・補助関数は kit にある。
+
+// @element 13
+// 13 レンズフレア: 画面の中の太陽が左右に動くと、光の玉（ゴースト）が画面の中心をはさんだ反対側を、太陽と逆向きに動く
+CELLS[12] = cell((k, w, h, u) => {
+  const t = u / CYC * TAU, sx = CW / 2 - 190 * Math.sin(t), sy = 48 + 16 * Math.cos(t);
+  const sky = k.createLinearGradient(0, 0, 0, 140); sky.addColorStop(0, '#3F7FD0'); sky.addColorStop(1, '#B9D8F2');
+  k.fillStyle = sky; k.fillRect(0, 0, CW, CH);
+  k.fillStyle = '#5E8F6A'; k.beginPath(); k.moveTo(0, 150); for (let x = 0; x <= CW; x += 20) k.lineTo(x, 132 - 18 * Math.sin(x / 90) - 8 * Math.sin(x / 31)); k.lineTo(CW, CH); k.lineTo(0, CH); k.fill();
+  const gr = k.createLinearGradient(0, 150, 0, CH); gr.addColorStop(0, '#6FA052'); gr.addColorStop(1, '#4C7A38');
+  k.fillStyle = gr; k.beginPath(); k.moveTo(0, 168); k.quadraticCurveTo(270, 150, CW, 166); k.lineTo(CW, CH); k.lineTo(0, CH); k.fill();
+  k.globalCompositeOperation = 'lighter';
+  const glow = k.createRadialGradient(sx, sy, 0, sx, sy, 170); glow.addColorStop(0, 'rgba(255,250,235,1)'); glow.addColorStop(0.07, 'rgba(255,244,214,.85)'); glow.addColorStop(0.3, 'rgba(255,230,190,.2)'); glow.addColorStop(1, 'rgba(255,230,190,0)');
+  k.fillStyle = glow; k.fillRect(0, 0, CW, CH);
+  // 光芒（絞り羽根の数ぶんの筋）
+  k.strokeStyle = 'rgba(255,248,230,.5)'; k.lineWidth = 1.4;
+  for (let i = 0; i < 6; i++) { const q = i / 6 * Math.PI + 0.3; k.beginPath(); k.moveTo(sx - Math.cos(q) * 70, sy - Math.sin(q) * 70); k.lineTo(sx + Math.cos(q) * 70, sy + Math.sin(q) * 70); k.stroke(); }
+  // ゴースト: 太陽 → 画面の中心 を結ぶ線の上に並ぶ
+  const dx = CW / 2 - sx, dy = CH / 2 - sy;
+  const G = [[0.42, 5, [120, 255, 160], .5, 0], [0.7, 15, [255, 170, 80], .22, 6], [1.18, 9, [170, 120, 255], .35, 0], [1.45, 26, [90, 220, 210], .16, 6], [1.78, 12, [255, 230, 110], .3, 0], [2.15, 40, [120, 160, 255], .12, 6]];
+  for (const [f, r, c, al, sides] of G) {
+    const x = sx + dx * f, y = sy + dy * f;
+    const g = k.createRadialGradient(x, y, 0, x, y, r); g.addColorStop(0, rgb(c, al * 0.5)); g.addColorStop(0.85, rgb(c, al)); g.addColorStop(1, rgb(c, 0));
+    k.fillStyle = g; k.beginPath();
+    if (sides) for (let i = 0; i <= sides; i++) { const q = i / sides * TAU + 0.3; i ? k.lineTo(x + Math.cos(q) * r, y + Math.sin(q) * r) : k.moveTo(x + Math.cos(q) * r, y + Math.sin(q) * r); }
+    else k.arc(x, y, r, 0, TAU);
+    k.fill();
+  }
+  k.globalCompositeOperation = 'source-over';
+});

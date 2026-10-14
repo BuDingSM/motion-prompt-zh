@@ -1,0 +1,23 @@
+// Motion Prompt #113 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#113
+//
+// High-key / ハイキー
+// Pack: photo (Photo looks, lighting & styles) · element 17 · Category: Tones & finishing looks
+// What happens: A still life on a grey background changes to a white background with bright light and very faint shadows; the histogram at bottom right shifts to the bright (right) side.
+// Motion spec:
+//   - Background: rgb(176,172,166) → rgb(252,251,249) (top); table rgb(128,120,110) → rgb(236,233,228)
+//   - Light: intensity 1 → 1.12; shadow side brightness 42% → 86%
+//   - Cast shadows: 38% → 10% black (6 px blur)
+//   - Histogram: peaks at 0.3, 0.55, 0.78 → 0.78, 0.9, 0.96 (0 = black, 1 = white)
+//   - Timing: the effect comes in from 0.6 s to 1.7 s, holds until 3.9 s and is gone again by 4.8 s (one pass = 5 s, cubic ease-in-out (about cubic-bezier(0.65,0,0.35,1)))
+// When to use it: For clean, light, gentle product shots and portraits.
+// Tags: high-key, high key, bright, white background, airy, low contrast
+// Size: 539x208 px · Cycle: 5 s
+// Needs: kit photo -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/photo.js
+// Live demo: https://showheyohtaki.github.io/motion-prompt/#113
+//
+// cells[i](k, w, h, u): k = CanvasRenderingContext2D (already cleared and wrapped in save/restore by the caller), w,h = size, u = seconds in [0, cycle). The picture depends only on u.
+// Element code starts here. CELLS, constants and helpers live in the kit.
+
+// @element 17
+// 17 ハイキー: 白い背景・明るい光・ごく薄い影。明るい色だけで画面を作り、ヒストグラムが右に寄る
+CELLS[16] = cell((k, w, h, u) => stillLife(k, lerpKey(KEYS.mid, KEYS.high, env(u))));

@@ -1,0 +1,15 @@
+Please use "Vignette" (周辺減光（ビネット）), one of the names in "Photo looks, lighting & styles".
+Motion Prompt #112
+
+What it is: The corners darken and draw the eye to the centre
+What the sample shows: The beach photo darkens gradually toward its corners while the centre stays as it is, pulling attention to the middle.
+Spec:
+- Shape: a radial gradient squeezed vertically to 0.62 (an ellipse centred on the frame)
+- Strength: none up to 45% of the radius, 45% black at 80%, 85% black at the corners (100%)
+- Source photo: blue sky, sea, beach, parasol and a person (the same as 19–23)
+- Timing: the effect comes in from 0.6 s to 1.7 s, holds until 3.9 s and is gone again by 4.8 s (one pass = 5 s, cubic ease-in-out (about cubic-bezier(0.65,0,0.35,1)))
+When to use it: To focus attention on the subject, or to suggest an old lens.
+
+Reference implementation (Canvas 2D, a function whose picture depends only on the time): https://showheyohtaki.github.io/motion-prompt/api/v1/en/e/112.txt
+Shared helper code: https://showheyohtaki.github.io/motion-prompt/api/v1/kit/photo.js
+Keep the shapes, timing and easing values of the reference implementation as they are, and change only the text, colours and assets to fit what I am making.

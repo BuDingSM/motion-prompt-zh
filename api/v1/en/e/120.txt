@@ -1,0 +1,57 @@
+// Motion Prompt #120 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#120
+//
+// Double exposure / 二重露光（多重露光）
+// Pack: photo (Photo looks, lighting & styles) · element 24 · Category: Tones & finishing looks
+// What happens: A forest-and-mountain landscape is screen-blended over a profile photo on white; the white stays white, the landscape shows only inside the dark profile, and the top of the head dissolves into the white sky.
+// Motion spec:
+//   - First image: a right-facing head-and-shoulders profile silhouette (#22252C → #3A3E48) on #F3F1ED
+//   - Second image: white sky at the top, mountains #9FB2B4, three rows of conifers (#4F6E6A, #2E4A46, #1A2C2A), 3 birds
+//   - Blending: the second image is screen-blended from 0% to 100% (white stays white, the landscape appears in the dark areas)
+//   - A slider at bottom right shows the amount
+//   - Timing: the effect comes in from 0.6 s to 1.7 s, holds until 3.9 s and is gone again by 4.8 s (one pass = 5 s, cubic ease-in-out (about cubic-bezier(0.65,0,0.35,1)))
+// When to use it: For posters and covers that tie a person to a place, a memory or an inner world.
+// Tags: double exposure, multiple exposure, blend, silhouette, surreal, composite
+// Size: 539x208 px · Cycle: 5 s
+// Needs: kit photo -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/photo.js
+// Live demo: https://showheyohtaki.github.io/motion-prompt/#120
+//
+// cells[i](k, w, h, u): k = CanvasRenderingContext2D (already cleared and wrapped in save/restore by the caller), w,h = size, u = seconds in [0, cycle). The picture depends only on u.
+// Element code starts here. CELLS, constants and helpers live in the kit.
+
+// @element 24
+// 24 二重露光（ダブルエクスポージャー）: 白い背景の横顔に、森と山の写真をスクリーンで重ねる。暗い横顔の中にだけ風景が見える
+function profilePath(k) {
+  k.beginPath(); k.moveTo(104, CH);
+  k.quadraticCurveTo(126, 178, 132, 152);
+  k.bezierCurveTo(104, 122, 106, 44, 184, 30);
+  k.bezierCurveTo(232, 22, 262, 46, 262, 72);
+  k.lineTo(265, 80); k.quadraticCurveTo(282, 96, 279, 101); k.quadraticCurveTo(273, 105, 265, 105);
+  k.quadraticCurveTo(269, 110, 266, 114); k.quadraticCurveTo(262, 117, 266, 121);
+  k.quadraticCurveTo(266, 133, 253, 137); k.quadraticCurveTo(238, 141, 237, 152);
+  k.quadraticCurveTo(237, 170, 252, 180); k.bezierCurveTo(292, 186, 320, 196, 332, CH);
+  k.closePath();
+}
+function forest() {
+  return once('forest', () => {
+    const c = mkCanvas(CW, CH), k = c.getContext('2d');
+    const sky = k.createLinearGradient(0, 0, 0, CH); sky.addColorStop(0, '#FFFFFF'); sky.addColorStop(0.3, '#F2F4F2'); sky.addColorStop(1, '#C9D6D2');
+    k.fillStyle = sky; k.fillRect(0, 0, CW, CH);
+    k.fillStyle = '#9FB2B4'; k.beginPath(); k.moveTo(0, 110); [[60, 76], [110, 96], [170, 58], [230, 92], [290, 70], [360, 100], [CW, 84]].forEach(([x, y]) => k.lineTo(x, y)); k.lineTo(CW, CH); k.lineTo(0, CH); k.fill();
+    const r = rng(24);
+    for (const [y0, col, n, s] of [[132, '#4F6E6A', 26, 0.8], [160, '#2E4A46', 22, 1], [196, '#1A2C2A', 16, 1.3]]) {
+      k.fillStyle = col;
+      for (let i = 0; i < n; i++) { const x = (i + r() * 0.8) * CW / n, hh = (30 + r() * 30) * s, ww = hh * 0.32; k.beginPath(); k.moveTo(x, y0 - hh); k.lineTo(x + ww, y0); k.lineTo(x - ww, y0); k.fill(); }
+      k.fillRect(0, y0 - 2, CW, CH);
+    }
+    k.strokeStyle = '#2E3A3A'; k.lineWidth = 1.6; for (const [x, y] of [[196, 52], [214, 46], [226, 58]]) { k.beginPath(); k.moveTo(x - 6, y - 2); k.quadraticCurveTo(x - 2, y - 5, x, y); k.quadraticCurveTo(x + 2, y - 5, x + 6, y - 2); k.stroke(); }
+    return c;
+  });
+}
+CELLS[23] = cell((k, w, h, u) => {
+  const a = env(u);
+  k.fillStyle = '#F3F1ED'; k.fillRect(0, 0, CW, CH);
+  const g = k.createLinearGradient(104, 0, 300, 0); g.addColorStop(0, '#22252C'); g.addColorStop(1, '#3A3E48');
+  k.fillStyle = g; profilePath(k); k.fill();
+  if (a > 0.001) { k.globalCompositeOperation = 'screen'; k.globalAlpha = a; k.drawImage(forest(), -40, 0, CW + 40, CH); k.globalCompositeOperation = 'source-over'; k.globalAlpha = 1; }
+  slider(k, a);
+});

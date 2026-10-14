@@ -2,11 +2,34 @@
 
 **English** | [日本語](CONTRIBUTING.ja.md)
 
-This repository is a library of names: the words people in a field use for the things you can ask an AI to make. It starts with motion graphics and camera moves because those were the first posts. **Please add the common language of your own field, in your own language.**
+This repository is a library of names: the words people in a field use for the things you can ask an AI to make. It started with motion graphics and camera moves because those were the first posts, and UI component names, landing page and web effects, and photo looks have been added since. **Please add the common language of your own field, in your own language.**
 
 Fields outside video are welcome: lighting, sound, UI and interaction, photography, typography, illustration, cooking, architecture, fashion, music, dance, games. If people in a field say "do a ___" to each other and an outsider would not know the word, that word belongs here.
 
 You do not have to write the code yourself. The prompts in [`make-your-own/prompts/`](make-your-own/prompts/) let a coding AI (Claude Code, Codex, Cursor, and so on) do most of the building. What only you can bring is knowing which names are real.
+
+## Three ways in
+
+| Way in | What | How to send it | Where it goes |
+|---|---|---|---|
+| A pack of names | The names of your field with moving samples, or another language for an existing pack | A pull request (or [Suggest names or a pack](https://github.com/showheyohtaki/motion-prompt/issues/new?template=1-contribution.yml) to talk it over first) | `packs/<pack>/` |
+| An example you found | A post on X that shares names with samples (your own is welcome) | [Suggest an example](https://github.com/showheyohtaki/motion-prompt/issues/new?template=2-example.yml) | `examples/found.json` and the [examples page](https://showheyohtaki.github.io/motion-prompt/found.html) |
+| A contribution | Something you made with make-your-own (videos, HTML, a cheat-sheet image), or a fix to a name | A pull request or [Suggest names or a pack](https://github.com/showheyohtaki/motion-prompt/issues/new?template=1-contribution.yml) | `make-your-own/examples/<slug>/<lang>/` and so on |
+
+"Make-your-own examples" are things you made yourself; "examples you found" are other people's posts on X.
+
+### How found examples are listed
+
+- Other people's posts are shown only with X's official embed, a link, and a one-line introduction we write. No images, videos, screenshots or post text are copied into this repository or onto the site.
+- `examples/found.json` holds only the post ID (`id`), the author (`author`), `url`, a theme (`theme`), a one-line introduction (`intro`, in Japanese and English), the language of the post (`lang`) and the date it was added (`added`). It does not keep the post text or counts such as likes.
+- The introduction is one line in our own words. It does not copy the post and does not read as if the author recommends this site.
+- We list posts with samples the author made (moving samples with names, cheat sheets and so on). We do not list posts that use someone else's work without credit, posts that only quote another post, posts that are mainly advertising a paid course or a product, or company ads.
+- The examples page has no ads for courses or services.
+- Requests to remove or correct an entry come in through the [issue form](https://github.com/showheyohtaki/motion-prompt/issues/new?template=3-removal.yml), and we act on them as soon as they are confirmed.
+
+### We only take what can be released under MIT
+
+Everything in this repository is released under the MIT License. We do not accept material that cannot be (someone else's work, fonts that cannot be redistributed, photos without permission). If you do not want your work under MIT, publish it on your own site or on X and suggest it as an example; we will embed and link to it.
 
 ## What you can add
 
@@ -74,3 +97,12 @@ Numbers are given in pack order. A published number is never reused or changed, 
 ## License
 
 Everything here is under the [MIT License](LICENSE). By opening a pull request you agree that your contribution is released under it. Only contribute work that is yours to give.
+
+Pull requests and contribution issues ask you to confirm four things (they are in the templates):
+
+- You made it yourself (or the rights holder allowed you to publish it, and you described that permission).
+- It contains no images, videos, fonts, logos or people from anyone else (or you described the permission).
+- You agree to release it under the MIT License.
+- You understand that the license cannot be withdrawn after it is published.
+
+If the material is also in your own post on X, add that post's URL. We use it to confirm that the work is yours.

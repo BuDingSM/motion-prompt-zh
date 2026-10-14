@@ -1,0 +1,16 @@
+Please use "Long exposure" (長時間露光), one of the names in "Photo looks, lighting & styles".
+Motion Prompt #107
+
+What it is: Keep the shutter open long so moving lights become lines
+What the sample shows: As the shutter stays open longer on a night road, the moving cars vanish and their headlights and tail lights become white and red lines that follow the road.
+Spec:
+- Shutter: 1/250 s → 8 s (on a log scale; the top-right readout snaps to standard stops)
+- Cars: 3 per lane at 152 px/s (one 760 px lap in 5 s); white headlights in the near lane, red tail lights in the far lane
+- Light trails: length = speed × shutter time (at most 760 px); 1.8 px core plus a 7 px glow at 20%, added, following the curve of the road
+- Car bodies: gone once the shutter passes about 1/6 s
+- Timing: the effect comes in from 0.6 s to 1.7 s, holds until 3.9 s and is gone again by 4.8 s (one pass = 5 s, cubic ease-in-out (about cubic-bezier(0.65,0,0.35,1)))
+When to use it: To show traffic flow, or silky water and clouds, in a single still.
+
+Reference implementation (Canvas 2D, a function whose picture depends only on the time): https://showheyohtaki.github.io/motion-prompt/api/v1/en/e/107.txt
+Shared helper code: https://showheyohtaki.github.io/motion-prompt/api/v1/kit/photo.js
+Keep the shapes, timing and easing values of the reference implementation as they are, and change only the text, colours and assets to fit what I am making.

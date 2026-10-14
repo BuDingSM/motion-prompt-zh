@@ -1,0 +1,22 @@
+// Motion Prompt #116 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#116
+//
+// Duotone / デュオトーン
+// Pack: photo (Photo looks, lighting & styles) · element 20 · Category: Tones & finishing looks
+// What happens: The beach photo's colours are replaced by just two: deep navy in the darks and pink in the lights.
+// Motion spec:
+//   - Two colours: rgb(32,26,118) (deep navy) for the darks, rgb(255,142,170) (pink) for the lights
+//   - Brightness (Rec. 709) is raised ×1.15 around mid grey, then mapped between the two colours
+//   - Cross-fades from the source photo (blue sky, sea, beach, red-and-white parasol, a person in orange) to the processed one; a slider at bottom right shows the amount
+//   - Timing: the effect comes in from 0.6 s to 1.7 s, holds until 3.9 s and is gone again by 4.8 s (one pass = 5 s, cubic ease-in-out (about cubic-bezier(0.65,0,0.35,1)))
+// When to use it: To unify posters, music artwork or social images in brand colours.
+// Tags: duotone, two-tone, gradient map, color overlay, poster, graphic
+// Size: 539x208 px · Cycle: 5 s
+// Needs: kit photo -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/photo.js
+// Live demo: https://showheyohtaki.github.io/motion-prompt/#116
+//
+// cells[i](k, w, h, u): k = CanvasRenderingContext2D (already cleared and wrapped in save/restore by the caller), w,h = size, u = seconds in [0, cycle). The picture depends only on u.
+// Element code starts here. CELLS, constants and helpers live in the kit.
+
+// @element 20
+// 20 デュオトーン: 明るさを2色（暗い所 = 濃い藍、明るい所 = ピンク）だけに置きかえる
+CELLS[19] = gradeCell('duo', p => { const y = clamp(0.5 + (luma(p) / 255 - 0.5) * 1.15); return mix([32, 26, 118], [255, 142, 170], y); });

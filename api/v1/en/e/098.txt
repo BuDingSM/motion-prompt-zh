@@ -1,0 +1,46 @@
+// Motion Prompt #098 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#098
+//
+// Rim light / リムライト
+// Pack: photo (Photo looks, lighting & styles) · element 02 · Category: Lighting & time of day
+// What happens: In a dark studio two lights behind the subject, one on each side, come on; the front stays dark and only the edges of the head and shoulders light up, separating the subject from the background.
+// Motion spec:
+//   - Background: radial gradient #1B1B20 at the centre to #09090B; subject #26262C (almost no light from the front)
+//   - Lights: two, behind the subject at ±120° and 17° high; warm #FFF3E2 on the right, cool #DDE8FF on the left
+//   - Edge light: the subject's shape minus a copy shifted 5 px away from the light and 1.2 px down; blurred 1.6 px inside the subject plus a 7 px glow outside at 55%
+//   - The band is 100% at the top and fades to 20% at the bottom; a top-down lighting diagram sits at bottom right
+//   - Timing: the effect comes in from 0.6 s to 1.7 s, holds until 3.9 s and is gone again by 4.8 s (one pass = 5 s, cubic ease-in-out (about cubic-bezier(0.65,0,0.35,1)))
+// When to use it: To separate a person or product from a dark background and show its shape.
+// Tags: rim light, rim lighting, edge light, backlight, kicker, outline, studio
+// Size: 539x208 px · Cycle: 5 s
+// Needs: kit photo -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/photo.js
+// Live demo: https://showheyohtaki.github.io/motion-prompt/#098
+//
+// cells[i](k, w, h, u): k = CanvasRenderingContext2D (already cleared and wrapped in save/restore by the caller), w,h = size, u = seconds in [0, cycle). The picture depends only on u.
+// Element code starts here. CELLS, constants and helpers live in the kit.
+
+// @element 02
+// 02 リムライト: 暗いスタジオで、人物の斜め後ろ左右の2灯が点き、輪郭だけが細く光る
+CELLS[1] = cell((k, w, h, u) => {
+  const a = env(u), cx = 250, top = 40, s = 32;
+  const bg = k.createRadialGradient(cx, 90, 10, cx, 90, 360); bg.addColorStop(0, '#1B1B20'); bg.addColorStop(1, '#09090B');
+  k.fillStyle = bg; k.fillRect(0, 0, CW, CH);
+  k.fillStyle = '#26262C'; bustPath(k, cx, top, s); k.fill();   // 正面からはごく弱い光だけ
+  // 縁の光: 白い人物から、光と反対側へずらした人物を消すと、光の側の縁だけが残る
+  const [rc, rk] = layer('A'), [tc, tk] = layer('B');
+  for (const [d, col] of [[1, '#FFF3E2'], [-1, '#DDE8FF']]) {
+    fresh(tk); tk.fillStyle = col; bustPath(tk, cx, top, s); tk.fill();
+    tk.globalCompositeOperation = 'destination-out'; bustPath(tk, cx - d * 5, top + 1.2, s); tk.fill();
+    rk.globalCompositeOperation = 'lighter'; rk.drawImage(tc, 0, 0);
+  }
+  // 下へいくほど弱く（光は頭と肩の高さに向けてある）
+  const fade = rk.createLinearGradient(0, top, 0, CH); fade.addColorStop(0, '#000'); fade.addColorStop(0.45, '#000'); fade.addColorStop(1, 'rgba(0,0,0,.2)');
+  rk.globalCompositeOperation = 'destination-in'; rk.fillStyle = fade; rk.fillRect(0, 0, CW, CH);
+  if (a > 0.001) {
+    k.globalCompositeOperation = 'lighter';
+    k.globalAlpha = a * 0.55; k.filter = 'blur(7px)'; k.drawImage(rc, 0, 0);
+    k.save(); bustPath(k, cx, top, s); k.clip();
+    k.globalAlpha = a; k.filter = 'blur(1.6px)'; k.drawImage(rc, 0, 0); k.restore();
+    k.filter = 'none'; k.globalAlpha = 1; k.globalCompositeOperation = 'source-over';
+  }
+  lightMap(k, [[2.09, 0.3, a], [-2.09, 0.3, a]]);
+});

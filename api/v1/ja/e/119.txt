@@ -1,0 +1,45 @@
+// Motion Prompt #119 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#119
+//
+// ライトリーク / Light leak
+// パック: photo (写真の表現・光と画風) · element 23 · カテゴリ: 仕上げ・画風
+// 何が起きるか: 海辺の写真の右端と左下から、赤・橙・黄の光がにじみ込み、ゆっくり形を変える。
+// 動きの仕様:
+//   - 光: 楕円の放射グラデーション4つ。右端に赤 rgb(255,60,20)（280×140px）、右下に橙 rgb(255,150,30)、上に黄 rgb(255,210,90)、左下に赤橙 rgb(255,90,40)
+//   - 合成: ハードライトで色をのせ、スクリーン80%で明るくにじませる。右端140pxに橙白の帯（50%）
+//   - 動き: それぞれ上下左右に14〜24pxゆっくり揺れる（5秒で1往復）
+//   - 右下のスライダーが効き具合
+//   - 時間: 0.6〜1.7秒で効果が入り、3.9秒まで保ち、4.8秒までに元へ戻る（1周5秒、3次のイーズインアウト（cubic-bezier(0.65,0,0.35,1) 相当））
+// 使いどころ: 思い出・夏・青春のような、なつかしく偶然っぽい雰囲気を出したいとき。
+// タグ: light leak, film leak, vintage, analog, lomo, warm glow
+// サイズ: 539x208 px · 1周: 5 s
+// Needs: kit photo -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/photo.js
+// 動く見本: https://showheyohtaki.github.io/motion-prompt/#119
+//
+// cells[i](k, w, h, u) … k = CanvasRenderingContext2D（呼ぶ側でクリアと save/restore 済み）、w・h = サイズ、u = 秒（0 以上 1周 未満）。u だけで絵が決まる。
+// ここから要素のコード。CELLS や定数・補助関数は kit にある。
+
+// @element 23
+// 23 ライトリーク: フィルムに光がもれたように、画面の端から赤・橙・黄の光がにじみ込み、ゆっくり形を変える
+CELLS[22] = cell((k, w, h, u) => {
+  const a = env(u), t = u / CYC * TAU;
+  k.drawImage(beach(), 0, 0);
+  if (a > 0.001) {
+    const blob = (x, y, rx, ry, c, al) => {
+      k.save(); k.translate(x, y); k.scale(1, ry / rx);
+      const g = k.createRadialGradient(0, 0, 0, 0, 0, rx); g.addColorStop(0, rgb(c, al * a)); g.addColorStop(0.5, rgb(c, al * a * 0.55)); g.addColorStop(1, rgb(c, 0));
+      k.fillStyle = g; k.fillRect(-rx, -rx, rx * 2, rx * 2); k.restore();
+    };
+    const leaks = () => {
+      blob(CW + 10, 50 + 24 * Math.sin(t), 280, 140, [255, 60, 20], 1);
+      blob(CW - 50, 140 + 18 * Math.cos(t), 200, 90, [255, 150, 30], 0.95);
+      blob(CW - 170 + 20 * Math.sin(t + 1), 16, 140, 56, [255, 210, 90], 0.75);
+      blob(-30, 150 + 14 * Math.sin(t + 2), 170, 110, [255, 90, 40], 0.85);
+    };
+    k.globalCompositeOperation = 'hard-light'; leaks();   // 色をのせる
+    k.globalCompositeOperation = 'screen'; k.globalAlpha = 0.8; leaks(); k.globalAlpha = 1;   // 明るくにじませる
+    const band = k.createLinearGradient(CW - 140, 0, CW, 0); band.addColorStop(0, 'rgba(255,120,60,0)'); band.addColorStop(1, rgb([255, 200, 150], 0.5 * a));
+    k.fillStyle = band; k.fillRect(0, 0, CW, CH);
+    k.globalCompositeOperation = 'source-over';
+  }
+  slider(k, a);
+});

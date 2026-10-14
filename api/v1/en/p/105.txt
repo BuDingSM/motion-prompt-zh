@@ -1,0 +1,16 @@
+Please use "Bokeh" (ボケ), one of the names in "Photo looks, lighting & styles".
+Motion Prompt #105
+
+What it is: Out-of-focus points of light melt into soft discs
+What the sample shows: As the aperture opens, the in-focus person stays sharp while the string lights and windows behind turn into large, soft discs of light.
+Spec:
+- Aperture: f/16 → f/1.4 (top-right readout)
+- Background: blur 0.4 px → 9 px (edges are extended outward before blurring)
+- Point lights: 62; disc radius = (1.6 + blur × 1.9) × size; bigger discs are fainter; additive blending; a thin brighter rim
+- Subject: the person at front left (x 175, head radius 31 px) stays sharp throughout
+- Timing: the effect comes in from 0.6 s to 1.7 s, holds until 3.9 s and is gone again by 4.8 s (one pass = 5 s, cubic ease-in-out (about cubic-bezier(0.65,0,0.35,1)))
+When to use it: To lift a person or product off the background and add a soft, festive night mood.
+
+Reference implementation (Canvas 2D, a function whose picture depends only on the time): https://showheyohtaki.github.io/motion-prompt/api/v1/en/e/105.txt
+Shared helper code: https://showheyohtaki.github.io/motion-prompt/api/v1/kit/photo.js
+Keep the shapes, timing and easing values of the reference implementation as they are, and change only the text, colours and assets to fit what I am making.

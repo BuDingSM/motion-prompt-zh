@@ -1,0 +1,16 @@
+Please use "Tilt-shift" (ティルトシフト), one of the names in "Photo looks, lighting & styles".
+Motion Prompt #106
+
+What it is: Blur top and bottom so a real scene looks like a miniature
+What the sample shows: A town seen from above; leaving only a horizontal band in the middle sharp, blurring above and below strongly and boosting the colour makes the real town look like a scale model. Small cars keep driving.
+Spec:
+- Town: seen from 95 m up, looking down 35.5° (focal length 380 px); buildings, trees and cars are simple boxes and circles
+- Sharp band: 44–58% of the frame height, fading out at 30% and 72%
+- Medium blur 2.4 px: 30–72% (fading out at 8% and 94%); 6.5 px beyond that
+- Colour: saturation ×1.45, contrast ×1.1; cars drive at 12 m/s and move exactly one car spacing in 5 s
+- Timing: the effect comes in from 0.6 s to 1.7 s, holds until 3.9 s and is gone again by 4.8 s (one pass = 5 s, cubic ease-in-out (about cubic-bezier(0.65,0,0.35,1)))
+When to use it: To make a city or event look like a toy model world.
+
+Reference implementation (Canvas 2D, a function whose picture depends only on the time): https://showheyohtaki.github.io/motion-prompt/api/v1/en/e/106.txt
+Shared helper code: https://showheyohtaki.github.io/motion-prompt/api/v1/kit/photo.js
+Keep the shapes, timing and easing values of the reference implementation as they are, and change only the text, colours and assets to fit what I am making.

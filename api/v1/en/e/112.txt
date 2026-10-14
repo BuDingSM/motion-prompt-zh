@@ -1,0 +1,30 @@
+// Motion Prompt #112 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#112
+//
+// Vignette / 周辺減光（ビネット）
+// Pack: photo (Photo looks, lighting & styles) · element 16 · Category: Lens & camera effects
+// What happens: The beach photo darkens gradually toward its corners while the centre stays as it is, pulling attention to the middle.
+// Motion spec:
+//   - Shape: a radial gradient squeezed vertically to 0.62 (an ellipse centred on the frame)
+//   - Strength: none up to 45% of the radius, 45% black at 80%, 85% black at the corners (100%)
+//   - Source photo: blue sky, sea, beach, parasol and a person (the same as 19–23)
+//   - Timing: the effect comes in from 0.6 s to 1.7 s, holds until 3.9 s and is gone again by 4.8 s (one pass = 5 s, cubic ease-in-out (about cubic-bezier(0.65,0,0.35,1)))
+// When to use it: To focus attention on the subject, or to suggest an old lens.
+// Tags: vignette, vignetting, dark corners, edge darkening, lens falloff, focus
+// Size: 539x208 px · Cycle: 5 s
+// Needs: kit photo -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/photo.js
+// Live demo: https://showheyohtaki.github.io/motion-prompt/#112
+//
+// cells[i](k, w, h, u): k = CanvasRenderingContext2D (already cleared and wrapped in save/restore by the caller), w,h = size, u = seconds in [0, cycle). The picture depends only on u.
+// Element code starts here. CELLS, constants and helpers live in the kit.
+
+// @element 16
+// 16 ビネット（周辺減光）: 画面の四隅に向かってなだらかに暗くなり、中央に目が集まる
+CELLS[15] = cell((k, w, h, u) => {
+  const a = env(u);
+  k.drawImage(beach(), 0, 0);
+  k.save(); k.translate(CW / 2, CH / 2); k.scale(1, 0.62);
+  const R = Math.hypot(CW / 2, CH / 2 / 0.62), g = k.createRadialGradient(0, 0, 0, 0, 0, R);
+  g.addColorStop(0, 'rgba(0,0,0,0)'); g.addColorStop(0.45, 'rgba(0,0,0,0)'); g.addColorStop(0.8, rgb([0, 0, 0], 0.45 * a)); g.addColorStop(1, rgb([0, 0, 0], 0.85 * a));
+  k.fillStyle = g; k.fillRect(-R, -R, R * 2, R * 2); k.restore();
+  slider(k, a);
+});

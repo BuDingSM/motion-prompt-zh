@@ -1,0 +1,16 @@
+Please use "Rembrandt lighting" (レンブラントライティング), one of the names in "Photo looks, lighting & styles".
+Motion Prompt #101
+
+What it is: High side light that leaves a lit triangle on the shadow cheek
+What the sample shows: A single light moves from the front to the side and up; the nose shadow joins the cheek shadow and a triangle of light remains under the eye on the shadow side.
+Spec:
+- Light: from 0° to 55° to the side and from 5° to 38° high; angles shown at top right
+- Bust: a plaster-like head with no eyes or hair, only the relief of nose, brows, eye sockets, cheeks and chin; centre x 270, y 86
+- Shading: diffuse light raised to the power 1.5 for a hard edge; cast shadows traced from each point toward the light; shadow side at 5%
+- Look: the nose shadow runs down diagonally into the cheek shadow, leaving a triangle of light below the eye on the shadow side
+- Timing: the effect comes in from 0.6 s to 1.7 s, holds until 3.9 s and is gone again by 4.8 s (one pass = 5 s, cubic ease-in-out (about cubic-bezier(0.65,0,0.35,1))); a top-down lighting diagram sits at bottom right
+When to use it: For portraits with a painterly, sculpted, classic look.
+
+Reference implementation (Canvas 2D, a function whose picture depends only on the time): https://showheyohtaki.github.io/motion-prompt/api/v1/en/e/101.txt
+Shared helper code: https://showheyohtaki.github.io/motion-prompt/api/v1/kit/photo.js
+Keep the shapes, timing and easing values of the reference implementation as they are, and change only the text, colours and assets to fit what I am making.

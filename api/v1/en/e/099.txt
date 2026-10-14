@@ -1,0 +1,47 @@
+// Motion Prompt #099 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#099
+//
+// Silhouette / シルエット
+// Pack: photo (Photo looks, lighting & styles) · element 03 · Category: Lighting & time of day
+// What happens: As the exposure is set for the sunset sky, the washed-out sky regains its colour while the person and the palm tree lose all colour and become pure black shapes.
+// Motion spec:
+//   - Exposure: +1.0 EV → −2.0 EV (top-right readout)
+//   - Sky: vertical gradient #3E2C78 → #C2507A → #F79A55 → #FFC46E; sun at x 372, y 126
+//   - At +1 EV a 55% white rgb(255,246,236) layer washes the sky out
+//   - At −2 EV the person (red top, 104 px tall), the palm and the beach all fall to rgb(12,8,16)
+//   - Timing: the effect comes in from 0.6 s to 1.7 s, holds until 3.9 s and is gone again by 4.8 s (one pass = 5 s, cubic ease-in-out (about cubic-bezier(0.65,0,0.35,1)))
+// When to use it: When the shape and pose should carry the picture, against a sunset or a bright window.
+// Tags: silhouette, backlit, sunset, contre-jour, black shape, underexposed
+// Size: 539x208 px · Cycle: 5 s
+// Needs: kit photo -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/photo.js
+// Live demo: https://showheyohtaki.github.io/motion-prompt/#099
+//
+// cells[i](k, w, h, u): k = CanvasRenderingContext2D (already cleared and wrapped in save/restore by the caller), w,h = size, u = seconds in [0, cycle). The picture depends only on u.
+// Element code starts here. CELLS, constants and helpers live in the kit.
+
+// @element 03
+// 03 シルエット: 夕日の空に露出を合わせていくと、人物と木が真っ黒な形だけになる
+CELLS[2] = cell((k, w, h, u) => {
+  const a = env(u), ev = lerp(1, -2, a);
+  const sky = k.createLinearGradient(0, 0, 0, 140);
+  sky.addColorStop(0, '#3E2C78'); sky.addColorStop(0.5, '#C2507A'); sky.addColorStop(0.85, '#F79A55'); sky.addColorStop(1, '#FFC46E');
+  k.fillStyle = sky; k.fillRect(0, 0, CW, 140);
+  const sg = k.createRadialGradient(372, 126, 6, 372, 126, 120); sg.addColorStop(0, 'rgba(255,246,210,1)'); sg.addColorStop(0.2, 'rgba(255,214,140,.8)'); sg.addColorStop(1, 'rgba(255,190,110,0)');
+  k.fillStyle = sg; k.fillRect(0, 0, CW, 160);
+  const sea = k.createLinearGradient(0, 136, 0, CH); sea.addColorStop(0, '#B8577A'); sea.addColorStop(1, '#3B2556');
+  k.fillStyle = sea; k.fillRect(0, 136, CW, CH - 136);
+  k.fillStyle = 'rgba(255,220,150,.7)'; for (let i = 0; i < 9; i++) k.fillRect(372 - (28 - i * 2.5) / 2 + Math.sin(i * 1.7) * 6, 140 + i * 6, 28 - i * 2.5, 2);
+  // 露出: 人物に合わせると空が白く飛ぶ（+1EV）／空に合わせると人物が黒くつぶれる（−2EV）
+  k.fillStyle = rgb([255, 246, 236], 0.55 * (1 - a)); k.fillRect(0, 0, CW, CH);
+  // 浜と木と人物（ジャンプ）
+  const land = (kk, col) => {
+    kk.fillStyle = col; kk.beginPath(); kk.moveTo(0, 176); kk.quadraticCurveTo(200, 166, 330, 184); kk.lineTo(330, CH); kk.lineTo(0, CH); kk.fill();
+    kk.strokeStyle = col; kk.lineWidth = 6; kk.lineCap = 'round'; kk.beginPath(); kk.moveTo(84, 176); kk.quadraticCurveTo(80, 120, 104, 64); kk.stroke();
+    for (let i = 0; i < 7; i++) { kk.save(); kk.translate(104, 64); kk.rotate(-2.9 + i * 0.5); kk.beginPath(); kk.ellipse(26, 0, 28, 6, 0.25, 0, TAU); kk.fill(); kk.restore(); }
+  };
+  land(k, rgb(mix([150, 120, 96], [12, 8, 16], a)));
+  k.save(); k.translate(232, 150); k.rotate(-0.08);
+  person(k, 0, 0, 104, rgb(mix([214, 66, 70], [12, 8, 16], a)), rgb(mix([226, 168, 128], [12, 8, 16], a)));
+  k.fillStyle = rgb(mix([52, 76, 140], [12, 8, 16], a)); rr(k, -20, -48, 40, 12, 4); k.fill();
+  k.restore();
+  pill(k, `${ev >= 0 ? '+' : '−'}${Math.abs(ev).toFixed(1)} EV`);
+});

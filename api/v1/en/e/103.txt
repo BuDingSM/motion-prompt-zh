@@ -1,0 +1,68 @@
+// Motion Prompt #103 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#103
+//
+// Golden hour / ゴールデンアワー
+// Pack: photo (Photo looks, lighting & styles) · element 07 · Category: Lighting & time of day
+// What happens: Time moves from noon (high sun, white light, short shadows) to just before sunset (sun near the horizon, warm light, long shadows to the right, the left edges of the person and tree glowing).
+// Motion spec:
+//   - Clock: 12:00 → 17:40 (top-right readout); sun elevation 63° → 4°, on screen (150, −40) → (64, 104)
+//   - Shadows: length = height × 1/tan(sun elevation) (at most 3×), running right and slightly down from the feet (drop = 0.16 × length), blurred 1.5 px
+//   - Colour: sky near the horizon rgb(200,226,244) → rgb(255,196,118); rgb(255,186,110) soft-light at 75% over everything
+//   - Edge light: about 2 px of orange #FFB060 added on the left edges of the person and tree (60%)
+//   - Timing: the effect comes in from 0.6 s to 1.7 s, holds until 3.9 s and is gone again by 4.8 s (one pass = 5 s, cubic ease-in-out (about cubic-bezier(0.65,0,0.35,1)))
+// When to use it: For warm, nostalgic, gentle-feeling images.
+// Tags: golden hour, magic hour, sunset light, warm light, long shadows, low sun
+// Size: 539x208 px · Cycle: 5 s
+// Needs: kit photo -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/photo.js
+// Live demo: https://showheyohtaki.github.io/motion-prompt/#103
+//
+// cells[i](k, w, h, u): k = CanvasRenderingContext2D (already cleared and wrapped in save/restore by the caller), w,h = size, u = seconds in [0, cycle). The picture depends only on u.
+// Element code starts here. CELLS, constants and helpers live in the kit.
+
+// @element 07
+// 07 ゴールデンアワー: 昼（太陽が高く白い光・短い影）から、日没前（低く赤みのある光・長い影）へ
+CELLS[6] = cell((k, w, h, u) => {
+  const a = env(u);
+  const elv = lerp(1.1, 0.07, a);                     // 太陽の高さ 63° → 4°
+  const sx = lerp(150, 64, a), sy = lerp(-40, 104, a);
+  const sky = k.createLinearGradient(0, 0, 0, 124);
+  sky.addColorStop(0, rgb(mix([74, 140, 220], [92, 112, 176], a))); sky.addColorStop(0.6, rgb(mix([140, 190, 236], [236, 168, 132], a))); sky.addColorStop(1, rgb(mix([200, 226, 244], [255, 196, 118], a)));
+  k.fillStyle = sky; k.fillRect(0, 0, CW, 124);
+  const sg = k.createRadialGradient(sx, sy, 3, sx, sy, lerp(90, 200, a));
+  sg.addColorStop(0, rgb(mix([255, 255, 250], [255, 240, 200], a))); sg.addColorStop(0.08, rgb(mix([255, 255, 240], [255, 200, 120], a), 0.9)); sg.addColorStop(1, rgb([255, 190, 110], 0));
+  k.fillStyle = sg; k.fillRect(0, 0, CW, CH);
+  k.fillStyle = rgb(mix([118, 158, 132], [176, 126, 110], a));
+  k.beginPath(); k.moveTo(0, 124); k.quadraticCurveTo(140, 96, 260, 116); k.quadraticCurveTo(400, 100, CW, 112); k.lineTo(CW, 126); k.lineTo(0, 126); k.fill();
+  const gr = k.createLinearGradient(0, 120, 0, CH);
+  gr.addColorStop(0, rgb(mix([136, 182, 92], [200, 150, 74], a))); gr.addColorStop(1, rgb(mix([98, 150, 64], [128, 90, 44], a)));
+  k.fillStyle = gr; k.fillRect(0, 120, CW, CH - 120);
+  // 影: 高さ1あたりの長さ = 1/tan(太陽の高さ)。太陽が左にあるので右へ伸びる
+  const L = Math.min(3, 1 / Math.tan(elv));
+  // 地面の影: 足元から右下へ、長さ = 高さ × L（地面に寝かせるので縦は 0.16 倍）
+  const shadow = (fx, fy, hh, wb, wt) => {
+    const tx = fx + L * hh, ty = fy + 0.16 * L * hh;
+    k.beginPath(); k.moveTo(fx - wb, fy); k.lineTo(fx + wb, fy); k.lineTo(tx + wt, ty); k.lineTo(tx - wt, ty); k.closePath(); k.fill();
+    return [tx, ty];
+  };
+  k.save(); k.filter = 'blur(1.5px)'; k.fillStyle = rgb([60, 40, 20], lerp(0.3, 0.45, a));
+  shadow(236, 182, 108, 14, 12);
+  shadow(392, 172, 40, 3, 3); const [tx, ty] = [392 + L * 66, 172 + 0.16 * L * 66]; k.beginPath(); k.ellipse(tx, ty, 26 * Math.min(2.2, 0.6 + L * 0.5), 6, 0.16, 0, TAU); k.fill();
+  k.restore();
+  // 木と人物（光の当たる左側を明るく）
+  const lit = mix([255, 255, 255], [255, 186, 110], a);
+  k.fillStyle = rgb(mix([108, 82, 58], [96, 64, 40], a)); k.fillRect(389, 120, 6, 52);
+  const tg = k.createRadialGradient(378, 96, 4, 392, 106, 30); tg.addColorStop(0, rgb(mix([120, 176, 90], [214, 168, 80], a))); tg.addColorStop(1, rgb(mix([62, 116, 60], [70, 70, 40], a)));
+  k.fillStyle = tg; k.beginPath(); k.arc(392, 106, 26, 0, TAU); k.fill();
+  person(k, 236, 182, 108, rgb(mix([70, 96, 150], [92, 80, 100], a)), rgb(mix([226, 178, 140], [236, 160, 104], a)));
+  // 低い光が当たる左側の縁だけ明るく光る
+  if (a > 0.01) {
+    const [ec, ek] = layer('A');
+    ek.fillStyle = '#FFB060'; person(ek, 236, 182, 108, '#FFB060'); ek.beginPath(); ek.arc(392, 106, 26, 0, TAU); ek.fill();
+    ek.globalCompositeOperation = 'destination-out'; person(ek, 238.2, 182, 108, '#000'); ek.beginPath(); ek.arc(394.5, 106, 26, 0, TAU); ek.fill();
+    k.globalCompositeOperation = 'lighter'; k.globalAlpha = 0.6 * a; k.drawImage(ec, 0, 0); k.globalAlpha = 1; k.globalCompositeOperation = 'source-over';
+  }
+  // 全体の色: 低い太陽ほど赤みが強い
+  k.globalCompositeOperation = 'soft-light'; k.fillStyle = rgb(lit, 0.75 * a); k.fillRect(0, 0, CW, CH);
+  k.globalCompositeOperation = 'source-over';
+  const m = Math.round(lerp(12 * 60, 17 * 60 + 40, a) / 5) * 5;
+  pill(k, `${String(Math.floor(m / 60)).padStart(2, '0')}:${String(m % 60).padStart(2, '0')}`);
+});

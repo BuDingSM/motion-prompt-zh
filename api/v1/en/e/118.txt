@@ -1,0 +1,44 @@
+// Motion Prompt #118 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#118
+//
+// Film grain / フィルムグレイン
+// Pack: photo (Photo looks, lighting & styles) · element 22 · Category: Tones & finishing looks
+// What happens: Fine grain covers the whole beach photo and the blacks lift slightly toward warm; the grain pattern keeps changing.
+// Motion spec:
+//   - Grain: per-pixel grey noise (sum of three uniform randoms, ±96) blurred 0.45 px, overlay at 70%
+//   - Motion: 4 fixed-seed patterns cycled 8 times a second (40 changes in 5 s)
+//   - Colour: R = 22 + 0.88 R, G = 16 + 0.86 G, B = 10 + 0.8 B (lifted, warm blacks)
+//   - A slider at bottom right shows the amount
+//   - Timing: the effect comes in from 0.6 s to 1.7 s, holds until 3.9 s and is gone again by 4.8 s (one pass = 5 s, cubic ease-in-out (about cubic-bezier(0.65,0,0.35,1)))
+// When to use it: To remove the clean digital look and add an analogue film texture.
+// Tags: film grain, grain, noise, analog, 35mm film, texture, vintage
+// Size: 539x208 px · Cycle: 5 s
+// Needs: kit photo -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/photo.js
+// Live demo: https://showheyohtaki.github.io/motion-prompt/#118
+//
+// cells[i](k, w, h, u): k = CanvasRenderingContext2D (already cleared and wrapped in save/restore by the caller), w,h = size, u = seconds in [0, cycle). The picture depends only on u.
+// Element code starts here. CELLS, constants and helpers live in the kit.
+
+// @element 22
+// 22 フィルムグレイン: 細かい粒子が画面全体に乗り、黒が少し浮いて暖かい色になる。粒は1秒に8回、4枚の模様を順に入れかえる
+function grainTiles() {
+  return once('grain', () => {
+    const r = rng(22), out = [];
+    for (let n = 0; n < 4; n++) {
+      const c = mkCanvas(CW, CH), k = c.getContext('2d'), img = k.createImageData(CW, CH), d = img.data;
+      for (let i = 0; i < d.length; i += 4) { const v = 128 + (r() + r() + r() - 1.5) * 64; d[i] = d[i + 1] = d[i + 2] = v; d[i + 3] = 255; }
+      k.putImageData(img, 0, 0);
+      const c2 = mkCanvas(CW, CH), k2 = c2.getContext('2d'); k2.filter = 'blur(0.45px)'; k2.drawImage(c, 0, 0); out.push(c2);
+    }
+    return out;
+  });
+}
+CELLS[21] = cell((k, w, h, u) => {
+  const a = env(u);
+  k.drawImage(beach(), 0, 0);
+  if (a > 0.001) {
+    k.globalAlpha = a; k.drawImage(graded('film', p => [22 + p[0] * 0.88, 16 + p[1] * 0.86, 10 + p[2] * 0.8]), 0, 0);
+    k.globalCompositeOperation = 'overlay'; k.globalAlpha = 0.7 * a; k.drawImage(grainTiles()[Math.floor(u * 8) % 4], 0, 0);
+    k.globalCompositeOperation = 'source-over'; k.globalAlpha = 1;
+  }
+  slider(k, a);
+});

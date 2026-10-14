@@ -1,0 +1,16 @@
+Please use "Light leak" (ライトリーク), one of the names in "Photo looks, lighting & styles".
+Motion Prompt #119
+
+What it is: Red-orange glow as if light leaked onto the film
+What the sample shows: Red, orange and yellow light bleeds into the beach photo from the right edge and bottom left, slowly changing shape.
+Spec:
+- Light: 4 elliptical radial gradients — red rgb(255,60,20) at the right edge (280×140 px), orange rgb(255,150,30) lower right, yellow rgb(255,210,90) at the top, red-orange rgb(255,90,40) bottom left
+- Blending: hard light to tint, then screen at 80% to bloom; a 140 px orange-white band at the right edge (50%)
+- Motion: each drifts 14–24 px back and forth (one swing per 5 s)
+- A slider at bottom right shows the amount
+- Timing: the effect comes in from 0.6 s to 1.7 s, holds until 3.9 s and is gone again by 4.8 s (one pass = 5 s, cubic ease-in-out (about cubic-bezier(0.65,0,0.35,1)))
+When to use it: For nostalgic, summery, accidental-looking memories.
+
+Reference implementation (Canvas 2D, a function whose picture depends only on the time): https://showheyohtaki.github.io/motion-prompt/api/v1/en/e/119.txt
+Shared helper code: https://showheyohtaki.github.io/motion-prompt/api/v1/kit/photo.js
+Keep the shapes, timing and easing values of the reference implementation as they are, and change only the text, colours and assets to fit what I am making.

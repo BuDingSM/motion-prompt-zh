@@ -1,0 +1,16 @@
+Please use "Butterfly lighting" (バタフライライティング), one of the names in "Photo looks, lighting & styles".
+Motion Prompt #102
+
+What it is: High frontal light that casts a butterfly shadow under the nose
+What the sample shows: A single light stays in front and rises; a symmetrical butterfly-shaped shadow forms right under the nose, with shadows under the cheekbones and chin.
+Spec:
+- Light: stays at 0° (straight in front) and rises from 5° to 45°; angles shown at top right
+- Bust: a plaster-like head with no eyes or hair, only the relief of nose, brows, eye sockets, cheeks and chin; centre x 270, y 86
+- Shading: diffuse light raised to the power 1.5 for a hard edge; cast shadows traced from each point toward the light; shadow side at 5%
+- Look: a symmetrical shadow right below the nose, plus shadows under the brows, cheekbones and chin; both sides of the face are equally bright
+- Timing: the effect comes in from 0.6 s to 1.7 s, holds until 3.9 s and is gone again by 4.8 s (one pass = 5 s, cubic ease-in-out (about cubic-bezier(0.65,0,0.35,1))); a top-down lighting diagram sits at bottom right
+When to use it: For beauty and fashion portraits that flatter the face.
+
+Reference implementation (Canvas 2D, a function whose picture depends only on the time): https://showheyohtaki.github.io/motion-prompt/api/v1/en/e/102.txt
+Shared helper code: https://showheyohtaki.github.io/motion-prompt/api/v1/kit/photo.js
+Keep the shapes, timing and easing values of the reference implementation as they are, and change only the text, colours and assets to fit what I am making.

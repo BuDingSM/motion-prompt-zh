@@ -1,0 +1,16 @@
+Please use "Chromatic aberration" (色収差), one of the names in "Photo looks, lighting & styles".
+Motion Prompt #111
+
+What it is: Red and blue-violet colour fringes along high-contrast edges
+What the sample shows: Red and blue-violet fringes appear along black branches and wires against a white sky, larger toward the edges of the frame; a loupe at bottom left shows the wires at 3×.
+Spec:
+- Channel split: separate red-only, green-only and blue-only images, then add them back together
+- Offset: scale red by 1.015 and blue by 0.985 around the centre (about ±4 px at the left and right edges, 0 at the centre)
+- Scene: a bright sky (#FBFCFE → #E6EEF6) with black #17181C branches and 3 wires
+- Loupe: a 35 px square at the top left shown at 3× in a 52 px-radius circle
+- Timing: the effect comes in from 0.6 s to 1.7 s, holds until 3.9 s and is gone again by 4.8 s (one pass = 5 s, cubic ease-in-out (about cubic-bezier(0.65,0,0.35,1)))
+When to use it: To add an imperfect old-lens, VHS or glitch feel.
+
+Reference implementation (Canvas 2D, a function whose picture depends only on the time): https://showheyohtaki.github.io/motion-prompt/api/v1/en/e/111.txt
+Shared helper code: https://showheyohtaki.github.io/motion-prompt/api/v1/kit/photo.js
+Keep the shapes, timing and easing values of the reference implementation as they are, and change only the text, colours and assets to fit what I am making.

@@ -1,0 +1,23 @@
+// Motion Prompt #100 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#100
+//
+// Split lighting / スプリットライティング
+// Pack: photo (Photo looks, lighting & styles) · element 04 · Category: Lighting & time of day
+// What happens: A single light swings from the front to the side; the face divides along the nose, one half lit and the other in shadow.
+// Motion spec:
+//   - Light: from 0° to 90° (right side), height stays at 5°; angles shown at top right
+//   - Bust: a plaster-like head with no eyes or hair, only the relief of nose, brows, eye sockets, cheeks and chin; centre x 270, y 86
+//   - Shading: diffuse light raised to the power 1.5 for a hard edge; cast shadows traced from each point toward the light; shadow side at 5%
+//   - Look: light and dark divide along a vertical line through the nose; no light reaches the far cheek
+//   - Timing: the effect comes in from 0.6 s to 1.7 s, holds until 3.9 s and is gone again by 4.8 s (one pass = 5 s, cubic ease-in-out (about cubic-bezier(0.65,0,0.35,1))); a top-down lighting diagram sits at bottom right
+// When to use it: For dramatic, tense or moody portraits.
+// Tags: split lighting, side light, portrait lighting, half face, dramatic, chiaroscuro
+// Size: 539x208 px · Cycle: 5 s
+// Needs: kit photo -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/photo.js
+// Live demo: https://showheyohtaki.github.io/motion-prompt/#100
+//
+// cells[i](k, w, h, u): k = CanvasRenderingContext2D (already cleared and wrapped in save/restore by the caller), w,h = size, u = seconds in [0, cycle). The picture depends only on u.
+// Element code starts here. CELLS, constants and helpers live in the kit.
+
+// @element 04
+// 04 スプリットライト: 光が正面から真横（90°）へ回る。鼻筋を境に顔の半分だけが明るい
+CELLS[3] = bustCell(0, 0.09, 1.57, 0.09);

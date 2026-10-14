@@ -1,0 +1,62 @@
+// Motion Prompt #097 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#097
+//
+// Backlighting / 逆光
+// Pack: photo (Photo looks, lighting & styles) · element 01 · Category: Lighting & time of day
+// What happens: The sun moves from outside the frame to directly behind the person's head; the outline glows, a white haze covers the frame and the side facing the camera falls darker.
+// Motion spec:
+//   - Sun: from outside the frame (top left, x 30, y −70) to directly behind the head (x 306, y 50); glow radius 150 px
+//   - Subject: head-and-shoulders (head radius 31 px); clothing darkens from rgb(226,232,240) to rgb(84,88,102)
+//   - Outline: the subject's shape blurred 8 px glows behind it, plus an added 3.5 px band of light on the upward-facing edges
+//   - Haze: screen-blended radial gradient of 420 px around the sun, 70% at the centre, 22% at 35% of the radius, 6% at the edge
+//   - Timing: the effect comes in from 0.6 s to 1.7 s, holds until 3.9 s and is gone again by 4.8 s (one pass = 5 s, cubic ease-in-out (about cubic-bezier(0.65,0,0.35,1)))
+// When to use it: For airy, glowing portraits or any image that should feel bathed in light.
+// Tags: backlighting, backlit, contre-jour, sun behind, haze, glow, halo
+// Size: 539x208 px · Cycle: 5 s
+// Needs: kit photo -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/photo.js
+// Live demo: https://showheyohtaki.github.io/motion-prompt/#097
+//
+// cells[i](k, w, h, u): k = CanvasRenderingContext2D (already cleared and wrapped in save/restore by the caller), w,h = size, u = seconds in [0, cycle). The picture depends only on u.
+// Element code starts here. CELLS, constants and helpers live in the kit.
+
+// @element 01
+// 01 逆光: 太陽が画面の外（左上）から人物の頭の真後ろへ回り込む。輪郭が光り、白いもやがかかり、顔の側は暗く沈む
+CELLS[0] = cell((k, w, h, u) => {
+  const a = env(u);
+  const sx = lerp(30, 306, a), sy = lerp(-70, 50, a);
+  const sky = k.createLinearGradient(0, 0, 0, 128);
+  sky.addColorStop(0, rgb(mix([120, 170, 225], [236, 214, 182], a))); sky.addColorStop(1, rgb(mix([206, 226, 242], [252, 236, 206], a)));
+  k.fillStyle = sky; k.fillRect(0, 0, CW, 128);
+  // 遠くの木立と草原
+  k.fillStyle = rgb(mix([86, 128, 92], [160, 150, 120], a));
+  k.beginPath(); k.moveTo(0, 128); for (let x = 0; x <= CW; x += 18) k.lineTo(x, 112 - 8 * Math.abs(Math.sin(x * 0.037)) - 5 * Math.abs(Math.sin(x * 0.11))); k.lineTo(CW, 128); k.fill();
+  const gr = k.createLinearGradient(0, 120, 0, CH);
+  gr.addColorStop(0, rgb(mix([132, 178, 96], [176, 164, 104], a))); gr.addColorStop(1, rgb(mix([92, 140, 66], [92, 92, 54], a)));
+  k.fillStyle = gr; k.fillRect(0, 122, CW, CH - 122);
+  // 太陽
+  const sg = k.createRadialGradient(sx, sy, 4, sx, sy, 150);
+  sg.addColorStop(0, 'rgba(255,252,236,1)'); sg.addColorStop(0.1, 'rgba(255,240,200,.85)'); sg.addColorStop(1, 'rgba(255,230,190,0)');
+  k.fillStyle = sg; k.fillRect(0, 0, CW, CH);
+  // 人物（胸から上）。後ろの光が輪郭からにじむ
+  const cx = 306, top = 44, s = 31;
+  if (a > 0.01) { k.save(); k.filter = 'blur(8px)'; k.globalAlpha = a; k.fillStyle = '#FFF2D6'; bustPath(k, cx, top - 3, s + 3); k.fill(); k.restore(); }
+  const body = k.createLinearGradient(cx - 2 * s, 0, cx + 2 * s, 0);
+  body.addColorStop(0, rgb(mix([226, 232, 240], [84, 88, 102], a))); body.addColorStop(1, rgb(mix([196, 204, 218], [64, 68, 82], a)));
+  k.fillStyle = body; bustPath(k, cx, top, s); k.fill();
+  const hd = k.createRadialGradient(cx - s * .3, top + s * .7, 2, cx, top + s, s * 1.1);
+  hd.addColorStop(0, rgb(mix([246, 204, 168], [140, 100, 80], a))); hd.addColorStop(1, rgb(mix([214, 160, 124], [96, 66, 54], a)));
+  k.fillStyle = hd; k.beginPath(); k.arc(cx, top + s, s, 0, TAU); k.fill();
+  // 輪郭の上側に細い光（人物から、下へずらした人物を消すと上向きの縁だけが残る）
+  if (a > 0.01) {
+    const [ec, ek] = layer('A');
+    ek.fillStyle = '#FFF1D2'; bustPath(ek, cx, top, s); ek.fill();
+    ek.globalCompositeOperation = 'destination-out'; bustPath(ek, cx, top + 3.5, s); ek.fill();
+    k.globalCompositeOperation = 'lighter'; k.globalAlpha = a; k.filter = 'blur(1px)'; k.drawImage(ec, 0, 0);
+    k.filter = 'none'; k.globalAlpha = 1; k.globalCompositeOperation = 'source-over';
+  }
+  // 全体にかかる白いもや（コントラストが下がる）
+  k.globalCompositeOperation = 'screen';
+  const veil = k.createRadialGradient(sx, sy, 0, sx, sy, 420);
+  veil.addColorStop(0, rgb([255, 236, 200], 0.7 * a)); veil.addColorStop(0.35, rgb([255, 236, 200], 0.22 * a)); veil.addColorStop(1, rgb([255, 236, 200], 0.06 * a));
+  k.fillStyle = veil; k.fillRect(0, 0, CW, CH);
+  k.globalCompositeOperation = 'source-over';
+});

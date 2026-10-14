@@ -1,11 +1,11 @@
 ---
 name: motion-prompt
-description: Motion Prompt (showheyohtaki.github.io/motion-prompt) gives numbers to named motion-graphics moves, camera moves and transitions. Each element is a dependency-free Canvas 2D animation written as a pure function of time, with a written spec of its timings, easing and amounts. Given numbers or a description of a scene, it looks the moves up, pulls their code and spec, and rebuilds them in whatever the project uses to make video (a Canvas engine, Remotion, CSS/SVG/Lottie, After Effects expressions), or rewrites them as prompts for video-generation models. Use when the user names motion-prompt or Motion Prompt, gives element numbers, or asks for motion built from them, e.g. "use the motion-prompt skill with #012 and #045 to make this video look professional", "swap this title for #005", "motion-prompt スキルで #012 と #045 を使ってプロっぽい動画を作って", "今のタイトルを #005 に差し替えて", "モーションプロンプトから場面の切り替えを選んで".
+description: Motion Prompt (showheyohtaki.github.io/motion-prompt) gives numbers to named motion-graphics moves, camera moves and transitions, UI components, landing-page and web effects, and photo looks and lighting. Each element is a dependency-free Canvas 2D animation written as a pure function of time, with a written spec of its timings, easing and amounts. Given numbers or a description of a scene, it looks the moves up, pulls their code and spec, and rebuilds them in whatever the project uses to make video (a Canvas engine, Remotion, CSS/SVG/Lottie, After Effects expressions), or rewrites them as prompts for video-generation models. Use when the user names motion-prompt or Motion Prompt, gives element numbers, or asks for motion built from them, e.g. "use the motion-prompt skill with #012 and #045 to make this video look professional", "swap this title for #005", "motion-prompt スキルで #012 と #045 を使ってプロっぽい動画を作って", "今のタイトルを #005 に差し替えて", "モーションプロンプトから場面の切り替えを選んで".
 ---
 
 # Motion Prompt
 
-Motion Prompt is a library of names for the things people ask an AI to make in video (motion-graphics moves, camera moves, transitions, and whatever packs are added later), numbered so that people and agents can refer to them precisely. Every element has a three-digit ID (`#012`), a name in English and usually in other languages too, a one-line meaning, and a live demo at `https://showheyohtaki.github.io/motion-prompt/#<id>`.
+Motion Prompt is a library of names for the things people ask an AI to make (motion-graphics moves, camera moves and transitions, UI components, landing-page and web effects, photo looks and lighting, and whatever packs are added later), numbered so that people and agents can refer to them precisely. Every element has a three-digit ID (`#012`), a name in English and usually in other languages too, a one-line meaning, and a live demo at `https://showheyohtaki.github.io/motion-prompt/#<id>`.
 
 - An element is one Canvas 2D drawing function, stored as `cells[i] = (ctx, w, h, u) => { … }`. `ctx` is a 2D context that the caller has cleared and wrapped in `save()`/`restore()`. `w, h` are the card size. `u` is the time in seconds, `0 <= u < cycle`.
 - It is a **pure function of `u`**: no clock, no randomness at draw time, no state between calls. The same code plays live and renders frame by frame, and it loops seamlessly at `u = cycle`.
@@ -45,6 +45,13 @@ node <skill-dir>/scripts/motion-prompt.mjs <command>
 ## Video-generation models
 
 For Veo, Seedance, Sora and similar models, do not pass code. Write the prompt in sentences from the element's English name and its spec lines: what moves, in what order, how long each part takes, how the motion eases, and where it ends. Add the user's subject, look and aspect ratio. `prompt <id>` gives a starting text, and `get <id>` gives the full spec. These models treat timings as guidance, so say in your report that the result will be close to the element rather than exact.
+
+## Web pages and still images
+
+Not every pack is about video.
+
+- **`ui` and `lp`** name parts and effects of web pages. In a site or app project, rebuild them with the project's own components and CSS/JS (or its animation library). Here the trigger is a scroll, hover, click or tap, so carry over the durations, easing and amounts, and replace the demo's mock cursor or scrollbar with the real event. Respect `prefers-reduced-motion`.
+- **`photo`** names lighting, lens effects and finishing looks. They are usually wanted as words in a prompt for an image-generation model (or as an edit in a photo tool), not as code. Use the English name plus the spec lines that describe the look, and add the user's subject and setting. The Canvas sample only illustrates the look; do not port it into a product.
 
 ## Rules
 

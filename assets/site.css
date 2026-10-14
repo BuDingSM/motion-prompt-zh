@@ -237,6 +237,11 @@ h1 { font-size: clamp(40px, 6.1vw, 92px); line-height: 1.1; letter-spacing: -.03
   .d-body { padding: 16px 16px 28px; }
   .d-bar { padding-left: 16px; }
 }
+@media (max-width: 480px) {
+  .top-gh { display: none; }
+  .top-nav { gap: 4px; }
+  .top-link { padding: 6px 8px; }
+}
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }

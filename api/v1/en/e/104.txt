@@ -1,0 +1,61 @@
+// Motion Prompt #104 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#104
+//
+// Blue hour / ブルーアワー
+// Pack: photo (Photo looks, lighting & styles) · element 08 · Category: Lighting & time of day
+// What happens: From just after sunset (orange horizon, city lights off) the sky turns deep blue while building windows and waterfront lamps come on one by one and reflect in the water.
+// Motion spec:
+//   - Clock: 18:00 → 18:35 (top-right readout)
+//   - Sky: top rgb(86,118,176) → rgb(16,34,104), horizon rgb(255,178,112) → rgb(126,128,196)
+//   - Lights: each window switches on at its own moment and brightens over 0.12 of the effect amount (warm rgb(255,206,120), some white rgb(210,230,255)); 8 waterfront lamps
+//   - Water: the city mirrored at 45%, blurred 1.5 px, each 2 px strip shifted up to 3 px sideways for ripples
+//   - Timing: the effect comes in from 0.6 s to 1.7 s, holds until 3.9 s and is gone again by 4.8 s (one pass = 5 s, cubic ease-in-out (about cubic-bezier(0.65,0,0.35,1)))
+// When to use it: For city and night scenes that need both a blue sky and glowing lights.
+// Tags: blue hour, twilight, dusk, night city, cityscape, deep blue sky
+// Size: 539x208 px · Cycle: 5 s
+// Needs: kit photo -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/photo.js
+// Live demo: https://showheyohtaki.github.io/motion-prompt/#104
+//
+// cells[i](k, w, h, u): k = CanvasRenderingContext2D (already cleared and wrapped in save/restore by the caller), w,h = size, u = seconds in [0, cycle). The picture depends only on u.
+// Element code starts here. CELLS, constants and helpers live in the kit.
+
+// @element 08
+// 08 ブルーアワー: 日没直後（地平線が橙・街の灯りは消えている）から、空が深い青になり窓や街灯がともる
+const WINDOWS = (() => {
+  const r = rng(8), out = [], blds = [];
+  let x = 0; while (x < CW) { const bw = 26 + r() * 40, bh = 30 + r() * 70; blds.push([x, 132 - bh, bw, bh]); x += bw + 2 + r() * 6; }
+  blds.forEach(([bx, by, bw, bh]) => { for (let y = by + 6; y < 126; y += 8) for (let xx = bx + 4; xx < bx + bw - 5; xx += 7) if (r() < 0.62) out.push([xx, y, 0.15 + r() * 0.7, r()]); });
+  return { blds, wins: out };
+})();
+CELLS[7] = cell((k, w, h, u) => {
+  const a = env(u);
+  const sky = k.createLinearGradient(0, 0, 0, 132);
+  sky.addColorStop(0, rgb(mix([86, 118, 176], [16, 34, 104], a))); sky.addColorStop(0.65, rgb(mix([196, 170, 180], [44, 82, 170], a))); sky.addColorStop(1, rgb(mix([255, 178, 112], [126, 128, 196], a)));
+  k.fillStyle = sky; k.fillRect(0, 0, CW, 132);
+  const city = (kk, dark) => {
+    kk.fillStyle = rgb(mix([78, 74, 92], [18, 24, 50], a).map(v => v * dark)); WINDOWS.blds.forEach(([x, y, bw, bh]) => kk.fillRect(x, y, bw, bh));
+    WINDOWS.wins.forEach(([x, y, t, c]) => { const on = clamp((a - t * 0.85) / 0.12); if (on > 0) { kk.fillStyle = rgb(c < 0.8 ? [255, 206, 120] : [210, 230, 255], on * 0.95 * dark); kk.fillRect(x, y, 3.5, 4); } });
+  };
+  city(k, 1);
+  // 水面: 街の反射（少しぼかす）と灯りの縦の筋
+  const wg = k.createLinearGradient(0, 132, 0, CH); wg.addColorStop(0, rgb(mix([150, 130, 150], [26, 46, 110], a))); wg.addColorStop(1, rgb(mix([60, 66, 92], [8, 16, 46], a)));
+  k.fillStyle = wg; k.fillRect(0, 132, CW, CH - 132);
+  const [rc, rk] = layer('A'), [bc, bk] = layer('B');
+  rk.translate(0, 264); rk.scale(1, -1); city(rk, 0.7);
+  bk.filter = 'blur(1.5px)'; bk.drawImage(rc, 0, 0); bk.filter = 'none';
+  k.globalAlpha = 0.45;   // 水面のゆらぎ: 2px の帯ごとに左右へずらす
+  for (let y = 132; y < CH; y += 2) k.drawImage(bc, 0, y, CW, 2, 3 * Math.sin(y * 0.9 + u / CYC * TAU * 2) * (y - 128) / 40, y, CW, 2);
+  k.globalAlpha = 1;
+  k.fillStyle = rgb(mix([40, 40, 50], [10, 14, 30], a)); k.fillRect(0, 130, CW, 3);
+  // 岸の街灯
+  for (let i = 0; i < 8; i++) {
+    const x = 30 + i * 68, on = clamp((a - 0.2 - i * 0.03) / 0.15);
+    k.fillStyle = '#20232E'; k.fillRect(x - 1, 112, 2, 19);
+    if (on > 0) {
+      const g = k.createRadialGradient(x, 112, 0, x, 112, 14); g.addColorStop(0, rgb([255, 226, 160], on)); g.addColorStop(1, rgb([255, 200, 120], 0));
+      k.fillStyle = g; k.fillRect(x - 14, 98, 28, 28);
+      k.fillStyle = rgb([255, 214, 140], 0.5 * on); for (let j = 0; j < 7; j++) k.fillRect(x - 2.5 + Math.sin(j * 2.3) * 1.5, 138 + j * 9, 5, 4);
+    }
+  }
+  const m = Math.round(lerp(18 * 60, 18 * 60 + 35, a));
+  pill(k, `${String(Math.floor(m / 60)).padStart(2, '0')}:${String(m % 60).padStart(2, '0')}`);
+});

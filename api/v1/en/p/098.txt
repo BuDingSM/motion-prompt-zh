@@ -1,0 +1,16 @@
+Please use "Rim light" (リムライト), one of the names in "Photo looks, lighting & styles".
+Motion Prompt #098
+
+What it is: A light from behind that outlines the subject's edge
+What the sample shows: In a dark studio two lights behind the subject, one on each side, come on; the front stays dark and only the edges of the head and shoulders light up, separating the subject from the background.
+Spec:
+- Background: radial gradient #1B1B20 at the centre to #09090B; subject #26262C (almost no light from the front)
+- Lights: two, behind the subject at ±120° and 17° high; warm #FFF3E2 on the right, cool #DDE8FF on the left
+- Edge light: the subject's shape minus a copy shifted 5 px away from the light and 1.2 px down; blurred 1.6 px inside the subject plus a 7 px glow outside at 55%
+- The band is 100% at the top and fades to 20% at the bottom; a top-down lighting diagram sits at bottom right
+- Timing: the effect comes in from 0.6 s to 1.7 s, holds until 3.9 s and is gone again by 4.8 s (one pass = 5 s, cubic ease-in-out (about cubic-bezier(0.65,0,0.35,1)))
+When to use it: To separate a person or product from a dark background and show its shape.
+
+Reference implementation (Canvas 2D, a function whose picture depends only on the time): https://showheyohtaki.github.io/motion-prompt/api/v1/en/e/098.txt
+Shared helper code: https://showheyohtaki.github.io/motion-prompt/api/v1/kit/photo.js
+Keep the shapes, timing and easing values of the reference implementation as they are, and change only the text, colours and assets to fit what I am making.

@@ -1,0 +1,23 @@
+// Motion Prompt #102 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#102
+//
+// Butterfly lighting / バタフライライティング
+// Pack: photo (Photo looks, lighting & styles) · element 06 · Category: Lighting & time of day
+// What happens: A single light stays in front and rises; a symmetrical butterfly-shaped shadow forms right under the nose, with shadows under the cheekbones and chin.
+// Motion spec:
+//   - Light: stays at 0° (straight in front) and rises from 5° to 45°; angles shown at top right
+//   - Bust: a plaster-like head with no eyes or hair, only the relief of nose, brows, eye sockets, cheeks and chin; centre x 270, y 86
+//   - Shading: diffuse light raised to the power 1.5 for a hard edge; cast shadows traced from each point toward the light; shadow side at 5%
+//   - Look: a symmetrical shadow right below the nose, plus shadows under the brows, cheekbones and chin; both sides of the face are equally bright
+//   - Timing: the effect comes in from 0.6 s to 1.7 s, holds until 3.9 s and is gone again by 4.8 s (one pass = 5 s, cubic ease-in-out (about cubic-bezier(0.65,0,0.35,1))); a top-down lighting diagram sits at bottom right
+// When to use it: For beauty and fashion portraits that flatter the face.
+// Tags: butterfly lighting, paramount lighting, beauty lighting, portrait lighting, overhead light, glamour
+// Size: 539x208 px · Cycle: 5 s
+// Needs: kit photo -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/photo.js
+// Live demo: https://showheyohtaki.github.io/motion-prompt/#102
+//
+// cells[i](k, w, h, u): k = CanvasRenderingContext2D (already cleared and wrapped in save/restore by the caller), w,h = size, u = seconds in [0, cycle). The picture depends only on u.
+// Element code starts here. CELLS, constants and helpers live in the kit.
+
+// @element 06
+// 06 バタフライライト: 光が正面のまま上45°へ上がる。鼻の真下に蝶の形の影ができる
+CELLS[5] = bustCell(0, 0.09, 0, 0.79);

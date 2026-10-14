@@ -1,0 +1,61 @@
+// Motion Prompt #107 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#107
+//
+// 長時間露光 / Long exposure
+// パック: photo (写真の表現・光と画風) · element 11 · カテゴリ: レンズ・カメラの効果
+// 何が起きるか: 夜の道路でシャッターを開けている時間をのばしていくと、走る車の形が消え、ヘッドライトとテールランプが道に沿った白と赤の光の線になる。
+// 動きの仕様:
+//   - シャッター: 1/250秒 → 8秒（対数で変える。右上に段階の値を表示）
+//   - 車: 1車線に3台、毎秒152pxで走る（5秒で760pxの1周）。手前の車線は白いヘッドライト、奥の車線は赤いテールランプ
+//   - 光の線: 長さ = 速さ × シャッター時間（最大760px）。芯1.8px＋にじみ7px（20%）を加算、道のカーブに沿う
+//   - 車体: シャッターが約1/6秒をこえると見えなくなる
+//   - 時間: 0.6〜1.7秒で効果が入り、3.9秒まで保ち、4.8秒までに元へ戻る（1周5秒、3次のイーズインアウト（cubic-bezier(0.65,0,0.35,1) 相当））
+// 使いどころ: 夜の街の流れや、水・雲のなめらかな動きを1枚で見せたいとき。
+// タグ: long exposure, light trails, slow shutter, night photography, car trails, motion
+// サイズ: 539x208 px · 1周: 5 s
+// Needs: kit photo -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/photo.js
+// 動く見本: https://showheyohtaki.github.io/motion-prompt/#107
+//
+// cells[i](k, w, h, u) … k = CanvasRenderingContext2D（呼ぶ側でクリアと save/restore 済み）、w・h = サイズ、u = 秒（0 以上 1周 未満）。u だけで絵が決まる。
+// ここから要素のコード。CELLS や定数・補助関数は kit にある。
+
+// @element 11
+// 11 長時間露光: 夜の道路。シャッターを開けている時間を 1/250秒 → 8秒 にのばすと、車の形が消え、ライトが光の線になる
+CELLS[10] = cell((k, w, h, u) => {
+  const a = env(u), T = (1 / 250) * Math.pow(2000, a);   // 1/250秒 → 8秒（対数で変える）
+  const sky = k.createLinearGradient(0, 0, 0, 120); sky.addColorStop(0, '#0A1028'); sky.addColorStop(1, '#283458');
+  k.fillStyle = sky; k.fillRect(0, 0, CW, CH);
+  k.fillStyle = '#121626'; [[0, 60, 70], [74, 40, 56], [134, 74, 80], [300, 50, 60], [366, 30, 74], [446, 64, 93]].forEach(([x, y, ww]) => k.fillRect(x, y, ww, 130 - y));
+  k.fillStyle = 'rgba(255,210,140,.55)'; const r = rng(11); for (let i = 0; i < 60; i++) { const x = r() * CW, y = 40 + r() * 86; if (r() < 0.5) k.fillRect(x | 0, y | 0, 3, 3); }
+  const ry = x => 146 + 14 * Math.sin(x / 120 + 0.4);
+  k.fillStyle = '#1B1D24'; k.beginPath(); k.moveTo(0, ry(0) - 18); for (let x = 0; x <= CW; x += 10) k.lineTo(x, ry(x) - 18); k.lineTo(CW, CH); k.lineTo(0, CH); k.fill();
+  k.strokeStyle = 'rgba(200,200,190,.35)'; k.lineWidth = 1.5; k.setLineDash([10, 12]); k.beginPath(); for (let x = 0; x <= CW; x += 6) x ? k.lineTo(x, ry(x)) : k.moveTo(x, ry(x)); k.stroke(); k.setLineDash([]);
+  // 車: 手前の車線は右へ、奥の車線は左へ（1周 760px を5秒で進む）
+  const LR = 760, V = LR / CYC, body = clamp(1 - Math.log(T * 250) / Math.log(40));
+  const lanes = [[12, 1, 0], [-10, -1, 120]];
+  k.globalCompositeOperation = 'lighter'; k.lineCap = 'round';
+  const trail = (x0, x1, dy, col, wd) => {   // 道に沿った光の線（x0→x1、画面外へのはみ出しは周回で描く）
+    for (const off of [-LR, 0, LR]) {
+      const s0 = x0 + off, s1 = x1 + off; if (Math.max(s0, s1) < -20 || Math.min(s0, s1) > CW + 20) continue;
+      k.beginPath(); const n = Math.max(1, Math.ceil(Math.abs(s1 - s0) / 6));
+      for (let i = 0; i <= n; i++) { const x = lerp(s0, s1, i / n); i ? k.lineTo(x, ry(x) + dy) : k.moveTo(x, ry(x) + dy); }
+      if (n === 1 && Math.abs(s1 - s0) < 0.5) k.lineTo(s0 + 0.5, ry(s0) + dy);
+      k.strokeStyle = col; k.lineWidth = wd; k.stroke();
+    }
+  };
+  for (const [dy, dir, ph] of lanes) for (let i = 0; i < 3; i++) {
+    const head = mod(ph + i * LR / 3 + V * u, LR) - 110, len = Math.min(LR, V * T);
+    // 手前の車線はこちら向きのヘッドライト（白）、奥の車線は向こうへ走るテールランプ（赤）。車ごとに高さを少しずらす
+    const col = dir > 0 ? [255, 240, 200] : [255, 50, 40], fx = dir * 16, ly = dy - 3 + [-2.5, 0, 2.5][i];
+    const x1 = dir > 0 ? head + fx : CW - head + fx, x0 = x1 - dir * len;
+    trail(x0, x1, ly, rgb(col, 0.2), 7);
+    trail(x0, x1, ly, rgb(col, 0.95), 1.8);
+  }
+  k.globalCompositeOperation = 'source-over';
+  if (body > 0.01) for (const [dy, dir, ph] of lanes) for (let i = 0; i < 3; i++) {
+    const head = mod(ph + i * LR / 3 + V * u, LR) - 110, x = dir > 0 ? head : CW - head, y = ry(x) + dy;
+    k.globalAlpha = body; k.fillStyle = '#3A3F4E'; rr(k, x - 18, y - 9, 36, 9, 3); k.fill(); rr(k, x - 10, y - 15, 20, 7, 3); k.fill();
+    k.fillStyle = '#0C0D12'; k.beginPath(); k.arc(x - 10, y, 3.2, 0, TAU); k.arc(x + 10, y, 3.2, 0, TAU); k.fill();
+  }
+  k.globalAlpha = 1;
+  pill(k, shutterText(T));
+});

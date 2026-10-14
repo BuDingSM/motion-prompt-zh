@@ -1,0 +1,16 @@
+Please use "Teal and orange" (ティール＆オレンジ), one of the names in "Photo looks, lighting & styles".
+Motion Prompt #117
+
+What it is: Pushes shadows to teal and skin and highlights to orange
+What the sample shows: In the beach photo the darks, sky and sea move toward teal while skin, clothes and sand move toward orange, giving a film-like grade.
+Spec:
+- Two tones: teal rgb(16,106,118) and orange rgb(255,156,80)
+- Choice: brightness × 0.55 plus warmth (R − B, full at 90) × 0.6 picks the point between the two
+- Brightness is kept (with contrast ×1.15), blended 78% over the original
+- Cross-fades from the source photo (blue sky, sea, beach, red-and-white parasol, a person in orange) to the processed one; a slider at bottom right shows the amount
+- Timing: the effect comes in from 0.6 s to 1.7 s, holds until 3.9 s and is gone again by 4.8 s (one pass = 5 s, cubic ease-in-out (about cubic-bezier(0.65,0,0.35,1)))
+When to use it: For a blockbuster, trailer-like look with strong colour contrast.
+
+Reference implementation (Canvas 2D, a function whose picture depends only on the time): https://showheyohtaki.github.io/motion-prompt/api/v1/en/e/117.txt
+Shared helper code: https://showheyohtaki.github.io/motion-prompt/api/v1/kit/photo.js
+Keep the shapes, timing and easing values of the reference implementation as they are, and change only the text, colours and assets to fit what I am making.

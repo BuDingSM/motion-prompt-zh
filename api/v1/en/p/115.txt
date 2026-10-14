@@ -1,0 +1,15 @@
+Please use "Black and white" (モノクロ), one of the names in "Photo looks, lighting & styles".
+Motion Prompt #115
+
+What it is: Remove colour and show brightness only
+What the sample shows: The colourful beach photo loses its colour and becomes a black-and-white image in which only differences in brightness show the shapes.
+Spec:
+- Brightness: 0.2126 R + 0.7152 G + 0.0722 B (Rec. 709)
+- Contrast: ×1.18 around mid grey
+- Cross-fades from the source photo (blue sky, sea, beach, red-and-white parasol, a person in orange) to the processed one; a slider at bottom right shows the amount
+- Timing: the effect comes in from 0.6 s to 1.7 s, holds until 3.9 s and is gone again by 4.8 s (one pass = 5 s, cubic ease-in-out (about cubic-bezier(0.65,0,0.35,1)))
+When to use it: For a timeless feel, or when shape, light and expression matter more than colour.
+
+Reference implementation (Canvas 2D, a function whose picture depends only on the time): https://showheyohtaki.github.io/motion-prompt/api/v1/en/e/115.txt
+Shared helper code: https://showheyohtaki.github.io/motion-prompt/api/v1/kit/photo.js
+Keep the shapes, timing and easing values of the reference implementation as they are, and change only the text, colours and assets to fit what I am making.

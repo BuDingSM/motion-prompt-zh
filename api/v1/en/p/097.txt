@@ -1,0 +1,16 @@
+Please use "Backlighting" (逆光), one of the names in "Photo looks, lighting & styles".
+Motion Prompt #097
+
+What it is: The light source sits behind the subject
+What the sample shows: The sun moves from outside the frame to directly behind the person's head; the outline glows, a white haze covers the frame and the side facing the camera falls darker.
+Spec:
+- Sun: from outside the frame (top left, x 30, y −70) to directly behind the head (x 306, y 50); glow radius 150 px
+- Subject: head-and-shoulders (head radius 31 px); clothing darkens from rgb(226,232,240) to rgb(84,88,102)
+- Outline: the subject's shape blurred 8 px glows behind it, plus an added 3.5 px band of light on the upward-facing edges
+- Haze: screen-blended radial gradient of 420 px around the sun, 70% at the centre, 22% at 35% of the radius, 6% at the edge
+- Timing: the effect comes in from 0.6 s to 1.7 s, holds until 3.9 s and is gone again by 4.8 s (one pass = 5 s, cubic ease-in-out (about cubic-bezier(0.65,0,0.35,1)))
+When to use it: For airy, glowing portraits or any image that should feel bathed in light.
+
+Reference implementation (Canvas 2D, a function whose picture depends only on the time): https://showheyohtaki.github.io/motion-prompt/api/v1/en/e/097.txt
+Shared helper code: https://showheyohtaki.github.io/motion-prompt/api/v1/kit/photo.js
+Keep the shapes, timing and easing values of the reference implementation as they are, and change only the text, colours and assets to fit what I am making.

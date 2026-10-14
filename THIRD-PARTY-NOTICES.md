@@ -29,6 +29,15 @@ included in this repository. Its license notice is reproduced here in acknowledg
 > IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR
 > THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+## Posts shown on the examples page
+
+The examples page (`found.html`) shows posts on X by other people through X's official embed
+(`platform.twitter.com/widgets.js`), loaded only when the visitor asks for it. Those posts, including their
+text, images and videos, belong to their authors and are not covered by this repository's MIT License. The
+repository keeps only each post's ID and URL and a one-line introduction we wrote (`examples/found.json`).
+Being listed does not mean the author endorses this project. To ask for a removal or a correction, use the
+[issue form](https://github.com/showheyohtaki/motion-prompt/issues/new?template=3-removal.yml).
+
 ## Tools used at run time (not included)
 
 `make-your-own/render.mjs` uses [Playwright](https://playwright.dev/) (Apache-2.0, installed by `npm install`)

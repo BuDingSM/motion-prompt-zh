@@ -1,0 +1,59 @@
+// Motion Prompt #105 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#105
+//
+// ボケ / Bokeh
+// パック: photo (写真の表現・光と画風) · element 09 · カテゴリ: レンズ・カメラの効果
+// 何が起きるか: 絞りを開けていくと、ピントの合った人物はそのまま、背景の電飾や窓の点光源が大きくやわらかな光の丸に変わっていく。
+// 動きの仕様:
+//   - 絞り: f/16 → f/1.4（右上に表示）
+//   - 背景: ぼけ 0.4px → 9px（画面の端は外側へ引き伸ばしてからぼかす）
+//   - 点光源: 62個。丸の半径 = (1.6 + ぼけ量 × 1.9) × 大きさ。丸が大きいほど薄く、加算合成。縁に細い明るい線
+//   - 人物: 左手前（x175、頭の半径31px）は最後までくっきり
+//   - 時間: 0.6〜1.7秒で効果が入り、3.9秒まで保ち、4.8秒までに元へ戻る（1周5秒、3次のイーズインアウト（cubic-bezier(0.65,0,0.35,1) 相当））
+// 使いどころ: 人物や商品を背景から浮かせ、夜や祝祭のやわらかな雰囲気を出したいとき。
+// タグ: bokeh, shallow depth of field, background blur, wide aperture, f/1.4, out of focus, lights
+// サイズ: 539x208 px · 1周: 5 s
+// Needs: kit photo -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/photo.js
+// 動く見本: https://showheyohtaki.github.io/motion-prompt/#105
+//
+// cells[i](k, w, h, u) … k = CanvasRenderingContext2D（呼ぶ側でクリアと save/restore 済み）、w・h = サイズ、u = 秒（0 以上 1周 未満）。u だけで絵が決まる。
+// ここから要素のコード。CELLS や定数・補助関数は kit にある。
+
+// @element 09
+// 09 ボケ: 絞りを開けると、ピントの合った人物はそのまま、背景の点光源が大きな丸になる
+const NIGHT_LIGHTS = (() => {
+  const r = rng(9), out = [], cols = [[255, 196, 110], [255, 170, 90], [255, 226, 160], [140, 190, 255], [255, 120, 150], [255, 210, 130]];
+  // 電飾（ゆるい弧）と街の窓・街灯
+  for (let s = 0; s < 2; s++) for (let i = 0; i < 16; i++) { const x = -10 + i * 37 + s * 18, y = 34 + s * 26 + Math.sin(i / 15 * Math.PI) * 18 * (s ? -1 : 1) + 14; out.push([x, y, s ? cols[1] : cols[0], 1.4]); }
+  for (let i = 0; i < 30; i++) out.push([r() * CW, 70 + r() * 70, cols[(r() * cols.length) | 0], 0.9 + r() * 0.6]);
+  return out;
+})();
+function nightBg(k) {
+  const g = k.createLinearGradient(0, 0, 0, CH); g.addColorStop(0, '#0E1424'); g.addColorStop(0.6, '#1C2236'); g.addColorStop(1, '#2A2622');
+  k.fillStyle = g; k.fillRect(0, 0, CW, CH);
+  k.fillStyle = '#151A28';
+  [[0, 64, 80], [70, 90, 60], [140, 50, 70], [300, 70, 90], [380, 40, 60], [450, 80, 100]].forEach(([x, y, ww]) => k.fillRect(x, y, ww, CH - y));
+  k.fillStyle = '#2E2A26'; k.fillRect(0, 150, CW, 58);
+}
+CELLS[8] = cell((k, w, h, u) => {
+  const a = env(u), b = 0.4 + 8.6 * a;                // 背景のぼけ量（px）
+  const fN = 16 * Math.pow(1.4 / 16, a);               // f/16 → f/1.4
+  const [bg, bk] = layer('A');
+  nightBg(bk);
+  blurInto(k, bg, b);
+  // 点光源 → ぼけの丸（大きくなるほど薄く）
+  k.globalCompositeOperation = 'lighter';
+  NIGHT_LIGHTS.forEach(([x, y, c, s]) => {
+    const r = (1.6 + b * 1.9) * s, al = clamp(1.2 / Math.pow(r / 2.2, 1.15)) * 0.9;
+    k.fillStyle = rgb(c, al); k.beginPath(); k.arc(x, y, r, 0, TAU); k.fill();
+    if (r > 5) { k.strokeStyle = rgb(c, al * 0.7); k.lineWidth = 1.2; k.stroke(); }
+    if (r < 6) { k.fillStyle = rgb([255, 255, 240], (1 - r / 6) * 0.9); k.beginPath(); k.arc(x, y, Math.max(0.8, r * 0.45), 0, TAU); k.fill(); }
+  });
+  k.globalCompositeOperation = 'source-over';
+  // ピントの合った人物（左手前、街灯の光で右側が明るい）
+  const cx = 175, top = 46, s = 31;
+  const g = k.createLinearGradient(cx - 2 * s, 0, cx + 2 * s, 0); g.addColorStop(0, '#2B3346'); g.addColorStop(0.55, '#5A6178'); g.addColorStop(1, '#C69B6E');
+  k.fillStyle = g; bustPath(k, cx, top, s); k.fill();
+  const hg = k.createRadialGradient(cx + s * .45, top + s * .7, 2, cx, top + s, s * 1.1); hg.addColorStop(0, '#F2C79A'); hg.addColorStop(1, '#7A5A45');
+  k.fillStyle = hg; k.beginPath(); k.arc(cx, top + s, s, 0, TAU); k.fill();
+  pill(k, `f/${fN < 10 ? fN.toFixed(1) : Math.round(fN)}`);
+});

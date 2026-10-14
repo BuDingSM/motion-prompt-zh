@@ -1,0 +1,15 @@
+Please use "Lens flare" (レンズフレア), one of the names in "Photo looks, lighting & styles".
+Motion Prompt #109
+
+What it is: Rings and spots of light from a bright source in the lens
+What the sample shows: As the sun moves left and right in the frame, coloured spots of light (ghosts) slide along the line from the sun through the centre of the frame, moving the opposite way.
+Spec:
+- Sun: x = 269.5 − 190·sin(2πu/5), y = 48 + 16·cos(2πu/5); glow radius 170 px; 6 star rays 140 px long
+- Ghosts: at 0.42, 0.7, 1.18, 1.45, 1.78 and 2.15 times the sun-to-centre distance; radii 5, 15, 9, 26, 12 and 40 px
+- Colours: green, orange, violet, teal, yellow, blue; three are hexagons (the aperture shape); additive at 12–50% opacity
+- One full left-right swing of the sun per 5 s cycle (no on/off ramp)
+When to use it: To add glare, summer sunshine or a cinematic light feel.
+
+Reference implementation (Canvas 2D, a function whose picture depends only on the time): https://showheyohtaki.github.io/motion-prompt/api/v1/en/e/109.txt
+Shared helper code: https://showheyohtaki.github.io/motion-prompt/api/v1/kit/photo.js
+Keep the shapes, timing and easing values of the reference implementation as they are, and change only the text, colours and assets to fit what I am making.
