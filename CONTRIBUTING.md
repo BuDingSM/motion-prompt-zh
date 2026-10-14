@@ -2,7 +2,7 @@
 
 **English** | [日本語](CONTRIBUTING.ja.md)
 
-This repository is a library of names: the words people in a field use for the things you can ask an AI to make. It started with motion graphics and camera moves because those were the first posts, and UI component names, landing page and web effects, and photo looks have been added since. **Please add the common language of your own field, in your own language.**
+This repository is a library of names: the words people in a field use for the things you can ask an AI to make. It started with two of the sets posted on X, motion graphics and camera moves, and UI component names, landing page and web effects, and photo looks have been added since. **Please add the common language of your own field, in your own language.**
 
 Fields outside video are welcome: lighting, sound, UI and interaction, photography, typography, illustration, cooking, architecture, fashion, music, dance, games. If people in a field say "do a ___" to each other and an outsider would not know the word, that word belongs here.
 

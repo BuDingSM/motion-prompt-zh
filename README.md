@@ -104,7 +104,7 @@ The videos this started from (X, in Japanese):
 - https://x.com/showheyohtaki/status/2109112248832503895
 - https://x.com/showheyohtaki/status/2109840044554891464
 
-The set from the first post (names of animations for websites and landing pages) is not in this repository yet. The `lp` pack is a different set: its names and samples were made new for this repository. The `ui` pack is based on "UIパーツ名24" (24 UI part names), posted on X on October 10, and `photo` was also made new for this repository.
+The set from the first post (names of animations for websites and landing pages) is not in this repository yet. The `lp` pack is a different set. Some names overlap with that post (parallax, scroll snap and others), but the selection and the samples were made new for this repository. The `ui` pack is based on "UIパーツ名24" (24 UI part names), posted on X on October 10, and `photo` was also made new for this repository.
 
 ## Skill reference
 

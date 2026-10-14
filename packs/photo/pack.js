@@ -707,7 +707,7 @@ MotionPrompt.pack('photo', function () {
   });
 
   // @element 15
-  // 15 色収差: 明暗のはっきりした縁（空と枝・電線）に、赤と青紫のずれた色のにじみが出る。画面の端ほど大きい（右下は拡大鏡）
+  // 15 色収差: 明暗のはっきりした縁（空と枝・電線）に、赤と青紫のずれた色のにじみが出る。画面の端ほど大きい（左下は拡大鏡）
   function branchScene() {
     return once('branch', () => {
       const c = mkCanvas(CW, CH), k = c.getContext('2d');

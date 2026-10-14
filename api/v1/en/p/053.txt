@@ -1,4 +1,4 @@
-Please use "Dropdown menu" (ドロップダウン), one of the names in "UI component names".
+Please use "Dropdown (select)" (ドロップダウン), one of the names in "UI component names".
 Motion Prompt #053
 
 What it is: Click a field to drop a list of options below it

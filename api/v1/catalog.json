@@ -1,5 +1,5 @@
 {
- "version": "1.cd9c62fef5",
+ "version": "1.fbb7c8ada4",
  "site": "https://showheyohtaki.github.io/motion-prompt/",
  "repo": "https://github.com/showheyohtaki/motion-prompt",
  "count": 120,
@@ -3132,7 +3132,7 @@
    "cycle": 4.5,
    "name": {
     "ja": "ドロップダウン",
-    "en": "Dropdown menu"
+    "en": "Dropdown (select)"
    },
    "meaning": {
     "ja": "押すと選択肢が下に広がる",

@@ -231,7 +231,7 @@
       "category": "open-overlay",
       "name": {
         "ja": "ドロップダウン",
-        "en": "Dropdown menu"
+        "en": "Dropdown (select)"
       },
       "meaning": {
         "ja": "押すと選択肢が下に広がる",

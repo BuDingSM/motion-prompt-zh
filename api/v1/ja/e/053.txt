@@ -1,6 +1,6 @@
 // Motion Prompt #053 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#053
 //
-// ドロップダウン / Dropdown menu
+// ドロップダウン / Dropdown (select)
 // パック: ui (UIパーツの名前) · element 05 · カテゴリ: 開く・重なるパーツ
 // 何が起きるか: 入力欄を押すと下に4つの選択肢が開き、「名古屋」を選ぶと閉じて欄に入る。
 // 動きの仕様:

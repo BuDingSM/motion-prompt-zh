@@ -14,7 +14,7 @@
 | [#050](https://showheyohtaki.github.io/motion-prompt/#050) | **ドロワー** | Drawer (Off-canvas) | 横からメニューが引き出される | メニューボタンを押したら左からドロワーを出して。幅は画面の4割、0.4秒で引き出し、背景は少し暗く。 |
 | [#051](https://showheyohtaki.github.io/motion-prompt/#051) | **ボトムシート** | Bottom sheet | 下からパネルがせり上がる | 「詳細を見る」を押したらボトムシートで詳細を出して。高さは画面の4割、0.4秒でせり上げ、下へ引くと閉じる。 |
 | [#052](https://showheyohtaki.github.io/motion-prompt/#052) | **アコーディオン** | Accordion | 押すと中身が開閉する | よくある質問をアコーディオンにして。押した項目だけ0.35秒で開き、矢印を180度回して。 |
-| [#053](https://showheyohtaki.github.io/motion-prompt/#053) | **ドロップダウン** | Dropdown menu | 押すと選択肢が下に広がる | 都道府県の入力欄をドロップダウンにして。押したら0.25秒で選択肢を下に開き、選んだら閉じて値を入れて。 |
+| [#053](https://showheyohtaki.github.io/motion-prompt/#053) | **ドロップダウン** | Dropdown (select) | 押すと選択肢が下に広がる | 都道府県の入力欄をドロップダウンにして。押したら0.25秒で選択肢を下に開き、選んだら閉じて値を入れて。 |
 | [#054](https://showheyohtaki.github.io/motion-prompt/#054) | **ツールチップ** | Tooltip | 乗せると小さな説明が出る | 「?」アイコンにツールチップを付けて。カーソルを乗せて0.2秒で上に説明を出し、離れたら消して。 |
 | [#055](https://showheyohtaki.github.io/motion-prompt/#055) | **ポップオーバー** | Popover | 押すと吹き出しの小窓が出る | 「詳細」ボタンにポップオーバーを付けて。押したら右に吹き出しの小窓を0.3秒で出し、OKで閉じて。 |
 | [#056](https://showheyohtaki.github.io/motion-prompt/#056) | **トースト** | Toast notification | 隅に通知が出て自動で消える | 保存したら右下にトーストで「保存しました」と出して。0.35秒で右から出し、2秒後に自動で消して。 |

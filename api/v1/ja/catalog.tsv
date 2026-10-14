@@ -51,7 +51,7 @@
 050	ui	開く・重なるパーツ	ドロワー (Drawer (Off-canvas))	drawer,off-canvas,offcanvas,side-menu,navigation-drawer,sheet,sidebar,slide-in	「メニュー」を押すと左から縦長のパネルが引き出され、外側を押すと戻る。
 051	ui	開く・重なるパーツ	ボトムシート (Bottom sheet)	bottom-sheet,sheet,modal-sheet,mobile,slide-up,drag-to-dismiss,panel	指で「詳細を見る」を押すと下からパネルがせり上がり、上端のつまみを下へ引くと閉じる。
 052	ui	開く・重なるパーツ	アコーディオン (Accordion)	accordion,collapsible,expand,collapse,disclosure,faq,details	3段の見出しのうち1段目を押すと下に本文が開き、下の段が押し下げられる。もう一度押すと閉じる。
-053	ui	開く・重なるパーツ	ドロップダウン (Dropdown menu)	dropdown,dropdown-menu,select,picker,combobox,options,form	入力欄を押すと下に4つの選択肢が開き、「名古屋」を選ぶと閉じて欄に入る。
+053	ui	開く・重なるパーツ	ドロップダウン (Dropdown (select))	dropdown,dropdown-menu,select,picker,combobox,options,form	入力欄を押すと下に4つの選択肢が開き、「名古屋」を選ぶと閉じて欄に入る。
 054	ui	開く・重なるパーツ	ツールチップ (Tooltip)	tooltip,hint,hover,help,info,title	カーソルを「?」に乗せると、上に黒い吹き出しで短い説明が出る。離れると消える。
 055	ui	開く・重なるパーツ	ポップオーバー (Popover)	popover,popup,callout,bubble,flyout,overlay	「詳細」を押すと右に、三角でボタンを指す白い小窓が出る。小窓のOKを押すと閉じる。
 056	ui	開く・重なるパーツ	トースト (Toast notification)	toast,snackbar,notification,alert,message,auto-dismiss	「保存」を押すと右下に黒い通知が右から滑り込み、残り時間の線が縮みきると右へ消える。

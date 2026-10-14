@@ -51,7 +51,7 @@
 050	ui	Opening & overlays	Drawer (Off-canvas) (ドロワー)	drawer,off-canvas,offcanvas,side-menu,navigation-drawer,sheet,sidebar,slide-in	Clicking "Menu" slides a tall panel in from the left; clicking outside slides it back.
 051	ui	Opening & overlays	Bottom sheet (ボトムシート)	bottom-sheet,sheet,modal-sheet,mobile,slide-up,drag-to-dismiss,panel	A finger taps "View details" and a panel rises from the bottom; dragging its handle down closes it.
 052	ui	Opening & overlays	Accordion (アコーディオン)	accordion,collapsible,expand,collapse,disclosure,faq,details	Clicking the first of three headings opens its content and pushes the rows below down; clicking again closes it.
-053	ui	Opening & overlays	Dropdown menu (ドロップダウン)	dropdown,dropdown-menu,select,picker,combobox,options,form	Clicking the field opens four options below it; picking "Nagoya" closes the list and fills the field.
+053	ui	Opening & overlays	Dropdown (select) (ドロップダウン)	dropdown,dropdown-menu,select,picker,combobox,options,form	Clicking the field opens four options below it; picking "Nagoya" closes the list and fills the field.
 054	ui	Opening & overlays	Tooltip (ツールチップ)	tooltip,hint,hover,help,info,title	Hovering over a "?" icon shows a short note in a dark bubble above it; it disappears when the cursor leaves.
 055	ui	Opening & overlays	Popover (ポップオーバー)	popover,popup,callout,bubble,flyout,overlay	Clicking "Details" opens a small white panel to its right with a pointer at the button; clicking OK inside closes it.
 056	ui	Opening & overlays	Toast notification (トースト)	toast,snackbar,notification,alert,message,auto-dismiss	Clicking "Save" slides a dark notice into the bottom-right corner; when its time bar runs out it slides away.

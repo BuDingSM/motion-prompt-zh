@@ -1,6 +1,6 @@
 // Motion Prompt #053 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#053
 //
-// Dropdown menu / ドロップダウン
+// Dropdown (select) / ドロップダウン
 // Pack: ui (UI component names) · element 05 · Category: Opening & overlays
 // What happens: Clicking the field opens four options below it; picking "Nagoya" closes the list and fills the field.
 // Motion spec:
