@@ -1,14 +1,13 @@
 /* Motion Prompt — "Examples" page (found.html). Plain JS, no dependencies.
    Reads examples/found.json (post IDs, URLs and our own one-line introductions only).
-   Nothing is loaded from X until the visitor asks for it: widgets.js is injected on the first click
-   of "Show embed" or "Show all", and each post is drawn with twttr.widgets.createTweet(). */
+   Every post is shown as an X embed: widgets.js is loaded once, and each post is drawn with
+   twttr.widgets.createTweet() as its card comes near the viewport. */
 (function () {
   'use strict';
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
   var root = document.documentElement;
   var WIDGETS = 'https://platform.twitter.com/widgets.js';
-  var CONSENT_KEY = 'mp-x-embed';
 
   var I18N = {
     ja: {
@@ -20,18 +19,14 @@
       lead: 'AIに頼むための名前を、動く見本や早見表と一緒にまとめて公開している人たちのポストです。分野も言語も見た目もそれぞれ違います。投稿者が自分で作った見本のあるポストを選んでいて、ポストの内容と権利は各投稿者にあります。',
       leadNote: 'ここで紹介していることは、投稿者がこのサイトを支持しているという意味ではありません。紹介文はこのサイトが書いています。',
       noteH: '埋め込みについて',
-      noteP: '「埋め込みを表示」か「すべて表示」を押すまで、このページはX（旧Twitter）に接続しません。「すべて表示」を選ぶと、次からはページを開いた時点で接続します。表示すると、ポストはXのサーバーから読み込まれ、XのCookieが使われます。Xはその閲覧を記録し、広告に使うことがあります。読み込むときは、パーソナライズに使わないよう求める設定（dnt）を付けています。',
+      noteP: 'このページは、各ポストをX（旧Twitter）の埋め込みで表示しています。開くとXのサーバーから読み込まれ、XのCookieが使われます。Xはその閲覧を記録し、広告に使うことがあります。読み込むときは、パーソナライズに使わないよう求める設定（dnt）を付けています。',
       notePrivacy: 'Xのプライバシーポリシー', noteCookies: 'XのCookieについて',
-      showAll: 'すべて表示',
-      consentHint: '「すべて表示」を押すと、このブラウザで記憶し、次からは開いたときに表示します。',
-      consentOn: 'このブラウザでは、開いたときに埋め込みを表示する設定になっています。',
-      revoke: '設定を取り消す',
       listH: '事例の一覧', loadListFailed: '一覧を読み込めませんでした。',
       count: '{n}件',
       postLang: { ja: '日本語', en: '英語' },
       postLangLabel: 'ポストの言語: {l}',
-      showEmbed: '埋め込みを表示', hideEmbed: '埋め込みを閉じる', viewOnX: 'Xで見る',
-      showEmbedLabel: '{a} のポストの埋め込みを表示', viewOnXLabel: '{a} のポストをXで見る',
+      viewOnX: 'Xで見る',
+      viewOnXLabel: '{a} のポストをXで見る',
       loading: '読み込み中です…',
       gone: 'このポストは表示できません（削除された可能性があります）。',
       failed: 'Xから読み込めませんでした。広告ブロックなどで止められている可能性があります。「Xで見る」から開けます。',
@@ -57,18 +52,14 @@
       lead: 'Posts by people who publish names to use with AI, together with moving samples or cheat sheets. The fields, languages and looks all differ. We pick posts whose samples the author made, and each post and its rights belong to its author.',
       leadNote: 'Being listed here does not mean the author supports this site. The introductions are written by this site.',
       noteH: 'About the embeds',
-      noteP: 'This page does not connect to X (formerly Twitter) until you press "Show embed" or "Show all". After you choose "Show all", it connects as soon as the page opens on later visits. When you do, the post is loaded from X\'s servers and X cookies are used. X may record the view and use it for ads. The embeds are loaded with the setting that asks X not to use them for personalization (dnt).',
+      noteP: "This page shows each post as an X (formerly Twitter) embed. When you open it, the posts load from X's servers and X cookies are used. X may record the view and use it for ads. The embeds are loaded with the setting that asks X not to use them for personalization (dnt).",
       notePrivacy: 'X Privacy Policy', noteCookies: 'How X uses cookies',
-      showAll: 'Show all',
-      consentHint: '"Show all" is remembered in this browser, and the embeds then load when you open this page.',
-      consentOn: 'This browser is set to load the embeds when you open this page.',
-      revoke: 'Undo this setting',
       listH: 'Examples', loadListFailed: 'Could not load the list.',
       count: '{n} posts',
       postLang: { ja: 'Japanese', en: 'English' },
       postLangLabel: 'Post language: {l}',
-      showEmbed: 'Show embed', hideEmbed: 'Hide embed', viewOnX: 'View on X',
-      showEmbedLabel: 'Show the embedded post by {a}', viewOnXLabel: 'View the post by {a} on X',
+      viewOnX: 'View on X',
+      viewOnXLabel: 'View the post by {a} on X',
       loading: 'Loading…',
       gone: 'This post cannot be shown. It may have been deleted.',
       failed: 'Could not load from X. A content blocker may have stopped it. You can still open it with "View on X".',
@@ -94,7 +85,7 @@
   };
   var darkQuery = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : { matches: false };
   var state = { lang: root.lang === 'en' ? 'en' : 'ja', data: null };
-  var cards = [];   // { item, el, box, btn, status, shown, token }
+  var cards = [];   // { item, el, box, status, shown, token }
 
   function t(key, vars) {
     var s = I18N[state.lang][key];
@@ -118,9 +109,8 @@
     var a = root.getAttribute('data-theme');
     return a ? a === 'dark' : darkQuery.matches;
   }
-  function hasConsent() { return store.get(CONSENT_KEY) === '1'; }
 
-  // ------------------------------------------------------------------ X widgets (loaded on demand only)
+  // ------------------------------------------------------------------ X widgets
   var widgetsPromise = null;
   function loadWidgets() {
     if (widgetsPromise) return widgetsPromise;
@@ -154,8 +144,6 @@
     c.box.innerHTML = '';
     c.box.hidden = false;
     c.el.classList.add('is-open');
-    c.btn.textContent = t('hideEmbed');
-    c.btn.setAttribute('aria-expanded', 'true');
     setStatus(c, 'loading');
     return loadWidgets().then(function (tw) {
       if (c.token !== token) return;
@@ -172,17 +160,6 @@
       setStatus(c, 'failed');
     });
   }
-  function hide(c) {
-    c.token = (c.token || 0) + 1;
-    c.shown = false;
-    c.box.innerHTML = '';
-    c.box.hidden = true;
-    c.el.classList.remove('is-open');
-    c.btn.textContent = t('showEmbed');
-    c.btn.setAttribute('aria-expanded', 'false');
-    setStatus(c, null);
-  }
-  function showAll() { cards.forEach(function (c) { if (!c.shown) show(c); }); }
   function redrawShown() { cards.forEach(function (c) { if (c.shown) show(c); }); }
 
   // ------------------------------------------------------------------ list
@@ -190,8 +167,6 @@
   function build() {
     var wrap = $('#themes');
     wrap.innerHTML = '';
-    var prev = {};
-    cards.forEach(function (c) { prev[c.item.id] = c.shown; });
     cards = [];
     var data = state.data;
     data.themes.forEach(function (th) {
@@ -201,7 +176,6 @@
       var list = h('ul', { class: 'ex-list' });
       items.forEach(function (it) {
         var handle = authorHandle(it);
-        var btn = h('button', { type: 'button', class: 'btn btn-s', 'aria-expanded': 'false', 'aria-describedby': 'xnote-p', 'aria-label': t('showEmbedLabel', { a: it.author }), text: t('showEmbed') });
         var link = h('a', { class: 'ex-x', href: it.url, rel: 'noopener', 'aria-label': t('viewOnXLabel', { a: it.author }), text: t('viewOnX') });
         var status = h('p', { class: 'ex-status', role: 'status' });
         status.hidden = true;
@@ -214,15 +188,11 @@
             h('span', { class: 'ex-lang', title: t('postLangLabel', { l: langName }), 'aria-label': t('postLangLabel', { l: langName }), text: String(it.lang).toUpperCase() }),
           ]),
           h('p', { class: 'ex-intro', text: (it.intro && (it.intro[state.lang] || it.intro.en || it.intro.ja)) || '' }),
-          h('div', { class: 'ex-act' }, [btn, link]),
+          h('div', { class: 'ex-act' }, [link]),
           status,
           box,
         ]);
-        var c = { item: it, el: li, box: box, btn: btn, status: status, shown: false, token: 0 };
-        btn.addEventListener('click', function () {
-          if (c.shown) { hide(c); return; }
-          show(c).then(function () { if (c.shown && !c.statusKey) say(t('shown', { a: it.author })); });
-        });
+        var c = { item: it, el: li, box: box, status: status, shown: false, token: 0 };
         cards.push(c);
         list.appendChild(li);
       });
@@ -234,7 +204,23 @@
         list,
       ]));
     });
-    cards.forEach(function (c) { if (prev[c.item.id]) show(c); });
+    observe();
+  }
+
+  // Draw each embed as its card comes near the viewport, so the page opens fast but reads as fully embedded.
+  var io = null;
+  function observe() {
+    if (io) io.disconnect();
+    if (!('IntersectionObserver' in window)) { cards.forEach(show); return; }
+    io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        io.unobserve(e.target);
+        var c = cards.filter(function (x) { return x.el === e.target; })[0];
+        if (c && !c.shown) show(c);
+      });
+    }, { rootMargin: '1200px 0px' });
+    cards.forEach(function (c) { io.observe(c.el); });
   }
 
   // ------------------------------------------------------------------ text, language, theme
@@ -251,14 +237,8 @@
     $$('[data-lang]').forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-lang') === lang ? 'true' : 'false'); });
     $$('[data-href-' + lang + ']').forEach(function (a) { a.href = a.getAttribute('data-href-' + lang); });
     applyTheme();
-    applyConsent();
   }
   function applyTheme() { $('#theme').setAttribute('aria-label', t(isDark() ? 'themeToLight' : 'themeToDark')); }
-  function applyConsent() {
-    var on = hasConsent();
-    $('#consent-hint').hidden = on;
-    $('#consent-on').hidden = !on;
-  }
   $$('[data-lang]').forEach(function (b) {
     b.addEventListener('click', function () {
       var lang = b.getAttribute('data-lang');
@@ -266,7 +246,7 @@
       state.lang = lang;
       store.set('mp-lang', lang);
       applyText();
-      if (state.data) build();  // rebuild redraws open embeds in the new language
+      if (state.data) build();  // rebuild redraws the embeds in the new language
     });
   });
   $('#theme').addEventListener('click', function () {
@@ -281,17 +261,6 @@
     if (!root.getAttribute('data-theme')) redrawShown();
   });
 
-  $('#show-all').addEventListener('click', function () {
-    store.set(CONSENT_KEY, '1');
-    applyConsent();
-    showAll();
-  });
-  $('#revoke').addEventListener('click', function () {
-    store.del(CONSENT_KEY);
-    // Reload so that the X script and the embeds are gone from this page as well.
-    location.reload();
-  });
-
   // ------------------------------------------------------------------ start
   applyText();
   fetch('examples/found.json', { cache: 'no-cache' })
@@ -299,7 +268,6 @@
     .then(function (data) {
       state.data = data;
       build();
-      if (hasConsent()) showAll();
     })
     .catch(function () { $('#f-empty').hidden = false; });
 })();
