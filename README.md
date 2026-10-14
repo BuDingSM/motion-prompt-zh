@@ -44,27 +44,29 @@ Each pack has its own look. The motion pack is dark navy with four colors. The c
 
 ## Three ways to use it
 
-### 1. Look up the name and say it to your AI
+### 1. Open the library, pick, and send your picks to your AI
 
-Open a [list](packs/README.md) or the gallery, find the thing you have in mind, and use its name in your prompt. Adding how long, how strong and what moves makes the result closer to what you want.
-
-```text
-Bring the title in with a mask reveal from below, 0.6 s, each line slightly after the one before.
-```
-
-```text
-Slow dolly in toward her face; move the camera, do not zoom.
-```
-
-No install is needed for this. The names work in a coding AI, a video-generation model or a brief to a person.
-
-### 2. Install the skill and ask by number
-
-With the `motion-prompt` skill installed in Claude Code or Codex, the agent fetches the spec and the reference code for a number and rebuilds that move in the way your project makes video.
+With the `motion-prompt` skill installed in Claude Code or Codex, asking is enough to open this gallery. You do not need to remember names or numbers. When you are not sure what something is called, have the library opened, the way you would look a word up in a dictionary.
 
 ```sh
 npx skills add showheyohtaki/motion-prompt
 ```
+
+1. Ask your AI:
+   ```text
+   Open the motion-prompt library.
+   ```
+2. The gallery opens in your browser. Press "Pick" on the samples you want, as many as you like. The note field at the bottom of the screen takes a short line such as "for the opening title".
+3. Press "Send to AI" and your picks reach the AI. Go back to it and say what you want done:
+   ```text
+   Edit the opening of this video like this.
+   ```
+
+The agent uses only what you picked. It fetches their specs and reference code and builds them into your video or site the way your project works. Name a kind, as in "show me the camera moves", and the gallery opens filtered to that pack.
+
+For an AI without the skill, pick in the gallery, press "Copy picks" at the bottom of the screen and paste the text into the chat. It includes the demo and spec URLs.
+
+**When you know the numbers**, you can skip the gallery and ask by number:
 
 ```text
 Use the motion-prompt skill with #012 and #045 to make this product video look professional.
@@ -79,6 +81,20 @@ Turn the camera move in motion-prompt #032 into an English prompt for Veo. The s
 ```
 
 Other ways to install, and what the agent does, are in [Skill reference](#skill-reference) below.
+
+### 2. Look up the name and say it to your AI
+
+Open a [list](packs/README.md) or the gallery, find the thing you have in mind, and use its name in your prompt. Adding how long, how strong and what moves makes the result closer to what you want.
+
+```text
+Bring the title in with a mask reveal from below, 0.6 s, each line slightly after the one before.
+```
+
+```text
+Slow dolly in toward her face; move the camera, do not zoom.
+```
+
+No install is needed for this. The names work in a coding AI, a video-generation model or a brief to a person.
 
 ### 3. Make a version for your own field or language
 
@@ -161,16 +177,17 @@ This section is for an AI agent that received the prompt in "With a prompt".
    ```
    Exit code 3 means the data source could not be reached. Get network permission and run it again.
 5. Read `<skill-dir>/SKILL.md` and tell the user how to use the skill in three lines. For example:
-   - Ask by number: "use the motion-prompt skill with #012 and #045".
-   - Without numbers, describe the scene and the agent searches for candidates.
-   - Numbers and samples are at https://showheyohtaki.github.io/motion-prompt/.
+   - Say "open the motion-prompt library" and the gallery opens. Press "Pick" on what you want, then "Send to AI".
+   - Then say what to do with them, for example "edit the opening of this video like this".
+   - If you know the numbers, you can also ask directly: "use #012 and #045".
 
 Do not change existing settings files or other skills.
 
 ### What the agent does
 
-- It first works out how your project produces video: Canvas, Remotion, CSS, After Effects, or prompts for a video-generation model.
-- It decides which motion each scene calls for. Numbers you gave are used as they are; for the rest it searches the catalog.
+- When you ask for the library, it opens the gallery in your browser and waits (up to 15 minutes) until you pick and press "Send to AI".
+- It works out how your project produces video: Canvas, Remotion, CSS, After Effects, or prompts for a video-generation model.
+- It uses what you picked, or the numbers you gave, and nothing else. When you have not chosen, it suggests opening the gallery; if you ask it to choose, it searches the catalog for each scene.
 - It rebuilds those moves in your project. Timings, easing and amounts stay as published, while the words, colors and images become yours.
 - Its reply ends with a list of the numbers it used, the scene each went into, what it changed, and a link to each sample.
 
@@ -185,6 +202,7 @@ Three files make up the skill: the instructions (`SKILL.md`), notes on moving an
 
 | Command | What it does |
 |---|---|
+| `pick` / `pick --pack camera` | opens the gallery and prints what arrives with "Send to AI": numbers, names, specs and your note. Waits up to 15 minutes |
 | `search typewriter text` / `search 文字 登場` | finds elements for a scene (English or Japanese words) |
 | `list` / `list --pack motion` | an overview of all packs, or one pack listed element by element |
 | `get 12 #045` | prints the spec and then the code for those numbers (8 at most in one call) |
@@ -192,7 +210,7 @@ Three files make up the skill: the instructions (`SKILL.md`), notes on moving an
 | `prompt 12` | the copy-paste prompt for an element |
 | `info` | shows where data is coming from, how much there is, and where it is cached |
 
-The script makes GET requests for the text files below and nothing else. Nothing from your project is uploaded.
+The script makes GET requests for the text files below and nothing else. Nothing from your project is uploaded. `pick` also opens a temporary listener on your own machine (127.0.0.1) that receives only the numbers and note sent by "Send to AI" in the gallery.
 
 1. `https://showheyohtaki.github.io/motion-prompt/api/v1/`
 2. if that is unreachable: `https://raw.githubusercontent.com/showheyohtaki/motion-prompt/main/api/v1/`
@@ -221,7 +239,7 @@ cd motion-prompt
 python3 -m http.server 8000
 ```
 
-Open `http://localhost:8000/` to see the gallery (`index.html`). The file formats are described in [FORMAT.md](FORMAT.md).
+Open `http://localhost:8000/` to see the gallery (`index.html`). In a clone, `node skills/motion-prompt/scripts/motion-prompt.mjs pick --local` opens your local copy of the gallery for picking. The file formats are described in [FORMAT.md](FORMAT.md).
 
 ## License
 

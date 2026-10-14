@@ -95,27 +95,27 @@
 094	lp	読み込み・移動・動き続ける演出	マーキー (Marquee)	marquee,ticker,infinite-loop,scrolling-text,logo-strip,band,loop	濃紺の帯の中で、大きな英字のサービス名と朱色の点が、途切れずに左へ流れ続ける。
 095	lp	読み込み・移動・動き続ける演出	グラデーションアニメーション (Animated gradient)	gradient,animated-gradient,mesh-gradient,background,hero,ambient,loop	見出しの後ろで、朱色・薄い朱色・青・薄い青のぼんやりした色の塊がゆっくり回り、混ざり方が変わり続ける。
 096	lp	読み込み・移動・動き続ける演出	ふわふわアニメーション (Floating animation)	floating,float,bob,hover-animation,keyframes,translatey,decoration,loop	見出しの横で、スマホの画像とハートの丸・評価の札が、それぞれ少しずつずれてゆっくり上下し、スマホの下の影も伸び縮みする。
-097	photo	光の当て方・時間帯	逆光 (Backlighting)	backlighting,backlit,contre-jour,sun behind,haze,glow,halo	画面の外にあった太陽が人物の頭の真後ろへ回り込む。輪郭が光り、画面全体に白いもやがかかり、カメラ側を向いた顔と服は暗く沈む。
-098	photo	光の当て方・時間帯	リムライト (Rim light)	rim light,rim lighting,edge light,backlight,kicker,outline,studio	暗いスタジオの人物に、斜め後ろ左右の2灯が点く。正面は暗いまま、頭と肩の縁だけが細く光って背景から浮き上がる。
-099	photo	光の当て方・時間帯	シルエット (Silhouette)	silhouette,backlit,sunset,contre-jour,black shape,underexposed	夕焼けの空に露出を合わせていくと、白く飛んでいた空の色が戻り、人物とヤシの木は色が消えて真っ黒な形だけになる。
-100	photo	光の当て方・時間帯	スプリットライティング (Split lighting)	split lighting,side light,portrait lighting,half face,dramatic,chiaroscuro	1灯の光が正面から真横へ回る。鼻筋を境に、顔の片側だけが明るく、反対側は影になる。
-101	photo	光の当て方・時間帯	レンブラントライティング (Rembrandt lighting)	rembrandt lighting,portrait lighting,triangle,45 degree light,chiaroscuro,painterly	1灯の光が正面から斜め横・上へ移る。鼻の影が頬の影とつながり、影側の頬の目の下に三角形の明るい部分が残る。
-102	photo	光の当て方・時間帯	バタフライライティング (Butterfly lighting)	butterfly lighting,paramount lighting,beauty lighting,portrait lighting,overhead light,glamour	1灯の光が正面のまま上へ上がる。鼻の真下に左右対称の蝶の形の影ができ、頬骨とあごの下にも影が入る。
-103	photo	光の当て方・時間帯	ゴールデンアワー (Golden hour)	golden hour,magic hour,sunset light,warm light,long shadows,low sun	昼（太陽が高く白い光・足元に短い影）から、日没前（太陽が地平線近く・赤みの強い光・右へ長く伸びる影・人と木の左側の縁が光る）へ時間が進む。
-104	photo	光の当て方・時間帯	ブルーアワー (Blue hour)	blue hour,twilight,dusk,night city,cityscape,deep blue sky	日没直後（地平線が橙、街の灯りは消えている）から、空が深い青に変わり、ビルの窓と岸の街灯が1つずつともって水面に映る。
-105	photo	レンズ・カメラの効果	ボケ (Bokeh)	bokeh,shallow depth of field,background blur,wide aperture,f/1.4,out of focus,lights	絞りを開けていくと、ピントの合った人物はそのまま、背景の電飾や窓の点光源が大きくやわらかな光の丸に変わっていく。
-106	photo	レンズ・カメラの効果	ティルトシフト (Tilt-shift)	tilt-shift,miniature,miniature effect,fake miniature,selective focus,toy town,aerial	高い所から見下ろした町。中央の横の帯だけピントを残して上下を強くぼかし、色を濃くすると、本物の町が模型のように見える。車はゆっくり走り続ける。
-107	photo	レンズ・カメラの効果	長時間露光 (Long exposure)	long exposure,light trails,slow shutter,night photography,car trails,motion	夜の道路でシャッターを開けている時間をのばしていくと、走る車の形が消え、ヘッドライトとテールランプが道に沿った白と赤の光の線になる。
-108	photo	レンズ・カメラの効果	流し撮り (Panning shot)	panning,panning shot,motion blur,speed,sports photography,slow shutter	走る車にカメラを合わせて振りながら、シャッター速度を遅くしていく。車はくっきりしたまま、背景の木や建物や道路の線だけが横に流れる。
-109	photo	レンズ・カメラの効果	レンズフレア (Lens flare)	lens flare,flare,ghosting,sun flare,starburst,cinematic	画面の中の太陽が左右に動くと、色のついた光の玉（ゴースト）が、太陽と画面の中心を結ぶ線の上を、太陽と逆向きに動く。
-110	photo	レンズ・カメラの効果	魚眼レンズ (Fisheye lens)	fisheye,fisheye lens,barrel distortion,ultra wide,180 degree,distortion	普通のレンズ（直線はまっすぐ）から魚眼レンズへ。画面の中心がふくらみ、ビルの縦の線や道路の線が、端に近いほど大きく丸く曲がる。
-111	photo	レンズ・カメラの効果	色収差 (Chromatic aberration)	chromatic aberration,color fringing,rgb split,purple fringing,lens aberration,glitch	白い空を背にした黒い枝と電線の縁に、赤と青紫の色ずれが出てくる。ずれは画面の端ほど大きい。左下の拡大鏡で電線を3倍に見せる。
-112	photo	レンズ・カメラの効果	周辺減光（ビネット） (Vignette)	vignette,vignetting,dark corners,edge darkening,lens falloff,focus	海辺の写真の四隅に向かって、なだらかに暗くなっていく。中央はそのままなので、画面の真ん中に目が集まる。
-113	photo	仕上げ・画風	ハイキー (High-key)	high-key,high key,bright,white background,airy,low contrast	灰色の背景で普通に写した静物が、白い背景・明るい光・ごく薄い影の写真に変わる。右下のヒストグラムが明るい側（右）に寄る。
-114	photo	仕上げ・画風	ローキー (Low-key)	low-key,low key,dark,black background,moody,dramatic,chiaroscuro	灰色の背景で普通に写した静物が、黒い背景に1灯だけを当てた写真に変わる。光の当たる側だけが浮かび、画面の大半が暗い。右下のヒストグラムが暗い側（左）に寄る。
-115	photo	仕上げ・画風	モノクロ (Black and white)	black and white,monochrome,b&w,grayscale,desaturated,classic	色のある海辺の写真から色が抜け、明るさの差だけで形が見える白黒の写真になる。
-116	photo	仕上げ・画風	デュオトーン (Duotone)	duotone,two-tone,gradient map,color overlay,poster,graphic	海辺の写真の色が、暗い所は濃い藍、明るい所はピンクの2色だけに置きかわる。
-117	photo	仕上げ・画風	ティール＆オレンジ (Teal and orange)	teal and orange,orange and teal,cinematic,color grading,blockbuster,film look	海辺の写真の、暗い所・空・海が青緑（ティール）へ、肌・服・砂が橙へ寄り、映画のような色になる。
-118	photo	仕上げ・画風	フィルムグレイン (Film grain)	film grain,grain,noise,analog,35mm film,texture,vintage	海辺の写真の全体に細かい粒子が乗り、黒が少し浮いて暖かい色になる。粒の模様は少しずつ入れかわる。
-119	photo	仕上げ・画風	ライトリーク (Light leak)	light leak,film leak,vintage,analog,lomo,warm glow	海辺の写真の右端と左下から、赤・橙・黄の光がにじみ込み、ゆっくり形を変える。
-120	photo	仕上げ・画風	二重露光（多重露光） (Double exposure)	double exposure,multiple exposure,blend,silhouette,surreal,composite	白い背景の横顔の写真に、森と山の風景をスクリーンで重ねていく。白い所は白いまま、暗い横顔の中にだけ風景が見え、頭の上は空の白に溶ける。
+097	photo	光の当て方・時間帯	逆光 (Backlighting)	backlighting,backlit,contre-jour,sun behind,haze,glow,halo	画面の外にあった太陽が人物の頭の真後ろへ回り込む。胸像の縁が細く光り、全体に淡い光の色がかかり、カメラ側の体は暗く沈む。
+098	photo	光の当て方・時間帯	リムライト (Rim light)	rim light,rim lighting,edge light,backlight,kicker,outline,studio	周りが暗く落ち、斜め後ろ左右の2灯で、暗い人物の頭と肩の両側にだけ細い光の縁が出る。右下の図で2灯の位置を示す。
+099	photo	光の当て方・時間帯	シルエット (Silhouette)	silhouette,backlit,sunset,contre-jour,black shape,underexposed	露出を明るい夕空に合わせていくと、人物・建物・街灯・木が細部のない黒い形になり、空だけが明るく残る。
+100	photo	光の当て方・時間帯	スプリットライティング (Split lighting)	split lighting,side light,portrait lighting,half face,dramatic,chiaroscuro	光が正面寄り（20°）から真横（90°）へ回り、頭の影が三日月から半分へ広がって、顔が鼻筋の位置で縦に明暗2つに分かれる。
+101	photo	光の当て方・時間帯	レンブラントライティング (Rembrandt lighting)	rembrandt lighting,portrait lighting,triangle,45 degree light,chiaroscuro,painterly	斜め45°・上45°の光が入り、顔の右側が影に沈む中で、影側の頬にだけ小さな逆三角形の光が残る。
+102	photo	光の当て方・時間帯	バタフライライティング (Butterfly lighting)	butterfly lighting,paramount lighting,beauty lighting,portrait lighting,overhead light,glamour	顔の正面・高い位置からの光が入り、顔は左右対称に明るくなり、あごの下にだけ左右対称の小さな影が落ちる。
+103	photo	光の当て方・時間帯	ゴールデンアワー (Golden hour)	golden hour,magic hour,sunset light,warm light,long shadows,low sun	太陽が地平線近くまで下り、空と地面が橙に染まり、人物の左側が光り、街灯と木の影が右へ長く伸びる。
+104	photo	光の当て方・時間帯	ブルーアワー (Blue hour)	blue hour,twilight,dusk,night city,cityscape,deep blue sky	太陽が沈みきると、空が深い青の2段になり、建物の窓と街灯がアンバーに灯り、人物は青い影の形になる。
+105	photo	レンズ・カメラの効果	ボケ (Bokeh)	bokeh,shallow depth of field,background blur,wide aperture,f/1.4,out of focus,lights	絞りを開けていくと、ピントの合った人物はそのまま、背景の建物はぼけ、街灯と遠くの灯りが大きく薄い光の丸に広がる。
+106	photo	レンズ・カメラの効果	ティルトシフト (Tilt-shift)	tilt-shift,miniature,miniature effect,fake miniature,selective focus,toy town,focus band	街の上下の帯がぼけていき、道と車と小さな人たちの並ぶ中央の帯だけにピントが残って、模型の街のように見える。
+107	photo	レンズ・カメラの効果	長時間露光 (Long exposure)	long exposure,light trails,slow shutter,night photography,car trails,motion	街が夜になり、走る車の本体は薄く消えていき、後ろに赤い尾灯の線が伸び、反対車線には白とアンバーの光の線が通る。
+108	photo	レンズ・カメラの効果	流し撮り (Panning shot)	panning,panning shot,motion blur,speed,sports photography,slow shutter	走る車をカメラが追い、車は画面の中央でくっきりしたまま、背景の建物や木や街灯だけが横に流れる。
+109	photo	レンズ・カメラの効果	レンズフレア (Lens flare)	lens flare,flare,ghosting,sun flare,starburst,cinematic	太陽が建物の陰から空へ出ると、太陽に光の筋が出て、太陽から画面の中心をはさんだ反対側まで、光の玉と六角形と輪が一列に並ぶ。
+110	photo	レンズ・カメラの効果	魚眼レンズ (Fisheye lens)	fisheye,fisheye lens,barrel distortion,ultra wide,8mm,distortion	街角の中心がふくらみ、建物の縦の線と道の横の線が外側へ丸く曲がり、四隅はそのまま残る。
+111	photo	レンズ・カメラの効果	色収差 (Chromatic aberration)	chromatic aberration,color fringing,rgb split,lens aberration,fringe,glitch	街角の絵を赤・緑・青に分け、少しずつ違う大きさで重ねると、人物や建物や街灯の縁に赤と青緑のずれが出て、画面の端ほど大きくなる。
+112	photo	レンズ・カメラの効果	周辺減光（ビネット） (Vignette)	vignette,vignetting,dark corners,edge darkening,lens falloff,focus	画面の四隅からなだらかに暗くなり、中央の人物と道のあたりだけが明るく残る。
+113	photo	仕上げ・画風	ハイキー (High-key)	high-key,high key,bright,white background,airy,low contrast	風景と人物が白に近い明るい色だけになり、影はごく薄くなって、右下のヒストグラムの山が右端へ寄る。
+114	photo	仕上げ・画風	ローキー (Low-key)	low-key,low key,dark,black background,moody,dramatic,chiaroscuro	画面の大半が暗く沈み、太陽も消えて、横から日の当たる胸像の右の縁だけが光って浮かぶ。ヒストグラムの山は左端へ寄る。
+115	photo	仕上げ・画風	モノクロ (Black and white)	black and white,monochrome,b&w,grayscale,desaturated,classic	同じ風景から色が抜け、太陽も人物の縁の光も灰色になり、明るさの差だけで形が見える。
+116	photo	仕上げ・画風	デュオトーン (Duotone)	duotone,two-tone,gradient map,color overlay,poster,graphic	同じ風景の色が、暗い所は藍、明るい所はピンクの2色の間だけに置き換わる。
+117	photo	仕上げ・画風	ティール＆オレンジ (Teal and orange)	teal and orange,orange and teal,cinematic,color grading,blockbuster,film look	同じ風景の空・丘・地面・人物の影が青緑へ、日の当たる人物の縁と太陽が橙へ寄り、補色の対比になる。
+118	photo	仕上げ・画風	フィルムグレイン (Film grain)	film grain,grain,noise,analog,35mm film,texture,warm tone	同じ風景の全体に細かい粒が乗り、色が少し暖かいクリーム色に寄る。
+119	photo	仕上げ・画風	ライトリーク (Light leak)	light leak,film leak,vintage,analog,lomo,warm glow	同じ風景の右端から、外側ほど淡い黄、端ほど赤い光のにじみが帯になって入り、ゆっくり揺れる。
+120	photo	仕上げ・画風	二重露光（多重露光） (Double exposure)	double exposure,multiple exposure,blend,silhouette,surreal,composite	背景が白く飛び、胸像の形の中にだけ、縮めた丘・家・木・太陽の風景が写り込む。

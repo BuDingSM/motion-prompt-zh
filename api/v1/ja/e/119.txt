@@ -2,13 +2,12 @@
 //
 // ライトリーク / Light leak
 // パック: photo (写真の表現・光と画風) · element 23 · カテゴリ: 仕上げ・画風
-// 何が起きるか: 海辺の写真の右端と左下から、赤・橙・黄の光がにじみ込み、ゆっくり形を変える。
+// 何が起きるか: 同じ風景の右端から、外側ほど淡い黄、端ほど赤い光のにじみが帯になって入り、ゆっくり揺れる。
 // 動きの仕様:
-//   - 光: 楕円の放射グラデーション4つ。右端に赤 rgb(255,60,20)（280×140px）、右下に橙 rgb(255,150,30)、上に黄 rgb(255,210,90)、左下に赤橙 rgb(255,90,40)
-//   - 合成: ハードライトで色をのせ、スクリーン80%で明るくにじませる。右端140pxに橙白の帯（50%）
-//   - 動き: それぞれ上下左右に14〜24pxゆっくり揺れる（5秒で1往復）
-//   - 右下のスライダーが効き具合
-//   - 時間: 0.6〜1.7秒で効果が入り、3.9秒まで保ち、4.8秒までに元へ戻る（1周5秒、3次のイーズインアウト（cubic-bezier(0.65,0,0.35,1) 相当））
+//   - 場面③: 左に胸像（頭の中心 x140, y82・半径28px）、右に丘・家・木・太陽（x432, y54・半径15px）。
+//   - 形: 縦長の楕円4枚。中心は右端の外30px（1周で左右に ±6px 揺れる）、縦の半径は画面の高さの1.1倍
+//   - 横の半径と色: 250px #FFD089 35%、170px #FF9A3D 40%、95px #FF5A3A 45%、45px #FF3B30 50%（横の半径は 0 → この値に広がる）
+//   - 時間: 0.4〜1.4秒で効果が入り、4.0秒まで保ち、4.8秒までに元へ戻る（1周5秒、3次のイーズインアウト（cubic-bezier(0.65,0,0.35,1) 相当））
 // 使いどころ: 思い出・夏・青春のような、なつかしく偶然っぽい雰囲気を出したいとき。
 // タグ: light leak, film leak, vintage, analog, lomo, warm glow
 // サイズ: 539x208 px · 1周: 5 s
@@ -19,27 +18,13 @@
 // ここから要素のコード。CELLS や定数・補助関数は kit にある。
 
 // @element 23
-// 23 ライトリーク: フィルムに光がもれたように、画面の端から赤・橙・黄の光がにじみ込み、ゆっくり形を変える
-CELLS[22] = cell((k, w, h, u) => {
-  const a = env(u), t = u / CYC * TAU;
-  k.drawImage(beach(), 0, 0);
-  if (a > 0.001) {
-    const blob = (x, y, rx, ry, c, al) => {
-      k.save(); k.translate(x, y); k.scale(1, ry / rx);
-      const g = k.createRadialGradient(0, 0, 0, 0, 0, rx); g.addColorStop(0, rgb(c, al * a)); g.addColorStop(0.5, rgb(c, al * a * 0.55)); g.addColorStop(1, rgb(c, 0));
-      k.fillStyle = g; k.fillRect(-rx, -rx, rx * 2, rx * 2); k.restore();
-    };
-    const leaks = () => {
-      blob(CW + 10, 50 + 24 * Math.sin(t), 280, 140, [255, 60, 20], 1);
-      blob(CW - 50, 140 + 18 * Math.cos(t), 200, 90, [255, 150, 30], 0.95);
-      blob(CW - 170 + 20 * Math.sin(t + 1), 16, 140, 56, [255, 210, 90], 0.75);
-      blob(-30, 150 + 14 * Math.sin(t + 2), 170, 110, [255, 90, 40], 0.85);
-    };
-    k.globalCompositeOperation = 'hard-light'; leaks();   // 色をのせる
-    k.globalCompositeOperation = 'screen'; k.globalAlpha = 0.8; leaks(); k.globalAlpha = 1;   // 明るくにじませる
-    const band = k.createLinearGradient(CW - 140, 0, CW, 0); band.addColorStop(0, 'rgba(255,120,60,0)'); band.addColorStop(1, rgb([255, 200, 150], 0.5 * a));
-    k.fillStyle = band; k.fillRect(0, 0, CW, CH);
-    k.globalCompositeOperation = 'source-over';
-  }
-  slider(k, a);
+// ライトリーク: 右端から、フィルムに光がもれたような赤と橙のにじみが帯になって入る
+CELLS[22] = cell((k, u) => {
+  const a = env(u), w = Math.sin(u / CYC * TAU);
+  stageLand(k, BASE);
+  k.save();
+  // 縦長の楕円を右端の外に中心を置いて重ねる（外ほど淡い黄、端ほど赤）
+  const band = (rx, col, al) => { k.globalAlpha = al * a; k.fillStyle = col; k.beginPath(); k.ellipse(CW + 30 + 6 * w, CH / 2, rx * a, CH * 1.1, 0, 0, TAU); k.fill(); };
+  band(250, '#FFD089', 0.35); band(170, '#FF9A3D', 0.4); band(95, '#FF5A3A', 0.45); band(45, '#FF3B30', 0.5);
+  k.restore();
 });

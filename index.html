@@ -22,8 +22,9 @@
 <script>
 /* Apply the saved theme and language before first paint. */
 (function () {
-  var d = document.documentElement, t = null, l = null;
+  var d = document.documentElement, t = null, l = null, m = /[?&]lang=(ja|en)(?:&|$)/.exec(location.search);
   try { t = localStorage.getItem('mp-theme'); l = localStorage.getItem('mp-lang'); } catch (e) {}
+  if (m) l = m[1]; /* ?lang= (set when an agent opens the gallery) wins for this visit */
   if (t === 'light' || t === 'dark') d.setAttribute('data-theme', t);
   if (l !== 'ja' && l !== 'en') l = /^ja\b/i.test(navigator.language || 'ja') ? 'ja' : 'en';
   d.lang = l;
@@ -68,7 +69,7 @@
     <div class="hero-install">
       <div class="install">
         <h2 class="install-h" data-t="installSkillH">スキルで導入</h2>
-        <p class="install-p" data-t="installSkillP">ターミナルで実行します。入れたあとは「motion-prompt スキルで #012 と #045 を使って」と番号で頼めます。</p>
+        <p class="install-p" data-t="installSkillP">ターミナルで実行します。入れたあとは、AIに「motion-prompt のライブラリ出して」と頼むと、このギャラリーが開きます。選んで「AIに渡す」を押すと、AIに届きます。</p>
         <div class="copyfield">
           <code id="cmd">npx skills add showheyohtaki/motion-prompt</code>
           <button type="button" class="btn btn-s" data-copy="#cmd" data-t="copy" data-t-attr="aria-label:copyCmdLabel" aria-label="導入コマンドをコピー">コピー</button>
@@ -116,18 +117,24 @@
   <section id="how" class="how wrap" aria-labelledby="how-h">
     <h2 id="how-h" class="sec-h" data-t="howH">使い方</h2>
     <ol class="steps">
-      <li><span class="step-n" aria-hidden="true">1</span><h3 data-t="s1h">名前を見つける</h3><p data-t="s1p">見本を眺めて、頭の中にある動きを探します。名前は、そのままAIへの指示に使えます。#012 のような番号でも呼べます。</p></li>
-      <li><span class="step-n" aria-hidden="true">2</span><h3 data-t="s2h">プロンプトをコピー</h3><p data-t="s2p">詳細にある「プロンプトをコピー」を押します。動きの仕様と、参考実装のURLが入った文がコピーされます。</p></li>
-      <li><span class="step-n" aria-hidden="true">3</span><h3 data-t="s3h">AIに貼る</h3><p data-t="s3p">Claude Code や Codex に貼ります。「今のこの部分を、これに差し替えて」と一言添えると伝わりやすくなります。</p></li>
+      <li><span class="step-n" aria-hidden="true">1</span><h3 data-t="s1h">ライブラリを出してもらう</h3><p data-t="s1p">motion-prompt スキルを入れたAIに「motion-prompt のライブラリ出して」と頼みます。このギャラリーがブラウザで開きます。</p></li>
+      <li><span class="step-n" aria-hidden="true">2</span><h3 data-t="s2h">見ながら選ぶ</h3><p data-t="s2p">使いたい見本の「選ぶ」を押します。いくつでも選べます。選んだ物は画面の下に並び、「冒頭のタイトルに」のような一言のメモも書けます。</p></li>
+      <li><span class="step-n" aria-hidden="true">3</span><h3 data-t="s3h">AIに渡して、頼む</h3><p data-t="s3p">「AIに渡す」を押すと、選んだ物がAIに届きます。あとは「この動画の冒頭をこんな感じに編集して」と頼みます。このボタンは、AIがライブラリを開いたときに出ます。</p></li>
     </ol>
-    <div class="how-more">
+    <div class="how-more how-more-3">
       <div class="how-col">
-        <h3 data-t="skillH">スキルを入れると、番号だけで頼めます</h3>
-        <p data-t="skillP">motion-prompt スキルを入れておくと、AIが番号から仕様とコードを自分で取りに行きます。プロンプトを毎回コピーする必要はありません。</p>
+        <h3 data-t="skillH">こう話しかけます</h3>
+        <p data-t="skillP">名前や番号を覚えていなくてかまいません。分からないときは、辞書を引くようにライブラリを出してもらってください。</p>
         <ul class="says">
-          <li data-t="say1">motion-prompt スキルで #012 と #045 を使って、30秒の紹介動画を作って</li>
-          <li data-t="say2">今のタイトルの出し方を #005 に差し替えて</li>
+          <li data-t="say1">motion-prompt のライブラリ出して</li>
+          <li data-t="say2">どんなカメラワークがある？一覧見せて</li>
+          <li data-t="say3">（選んで渡したあと）この動画の冒頭をこんな感じに編集して</li>
         </ul>
+      </div>
+      <div class="how-col">
+        <h3 data-t="altH">スキルが無いとき・番号が分かるとき</h3>
+        <p data-t="altP1">スキルを入れていないAIには、画面の下の「選んだ物をコピー」で作った文を貼ってください。見本と仕様のURLが入っています。1つだけなら、詳細の「プロンプトをコピー」も使えます。</p>
+        <p data-t="altP2">番号が分かっていれば、「motion-prompt で #012 と #045 を使って」のように直接頼むこともできます。</p>
       </div>
       <div class="how-col">
         <h3 data-t="implH">参考実装について</h3>
@@ -152,6 +159,34 @@
     <p class="foot-thanks"><span data-t="thanks1">動く見本を並べて、プロンプトをコピーして使う形は</span> <a href="https://lucianlabs.dev/uxui-prompt/" rel="noopener">Lucian UX/UI Prompt</a> <span data-t="thanks2">から着想を得ました。ありがとうございます。</span></p>
   </div>
 </footer>
+
+<aside class="tray" id="tray" aria-labelledby="tray-count" hidden>
+  <div class="wrap tray-in">
+    <div class="tray-top">
+      <button type="button" class="tray-toggle" id="tray-toggle" aria-expanded="true" aria-controls="tray-body">
+        <span class="tray-count" id="tray-count">選んだ物 0個</span>
+        <svg class="tray-chev" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M3.5 10l4.5-4.5 4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <p class="tray-wait" id="tray-wait" data-t="trayWait" hidden>AIが待っています。選んだら「AIに渡す」を押してください。</p>
+      <button type="button" class="btn btn-s btn-main tray-main" id="tray-main">選んだ物をコピー</button>
+    </div>
+    <div class="tray-body" id="tray-body">
+      <ol class="tray-list" id="tray-list"></ol>
+      <p class="tray-empty" id="tray-empty" data-t="trayEmpty" hidden>見本の「選ぶ」を押すと、ここに並びます。</p>
+      <div class="tray-row">
+        <label class="tray-note">
+          <span class="tray-note-l" data-t="noteLabel">メモ（任意）</span>
+          <input type="text" id="tray-note" maxlength="300" autocomplete="off" placeholder="例: 冒頭のタイトルに" data-t-attr="placeholder:notePh">
+        </label>
+        <div class="tray-acts">
+          <button type="button" class="btn btn-s" id="tray-copy" data-t="copyPicked" hidden>選んだ物をコピー</button>
+          <button type="button" class="btn btn-s" id="tray-share" data-t="shareUrl">選択を共有するURL</button>
+          <button type="button" class="btn btn-s btn-ghost" id="tray-clear" data-t="clearAll">すべて外す</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</aside>
 
 <dialog class="detail" id="detail" aria-labelledby="d-name">
   <div class="d-bar">
@@ -184,6 +219,7 @@
       <ul class="d-tags" id="d-tags" aria-label="タグ" data-t-attr="aria-label:tagsLabel"></ul>
     </div>
     <div class="d-side">
+      <button type="button" class="btn btn-pick" id="d-pick" aria-pressed="false"><span class="pick-box" aria-hidden="true"><svg viewBox="0 0 16 16" width="14" height="14"><path d="M3.5 8.4l3 3 6-6.6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span id="d-pick-t">選ぶ</span></button>
       <button type="button" class="btn btn-main" id="d-copy-prompt" data-t="copyPrompt">プロンプトをコピー</button>
       <button type="button" class="btn" id="d-copy-code" data-t="copyCode">コードをコピー</button>
       <pre class="d-prompt" id="d-prompt" tabindex="0" aria-label="コピーされるプロンプト" data-t-attr="aria-label:promptLabel"></pre>

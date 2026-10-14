@@ -2,13 +2,14 @@
 //
 // ゴールデンアワー / Golden hour
 // パック: photo (写真の表現・光と画風) · element 07 · カテゴリ: 光の当て方・時間帯
-// 何が起きるか: 昼（太陽が高く白い光・足元に短い影）から、日没前（太陽が地平線近く・赤みの強い光・右へ長く伸びる影・人と木の左側の縁が光る）へ時間が進む。
+// 何が起きるか: 太陽が地平線近くまで下り、空と地面が橙に染まり、人物の左側が光り、街灯と木の影が右へ長く伸びる。
 // 動きの仕様:
-//   - 時刻: 12:00 → 17:40（右上に表示）。太陽の高さ 63° → 4°、画面上は (150, −40) → (64, 104)
-//   - 影: 長さ = 高さ × 1/tan(太陽の高さ)（最大3倍）。足元から右下へ（縦は長さの0.16倍）、1.5pxぼかし
-//   - 色: 空の地平線側 rgb(200,226,244) → rgb(255,196,118)。全体に rgb(255,186,110) をソフトライト75%
-//   - 縁の光: 人物と木の左側に幅約2pxの橙 #FFB060 を加算（60%）
-//   - 時間: 0.6〜1.7秒で効果が入り、3.9秒まで保ち、4.8秒までに元へ戻る（1周5秒、3次のイーズインアウト（cubic-bezier(0.65,0,0.35,1) 相当））
+//   - 場面①: 地平線（y150）の前に胸から上の人物（頭の中心 x270, y78・半径29px、顔・髪なし）。
+//   - 太陽: 半径18px、(x110, y−30) → (x96, y136)。丘に半分隠れる
+//   - 色: 空 #FAF9F7 → 上 #FFE8BC・地平線近く #FFCF80、地面 #F1F0EE → #F6DDB0。人物の光 #FFB547・影 #3E3650
+//   - 頭: 光は左から約66°、境より右が影。胴は左側が光・右側が影
+//   - 影: 街灯と木の根元から右へ、長さ 0 → 150px（色 #DDAA6E）。右上の時刻 12:00 → 17:40
+//   - 時間: 0.4〜1.4秒で効果が入り、4.0秒まで保ち、4.8秒までに元へ戻る（1周5秒、3次のイーズインアウト（cubic-bezier(0.65,0,0.35,1) 相当））
 // 使いどころ: あたたかく、なつかしく、やさしい雰囲気の写真にしたいとき。
 // タグ: golden hour, magic hour, sunset light, warm light, long shadows, low sun
 // サイズ: 539x208 px · 1周: 5 s
@@ -19,50 +20,22 @@
 // ここから要素のコード。CELLS や定数・補助関数は kit にある。
 
 // @element 07
-// 07 ゴールデンアワー: 昼（太陽が高く白い光・短い影）から、日没前（低く赤みのある光・長い影）へ
-CELLS[6] = cell((k, w, h, u) => {
-  const a = env(u);
-  const elv = lerp(1.1, 0.07, a);                     // 太陽の高さ 63° → 4°
-  const sx = lerp(150, 64, a), sy = lerp(-40, 104, a);
-  const sky = k.createLinearGradient(0, 0, 0, 124);
-  sky.addColorStop(0, rgb(mix([74, 140, 220], [92, 112, 176], a))); sky.addColorStop(0.6, rgb(mix([140, 190, 236], [236, 168, 132], a))); sky.addColorStop(1, rgb(mix([200, 226, 244], [255, 196, 118], a)));
-  k.fillStyle = sky; k.fillRect(0, 0, CW, 124);
-  const sg = k.createRadialGradient(sx, sy, 3, sx, sy, lerp(90, 200, a));
-  sg.addColorStop(0, rgb(mix([255, 255, 250], [255, 240, 200], a))); sg.addColorStop(0.08, rgb(mix([255, 255, 240], [255, 200, 120], a), 0.9)); sg.addColorStop(1, rgb([255, 190, 110], 0));
-  k.fillStyle = sg; k.fillRect(0, 0, CW, CH);
-  k.fillStyle = rgb(mix([118, 158, 132], [176, 126, 110], a));
-  k.beginPath(); k.moveTo(0, 124); k.quadraticCurveTo(140, 96, 260, 116); k.quadraticCurveTo(400, 100, CW, 112); k.lineTo(CW, 126); k.lineTo(0, 126); k.fill();
-  const gr = k.createLinearGradient(0, 120, 0, CH);
-  gr.addColorStop(0, rgb(mix([136, 182, 92], [200, 150, 74], a))); gr.addColorStop(1, rgb(mix([98, 150, 64], [128, 90, 44], a)));
-  k.fillStyle = gr; k.fillRect(0, 120, CW, CH - 120);
-  // 影: 高さ1あたりの長さ = 1/tan(太陽の高さ)。太陽が左にあるので右へ伸びる
-  const L = Math.min(3, 1 / Math.tan(elv));
-  // 地面の影: 足元から右下へ、長さ = 高さ × L（地面に寝かせるので縦は 0.16 倍）
-  const shadow = (fx, fy, hh, wb, wt) => {
-    const tx = fx + L * hh, ty = fy + 0.16 * L * hh;
-    k.beginPath(); k.moveTo(fx - wb, fy); k.lineTo(fx + wb, fy); k.lineTo(tx + wt, ty); k.lineTo(tx - wt, ty); k.closePath(); k.fill();
-    return [tx, ty];
+// ゴールデンアワー: 太陽が地平線近くまで下り、全体が橙に染まって影が長く伸びる
+CELLS[6] = cell((k, u) => {
+  const a = env(u), R = PR, W = torsoW(R);
+  const GOLD = {
+    sky: '#FFE8BC', sky2: '#FFCF80', far: '#F2C58C', mid: '#E8B27A', ground: '#F6DDB0', ground2: '#ECC892', mark: '#F6DDB0', cast: '#DDAA6E',
+    bld: '#F7DCAE', edge: '#D9AE76', win: '#ECC892', winOff: '#ECC892', tree: '#E9C08A', trunk: '#C9965E', post: '#B98A58', bulb: '#C9965E',
+    person: '#5C5470', shade: '#3E3650', lit: '#FFB547', car: '#A08E8E', glass: '#F6DDB0', tire: '#3E3650', sun: '#F59A24', glow: '#FFD48A'
   };
-  k.save(); k.filter = 'blur(1.5px)'; k.fillStyle = rgb([60, 40, 20], lerp(0.3, 0.45, a));
-  shadow(236, 182, 108, 14, 12);
-  shadow(392, 172, 40, 3, 3); const [tx, ty] = [392 + L * 66, 172 + 0.16 * L * 66]; k.beginPath(); k.ellipse(tx, ty, 26 * Math.min(2.2, 0.6 + L * 0.5), 6, 0.16, 0, TAU); k.fill();
-  k.restore();
-  // 木と人物（光の当たる左側を明るく）
-  const lit = mix([255, 255, 255], [255, 186, 110], a);
-  k.fillStyle = rgb(mix([108, 82, 58], [96, 64, 40], a)); k.fillRect(389, 120, 6, 52);
-  const tg = k.createRadialGradient(378, 96, 4, 392, 106, 30); tg.addColorStop(0, rgb(mix([120, 176, 90], [214, 168, 80], a))); tg.addColorStop(1, rgb(mix([62, 116, 60], [70, 70, 40], a)));
-  k.fillStyle = tg; k.beginPath(); k.arc(392, 106, 26, 0, TAU); k.fill();
-  person(k, 236, 182, 108, rgb(mix([70, 96, 150], [92, 80, 100], a)), rgb(mix([226, 178, 140], [236, 160, 104], a)));
-  // 低い光が当たる左側の縁だけ明るく光る
-  if (a > 0.01) {
-    const [ec, ek] = layer('A');
-    ek.fillStyle = '#FFB060'; person(ek, 236, 182, 108, '#FFB060'); ek.beginPath(); ek.arc(392, 106, 26, 0, TAU); ek.fill();
-    ek.globalCompositeOperation = 'destination-out'; person(ek, 238.2, 182, 108, '#000'); ek.beginPath(); ek.arc(394.5, 106, 26, 0, TAU); ek.fill();
-    k.globalCompositeOperation = 'lighter'; k.globalAlpha = 0.6 * a; k.drawImage(ec, 0, 0); k.globalAlpha = 1; k.globalCompositeOperation = 'source-over';
-  }
-  // 全体の色: 低い太陽ほど赤みが強い
-  k.globalCompositeOperation = 'soft-light'; k.fillStyle = rgb(lit, 0.75 * a); k.fillRect(0, 0, CW, CH);
-  k.globalCompositeOperation = 'source-over';
-  const m = Math.round(lerp(12 * 60, 17 * 60 + 40, a) / 5) * 5;
-  pill(k, `${String(Math.floor(m / 60)).padStart(2, '0')}:${String(m % 60).padStart(2, '0')}`);
+  const p = pal(BASE, GOLD, a);
+  stagePortrait(k, p, { sun: [lerp(110, 96, a), lerp(-30, 136, a), 18, 1], cast: lerp(0, 150, a) });
+  const lit = mixc(p.person, GOLD.lit, a), sh = mixc(p.person, GOLD.shade, a);
+  bust(k, PX, PY, R, p.person, kk => {
+    kk.fillStyle = lit; kk.beginPath(); kk.arc(PX, PY, R, 0, TAU); kk.fill();
+    headShade(kk, PX, PY, R, 1.15, 1, sh);
+    torso(kk, PX, PY, R, PX - W, PX - 0.5 * W, lit);
+    torso(kk, PX, PY, R, PX + 0.4 * W, PX + W, sh);
+  });
+  hud(k, clock(lerp(720, 1060, a)));
 });

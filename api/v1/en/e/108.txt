@@ -2,13 +2,14 @@
 //
 // Panning shot / 流し撮り
 // Pack: photo (Photo looks, lighting & styles) · element 12 · Category: Lens & camera effects
-// What happens: The camera follows a moving car while the shutter gets slower; the car stays sharp and only the trees, buildings and road markings behind it streak sideways.
+// What happens: The camera follows the moving car: the car stays sharp in the middle of the frame while only the buildings, trees and lamps behind it streak sideways.
 // Motion spec:
-//   - Shutter: 1/1000 s → 1/15 s (top-right readout)
-//   - Background: scrolls left at 480 px/s (a 600 px repeating strip, 4 repeats in 5 s)
-//   - Streak: 16 copies averaged across background speed × shutter time (0.5 px → 32 px)
-//   - Car: holds still at the centre (x 270, y 172); the wheel spokes blur away at slow shutter speeds
-//   - Timing: the effect comes in from 0.6 s to 1.7 s, holds until 3.9 s and is gone again by 4.8 s (one pass = 5 s, cubic ease-in-out (about cubic-bezier(0.65,0,0.35,1)))
+//   - Street corner: buildings, trees and lamps behind a road at y 132–162 (no large person in front)
+//   - Car: without the effect it drives from x −80 to 620 in 5 s; with it, it stays at x 270 ±10 px
+//   - Streak: the background is drawn 12 times spread over 46 px sideways and averaged (spread 0 → 46 px)
+//   - Wheels: a spoke line turns 12 times per 5 s
+//   - Top-right shutter speed 1/1000 → 1/15
+//   - Timing: the effect comes in from 0.4 s to 1.4 s, holds until 4.0 s and is gone again by 4.8 s (one pass = 5 s, cubic ease-in-out (about cubic-bezier(0.65,0,0.35,1)))
 // When to use it: To show the speed of a car, bike or runner in a still photo.
 // Tags: panning, panning shot, motion blur, speed, sports photography, slow shutter
 // Size: 539x208 px · Cycle: 5 s
@@ -19,55 +20,18 @@
 // Element code starts here. CELLS, constants and helpers live in the kit.
 
 // @element 12
-// 12 流し撮り: 走る車にカメラを合わせて振る。シャッターを 1/1000秒 → 1/15秒 にすると、車はくっきりしたまま背景だけが横に流れる
-const STRIP = 600;   // 背景の繰り返しの幅（px）。毎秒480pxで流れ、5秒で4回ぶん
-function panStrip() {
-  return once('strip', () => {
-    const c = mkCanvas(STRIP + CW + 60, CH), k = c.getContext('2d');
-    const sky = k.createLinearGradient(0, 0, 0, 120); sky.addColorStop(0, '#7DB2E8'); sky.addColorStop(1, '#D6E8F6');
-    k.fillStyle = sky; k.fillRect(0, 0, c.width, CH);
-    const r = rng(12), items = [];
-    for (let x = 0; x < STRIP; x += 40 + r() * 50) items.push([x, r()]);
-    const draw = off => {
-      k.fillStyle = '#9DB7A2'; k.beginPath(); k.moveTo(off, 120); for (let x = 0; x <= STRIP; x += 20) k.lineTo(off + x, 96 - 14 * Math.sin(x / STRIP * TAU * 2) - 6 * Math.sin(x / STRIP * TAU * 5)); k.lineTo(off + STRIP, 120); k.fill();
-      items.forEach(([x, t]) => {
-        if (t < 0.45) { k.fillStyle = '#6E5236'; k.fillRect(off + x - 2, 92, 4, 40); k.fillStyle = t < 0.2 ? '#3F8A4A' : '#5DA65A'; k.beginPath(); k.arc(off + x, 86, 16 + t * 20, 0, TAU); k.fill(); }
-        else if (t < 0.7) { k.fillStyle = ['#E9E2D4', '#D9DEE8', '#F1D4B8'][(t * 30 | 0) % 3]; k.fillRect(off + x - 22, 74, 44, 58); k.fillStyle = '#7A8496'; for (let y = 82; y < 126; y += 12) for (let xx = -16; xx < 16; xx += 11) k.fillRect(off + x + xx, y, 6, 7); k.fillStyle = '#B5523E'; k.fillRect(off + x - 25, 70, 50, 6); }
-        else { k.fillStyle = '#5A5F6B'; k.fillRect(off + x - 1.5, 70, 3, 64); k.fillStyle = '#F2C230'; k.fillRect(off + x - 6, 70, 12, 6); }
-      });
-      k.fillStyle = '#C9C6BE'; k.fillRect(off, 132, STRIP, 6);
-      k.fillStyle = '#6B6E74'; k.fillRect(off, 138, STRIP, 70);
-      k.fillStyle = '#F2F0E6'; for (let x = 0; x < STRIP; x += 60) k.fillRect(off + x, 182, 30, 4);
-      k.fillStyle = '#585B61'; k.fillRect(off, 196, STRIP, 12);
-    };
-    draw(0); draw(STRIP);
-    return c;
-  });
-}
-CELLS[11] = cell((k, w, h, u) => {
-  const a = env(u), T = (1 / 1000) * Math.pow(1000 / 15, a);   // 1/1000秒 → 1/15秒
-  const V = 480, off = mod(u * V, STRIP), S = V * T;          // S = シャッターが開いている間に背景が動く量（px）
-  const strip = panStrip();
-  if (S < 1.5) k.drawImage(strip, -off, 0);
-  else {   // 動いた量の範囲で何枚も重ねて平均する
-    const [ac, ak] = layer('A'), n = 16;
-    for (let i = 0; i < n; i++) { ak.globalAlpha = 1 / (i + 1); ak.drawImage(strip, -off + S * (i / (n - 1) - 0.5), 0); }
-    k.drawImage(ac, 0, 0);
+// 流し撮り: 走る車を追ってカメラを振ると、車はくっきり、背景だけ横に流れる
+CELLS[11] = cell((k, u) => {
+  const a = env(u);
+  const drive = lerp(-80, 620, u / CYC), x = lerp(drive, 270 + 10 * Math.sin(u / CYC * TAU), a);
+  const S = 46 * a, n = S < 0.5 ? 1 : 12;
+  for (let i = 0; i < n; i++) {   // 背景を横にずらして重ね、平均をとる（流れ）
+    k.save(); k.globalAlpha = 1 / (i + 1); k.translate(n > 1 ? lerp(-S / 2, S / 2, i / (n - 1)) : 0, 0); stageStreet(k, BASE, { car: false, person: false }); k.restore();
   }
-  // 車（カメラが追っているので止まって見える）
-  const x = 270, y = 172;
-  k.fillStyle = 'rgba(0,0,0,.25)'; k.beginPath(); k.ellipse(x, y + 14, 84, 6, 0, 0, TAU); k.fill();
-  const bg = k.createLinearGradient(0, y - 40, 0, y + 6); bg.addColorStop(0, '#F0554A'); bg.addColorStop(1, '#A82A24');
-  k.fillStyle = bg; k.beginPath(); k.moveTo(x - 82, y + 4); k.lineTo(x - 84, y - 14); k.quadraticCurveTo(x - 70, y - 22, x - 40, y - 24); k.quadraticCurveTo(x - 18, y - 44, x + 18, y - 42); k.quadraticCurveTo(x + 44, y - 36, x + 62, y - 22); k.quadraticCurveTo(x + 84, y - 18, x + 86, y - 4); k.lineTo(x + 84, y + 4); k.closePath(); k.fill();
-  k.fillStyle = '#2B3442'; k.beginPath(); k.moveTo(x - 30, y - 24); k.quadraticCurveTo(x - 12, y - 38, x + 14, y - 37); k.quadraticCurveTo(x + 36, y - 32, x + 48, y - 23); k.closePath(); k.fill();
-  k.fillStyle = 'rgba(255,255,255,.5)'; k.fillRect(x - 70, y - 13, 150, 2);
-  for (const wx of [x - 50, x + 54]) {
-    k.fillStyle = '#16181C'; k.beginPath(); k.arc(wx, y + 4, 15, 0, TAU); k.fill();
-    k.fillStyle = '#9CA1AA'; k.beginPath(); k.arc(wx, y + 4, 9, 0, TAU); k.fill();
-    // スポーク: シャッターが遅いほど回転でぼける
-    const rot = u * 30;
-    k.strokeStyle = rgb([60, 64, 72], 1 - a); k.lineWidth = 2.5;
-    for (let i = 0; i < 5; i++) { const t = rot + i * TAU / 5; k.beginPath(); k.moveTo(wx, y + 4); k.lineTo(wx + Math.cos(t) * 9, y + 4 + Math.sin(t) * 9); k.stroke(); }
-  }
-  pill(k, shutterText(T));
+  const D = pen(k); car(D, x, BASE, { head: BASE.lit });
+  // 車輪の回転（1周に12回転＝継ぎ目なし）
+  k.save(); k.strokeStyle = BASE.tire; k.lineWidth = 1.6;
+  for (const wx of [x - 21, x + 21]) { const t = u / CYC * TAU * 12; k.beginPath(); k.moveTo(wx - Math.cos(t) * 5, 156 - Math.sin(t) * 5); k.lineTo(wx + Math.cos(t) * 5, 156 + Math.sin(t) * 5); k.stroke(); }
+  k.restore();
+  hud(k, a > 0.5 ? '1/15' : '1/1000');
 });

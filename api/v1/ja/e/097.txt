@@ -2,13 +2,13 @@
 //
 // 逆光 / Backlighting
 // パック: photo (写真の表現・光と画風) · element 01 · カテゴリ: 光の当て方・時間帯
-// 何が起きるか: 画面の外にあった太陽が人物の頭の真後ろへ回り込む。輪郭が光り、画面全体に白いもやがかかり、カメラ側を向いた顔と服は暗く沈む。
+// 何が起きるか: 画面の外にあった太陽が人物の頭の真後ろへ回り込む。胸像の縁が細く光り、全体に淡い光の色がかかり、カメラ側の体は暗く沈む。
 // 動きの仕様:
-//   - 太陽: 画面の外（左上 x30, y−70）から頭の真後ろ（x306, y50）へ。光のにじみは半径150px
-//   - 人物: 胸から上（頭の半径31px）。服の明るさ rgb(226,232,240) → rgb(84,88,102) に落ちる
-//   - 輪郭: 人物の形を8pxぼかして後ろに光らせ、上向きの縁に幅3.5pxの細い光を加算
-//   - もや: 太陽を中心に半径420pxのスクリーン合成。中心70%・35%の位置で22%・端6%
-//   - 時間: 0.6〜1.7秒で効果が入り、3.9秒まで保ち、4.8秒までに元へ戻る（1周5秒、3次のイーズインアウト（cubic-bezier(0.65,0,0.35,1) 相当））
+//   - 場面①: 地平線（y150）の前に胸から上の人物（頭の中心 x270, y78・半径29px、顔・髪なし）。光はアンバー #FFC75A の平らな面、影は一段濃い #33405A
+//   - 太陽: 半径20px。左上の画面外（x40, y−40）から頭の真後ろ（x270, y56）へ。周りに半径2.6倍・1.7倍の平らな光の輪（#FFE3A3、35%・60%）
+//   - 輪郭: 胸像の形を幅7pxの線でなぞってから中を塗り、外側3.5pxの光の縁だけを残す
+//   - 人物 #4D5A75 → #33405A。空 #FAF9F7 → #FFF4DC、全体に #FFE3A3 を22%重ねる
+//   - 時間: 0.4〜1.4秒で効果が入り、4.0秒まで保ち、4.8秒までに元へ戻る（1周5秒、3次のイーズインアウト（cubic-bezier(0.65,0,0.35,1) 相当））
 // 使いどころ: やわらかく明るい人物写真や、光に包まれた雰囲気を出したいとき。
 // タグ: backlighting, backlit, contre-jour, sun behind, haze, glow, halo
 // サイズ: 539x208 px · 1周: 5 s
@@ -19,44 +19,14 @@
 // ここから要素のコード。CELLS や定数・補助関数は kit にある。
 
 // @element 01
-// 01 逆光: 太陽が画面の外（左上）から人物の頭の真後ろへ回り込む。輪郭が光り、白いもやがかかり、顔の側は暗く沈む
-CELLS[0] = cell((k, w, h, u) => {
+// 逆光: 太陽が画面の外から頭の真後ろへ回り込み、輪郭が光って人物は暗くなる
+CELLS[0] = cell((k, u) => {
   const a = env(u);
-  const sx = lerp(30, 306, a), sy = lerp(-70, 50, a);
-  const sky = k.createLinearGradient(0, 0, 0, 128);
-  sky.addColorStop(0, rgb(mix([120, 170, 225], [236, 214, 182], a))); sky.addColorStop(1, rgb(mix([206, 226, 242], [252, 236, 206], a)));
-  k.fillStyle = sky; k.fillRect(0, 0, CW, 128);
-  // 遠くの木立と草原
-  k.fillStyle = rgb(mix([86, 128, 92], [160, 150, 120], a));
-  k.beginPath(); k.moveTo(0, 128); for (let x = 0; x <= CW; x += 18) k.lineTo(x, 112 - 8 * Math.abs(Math.sin(x * 0.037)) - 5 * Math.abs(Math.sin(x * 0.11))); k.lineTo(CW, 128); k.fill();
-  const gr = k.createLinearGradient(0, 120, 0, CH);
-  gr.addColorStop(0, rgb(mix([132, 178, 96], [176, 164, 104], a))); gr.addColorStop(1, rgb(mix([92, 140, 66], [92, 92, 54], a)));
-  k.fillStyle = gr; k.fillRect(0, 122, CW, CH - 122);
-  // 太陽
-  const sg = k.createRadialGradient(sx, sy, 4, sx, sy, 150);
-  sg.addColorStop(0, 'rgba(255,252,236,1)'); sg.addColorStop(0.1, 'rgba(255,240,200,.85)'); sg.addColorStop(1, 'rgba(255,230,190,0)');
-  k.fillStyle = sg; k.fillRect(0, 0, CW, CH);
-  // 人物（胸から上）。後ろの光が輪郭からにじむ
-  const cx = 306, top = 44, s = 31;
-  if (a > 0.01) { k.save(); k.filter = 'blur(8px)'; k.globalAlpha = a; k.fillStyle = '#FFF2D6'; bustPath(k, cx, top - 3, s + 3); k.fill(); k.restore(); }
-  const body = k.createLinearGradient(cx - 2 * s, 0, cx + 2 * s, 0);
-  body.addColorStop(0, rgb(mix([226, 232, 240], [84, 88, 102], a))); body.addColorStop(1, rgb(mix([196, 204, 218], [64, 68, 82], a)));
-  k.fillStyle = body; bustPath(k, cx, top, s); k.fill();
-  const hd = k.createRadialGradient(cx - s * .3, top + s * .7, 2, cx, top + s, s * 1.1);
-  hd.addColorStop(0, rgb(mix([246, 204, 168], [140, 100, 80], a))); hd.addColorStop(1, rgb(mix([214, 160, 124], [96, 66, 54], a)));
-  k.fillStyle = hd; k.beginPath(); k.arc(cx, top + s, s, 0, TAU); k.fill();
-  // 輪郭の上側に細い光（人物から、下へずらした人物を消すと上向きの縁だけが残る）
-  if (a > 0.01) {
-    const [ec, ek] = layer('A');
-    ek.fillStyle = '#FFF1D2'; bustPath(ek, cx, top, s); ek.fill();
-    ek.globalCompositeOperation = 'destination-out'; bustPath(ek, cx, top + 3.5, s); ek.fill();
-    k.globalCompositeOperation = 'lighter'; k.globalAlpha = a; k.filter = 'blur(1px)'; k.drawImage(ec, 0, 0);
-    k.filter = 'none'; k.globalAlpha = 1; k.globalCompositeOperation = 'source-over';
-  }
-  // 全体にかかる白いもや（コントラストが下がる）
-  k.globalCompositeOperation = 'screen';
-  const veil = k.createRadialGradient(sx, sy, 0, sx, sy, 420);
-  veil.addColorStop(0, rgb([255, 236, 200], 0.7 * a)); veil.addColorStop(0.35, rgb([255, 236, 200], 0.22 * a)); veil.addColorStop(1, rgb([255, 236, 200], 0.06 * a));
-  k.fillStyle = veil; k.fillRect(0, 0, CW, CH);
-  k.globalCompositeOperation = 'source-over';
+  const BACK = Object.assign({}, BASE, { sky: '#FFF4DC', sky2: '#FFEBC4', far: '#F6E2BE', ground: '#F7EAD3', bld: '#F7E9D2', winOff: '#EEDCBF', win: '#EEDCBF', tree: '#EEDCBF', edge: '#E3CFAE', post: '#CDB894', trunk: '#E3CFAE', bulb: '#E3CFAE' });
+  stagePortrait(k, pal(BASE, BACK, a), { sun: [lerp(40, PX, a), lerp(-40, PY - 22, a), 20, 1] });
+  // 輪郭の光: 胸像の形を太い線でなぞってから中を塗り、縁だけを残す
+  k.save(); k.globalAlpha = a; bustPath(k, PX, PY, PR); k.strokeStyle = BASE.lit; k.lineWidth = 7; k.lineJoin = 'round'; k.stroke(); k.restore();
+  bust(k, PX, PY, PR, mixc(BASE.person, BASE.shade, a));
+  // かすみ: 全体に光の色を薄く重ねる
+  k.save(); k.globalAlpha = 0.22 * a; k.fillStyle = BASE.glow; k.fillRect(0, 0, CW, CH); k.restore();
 });

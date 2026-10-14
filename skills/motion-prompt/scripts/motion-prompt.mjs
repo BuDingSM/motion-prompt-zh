@@ -5,6 +5,8 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import crypto from 'node:crypto';
+import http from 'node:http';
+import { spawn } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
 const VERSION = '0.1.0';
@@ -14,7 +16,10 @@ const REMOTES = [
   'https://raw.githubusercontent.com/showheyohtaki/motion-prompt/main/api/v1',
 ];
 const MAX_GET = 8;
-const EXIT = { OK: 0, NOT_FOUND: 1, USAGE: 2, NETWORK: 3 };
+const EXIT = { OK: 0, NOT_FOUND: 1, USAGE: 2, NETWORK: 3, TIMEOUT: 4 };
+const PICK_TIMEOUT = 900; // seconds
+const PICK_MAX = 60;
+const NOTE_MAX = 1000;
 const SELF = fileURLToPath(import.meta.url);
 const ENV = process.env;
 
@@ -24,8 +29,8 @@ class CliError extends Error {
 
 // ---------- arguments ----------
 
-const VALUE_FLAGS = new Set(['lang', 'pack', 'limit', 'out']);
-const BOOL_FLAGS = new Set(['refresh', 'help', 'version']);
+const VALUE_FLAGS = new Set(['lang', 'pack', 'limit', 'out', 'timeout']);
+const BOOL_FLAGS = new Set(['refresh', 'help', 'version', 'no-open', 'local']);
 
 function parseArgs(argv) {
   const flags = {};
@@ -50,6 +55,8 @@ ${SITE}
 
 Usage: node motion-prompt.mjs <command> [options]
 
+  pick                  open the gallery so the user can pick; prints what they picked   [--pack <pack>]
+                        [--timeout <seconds, default ${PICK_TIMEOUT}>] [--no-open] [--local]
   search <words...>     best matches (English or Japanese words)   [--pack <pack>] [--limit N]
   list                  packs, categories and counts
   list --pack <pack>    every element in one pack
@@ -62,11 +69,13 @@ Options:
   --lang ja|en          language of names and text (default en; Japanese search words switch to ja)
   --out <dir>           write files into <dir> instead of printing (get, prompt, kit)
   --refresh             ignore the disk cache
+  --no-open             pick: print the gallery URL instead of opening a browser
+  --local               pick: serve the gallery from this clone of the repository instead of the public site
 Environment:
   MOTION_PROMPT_BASE    comma-separated data sources (folder path or URL) used instead of the defaults
   MOTION_PROMPT_CACHE   cache folder (default ~/.cache/motion-prompt, then the temp folder)
   MOTION_PROMPT_TTL     seconds before the cached catalog is fetched again (default 21600)
-Exit codes: 0 ok · 1 not found · 2 usage · 3 no data source reachable`;
+Exit codes: 0 ok · 1 not found · 2 usage · 3 no data source reachable · 4 pick timed out`;
 
 // ---------- data sources ----------
 
@@ -419,6 +428,197 @@ async function cmdInfo(store) {
   console.log(`Node:           ${process.version}`);
 }
 
+// ---------- pick: the user chooses in the gallery, the choice comes back here ----------
+// A small HTTP server on 127.0.0.1 waits for one GET /?t=<token>&ids=012,045&note=…&lang=ja. The gallery sends it
+// as a top-level navigation ("Send to AI"), because an https page may not fetch() from 127.0.0.1.
+
+const MIME = {
+  '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.mjs': 'text/javascript; charset=utf-8',
+  '.css': 'text/css; charset=utf-8', '.json': 'application/json; charset=utf-8', '.txt': 'text/plain; charset=utf-8',
+  '.tsv': 'text/tab-separated-values; charset=utf-8', '.md': 'text/plain; charset=utf-8', '.svg': 'image/svg+xml',
+  '.png': 'image/png', '.gif': 'image/gif', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.webp': 'image/webp',
+  '.woff': 'font/woff', '.woff2': 'font/woff2', '.ttf': 'font/ttf', '.otf': 'font/otf', '.mp4': 'video/mp4', '.ico': 'image/x-icon',
+};
+
+function repoRoot() {
+  const dir = path.resolve(path.dirname(SELF), '..', '..', '..');
+  return fs.existsSync(path.join(dir, 'index.html')) && fs.existsSync(path.join(dir, 'assets', 'site.js')) ? dir : null;
+}
+
+const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+
+function page(lang, title, body) {
+  return `<!doctype html><html lang="${lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark"><link rel="icon" href="data:,"><title>${esc(title)} | Motion Prompt</title>
+<style>body{margin:0;font:16px/1.7 system-ui,"Hiragino Sans","Yu Gothic",sans-serif;background:Canvas;color:CanvasText}
+main{max-width:34em;margin:12vh auto;padding:0 16px}h1{font-size:24px;line-height:1.4;margin:0 0 8px}p{margin:0 0 12px}
+ol{padding-left:1.4em;margin:16px 0}li{margin:2px 0}code{font-family:ui-monospace,Menlo,monospace;opacity:.7;margin-right:.5em}</style>
+</head><body><main><h1>${esc(title)}</h1>${body}</main></body></html>`;
+}
+
+function send(res, status, html, extra = {}) {
+  res.writeHead(status, { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff', ...extra });
+  res.end(html);
+}
+
+function serveStatic(root, pathname, req, res) {
+  let rel;
+  try { rel = decodeURIComponent(pathname); } catch { return send(res, 400, 'Bad request'); }
+  if (rel.includes('\0') || /(^|\/)\./.test(rel)) return send(res, 404, 'Not found');
+  let file = path.join(root, rel);
+  if (file !== root && !file.startsWith(root + path.sep)) return send(res, 404, 'Not found');
+  try { if (fs.statSync(file).isDirectory()) file = path.join(file, 'index.html'); } catch { /* answered below */ }
+  fs.readFile(file, (err, buf) => {
+    if (err) return send(res, 404, 'Not found');
+    res.writeHead(200, { 'Content-Type': MIME[path.extname(file).toLowerCase()] || 'application/octet-stream', 'Cache-Control': 'no-store' });
+    res.end(req.method === 'HEAD' ? undefined : buf);
+  });
+}
+
+function openBrowser(url) {
+  let cmd;
+  let args;
+  const opts = { detached: true, stdio: 'ignore' };
+  if (process.platform === 'darwin') { cmd = 'open'; args = [url]; }
+  else if (process.platform === 'win32') { cmd = 'cmd'; args = ['/c', 'start', '""', `"${url}"`]; opts.windowsVerbatimArguments = true; }
+  else { cmd = 'xdg-open'; args = [url]; }
+  return new Promise((resolve) => {
+    let child;
+    try { child = spawn(cmd, args, opts); } catch { resolve(false); return; }
+    child.once('error', () => resolve(false));
+    child.once('spawn', () => { child.unref(); resolve(true); });
+  });
+}
+
+const PICK_TEXT = {
+  ja: {
+    done: 'AIに渡しました', close: 'この画面は閉じて大丈夫です。AIの画面に戻って、どう使うかを伝えてください。',
+    ignored: 'カタログに無い番号は渡していません: ', bad: '選択を読み取れませんでした',
+    badBody: 'ギャラリーに戻って、もう一度「AIに渡す」を押してください。AIはまだ待っています。',
+    none: '選んだ番号がカタログにありませんでした', other: 'この受け口は別の依頼の物です',
+    otherBody: 'AIが開いたギャラリーの「AIに渡す」から送ってください。',
+  },
+  en: {
+    done: 'Sent to your AI', close: 'You can close this page. Go back to your AI and tell it how to use the picks.',
+    ignored: 'Not in the catalog, so not sent: ', bad: 'The selection could not be read',
+    badBody: 'Go back to the gallery and press "Send to AI" again. Your AI is still waiting.',
+    none: 'None of the picked numbers is in the catalog', other: 'This address belongs to another request',
+    otherBody: 'Send your picks with "Send to AI" in the gallery that your AI opened.',
+  },
+};
+
+function waitForPick(server, { port, token, root, cat, flags, timeoutSec }) {
+  const origin = `http://127.0.0.1:${port}`;
+  return new Promise((resolve, reject) => {
+    let done = false;
+    const finish = (fn) => {
+      if (done) return;
+      done = true;
+      clearTimeout(timer);
+      server.close();
+      if (server.closeAllConnections) server.closeAllConnections();
+      fn();
+    };
+    const timer = setTimeout(() => finish(() => reject(new CliError(EXIT.TIMEOUT,
+      `motion-prompt: no selection arrived within ${timeoutSec} s, so nothing was picked.\nAsk the user whether they still want to pick, then run pick again.`))), timeoutSec * 1000);
+
+    server.on('request', (req, res) => {
+      const host = String(req.headers.host || '').toLowerCase();
+      if (host !== `127.0.0.1:${port}` && host !== `localhost:${port}`) return send(res, 403, 'Forbidden'); // DNS rebinding
+      if (req.method !== 'GET' && req.method !== 'HEAD') return send(res, 405, 'Method not allowed', { Allow: 'GET, HEAD' });
+      let url;
+      try { url = new URL(req.url, origin); } catch { return send(res, 400, 'Bad request'); }
+      const q = url.searchParams;
+      if (url.pathname === '/' && q.has('t')) {
+        const lang = flags.lang || (q.get('lang') === 'ja' ? 'ja' : q.get('lang') === 'en' ? 'en' : 'en');
+        const T = PICK_TEXT[lang];
+        const given = Buffer.from(String(q.get('t')));
+        const want = Buffer.from(token);
+        if (given.length !== want.length || !crypto.timingSafeEqual(given, want)) {
+          return send(res, 403, page(lang, T.other, `<p>${esc(T.otherBody)}</p>`));
+        }
+        if (req.method !== 'GET') return send(res, 405, 'Method not allowed', { Allow: 'GET' });
+        const raw = String(q.get('ids') || '');
+        if (!/^\d{3}(,\d{3})*$/.test(raw)) {
+          process.stderr.write(`motion-prompt: refused a selection with malformed ids (${JSON.stringify(raw.slice(0, 80))}); still waiting.\n`);
+          return send(res, 400, page(lang, T.bad, `<p>${esc(T.badBody)}</p>`));
+        }
+        const ids = [...new Set(raw.split(','))];
+        if (ids.length > PICK_MAX) return send(res, 400, page(lang, T.bad, `<p>${esc(T.badBody)}</p>`));
+        const known = ids.filter((id) => cat.elements.some((e) => e.id === id));
+        const unknown = ids.filter((id) => !known.includes(id));
+        if (!known.length) {
+          process.stderr.write(`motion-prompt: refused a selection with no known ids (${unknown.join(', ')}); still waiting.\n`);
+          return send(res, 400, page(lang, T.none, `<p>${esc(T.badBody)}</p>`));
+        }
+        const note = String(q.get('note') || '').replace(/[\u0000-\u001f\u007f]+/g, ' ').replace(/\s+/g, ' ').trim().slice(0, NOTE_MAX);
+        const items = known.map((id) => {
+          const e = cat.elements.find((x) => x.id === id);
+          return `<li><code>#${id}</code>${esc(tx(e.name, lang))}</li>`;
+        }).join('');
+        const html = page(lang, T.done, `<p>${esc(T.close)}</p><ol>${items}</ol>${unknown.length ? `<p>${esc(T.ignored + unknown.map((u) => `#${u}`).join(', '))}</p>` : ''}`);
+        res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store', Connection: 'close' });
+        res.end(html, () => finish(() => resolve({ ids: known, unknown, note, lang })));
+        return;
+      }
+      if (root) return serveStatic(root, url.pathname, req, res);
+      return send(res, 404, 'Not found');
+    });
+  });
+}
+
+function printPick(cat, { ids, unknown, note, lang }) {
+  const other = lang === 'ja' ? 'en' : 'ja';
+  const out = [`The user picked ${ids.length} element${ids.length === 1 ? '' : 's'} in the Motion Prompt gallery, in this order.`];
+  out.push(note ? `Note from the user: ${note}` : 'Note from the user: (none)');
+  out.push('');
+  ids.forEach((id, i) => {
+    const e = cat.elements.find((x) => x.id === id);
+    const name = tx(e.name, lang);
+    const alt = tx(e.name, other);
+    out.push(`${i + 1}. #${e.id}  ${name}${alt && alt !== name ? ` / ${alt}` : ''}  [${e.pack} / ${categoryLabel(cat, e, lang).label}]`);
+    if (e.meaning) out.push(`   Meaning: ${tx(e.meaning, lang)}`);
+    if (e.ask) out.push(`   How to ask: ${tx(e.ask, lang)}`);
+    const spec = e.spec ? (Array.isArray(e.spec) ? e.spec : e.spec[lang] || e.spec.en || []) : [];
+    if (spec.length) { out.push('   Spec:'); for (const s of spec) out.push(`   - ${s}`); }
+    out.push(`   Demo: ${demoUrl(e.id)}`);
+    out.push('');
+  });
+  if (unknown.length) out.push(`Ignored (not in the catalog): ${unknown.map((u) => `#${u}`).join(', ')}`, '');
+  const packs = [...new Set(ids.map((id) => cat.elements.find((x) => x.id === id).pack))];
+  out.push(`Next: use exactly these elements, no more and no fewer. Run "get ${ids.join(' ')}" for the code (at most ${MAX_GET} ids per call) and "kit <pack>" once for each of: ${packs.join(', ')}.`);
+  process.stdout.write(`${out.join('\n')}\n`);
+}
+
+async function cmdPick(store, args, flags) {
+  if (args.length) throw new CliError(EXIT.USAGE, 'pick takes no ids or words. Options: --pack <pack> --lang ja|en --timeout <seconds> --no-open --local');
+  const timeoutSec = flags.timeout === undefined ? PICK_TIMEOUT : Number(flags.timeout);
+  if (!Number.isFinite(timeoutSec) || timeoutSec < 1 || timeoutSec > 86400) throw new CliError(EXIT.USAGE, '--timeout must be a number of seconds between 1 and 86400.');
+  const root = flags.local ? repoRoot() : null;
+  if (flags.local && !root) throw new CliError(EXIT.USAGE, '--local needs a full clone of the repository (index.html and assets/ three folders above this script). Run pick without --local to use the public gallery.');
+  const cat = await store.loadCatalog(); // fail before opening anything if there is no data
+  const pack = flags.pack ? requirePack(cat, flags.pack) : null;
+
+  const token = crypto.randomBytes(16).toString('hex');
+  const server = http.createServer();
+  await new Promise((resolve, reject) => { server.once('error', reject); server.listen(0, '127.0.0.1', resolve); });
+  const { port } = server.address();
+  const origin = `http://127.0.0.1:${port}`;
+  const q = new URLSearchParams({ cb: `${origin}/?t=${token}` });
+  if (pack) q.set('pack', pack);
+  if (flags.lang) q.set('lang', flags.lang);
+  const galleryUrl = `${root ? `${origin}/` : SITE}?${q}`;
+  const waiting = waitForPick(server, { port, token, root, cat, flags, timeoutSec });
+
+  console.log(`Gallery: ${galleryUrl}`);
+  if (flags['no-open']) console.log('Not opened (--no-open). Open this URL in a browser, or give it to the user to open.');
+  else if (await openBrowser(galleryUrl)) console.log('Opened in the default browser. If no browser window appeared, open the URL above yourself.');
+  else console.log('Could not open a browser from here. Open the URL above in a browser, or give it to the user to open.');
+  console.log(`Waiting for the user to pick and press "Send to AI" (up to ${timeoutSec} s)…\n`);
+
+  printPick(cat, await waiting);
+}
+
 // ---------- main ----------
 
 async function main() {
@@ -435,6 +635,7 @@ async function main() {
     case 'prompt': return cmdPrompt(store, args, flags, lang);
     case 'kit': return cmdKit(store, args, flags);
     case 'info': return cmdInfo(store);
+    case 'pick': return cmdPick(store, args, flags);
     default: throw new CliError(EXIT.USAGE, `Unknown command "${command}". Run with --help.`);
   }
 }

@@ -19,7 +19,7 @@
       lead: 'モーショングラフィックス、カメラワーク、UIパーツ、LP・Webサイトの演出、写真の表現の名前を{n}個、動く見本つきで並べました。名前を見つけたら、そのままAIに伝えてください。プロンプトをコピーすれば、動きの仕様と参考実装も一緒に渡せます。',
       factMoves: '名前', factPacks: 'パック', factLicense: 'ライセンス',
       installSkillH: 'スキルで導入',
-      installSkillP: 'ターミナルで実行します。入れたあとは「motion-prompt スキルで #012 と #045 を使って」と番号で頼めます。',
+      installSkillP: 'ターミナルで実行します。入れたあとは、AIに「motion-prompt のライブラリ出して」と頼むと、このギャラリーが開きます。選んで「AIに渡す」を押すと、AIに届きます。',
       installPromptH: 'プロンプトで導入',
       installPromptP: '下の文を Claude Code や Codex に貼ると、AIがスキルを入れて使い方を教えてくれます。',
       installPrompt: 'https://github.com/showheyohtaki/motion-prompt を読んで、motion-prompt スキルをこの環境に入れてください。入れたら、使い方を3行で教えてください。',
@@ -33,13 +33,17 @@
       empty: '見つかりませんでした。別の言葉や番号で探してみてください。',
       openLabel: '#{id} {name}の詳細を開く', loadFailed: '読み込めませんでした',
       howH: '使い方',
-      s1h: '名前を見つける', s1p: '見本を眺めて、頭の中にある動きを探します。名前は、そのままAIへの指示に使えます。#012 のような番号でも呼べます。',
-      s2h: 'プロンプトをコピー', s2p: '詳細にある「プロンプトをコピー」を押します。動きの仕様と、参考実装のURLが入った文がコピーされます。',
-      s3h: 'AIに貼る', s3p: 'Claude Code や Codex に貼ります。「今のこの部分を、これに差し替えて」と一言添えると伝わりやすくなります。',
-      skillH: 'スキルを入れると、番号だけで頼めます',
-      skillP: 'motion-prompt スキルを入れておくと、AIが番号から仕様とコードを自分で取りに行きます。プロンプトを毎回コピーする必要はありません。',
-      say1: 'motion-prompt スキルで #012 と #045 を使って、30秒の紹介動画を作って',
-      say2: '今のタイトルの出し方を #005 に差し替えて',
+      s1h: 'ライブラリを出してもらう', s1p: 'motion-prompt スキルを入れたAIに「motion-prompt のライブラリ出して」と頼みます。このギャラリーがブラウザで開きます。',
+      s2h: '見ながら選ぶ', s2p: '使いたい見本の「選ぶ」を押します。いくつでも選べます。選んだ物は画面の下に並び、「冒頭のタイトルに」のような一言のメモも書けます。',
+      s3h: 'AIに渡して、頼む', s3p: '「AIに渡す」を押すと、選んだ物がAIに届きます。あとは「この動画の冒頭をこんな感じに編集して」と頼みます。このボタンは、AIがライブラリを開いたときに出ます。',
+      skillH: 'こう話しかけます',
+      skillP: '名前や番号を覚えていなくてかまいません。分からないときは、辞書を引くようにライブラリを出してもらってください。',
+      say1: 'motion-prompt のライブラリ出して',
+      say2: 'どんなカメラワークがある？一覧見せて',
+      say3: '（選んで渡したあと）この動画の冒頭をこんな感じに編集して',
+      altH: 'スキルが無いとき・番号が分かるとき',
+      altP1: 'スキルを入れていないAIには、画面の下の「選んだ物をコピー」で作った文を貼ってください。見本と仕様のURLが入っています。1つだけなら、詳細の「プロンプトをコピー」も使えます。',
+      altP2: '番号が分かっていれば、「motion-prompt で #012 と #045 を使って」のように直接頼むこともできます。',
       implH: '参考実装について',
       implP: '見本はすべて Canvas 2D で書いた、時刻だけで絵が決まる関数です。外部ライブラリは使っていません。1コマずつ描けるので、動画の書き出しにも使えます。',
       author: '作者', authorName: '大滝昇平',
@@ -54,6 +58,16 @@
       kitLink: '共通の補助コード（kit/{pack}.js）', txtLink: '仕様つきコード（{id}.txt）',
       codeLoading: '読み込み中です…', codeFailed: 'コードを読み込めませんでした。',
       size: '{w}×{h}px・1周{c}秒',
+      pick: '選ぶ', picked: '選択中', pickLabel: '#{id} {name}を選ぶ', unpickLabel: '#{id} {name}を外す',
+      trayCount: '選んだ物 {n}個', trayWait: 'AIが待っています。選んだら「AIに渡す」を押してください。',
+      trayEmpty: '見本の「選ぶ」を押すと、ここに並びます。',
+      noteLabel: 'メモ（任意）', notePh: '例: 冒頭のタイトルに',
+      send: 'AIに渡す', sending: 'AIに渡しています…', copyPicked: '選んだ物をコピー', shareUrl: '選択を共有するURL', clearAll: 'すべて外す',
+      pickedLive: '#{id} {name}を選びました。選んだ物は{n}個です。', unpickedLive: '#{id} {name}を外しました。選んだ物は{n}個です。',
+      clearedLive: '選択をすべて外しました。',
+      outIntro: 'motion-prompt のギャラリーで、次の{n}個を選びました。これを使って編集してください。',
+      outDemo: '見本', outSpec: '仕様とコード', outNote: 'メモ',
+      outEnd: '詳しい仕様は motion-prompt スキルの get で取れます（スキルが入っていなければ、各行の「仕様とコード」のURLを読んでください）。',
     },
     en: {
       title: 'Motion Prompt — a library of names for the things you ask an AI to make',
@@ -64,7 +78,7 @@
       lead: '{n} names from motion graphics, camera work, UI components, landing pages and photography, each with a moving sample. Find the name and say it to your AI. Copy the prompt, and the motion spec and a reference implementation go with it.',
       factMoves: 'Names', factPacks: 'Packs', factLicense: 'License',
       installSkillH: 'Install as a skill',
-      installSkillP: 'Run this in a terminal. After that you can ask by number: "use #012 and #045 with the motion-prompt skill".',
+      installSkillP: 'Run this in a terminal. After that, say "open the motion-prompt library" to your AI and this gallery opens. Pick what you want and press "Send to AI".',
       installPromptH: 'Install with a prompt',
       installPromptP: 'Paste the text below into Claude Code or Codex. The AI installs the skill and tells you how to use it.',
       installPrompt: 'Read https://github.com/showheyohtaki/motion-prompt and install the motion-prompt skill in this environment. When it is installed, tell me how to use it in three lines.',
@@ -78,13 +92,17 @@
       empty: 'Nothing found. Try another word or a number.',
       openLabel: 'Open #{id} {name}', loadFailed: 'Could not load',
       howH: 'How to use',
-      s1h: 'Find the name', s1p: 'Browse the samples and find what you have in mind. The name works as it is in a prompt. You can also refer to it by a number such as #012.',
-      s2h: 'Copy the prompt', s2p: 'Press "Copy prompt" in the detail view. It copies a text with the motion spec and the URL of the reference implementation.',
-      s3h: 'Paste it into your AI', s3p: 'Paste it into Claude Code or Codex. Adding one line such as "replace this part with this" makes the request clearer.',
-      skillH: 'With the skill installed, a number is enough',
-      skillP: 'With the motion-prompt skill installed, the AI looks up the spec and the code from the number by itself. You do not need to copy a prompt each time.',
-      say1: 'Use #012 and #045 with the motion-prompt skill and make a 30-second intro video',
-      say2: 'Replace the current title entrance with #005',
+      s1h: 'Ask your AI to open the library', s1p: 'Say "open the motion-prompt library" to an AI that has the motion-prompt skill. This gallery opens in your browser.',
+      s2h: 'Pick while you look', s2p: 'Press "Pick" on the samples you want, as many as you like. They line up at the bottom of the screen, with room for a short note such as "for the opening title".',
+      s3h: 'Send them, then ask', s3p: 'Press "Send to AI" and your picks reach the AI. Then ask: "Edit the opening of this video like this." The button appears when the AI opened the library.',
+      skillH: 'What to say',
+      skillP: 'You do not need to remember names or numbers. When you are not sure, have the library opened, the way you would look something up in a dictionary.',
+      say1: 'Open the motion-prompt library',
+      say2: 'What camera moves are there? Show me the list.',
+      say3: '(after sending your picks) Edit the opening of this video like this.',
+      altH: 'Without the skill, or when you know the number',
+      altP1: 'For an AI without the skill, paste the text made by "Copy picks" at the bottom of the screen. It has the demo and spec URLs. For a single name, "Copy prompt" in the detail view works too.',
+      altP2: 'If you know the numbers, you can also ask directly: "Use #012 and #045 from motion-prompt."',
       implH: 'About the reference implementations',
       implP: 'Every sample is a Canvas 2D function whose picture depends only on the time. No external libraries. Because it can draw frame by frame, it also works for rendering video.',
       author: 'by', authorName: 'Shohei Ohtaki',
@@ -99,6 +117,16 @@
       kitLink: 'Shared helper code (kit/{pack}.js)', txtLink: 'Code with spec ({id}.txt)',
       codeLoading: 'Loading…', codeFailed: 'Could not load the code.',
       size: '{w}×{h} px, {c} s loop',
+      pick: 'Pick', picked: 'Picked', pickLabel: 'Pick #{id} {name}', unpickLabel: 'Remove #{id} {name}',
+      trayCount: '{n} picked', trayWait: 'Your AI is waiting. When you are done, press "Send to AI".',
+      trayEmpty: 'Press "Pick" on a sample and it appears here.',
+      noteLabel: 'Note (optional)', notePh: 'e.g. for the opening title',
+      send: 'Send to AI', sending: 'Sending to your AI…', copyPicked: 'Copy picks', shareUrl: 'Copy link to this selection', clearAll: 'Clear all',
+      pickedLive: 'Picked #{id} {name}. {n} picked.', unpickedLive: 'Removed #{id} {name}. {n} picked.',
+      clearedLive: 'Cleared all picks.',
+      outIntro: 'I picked these {n} from the motion-prompt gallery. Please use them for the edit.',
+      outDemo: 'Demo', outSpec: 'Spec and code', outNote: 'Note',
+      outEnd: 'The get command of the motion-prompt skill returns the full spec (without the skill, read the "Spec and code" URL on each line).',
     },
   };
 
@@ -115,6 +143,9 @@
     playing: !reduceMotion.matches,
     open: null,           // id shown in the detail view
     internalNav: 0,       // history entries this page pushed for the detail view
+    picks: [],            // selected ids, in the order they were picked
+    note: '',             // the one-line note that goes with the picks
+    cb: null,             // URL of the waiting "pick" command (only when it opened this page)
   };
   var packBy = {}, elBy = {}, order = [];
   CAT.packs.forEach(function (p) { packBy[p.pack] = p; });
@@ -247,16 +278,22 @@
             h('span', { class: 'tile-sub', text: nm.sub }),
           ]),
         ]);
-        var tl = { el: el, a: a, canvas: canvas, ctx: canvas.getContext('2d'), visible: !io, dirty: true, broken: false,
+        var pb = h('button', { type: 'button', class: 'tile-pick', 'aria-pressed': 'false', 'data-pick': el.id }, [
+          pickBox(), h('span', { class: 'tile-pick-t' }),
+        ]);
+        var box = h('div', { class: 'tile-box' }, [a, pb]);
+        var tl = { el: el, a: a, box: box, pick: pb, canvas: canvas, ctx: canvas.getContext('2d'), visible: !io, dirty: true, broken: false,
           offset: reduceMotion.matches ? STILL : (el._i * 0.6180339887) % 1 };
         a._tile = tl;
+        pb.addEventListener('click', function () { togglePick(el.id); });
+        markTile(tl);
         a.addEventListener('click', function (ev) {
           if (ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.altKey || ev.button) return;
           state.internalNav += 1; // the hash change that follows adds one history entry
         });
         if (ready[el.pack] === 'failed') breakTile(tl);
         tiles.push(tl);
-        list.appendChild(a);
+        list.appendChild(box);
         if (io) io.observe(a);
       });
       var sec = h('section', { class: 'pack', 'data-pack': p.pack, 'aria-labelledby': 'pack-' + p.pack }, [
@@ -296,10 +333,10 @@
     shown = [];
     tiles.forEach(function (tl) {
       var ok = matches(tl.el);
-      tl.a.hidden = !ok;
+      tl.box.hidden = !ok;
       if (ok) shown.push(tl.el.id);
     });
-    $$('.pack', grid).forEach(function (sec) { sec.hidden = !$('.tile:not([hidden])', sec); });
+    $$('.pack', grid).forEach(function (sec) { sec.hidden = !$('.tile-box:not([hidden])', sec); });
     $('#empty').hidden = shown.length > 0;
     $('#count').textContent = shown.length === CAT.count ? t('count', { n: CAT.count }) : t('countOf', { n: shown.length, total: CAT.count });
   }
@@ -430,6 +467,7 @@
     i = list.indexOf(el.id);
     $('#d-prev').disabled = i <= 0; $('#d-next').disabled = i >= list.length - 1;
     $('#d-prev')._to = list[i - 1]; $('#d-next')._to = list[i + 1];
+    markDetailPick();
     resetFlash($('#d-copy-prompt')); resetFlash($('#d-copy-code'));
     $('#d-copy-prompt').textContent = t('copyPrompt'); $('#d-copy-code').textContent = t('copyCode');
     document.title = '#' + el.id + ' ' + nm.main + ' | Motion Prompt';
@@ -460,7 +498,7 @@
     markDirty();
     if (silent) return;
     var tile = id && $('.tile[data-id="' + id + '"]');
-    var back = tile && !tile.hidden ? tile : lastFocus;
+    var back = tile && !tile.parentNode.hidden ? tile : lastFocus;
     if (back && back.focus) back.focus({ preventScroll: true });
   }
   function hashId() {
@@ -507,6 +545,171 @@
   });
   window.addEventListener('resize', function () { if (state.open) sizeDetailCanvas(); });
 
+  // ------------------------------------------------------------------ picks (choose → copy, share, or send to the waiting agent)
+  // The "pick" command of the skill opens this page with ?cb=http://127.0.0.1:<port>/?t=<token>. "Send to AI" then
+  // navigates the whole tab there (a top-level GET, not fetch: an https page may not fetch from 127.0.0.1).
+  var SITE = CAT.site || 'https://showheyohtaki.github.io/motion-prompt/';
+  var PICK_KEY = 'mp-pick', PICK_CB_KEY = 'mp-pick-cb', NOTE_MAX = 300;
+  var CHECK_SVG = '<svg viewBox="0 0 16 16" width="14" height="14"><path d="M3.5 8.4l3 3 6-6.6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  var X_SVG = '<svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>';
+  var tray = $('#tray'), trayList = $('#tray-list'), trayToggle = $('#tray-toggle'), trayBody = $('#tray-body'), trayNote = $('#tray-note');
+  var trayOpen = !(window.matchMedia && window.matchMedia('(max-width: 720px)').matches); // phones start folded
+
+  function pickBox() { var s = h('span', { class: 'pick-box', 'aria-hidden': 'true' }); s.innerHTML = CHECK_SVG; return s; }
+  function isPicked(id) { return state.picks.indexOf(id) >= 0; }
+  function cleanIds(list) {
+    var out = [];
+    (list || []).forEach(function (x) {
+      var m = /^#?(\d{1,3})$/.exec(String(x).trim());
+      var id = m && ('000' + m[1]).slice(-3);
+      if (id && elBy[id] && out.indexOf(id) < 0) out.push(id);
+    });
+    return out;
+  }
+  function validCb(v) { // only http://127.0.0.1:<port>/ or http://localhost:<port>/ (optionally with a query)
+    if (!v || !/^http:\/\/(127\.0\.0\.1|localhost):\d{1,5}\/(\?|$)/.test(v)) return null;
+    try {
+      var u = new URL(v);
+      if (u.protocol !== 'http:' || (u.hostname !== '127.0.0.1' && u.hostname !== 'localhost') || !u.port ||
+        u.pathname !== '/' || u.username || u.password || u.hash) return null;
+      return u.href;
+    } catch (e) { return null; }
+  }
+  function loadSaved(key) {
+    try { var d = JSON.parse(store.get(key) || 'null'); return d && typeof d === 'object' ? d : null; } catch (e) { return null; }
+  }
+  function savePicks() {
+    var data = { ids: state.picks, note: state.note };
+    if (state.cb) { data.cb = state.cb; store.set(PICK_CB_KEY, JSON.stringify(data)); }
+    else store.set(PICK_KEY, JSON.stringify(data));
+  }
+  function readParams() {
+    var q = new URLSearchParams(location.search);
+    state.cb = validCb(q.get('cb'));
+    var pk = q.get('pack');
+    if (pk && packBy[pk]) state.pack = pk;
+    // A waiting agent keeps its own selection, so last week's picks never slip into a new request.
+    var saved = loadSaved(state.cb ? PICK_CB_KEY : PICK_KEY);
+    if (state.cb && saved && saved.cb !== state.cb) saved = null;
+    if (q.has('pick')) { // a shared selection wins over what this browser remembers
+      state.picks = cleanIds(String(q.get('pick')).split(','));
+      state.note = '';
+      q.delete('pick');
+      var rest = q.toString();
+      history.replaceState(null, '', location.pathname + (rest ? '?' + rest : '') + location.hash);
+      savePicks();
+    } else if (saved) {
+      state.picks = cleanIds(saved.ids);
+      state.note = String(saved.note || '').slice(0, NOTE_MAX);
+    }
+  }
+  function markTile(tl) {
+    var on = isPicked(tl.el.id);
+    tl.box.classList.toggle('is-picked', on);
+    tl.pick.setAttribute('aria-pressed', on ? 'true' : 'false');
+    tl.pick.setAttribute('aria-label', t('pickLabel', { id: tl.el.id, name: names(tl.el).main }));
+    tl.pick.lastChild.textContent = t(on ? 'picked' : 'pick');
+  }
+  function markDetailPick() {
+    var el = detail.el, b = $('#d-pick');
+    if (!el) return;
+    var on = isPicked(el.id);
+    b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    b.setAttribute('aria-label', t('pickLabel', { id: el.id, name: names(el).main }));
+    $('#d-pick-t').textContent = t(on ? 'picked' : 'pick');
+  }
+  function announce(msg) { (dlg.open ? $('#d-live') : $('#live')).textContent = msg; }
+  function togglePick(id) {
+    var el = elBy[id];
+    if (!el) return;
+    var i = state.picks.indexOf(id);
+    if (i >= 0) state.picks.splice(i, 1); else state.picks.push(id);
+    savePicks();
+    tiles.forEach(function (tl) { if (tl.el.id === id) markTile(tl); });
+    markDetailPick(); renderTray();
+    announce(t(i >= 0 ? 'unpickedLive' : 'pickedLive', { id: id, name: names(el).main, n: state.picks.length }));
+  }
+  function renderTray() {
+    var n = state.picks.length, cb = !!state.cb;
+    tray.hidden = !n && !cb;
+    root.classList.toggle('has-tray', !tray.hidden);
+    $('#tray-count').textContent = t('trayCount', { n: n });
+    $('#tray-wait').hidden = !cb;
+    $('#tray-empty').hidden = n > 0;
+    var main = $('#tray-main');
+    if (!main._label && !main._sending) main.textContent = t(cb ? 'send' : 'copyPicked');
+    main.disabled = !n || !!main._sending;
+    $('#tray-copy').hidden = !cb;
+    $('#tray-copy').disabled = $('#tray-share').disabled = $('#tray-clear').disabled = !n;
+    trayToggle.setAttribute('aria-expanded', trayOpen ? 'true' : 'false');
+    trayBody.hidden = !trayOpen;
+    if (trayNote.value !== state.note) trayNote.value = state.note;
+    trayList.textContent = '';
+    state.picks.forEach(function (id, i) {
+      var el = elBy[id], nm = names(el);
+      var open = h('a', { class: 'tray-name', href: '#' + id }, [h('span', { class: 'tray-id', text: '#' + id }), h('span', { class: 'tray-nm', text: nm.main })]);
+      open.addEventListener('click', function (ev) {
+        if (ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.altKey || ev.button) return;
+        if (hashId() !== id) state.internalNav += 1;
+      });
+      var x = h('button', { type: 'button', class: 'tray-x', 'aria-label': t('unpickLabel', { id: id, name: nm.main }) });
+      x.innerHTML = X_SVG;
+      x.addEventListener('click', function () {
+        togglePick(id);
+        var xs = $$('.tray-x', trayList), next = xs[Math.min(i, xs.length - 1)];
+        if (next) next.focus(); else if (!tray.hidden) trayToggle.focus(); else $('#q').focus({ preventScroll: true });
+      });
+      trayList.appendChild(h('li', null, [h('span', { class: 'tray-n', 'aria-hidden': 'true', text: String(i + 1) }), open, x]));
+    });
+  }
+  function pickedText() {
+    var lang = state.lang, lines = [t('outIntro', { n: state.picks.length }), ''];
+    state.picks.forEach(function (id, i) {
+      var nm = names(elBy[id]);
+      var sub = nm.sub && nm.sub !== nm.main ? (lang === 'ja' ? '（' + nm.sub + '）' : ' (' + nm.sub + ')') : '';
+      lines.push((i + 1) + '. #' + id + ' ' + nm.main + sub);
+      lines.push('   ' + t('outDemo') + ': ' + SITE + '#' + id);
+      lines.push('   ' + t('outSpec') + ': ' + SITE + 'api/v1/' + lang + '/e/' + id + '.txt');
+    });
+    if (state.note) lines.push('', t('outNote') + ': ' + state.note);
+    lines.push('', t('outEnd'));
+    return lines.join('\n');
+  }
+  function copyPicked(btn) {
+    if (!state.picks.length) return;
+    copyText(pickedText()).then(function (ok) { flash(btn, ok); });
+  }
+  function sendPicks() {
+    var main = $('#tray-main');
+    if (!state.cb || !state.picks.length || main._sending) return;
+    var u = new URL(state.cb);
+    u.searchParams.set('ids', state.picks.join(','));
+    if (state.note) u.searchParams.set('note', state.note);
+    u.searchParams.set('lang', state.lang);
+    main._sending = true; main.disabled = true; main.textContent = t('sending');
+    setTimeout(function () { main._sending = false; renderTray(); }, 4000); // still here (e.g. the command has ended): allow a retry
+    location.href = u.href;
+  }
+  $('#tray-main').addEventListener('click', function () { if (state.cb) sendPicks(); else copyPicked(this); });
+  $('#tray-copy').addEventListener('click', function () { copyPicked(this); });
+  $('#tray-share').addEventListener('click', function () {
+    var btn = this;
+    if (!state.picks.length) return;
+    copyText(SITE + '?pick=' + state.picks.join(',')).then(function (ok) { flash(btn, ok); });
+  });
+  $('#tray-clear').addEventListener('click', function () {
+    state.picks = []; savePicks();
+    tiles.forEach(markTile); markDetailPick(); renderTray();
+    announce(t('clearedLive'));
+    if (!tray.hidden) trayToggle.focus(); else $('#q').focus({ preventScroll: true });
+  });
+  trayToggle.addEventListener('click', function () { trayOpen = !trayOpen; renderTray(); });
+  trayNote.addEventListener('input', function () { state.note = trayNote.value.slice(0, NOTE_MAX); savePicks(); });
+  $('#d-pick').addEventListener('click', function () { if (detail.el) togglePick(detail.el.id); });
+  if ('ResizeObserver' in window) {
+    new ResizeObserver(function () { root.style.setProperty('--tray-h', tray.offsetHeight + 'px'); }).observe(tray);
+  }
+
   // ------------------------------------------------------------------ language, theme, playback
   function applyText() {
     var lang = state.lang;
@@ -534,7 +737,11 @@
     if (lang === state.lang) return;
     state.lang = lang;
     store.set('mp-lang', lang);
-    applyText(); buildChips(); buildGrid();
+    if (/[?&]lang=/.test(location.search)) { // keep an agent-supplied ?lang= in step with the choice
+      var q = new URLSearchParams(location.search); q.set('lang', lang);
+      history.replaceState(history.state, '', location.pathname + '?' + q.toString() + location.hash);
+    }
+    applyText(); buildChips(); buildGrid(); renderTray();
     if (state.open) fillDetail(elBy[state.open]);
   }
   $$('[data-lang]').forEach(function (b) { b.addEventListener('click', function () { setLang(b.getAttribute('data-lang')); }); });
@@ -574,10 +781,13 @@
   });
 
   // ------------------------------------------------------------------ start
+  readParams();
   applyText();
   buildChips();
   buildGrid();
+  renderTray();
   CAT.packs.forEach(loadPack);
   requestAnimationFrame(frame);
   syncFromHash();
+  if ((state.cb || state.pack !== 'all') && !hashId()) $('#gallery').scrollIntoView({ block: 'start' }); // opened by an agent: go straight to the samples
 })();

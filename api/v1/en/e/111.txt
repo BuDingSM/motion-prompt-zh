@@ -2,15 +2,15 @@
 //
 // Chromatic aberration / 色収差
 // Pack: photo (Photo looks, lighting & styles) · element 15 · Category: Lens & camera effects
-// What happens: Red and blue-violet fringes appear along black branches and wires against a white sky, larger toward the edges of the frame; a loupe at bottom left shows the wires at 3×.
+// What happens: The street scene is split into red, green and blue and the three are laid back together at slightly different sizes, so red and cyan fringes appear on the edges of the person, buildings and lamps, larger towards the sides.
 // Motion spec:
-//   - Channel split: separate red-only, green-only and blue-only images, then add them back together
-//   - Offset: scale red by 1.015 and blue by 0.985 around the centre (about ±4 px at the left and right edges, 0 at the centre)
-//   - Scene: a bright sky (#FBFCFE → #E6EEF6) with black #17181C branches and 3 wires
-//   - Loupe: a 35 px square at the top left shown at 3× in a 52 px-radius circle
-//   - Timing: the effect comes in from 0.6 s to 1.7 s, holds until 3.9 s and is gone again by 4.8 s (one pass = 5 s, cubic ease-in-out (about cubic-bezier(0.65,0,0.35,1)))
+//   - Scene 2: a street corner; buildings, trees and street lamps (x 114, 292, 494) behind a road at y 132–162; the person stands front left (feet at x 176, y 200, 124 px tall). 
+//   - Split: the image is multiplied by red #FF0000, green #00FF00 and blue #0000FF into three copies and added back together over black
+//   - Scale about the centre: red 1 + 2s, green 1 + s, blue 1, with s = 0 → 0.02
+//   - Offset: red and blue end up about 11 px apart at the left and right edges, 0 at the centre
+//   - Timing: the effect comes in from 0.4 s to 1.4 s, holds until 4.0 s and is gone again by 4.8 s (one pass = 5 s, cubic ease-in-out (about cubic-bezier(0.65,0,0.35,1)))
 // When to use it: To add an imperfect old-lens, VHS or glitch feel.
-// Tags: chromatic aberration, color fringing, rgb split, purple fringing, lens aberration, glitch
+// Tags: chromatic aberration, color fringing, rgb split, lens aberration, fringe, glitch
 // Size: 539x208 px · Cycle: 5 s
 // Needs: kit photo -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/photo.js
 // Live demo: https://showheyohtaki.github.io/motion-prompt/#111
@@ -19,41 +19,14 @@
 // Element code starts here. CELLS, constants and helpers live in the kit.
 
 // @element 15
-// 15 色収差: 明暗のはっきりした縁（空と枝・電線）に、赤と青紫のずれた色のにじみが出る。画面の端ほど大きい（左下は拡大鏡）
-function branchScene() {
-  return once('branch', () => {
-    const c = mkCanvas(CW, CH), k = c.getContext('2d');
-    const sky = k.createLinearGradient(0, 0, 0, CH); sky.addColorStop(0, '#FBFCFE'); sky.addColorStop(1, '#E6EEF6');
-    k.fillStyle = sky; k.fillRect(0, 0, CW, CH);
-    const r = rng(15); k.strokeStyle = '#17181C'; k.lineCap = 'round';
-    const br = (x, y, ang, len, wd, d) => {
-      const x2 = x + Math.cos(ang) * len, y2 = y + Math.sin(ang) * len;
-      k.lineWidth = wd; k.beginPath(); k.moveTo(x, y); k.lineTo(x2, y2); k.stroke();
-      if (d > 0) for (let i = 0; i < 2 + (r() < 0.4); i++) br(x2, y2, ang + (r() - 0.5) * 1.3, len * (0.62 + r() * 0.2), wd * 0.68, d - 1);
-    };
-    br(420, CH + 10, -1.62, 70, 12, 6); br(470, CH + 10, -1.3, 60, 9, 5); br(120, CH + 10, -1.75, 60, 9, 5);
-    k.lineWidth = 1.6; for (let i = 0; i < 3; i++) { k.beginPath(); k.moveTo(0, 20 + i * 9); k.quadraticCurveTo(270, 46 + i * 9, CW, 16 + i * 9); k.stroke(); }
-    return c;
-  });
-}
-CELLS[14] = cell((k, w, h, u) => {
-  const a = env(u), src = branchScene();
-  const [oc, ok] = layer('A'), [tc, tk] = layer('B');
-  ok.fillStyle = '#000'; ok.fillRect(0, 0, CW, CH); ok.globalCompositeOperation = 'lighter';
-  // 赤は外へ、青は内へ拡大率をずらす（端で約 ±4px）
-  for (const [sc, col] of [[1 + 0.015 * a, '#FF0000'], [1, '#00FF00'], [1 - 0.015 * a, '#0000FF']]) {
-    fresh(tk); tk.translate(CW / 2, CH / 2); tk.scale(sc, sc); tk.translate(-CW / 2, -CH / 2); tk.drawImage(src, 0, 0);
-    tk.setTransform(1, 0, 0, 1, 0, 0); tk.globalCompositeOperation = 'multiply'; tk.fillStyle = col; tk.fillRect(0, 0, CW, CH);
-    ok.drawImage(tc, 0, 0);
+// 色収差: 赤・緑・青を少しずつ違う大きさで重ね、画面の端ほど縁に赤と青のずれが出る
+CELLS[14] = cell((k, u) => {
+  const a = env(u), s = 0.02 * a, cx = CW / 2, cy = CH / 2;
+  if (s < 0.0005) { stageStreet(k, BASE); return; }
+  const [S, ks] = layer('ca'); stageStreet(ks, BASE);
+  k.fillStyle = '#000000'; k.fillRect(0, 0, CW, CH);
+  for (const [col, sc] of [['#FF0000', 1 + 2 * s], ['#00FF00', 1 + s], ['#0000FF', 1]]) {
+    const [L, kl] = layer('ca-' + col); kl.drawImage(S, 0, 0); kl.globalCompositeOperation = 'multiply'; kl.fillStyle = col; kl.fillRect(0, 0, CW, CH); kl.globalCompositeOperation = 'source-over';
+    k.save(); k.globalCompositeOperation = 'lighter'; k.translate(cx, cy); k.scale(sc, sc); k.translate(-cx, -cy); k.drawImage(L, 0, 0); k.restore();
   }
-  k.drawImage(oc, 0, 0);
-  // 拡大鏡（左上の電線を3倍）
-  const lx = 76, ly = 136, lr = 52;
-  k.save(); k.beginPath(); k.arc(lx, ly, lr, 0, TAU); k.clip();
-  k.imageSmoothingEnabled = false; k.drawImage(oc, 8, 12, lr * 2 / 3, lr * 2 / 3, lx - lr, ly - lr, lr * 2, lr * 2);
-  k.restore();
-  k.strokeStyle = '#FFFFFF'; k.lineWidth = 4; k.beginPath(); k.arc(lx, ly, lr, 0, TAU); k.stroke();
-  k.strokeStyle = 'rgba(0,0,0,.25)'; k.lineWidth = 1; k.beginPath(); k.arc(lx, ly, lr + 2, 0, TAU); k.stroke();
-  k.strokeStyle = 'rgba(30,30,36,.5)'; k.lineWidth = 1.2; k.setLineDash([3, 3]); k.strokeRect(8, 12, lr * 2 / 3, lr * 2 / 3); k.setLineDash([]);
-  slider(k, a);
 });
