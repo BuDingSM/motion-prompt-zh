@@ -468,6 +468,13 @@ function serveStatic(root, pathname, req, res) {
   let file = path.join(root, rel);
   if (file !== root && !file.startsWith(root + path.sep)) return send(res, 404, 'Not found');
   try { if (fs.statSync(file).isDirectory()) file = path.join(file, 'index.html'); } catch { /* answered below */ }
+  // Resolve symbolic links and check again, so a link inside the clone cannot expose files outside it.
+  try {
+    const realRoot = fs.realpathSync(root);
+    const realFile = fs.realpathSync(file);
+    if (realFile !== realRoot && !realFile.startsWith(realRoot + path.sep)) return send(res, 404, 'Not found');
+    file = realFile;
+  } catch { return send(res, 404, 'Not found'); }
   fs.readFile(file, (err, buf) => {
     if (err) return send(res, 404, 'Not found');
     res.writeHead(200, { 'Content-Type': MIME[path.extname(file).toLowerCase()] || 'application/octet-stream', 'Cache-Control': 'no-store' });

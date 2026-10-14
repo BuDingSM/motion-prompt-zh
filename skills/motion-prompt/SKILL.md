@@ -29,7 +29,7 @@ node <skill-dir>/scripts/motion-prompt.mjs <command>
 | `prompt <id>` | The ready-made copy-paste prompt for one element. |
 | `info` | Where the data is being read from, how many elements it holds, its version and where the cache lives. Run it first when something looks wrong. |
 
-`--lang ja` gives Japanese names and text; the default is `--lang en`, and `search` switches to Japanese by itself when the words are Japanese (`pick` prints in the language the user browsed in). `--out <dir>` writes files instead of printing them (`get`, `kit`, `prompt`). `--refresh` skips the disk cache.
+`--lang ja` gives Japanese names and text; the default is `--lang en`, and `search` switches to Japanese by itself when the words are Japanese (`pick` prints in the language the user browsed in, unless you pass `--lang`). `--out <dir>` writes files instead of printing them (`get`, `kit`, `prompt`). `--refresh` skips the disk cache.
 
 ## Let the user pick
 
