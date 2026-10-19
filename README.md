@@ -6,7 +6,7 @@
 > 中文用户：名称一览目前只有英文和日文。把 [`make-your-own/prompts/en/01-translate.md`](make-your-own/prompts/en/01-translate.md) 交给 Claude Code、Codex 等编程 AI，就可以制作中文或其他语言的版本。
 > Other languages: the name lists are in English and Japanese for now. Give [`make-your-own/prompts/en/01-translate.md`](make-your-own/prompts/en/01-translate.md) to a coding AI to make a version in your language.
 
-A library of names for the things you ask an AI to make. Each name comes with a moving sample, a one-line meaning and an example of how to ask for it. Five sets are in it now, 24 names each and 120 in all: motion-graphics moves (`motion`), camera moves (`camera`), UI component names (`ui`), landing page and web effects (`lp`), and photo looks, lighting and styles (`photo`). It also comes with the prompts to make the same kind of library for your own field, in your own language.
+A library of names for the things you ask an AI to make. Each name comes with a moving sample, a one-line meaning and an example of how to ask for it. Six sets are in it now, 24 names each and 144 in all: motion-graphics moves (`motion`), camera moves (`camera`), UI component names (`ui`), landing page and web effects (`lp`), photo looks, lighting and styles (`photo`), and motion-graphics moves, part 2 (`motion2`). It also comes with the prompts to make the same kind of library for your own field, in your own language.
 
 | Motion graphics | Camera moves |
 |---|---|
@@ -37,10 +37,11 @@ Shohei Ohtaki
 | 049–072 | `ui`: UI component names | 24 | [English](packs/ui/README.md) · [日本語](packs/ui/README.ja.md) |
 | 073–096 | `lp`: landing page and web effects | 24 | [English](packs/lp/README.md) · [日本語](packs/lp/README.ja.md) |
 | 097–120 | `photo`: photo looks, lighting and styles | 24 | [English](packs/photo/README.md) · [日本語](packs/photo/README.ja.md) |
+| 121–144 | `motion2`: motion graphics moves, part 2 | 24 | [English](packs/motion2/README.md) · [日本語](packs/motion2/README.ja.md) |
 
 Each list gives the number, the name, what it means and an example of how to ask an AI for it. The same names move in the [gallery](https://showheyohtaki.github.io/motion-prompt/).
 
-Each pack has its own look. The motion pack is dark navy with four colors. The camera pack is light gray with one blue. The ui pack is warm off-white with black and one blue, and a cursor sets each part moving. The lp pack draws a white browser window on a pale gray desk, with a vermilion accent and blue for the pictures on the page. The photo pack has no shared palette: each card is painted in the colors of its own scene, and the effect fades in and back out so you can compare. That is on purpose. What a pack has to get right is the names, not a house style.
+Each pack has its own look. The motion and motion2 packs are dark navy with four colors. The camera pack is light gray with one blue. The ui pack is warm off-white with black and one blue, and a cursor sets each part moving. The lp pack draws a white browser window on a pale gray desk, with a vermilion accent and blue for the pictures on the page. The photo pack has no shared palette: each card is painted in the colors of its own scene, and the effect fades in and back out so you can compare. That is on purpose. What a pack has to get right is the names, not a house style.
 
 ## Three ways to use it
 

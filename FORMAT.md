@@ -35,6 +35,7 @@ Packs and their order (global IDs are assigned in this order, 3 digits; new pack
 | 3 | `ui` | 24 | 049–072 | UI component names / UIパーツの名前 |
 | 4 | `lp` | 24 | 073–096 | Landing page & web effects / LP・Webサイトの演出 |
 | 5 | `photo` | 24 | 097–120 | Photo looks, lighting & styles / 写真の表現・光と画風 |
+| 6 | `motion2` | 24 | 121–144 | Motion graphics moves, part 2 / モーショングラフィックスの演出 第2弾 |
 
 **Once the repository is public, numbers are never renumbered and published names are not renamed.**
 A new pack takes the next `order` and the next free IDs. An element is added at the end of its pack

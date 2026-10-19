@@ -1,4 +1,4 @@
-# Motion Prompt catalog (ja) · 120 elements · https://showheyohtaki.github.io/motion-prompt/ · columns: id	pack	category	title	tags	summary
+# Motion Prompt catalog (ja) · 144 elements · https://showheyohtaki.github.io/motion-prompt/ · columns: id	pack	category	title	tags	summary
 001	motion	登場・文字の演出	ポップイン (Pop-in)	pop,pop-in,spring,bounce,scale,icon,badge,entrance	アプリのアイコンがポンと弾んで現れ、通知バッジが遅れてポンと出る。
 002	motion	登場・文字の演出	スタガー (Stagger)	stagger,sequence,delay,cascade,bar-chart,list,entrance	グラフの棒が、少しずつ時間をずらして左から順に立ち上がる。
 003	motion	登場・文字の演出	バースト (Burst)	burst,explosion,radial,like,heart,celebrate,accent,sparkle	「いいね」のハートが点くと同時に、まわりに輪・線・粒が弾ける。
@@ -119,3 +119,27 @@
 118	photo	仕上げ・画風	フィルムグレイン (Film grain)	film grain,grain,noise,analog,35mm film,texture,warm tone	同じ風景の全体に細かい粒が乗り、色が少し暖かいクリーム色に寄る。
 119	photo	仕上げ・画風	ライトリーク (Light leak)	light leak,film leak,vintage,analog,lomo,warm glow	同じ風景の右端から、外側ほど淡い黄、端ほど赤い光のにじみが帯になって入り、ゆっくり揺れる。
 120	photo	仕上げ・画風	二重露光（多重露光） (Double exposure)	double exposure,multiple exposure,blend,silhouette,surreal,composite	背景が白く飛び、胸像の形の中にだけ、縮めた丘・家・木・太陽の風景が写り込む。
+121	motion2	動きのテクニック	アンティシペーション (Anticipation)	anticipation,wind-up,squash,character,jump,dash,animation-principle	四角いキャラクターが進む向きと逆へ少し引き、つぶれて溜めてから勢いよく飛び出す。
+122	motion2	動きのテクニック	フォロースルー (Follow-through)	follow-through,overlapping-action,secondary-motion,spring,drag,character,animation-principle	滑ってきた丸いキャラクターが急に止まり、頭の旗としっぽだけが遅れて揺れて収まる。
+123	motion2	動きのテクニック	バウンス (Bounce)	bounce,drop,gravity,ball,physics,landing,easing	ボールが落ちて、だんだん低く弾みながら止まる。
+124	motion2	動きのテクニック	ウィグル (Wiggle)	wiggle,jitter,shake,random,noise,bell,notification	ベルが小刻みに不規則に揺れ続ける。1回の衝撃ではなく、ずっと続く細かい揺れ。
+125	motion2	動きのテクニック	パルス (Pulse)	pulse,heartbeat,throb,scale,loop,like,attention	ハートが鼓動のように、ドクン・ドクンと大きさを脈打たせ、輪が広がる。
+126	motion2	動きのテクニック	モーションパス (Motion path)	motion-path,path,curve,trajectory,follow-path,orient-to-path,loop	点線の道に沿って、紙飛行機が向きを変えながら進み、途中で宙返りする。
+127	motion2	動きのテクニック	ピンポンループ (Ping-pong loop)	ping-pong,loop,boomerang,yoyo,reverse,back-and-forth,loader	四角が端まで行ったら、同じ道を逆再生のように戻ってくる。往復をくり返す。
+128	motion2	動きのテクニック	ストップモーション風 (Stop-motion style)	stop-motion,choppy,frame-rate,on-twos,jitter,handmade,claymation	星が1秒8コマほどのカクカクした動きで跳ねて進み、コマごとに位置が少しずつぶれる。
+129	motion2	文字・図形の演出	テキストスクランブル (Text scramble)	text-scramble,scramble,decode,shuffle,random,text,hacker	ランダムな文字が入れ替わり続け、左から順に正しい単語に決まる。
+130	motion2	文字・図形の演出	ウェーブテキスト (Wave text)	wave-text,wave,text,letters,stagger,bounce,kinetic-type	「WAVE TEXT」の文字が1文字ずつ、波のように順に上下する。
+131	motion2	文字・図形の演出	テキストオンパス (Text on a path)	text-on-path,path-text,curved-text,text,marquee,wave,scroll	文字列が、波打つ線に沿って向きを変えながら流れていく。
+132	motion2	文字・図形の演出	可変フォントアニメーション (Variable font animation)	variable-font,font-weight,typography,text,weight,kinetic-type	同じ単語の太さが、細→極太→細となめらかに変わり、下のつまみが太さを示す。
+133	motion2	文字・図形の演出	テキストマスク (Text mask)	text-mask,mask,clipping-mask,knockout,text,typography,title	太い文字の形にくり抜いて、その中だけに動く海の景色が見える。周期の終わりに外側も見せる。
+134	motion2	文字・図形の演出	リピーター (Repeater)	repeater,duplicate,radial,array,clone,pattern,loader	1つの図形が複製されて円に並び、少しずつずれながら回る。
+135	motion2	文字・図形の演出	カレイドスコープ (Kaleidoscope)	kaleidoscope,symmetry,mirror,mandala,pattern,radial,psychedelic	万華鏡のように、8分割の対称な模様が回りながら中心から広がる。
+136	motion2	文字・図形の演出	ラインボイル (Line boil)	line-boil,boil,hand-drawn,wobble,jitter,sketch,frame-by-frame	手描き風の線の絵が、数コマごとに小刻みに揺らぐ。絵そのものは動かない。
+137	motion2	切り替え・見せ場	プッシュ (Push transition)	push,push-transition,slide,transition,scene-change,carousel	次の画面が横から入ってきて、前の画面を一緒に押し出す。
+138	motion2	切り替え・見せ場	ブラインド (Blinds transition)	blinds,venetian-blinds,stripes,transition,wipe,scene-change	細い帯ごとのすき間がだんだん広がって、次の画面が開く。
+139	motion2	切り替え・見せ場	キューブ (Cube transition)	cube,cube-transition,3d,rotate,transition,perspective	立方体が回るように、前の面が奥へ倒れて次の面が現れる。
+140	motion2	切り替え・見せ場	ページめくり (Page curl)	page-curl,page-turn,page-peel,paper,book,transition	角から紙がめくれて裏返り、下から次のページが現れる。
+141	motion2	切り替え・見せ場	ピクセレート (Pixelate)	pixelate,mosaic,pixel,transition,retro,8-bit,scene-change	画面がだんだん粗いモザイクになり、いちばん粗いところで切り替わって細かく戻る。
+142	motion2	切り替え・見せ場	ガラス割れ (Shatter)	shatter,glass-break,broken-glass,shards,crack,transition,impact	画面がガラスのようにひび割れ、破片が飛び散って次の画面が現れる。
+143	motion2	切り替え・見せ場	分解図 (Exploded view)	exploded-view,explode,layers,isometric,product,breakdown,explainer	スマホの部品が層ごとにばらけて中の構造を見せ、また組み上がる。
+144	motion2	切り替え・見せ場	スプリットスクリーン (Split screen)	split-screen,multi-screen,panels,side-by-side,comparison,layout	1枚の画面が2つ、3つに分かれて、別々の場面が同時に動く。

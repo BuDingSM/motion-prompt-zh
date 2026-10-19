@@ -11,5 +11,6 @@ A pack is one field's set of names. Each list below is readable here on GitHub; 
 | 049–072 | `ui` — UI component names | 24 | [English](ui/README.md) · [日本語](ui/README.ja.md) |
 | 073–096 | `lp` — Landing page & web effects | 24 | [English](lp/README.md) · [日本語](lp/README.ja.md) |
 | 097–120 | `photo` — Photo looks, lighting & styles | 24 | [English](photo/README.md) · [日本語](photo/README.ja.md) |
+| 121–144 | `motion2` — Motion graphics moves, part 2 | 24 | [English](motion2/README.md) · [日本語](motion2/README.ja.md) |
 
 To add a pack for your field, or a language to an existing pack, see [CONTRIBUTING.md](../CONTRIBUTING.md).

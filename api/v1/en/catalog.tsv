@@ -1,4 +1,4 @@
-# Motion Prompt catalog (en) · 120 elements · https://showheyohtaki.github.io/motion-prompt/ · columns: id	pack	category	title	tags	summary
+# Motion Prompt catalog (en) · 144 elements · https://showheyohtaki.github.io/motion-prompt/ · columns: id	pack	category	title	tags	summary
 001	motion	Entrances & text	Pop-in (ポップイン)	pop,pop-in,spring,bounce,scale,icon,badge,entrance	An app icon pops in with a bounce, then a notification badge pops in a moment later.
 002	motion	Entrances & text	Stagger (スタガー)	stagger,sequence,delay,cascade,bar-chart,list,entrance	Chart bars rise one after another from the left, each slightly delayed.
 003	motion	Entrances & text	Burst (バースト)	burst,explosion,radial,like,heart,celebrate,accent,sparkle	A like heart fills in, and a ring, lines and dots burst outward at the same moment.
@@ -119,3 +119,27 @@
 118	photo	Tones & finishing looks	Film grain (フィルムグレイン)	film grain,grain,noise,analog,35mm film,texture,warm tone	Fine grain appears over the whole of the same landscape and the colours lean slightly towards a warm cream.
 119	photo	Tones & finishing looks	Light leak (ライトリーク)	light leak,film leak,vintage,analog,lomo,warm glow	From the right edge of the same landscape a band of leaked light comes in, pale yellow on the inside and red at the edge, swaying slowly.
 120	photo	Tones & finishing looks	Double exposure (二重露光（多重露光）)	double exposure,multiple exposure,blend,silhouette,surreal,composite	The background turns white and the landscape of hills, house, trees and sun appears, scaled down, only inside the shape of the bust.
+121	motion2	Motion techniques	Anticipation (アンティシペーション)	anticipation,wind-up,squash,character,jump,dash,animation-principle	A square character pulls back against its direction of travel, squashes to wind up, then shoots forward.
+122	motion2	Motion techniques	Follow-through (フォロースルー)	follow-through,overlapping-action,secondary-motion,spring,drag,character,animation-principle	A round character slides in and stops suddenly; only the flag on its head and its tail keep swinging, then settle.
+123	motion2	Motion techniques	Bounce (バウンス)	bounce,drop,gravity,ball,physics,landing,easing	A ball drops and bounces lower each time until it comes to rest.
+124	motion2	Motion techniques	Wiggle (ウィグル)	wiggle,jitter,shake,random,noise,bell,notification	A bell keeps jittering irregularly: not one hit, but a small shake that never stops.
+125	motion2	Motion techniques	Pulse (パルス)	pulse,heartbeat,throb,scale,loop,like,attention	A heart throbs like a heartbeat, a double beat each time, with rings spreading out.
+126	motion2	Motion techniques	Motion path (モーションパス)	motion-path,path,curve,trajectory,follow-path,orient-to-path,loop	A paper plane follows a dotted path, turning as it goes and looping the loop on the way.
+127	motion2	Motion techniques	Ping-pong loop (ピンポンループ)	ping-pong,loop,boomerang,yoyo,reverse,back-and-forth,loader	A square travels to one end, then comes back along the same path as if played in reverse, again and again.
+128	motion2	Motion techniques	Stop-motion style (ストップモーション風)	stop-motion,choppy,frame-rate,on-twos,jitter,handmade,claymation	A star hops across in choppy steps at about 8 frames per second, each frame slightly off.
+129	motion2	Text & shapes	Text scramble (テキストスクランブル)	text-scramble,scramble,decode,shuffle,random,text,hacker	Random characters keep changing, then lock into the right word from left to right.
+130	motion2	Text & shapes	Wave text (ウェーブテキスト)	wave-text,wave,text,letters,stagger,bounce,kinetic-type	The letters of "WAVE TEXT" rise and fall one after another, like a wave.
+131	motion2	Text & shapes	Text on a path (テキストオンパス)	text-on-path,path-text,curved-text,text,marquee,wave,scroll	A line of text flows along a wavy line, each letter turning to follow it.
+132	motion2	Text & shapes	Variable font animation (可変フォントアニメーション)	variable-font,font-weight,typography,text,weight,kinetic-type	The same word goes smoothly from thin to very bold and back, with a slider below showing the weight.
+133	motion2	Text & shapes	Text mask (テキストマスク)	text-mask,mask,clipping-mask,knockout,text,typography,title	Heavy letters are cut out so that a moving seascape shows only inside them; near the end of the cycle the whole picture appears.
+134	motion2	Text & shapes	Repeater (リピーター)	repeater,duplicate,radial,array,clone,pattern,loader	One shape is duplicated around a circle, and the copies turn and pulse slightly out of step.
+135	motion2	Text & shapes	Kaleidoscope (カレイドスコープ)	kaleidoscope,symmetry,mirror,mandala,pattern,radial,psychedelic	An 8-way symmetrical pattern turns and spreads out from the centre, like a kaleidoscope.
+136	motion2	Text & shapes	Line boil (ラインボイル)	line-boil,boil,hand-drawn,wobble,jitter,sketch,frame-by-frame	A hand-drawn line picture wobbles every few frames while the picture itself stays still.
+137	motion2	Transitions & highlights	Push transition (プッシュ)	push,push-transition,slide,transition,scene-change,carousel	The next scene slides in from the side and pushes the current one out with it.
+138	motion2	Transitions & highlights	Blinds transition (ブラインド)	blinds,venetian-blinds,stripes,transition,wipe,scene-change	Gaps in a row of thin strips widen until the next scene is fully open.
+139	motion2	Transitions & highlights	Cube transition (キューブ)	cube,cube-transition,3d,rotate,transition,perspective	Like a turning cube, the front face swings away and the next face comes round.
+140	motion2	Transitions & highlights	Page curl (ページめくり)	page-curl,page-turn,page-peel,paper,book,transition	A page peels back from its corner and folds over, revealing the next page beneath.
+141	motion2	Transitions & highlights	Pixelate (ピクセレート)	pixelate,mosaic,pixel,transition,retro,8-bit,scene-change	The picture turns into coarser and coarser blocks, switches at the coarsest point, then sharpens again.
+142	motion2	Transitions & highlights	Shatter (ガラス割れ)	shatter,glass-break,broken-glass,shards,crack,transition,impact	The picture cracks like glass, the shards fly off and the next scene is revealed.
+143	motion2	Transitions & highlights	Exploded view (分解図)	exploded-view,explode,layers,isometric,product,breakdown,explainer	A phone separates into its layers to show how it is built, then assembles again.
+144	motion2	Transitions & highlights	Split screen (スプリットスクリーン)	split-screen,multi-screen,panels,side-by-side,comparison,layout	One full-frame scene splits into two panels, then three, each with its own scene moving.
