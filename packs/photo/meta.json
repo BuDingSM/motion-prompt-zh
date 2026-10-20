@@ -3,23 +3,27 @@
   "order": 5,
   "title": {
     "ja": "写真の表現・光と画風",
-    "en": "Photo looks, lighting & styles"
+    "en": "Photo looks, lighting & styles",
+    "zh-Hant": "攝影風格：光線、鏡頭與調色"
   },
   "categories": [
     {
       "slug": "lighting",
       "ja": "光の当て方・時間帯",
-      "en": "Lighting & time of day"
+      "en": "Lighting & time of day",
+      "zh-Hant": "打光方式與時段"
     },
     {
       "slug": "lens-camera",
       "ja": "レンズ・カメラの効果",
-      "en": "Lens & camera effects"
+      "en": "Lens & camera effects",
+      "zh-Hant": "鏡頭與相機效果"
     },
     {
       "slug": "tone-finish",
       "ja": "仕上げ・画風",
-      "en": "Tones & finishing looks"
+      "en": "Tones & finishing looks",
+      "zh-Hant": "調色與風格"
     }
   ],
   "elements": [
@@ -29,15 +33,18 @@
       "category": "lighting",
       "name": {
         "ja": "逆光",
-        "en": "Backlighting"
+        "en": "Backlighting",
+        "zh-Hant": "逆光"
       },
       "meaning": {
         "ja": "被写体の真後ろから光を当てる",
-        "en": "The light source sits behind the subject"
+        "en": "The light source sits behind the subject",
+        "zh-Hant": "光源在被攝者的正後方"
       },
       "ask": {
         "ja": "草原に立つ人物を逆光で。夕日を頭の真後ろに置き、髪の輪郭が光ってふんわりとかすむように。",
-        "en": "Backlit portrait of a person in a meadow, the low sun right behind their head, glowing hair outline and soft haze."
+        "en": "Backlit portrait of a person in a meadow, the low sun right behind their head, glowing hair outline and soft haze.",
+        "zh-Hant": "站在草原上的人物，用逆光拍攝，把夕陽放在頭部正後方，讓髮絲的輪廓發亮，整體帶一點柔柔的霧感。"
       },
       "summary": {
         "ja": "画面の外にあった太陽が人物の頭の真後ろへ回り込む。胸像の縁が細く光り、全体に淡い光の色がかかり、カメラ側の体は暗く沈む。",
@@ -79,15 +86,18 @@
       "category": "lighting",
       "name": {
         "ja": "リムライト",
-        "en": "Rim light"
+        "en": "Rim light",
+        "zh-Hant": "輪廓光"
       },
       "meaning": {
         "ja": "後ろからの光で輪郭だけを光らせる",
-        "en": "A light from behind that outlines the subject's edge"
+        "en": "A light from behind that outlines the subject's edge",
+        "zh-Hant": "從後方打光，只讓輪廓發亮"
       },
       "ask": {
         "ja": "黒背景の人物に、斜め後ろ左右からリムライト。顔は暗いままで、頭と肩の輪郭だけ細く光らせて。",
-        "en": "Portrait on a black background with rim lights from both rear sides; the face stays dark and only the outline of the head and shoulders glows."
+        "en": "Portrait on a black background with rim lights from both rear sides; the face stays dark and only the outline of the head and shoulders glows.",
+        "zh-Hant": "黑色背景的人像，用輪廓光，從左右兩側斜後方各打一盞。臉保持暗的，只讓頭部和肩膀的輪廓亮起一圈細細的光邊。"
       },
       "summary": {
         "ja": "周りが暗く落ち、斜め後ろ左右の2灯で、暗い人物の頭と肩の両側にだけ細い光の縁が出る。右下の図で2灯の位置を示す。",
@@ -129,15 +139,18 @@
       "category": "lighting",
       "name": {
         "ja": "シルエット",
-        "en": "Silhouette"
+        "en": "Silhouette",
+        "zh-Hant": "剪影"
       },
       "meaning": {
         "ja": "明るい空を背に、被写体を黒い形だけで見せる",
-        "en": "The subject shows as a black shape against a bright sky"
+        "en": "The subject shows as a black shape against a bright sky",
+        "zh-Hant": "以明亮的天空為背景，被攝者只呈現黑色的形狀"
       },
       "ask": {
         "ja": "夕焼けの浜辺でジャンプする人物をシルエットで。露出は空に合わせて、人物とヤシの木は真っ黒に。",
-        "en": "Silhouette of a person jumping on a beach at sunset; expose for the sky so the person and the palm tree turn pure black."
+        "en": "Silhouette of a person jumping on a beach at sunset; expose for the sky so the person and the palm tree turn pure black.",
+        "zh-Hant": "夕陽下在沙灘上跳躍的人物，拍成剪影。曝光以天空為準，讓人物和椰子樹變成全黑。"
       },
       "summary": {
         "ja": "露出を明るい夕空に合わせていくと、人物・建物・街灯・木が細部のない黒い形になり、空だけが明るく残る。",
@@ -180,15 +193,18 @@
       "category": "lighting",
       "name": {
         "ja": "スプリットライティング",
-        "en": "Split lighting"
+        "en": "Split lighting",
+        "zh-Hant": "分割光"
       },
       "meaning": {
         "ja": "真横からの光で顔を半分ずつ明暗に分ける",
-        "en": "Light from the side splits the face into lit and dark halves"
+        "en": "Light from the side splits the face into lit and dark halves",
+        "zh-Hant": "從正側面打光，把臉分成一半亮一半暗"
       },
       "ask": {
         "ja": "男性の横からスプリットライティングで。光は真横90°、鼻筋を境に顔の左半分は影に沈めて。",
-        "en": "Portrait with split lighting: the light at 90° to the side, the face divided down the nose, the far half in shadow."
+        "en": "Portrait with split lighting: the light at 90° to the side, the face divided down the nose, the far half in shadow.",
+        "zh-Hant": "男性的人像，用分割光。光從正側面 90° 打過來，以鼻樑為界，臉的左半邊沉入陰影。"
       },
       "summary": {
         "ja": "光が正面寄り（20°）から真横（90°）へ回り、頭の影が三日月から半分へ広がって、顔が鼻筋の位置で縦に明暗2つに分かれる。",
@@ -229,15 +245,18 @@
       "category": "lighting",
       "name": {
         "ja": "レンブラントライティング",
-        "en": "Rembrandt lighting"
+        "en": "Rembrandt lighting",
+        "zh-Hant": "林布蘭光"
       },
       "meaning": {
         "ja": "影側の頬に三角形の光が残る斜め上からの光",
-        "en": "High side light that leaves a lit triangle on the shadow cheek"
+        "en": "High side light that leaves a lit triangle on the shadow cheek",
+        "zh-Hant": "從斜上方打光，在陰影側的臉頰留下一塊三角形亮光"
       },
       "ask": {
         "ja": "老人の肖像をレンブラントライティングで。光は斜め45°・上から、影側の頬に小さな三角形の光を残して。",
-        "en": "Portrait of an old man in Rembrandt lighting: light from 45° to the side and above, leaving a small triangle of light on the shadow-side cheek."
+        "en": "Portrait of an old man in Rembrandt lighting: light from 45° to the side and above, leaving a small triangle of light on the shadow-side cheek.",
+        "zh-Hant": "老人的肖像，用林布蘭光。光從側前方 45°、偏高處往下打，在陰影側的臉頰上留下一小塊三角形的亮光。"
       },
       "summary": {
         "ja": "斜め45°・上45°の光が入り、顔の右側が影に沈む中で、影側の頬にだけ小さな逆三角形の光が残る。",
@@ -278,15 +297,18 @@
       "category": "lighting",
       "name": {
         "ja": "バタフライライティング",
-        "en": "Butterfly lighting"
+        "en": "Butterfly lighting",
+        "zh-Hant": "蝴蝶光"
       },
       "meaning": {
         "ja": "正面の高い位置から当て、鼻の下に蝶形の影",
-        "en": "High frontal light that casts a butterfly shadow under the nose"
+        "en": "High frontal light that casts a butterfly shadow under the nose",
+        "zh-Hant": "從正前方偏高處打光，鼻子下方出現蝴蝶形的陰影"
       },
       "ask": {
         "ja": "女性のビューティーポートレートをバタフライライティングで。光は顔の正面・真上寄り45°、鼻の下に小さな蝶の形の影を。",
-        "en": "Beauty portrait with butterfly lighting: light straight in front and 45° above, a small butterfly-shaped shadow under the nose."
+        "en": "Beauty portrait with butterfly lighting: light straight in front and 45° above, a small butterfly-shaped shadow under the nose.",
+        "zh-Hant": "女性的美妝人像，用蝴蝶光。光在臉的正前方、偏上 45° 的位置，鼻子下方留下一小塊蝴蝶形狀的陰影。"
       },
       "summary": {
         "ja": "顔の正面・高い位置からの光が入り、顔は左右対称に明るくなり、あごの下にだけ左右対称の小さな影が落ちる。",
@@ -327,15 +349,18 @@
       "category": "lighting",
       "name": {
         "ja": "ゴールデンアワー",
-        "en": "Golden hour"
+        "en": "Golden hour",
+        "zh-Hant": "黃金時刻"
       },
       "meaning": {
         "ja": "日没前・日の出後の低く赤みのある光",
-        "en": "The low, warm light just after sunrise or before sunset"
+        "en": "The low, warm light just after sunrise or before sunset",
+        "zh-Hant": "日落前、日出後那段低角度、偏暖的光線"
       },
       "ask": {
         "ja": "草原の人物をゴールデンアワーの光で。太陽は地平線近く、影が長く伸びて全体が橙色に。",
-        "en": "A person in a field at golden hour: the sun near the horizon, long shadows, everything warm orange."
+        "en": "A person in a field at golden hour: the sun near the horizon, long shadows, everything warm orange.",
+        "zh-Hant": "草原上的人物，用黃金時刻的光線。太陽靠近地平線，影子拉得很長，整個畫面偏橘色。"
       },
       "summary": {
         "ja": "太陽が地平線近くまで下り、空と地面が橙に染まり、人物の左側が光り、街灯と木の影が右へ長く伸びる。",
@@ -378,15 +403,18 @@
       "category": "lighting",
       "name": {
         "ja": "ブルーアワー",
-        "en": "Blue hour"
+        "en": "Blue hour",
+        "zh-Hant": "藍調時刻"
       },
       "meaning": {
         "ja": "日没後・日の出前の、空が深い青になる時間",
-        "en": "The time after sunset or before sunrise when the sky turns deep blue"
+        "en": "The time after sunset or before sunrise when the sky turns deep blue",
+        "zh-Hant": "日落後、日出前天空轉為深藍色的時段"
       },
       "ask": {
         "ja": "港町の夜景をブルーアワーで。空は深い青、ビルの窓と街灯の暖かい光が水面に映るように。",
-        "en": "Harbour city at blue hour: deep blue sky, warm windows and streetlights reflected in the water."
+        "en": "Harbour city at blue hour: deep blue sky, warm windows and streetlights reflected in the water.",
+        "zh-Hant": "港口城市的夜景，拍藍調時刻。天空是深藍色，大樓的窗戶和路燈的暖光倒映在水面上。"
       },
       "summary": {
         "ja": "太陽が沈みきると、空が深い青の2段になり、建物の窓と街灯がアンバーに灯り、人物は青い影の形になる。",
@@ -429,15 +457,18 @@
       "category": "lens-camera",
       "name": {
         "ja": "ボケ",
-        "en": "Bokeh"
+        "en": "Bokeh",
+        "zh-Hant": "散景"
       },
       "meaning": {
         "ja": "ピントの外の点光源が丸くやわらかくぼける",
-        "en": "Out-of-focus points of light melt into soft discs"
+        "en": "Out-of-focus points of light melt into soft discs",
+        "zh-Hant": "對焦範圍外的點光源，化成圓形柔軟的光斑"
       },
       "ask": {
         "ja": "夜の街に立つ人物を、背景の街の灯りが大きな丸いボケになるように。f/1.4で、人物にはピントを合わせて。",
-        "en": "Person in a city at night with big round bokeh from the street lights behind; f/1.4, focus on the person."
+        "en": "Person in a city at night with big round bokeh from the street lights behind; f/1.4, focus on the person.",
+        "zh-Hant": "夜晚的城市裡站著一個人，背景的路燈要變成大顆圓形的散景。光圈 f/1.4，對焦在人物身上。"
       },
       "summary": {
         "ja": "絞りを開けていくと、ピントの合った人物はそのまま、背景の建物はぼけ、街灯と遠くの灯りが大きく薄い光の丸に広がる。",
@@ -481,15 +512,18 @@
       "category": "lens-camera",
       "name": {
         "ja": "ティルトシフト",
-        "en": "Tilt-shift"
+        "en": "Tilt-shift",
+        "zh-Hant": "移軸"
       },
       "meaning": {
         "ja": "上下をぼかして本物の町を模型のように見せる",
-        "en": "Blur top and bottom so a real scene looks like a miniature"
+        "en": "Blur top and bottom so a real scene looks like a miniature",
+        "zh-Hant": "把上下兩側模糊，讓真實的街景看起來像模型"
       },
       "ask": {
         "ja": "高い所から見下ろした町をティルトシフトで。中央の帯だけピントを合わせて上下を強くぼかし、色を濃くしてミニチュア風に。",
-        "en": "High-angle view of a town with a tilt-shift look: a narrow sharp band across the middle, strong blur above and below, boosted colour, like a miniature model."
+        "en": "High-angle view of a town with a tilt-shift look: a narrow sharp band across the middle, strong blur above and below, boosted colour, like a miniature model.",
+        "zh-Hant": "從高處俯瞰的城鎮，用移軸效果。只讓中間一條帶狀範圍對焦，上下強烈模糊，色彩調濃一點，做出迷你模型的感覺。"
       },
       "summary": {
         "ja": "街の上下の帯がぼけていき、道と車と小さな人たちの並ぶ中央の帯だけにピントが残って、模型の街のように見える。",
@@ -531,15 +565,18 @@
       "category": "lens-camera",
       "name": {
         "ja": "長時間露光",
-        "en": "Long exposure"
+        "en": "Long exposure",
+        "zh-Hant": "長曝"
       },
       "meaning": {
         "ja": "シャッターを長く開け、動く光を線にする",
-        "en": "Keep the shutter open long so moving lights become lines"
+        "en": "Keep the shutter open long so moving lights become lines",
+        "zh-Hant": "快門開很久，讓移動的光變成線條"
       },
       "ask": {
         "ja": "夜の道路を長時間露光で。シャッター8秒で、車の形は消えて、ヘッドライトとテールランプだけが白と赤の光の線になるように。",
-        "en": "Night road as a long exposure, 8-second shutter: the cars disappear and only their headlights and tail lights remain as white and red trails."
+        "en": "Night road as a long exposure, 8-second shutter: the cars disappear and only their headlights and tail lights remain as white and red trails.",
+        "zh-Hant": "夜晚的馬路，用長曝拍攝。快門 8 秒，車子的形體消失，只剩頭燈和尾燈拉成白色與紅色的光軌。"
       },
       "summary": {
         "ja": "街が夜になり、走る車の本体は薄く消えていき、後ろに赤い尾灯の線が伸び、反対車線には白とアンバーの光の線が通る。",
@@ -582,15 +619,18 @@
       "category": "lens-camera",
       "name": {
         "ja": "流し撮り",
-        "en": "Panning shot"
+        "en": "Panning shot",
+        "zh-Hant": "追焦"
       },
       "meaning": {
         "ja": "動く被写体を追って撮り、背景だけ流す",
-        "en": "Follow a moving subject so only the background streaks"
+        "en": "Follow a moving subject so only the background streaks",
+        "zh-Hant": "跟著移動的被攝者拍，只讓背景拉出流動線條"
       },
       "ask": {
         "ja": "走る赤い車を流し撮りで。シャッター1/15秒、車はくっきり、背景の木や建物は横に流れるように。",
-        "en": "Panning shot of a red car driving past, 1/15 s shutter: the car sharp, the trees and buildings behind streaked sideways."
+        "en": "Panning shot of a red car driving past, 1/15 s shutter: the car sharp, the trees and buildings behind streaked sideways.",
+        "zh-Hant": "行駛中的紅色汽車，用追焦拍攝：相機跟著車子水平移動，快門 1/15 秒，車子清楚銳利，背景的樹和建築往橫向拉出流動的線條。"
       },
       "summary": {
         "ja": "走る車をカメラが追い、車は画面の中央でくっきりしたまま、背景の建物や木や街灯だけが横に流れる。",
@@ -633,15 +673,18 @@
       "category": "lens-camera",
       "name": {
         "ja": "レンズフレア",
-        "en": "Lens flare"
+        "en": "Lens flare",
+        "zh-Hant": "鏡頭耀光"
       },
       "meaning": {
         "ja": "強い光でレンズの中に光の輪や玉が出る",
-        "en": "Rings and spots of light from a bright source in the lens"
+        "en": "Rings and spots of light from a bright source in the lens",
+        "zh-Hant": "強光進入鏡頭，產生光環與光斑"
       },
       "ask": {
         "ja": "山の上の太陽を入れて、レンズフレアを。太陽から画面の中心をはさんで反対側へ、色のついた光の玉が並ぶように。",
-        "en": "Mountain landscape with the sun in frame and lens flare: coloured ghosts lined up from the sun through the centre to the opposite side."
+        "en": "Mountain landscape with the sun in frame and lens flare: coloured ghosts lined up from the sun through the centre to the opposite side.",
+        "zh-Hant": "把山頂的太陽拍進畫面，加上鏡頭耀光。讓彩色的光斑從太陽穿過畫面中心，一路排列到另一側。"
       },
       "summary": {
         "ja": "太陽が建物の陰から空へ出ると、太陽に光の筋が出て、太陽から画面の中心をはさんだ反対側まで、光の玉と六角形と輪が一列に並ぶ。",
@@ -684,15 +727,18 @@
       "category": "lens-camera",
       "name": {
         "ja": "魚眼レンズ",
-        "en": "Fisheye lens"
+        "en": "Fisheye lens",
+        "zh-Hant": "魚眼鏡頭"
       },
       "meaning": {
         "ja": "中心がふくらみ、直線が丸く曲がる超広角",
-        "en": "Ultra-wide lens that bulges the centre and bends straight lines"
+        "en": "Ultra-wide lens that bulges the centre and bends straight lines",
+        "zh-Hant": "中心膨脹、直線彎曲成弧形的超廣角鏡頭"
       },
       "ask": {
         "ja": "街の通りを魚眼レンズで。画角180°で、ビルの縦の線が外側へ丸く曲がるように。",
-        "en": "City street through a fisheye lens, 180° view, the building edges bowing outward."
+        "en": "City street through a fisheye lens, 180° view, the building edges bowing outward.",
+        "zh-Hant": "街道用魚眼鏡頭拍攝，視角 180°，大樓垂直的線條向外彎成圓弧。"
       },
       "summary": {
         "ja": "街角の中心がふくらみ、建物の縦の線と道の横の線が外側へ丸く曲がり、四隅はそのまま残る。",
@@ -735,15 +781,18 @@
       "category": "lens-camera",
       "name": {
         "ja": "色収差",
-        "en": "Chromatic aberration"
+        "en": "Chromatic aberration",
+        "zh-Hant": "色差"
       },
       "meaning": {
         "ja": "明暗の境に赤や青紫の色ずれが出る",
-        "en": "Red and blue-violet colour fringes along high-contrast edges"
+        "en": "Red and blue-violet colour fringes along high-contrast edges",
+        "zh-Hant": "明暗交界處出現紅色或藍紫色的色邊"
       },
       "ask": {
         "ja": "白い空と黒い枝の写真に、色収差を少し。画面の端に向かって、枝の縁に赤と青紫の色ずれが出るように。",
-        "en": "Black branches against a white sky with slight chromatic aberration: red and blue-violet fringes on the edges, stronger toward the corners."
+        "en": "Black branches against a white sky with slight chromatic aberration: red and blue-violet fringes on the edges, stronger toward the corners.",
+        "zh-Hant": "白色天空與黑色樹枝的照片，加一點色差（邊緣的紅色與藍紫色色邊）。越靠近畫面邊緣，色邊越明顯。"
       },
       "summary": {
         "ja": "街角の絵を赤・緑・青に分け、少しずつ違う大きさで重ねると、人物や建物や街灯の縁に赤と青緑のずれが出て、画面の端ほど大きくなる。",
@@ -784,15 +833,18 @@
       "category": "lens-camera",
       "name": {
         "ja": "周辺減光（ビネット）",
-        "en": "Vignette"
+        "en": "Vignette",
+        "zh-Hant": "暗角"
       },
       "meaning": {
         "ja": "画面の四隅が暗くなり、中央に目が集まる",
-        "en": "The corners darken and draw the eye to the centre"
+        "en": "The corners darken and draw the eye to the centre",
+        "zh-Hant": "畫面四角變暗，視線集中到中央"
       },
       "ask": {
         "ja": "海辺の写真に、ビネットを強めに。四隅だけなだらかに暗くして、中央の人物に目が行くように。",
-        "en": "Beach photo with a strong vignette: the corners darken gradually so the eye goes to the person in the middle."
+        "en": "Beach photo with a strong vignette: the corners darken gradually so the eye goes to the person in the middle.",
+        "zh-Hant": "海邊的照片，暗角加重、做得明顯一點。只讓四個角落平順地變暗，讓視線集中到中央的人物身上。"
       },
       "summary": {
         "ja": "画面の四隅からなだらかに暗くなり、中央の人物と道のあたりだけが明るく残る。",
@@ -831,15 +883,18 @@
       "category": "tone-finish",
       "name": {
         "ja": "ハイキー",
-        "en": "High-key"
+        "en": "High-key",
+        "zh-Hant": "High Key（高調）"
       },
       "meaning": {
         "ja": "明るい色だけで作る、白っぽく影の薄い写真",
-        "en": "A bright, white-toned image with very light shadows"
+        "en": "A bright, white-toned image with very light shadows",
+        "zh-Hant": "只用明亮的色調，畫面偏白、陰影很淡"
       },
       "ask": {
         "ja": "白い机の上のカップと瓶を、ハイキーで。背景は真っ白、影はごく薄く、全体を明るい色だけでまとめて。",
-        "en": "High-key still life of a cup and a bottle on a white table: pure white background, very faint shadows, only light tones."
+        "en": "High-key still life of a cup and a bottle on a white table: pure white background, very faint shadows, only light tones.",
+        "zh-Hant": "白色桌上的杯子與瓶子，用 High Key 高調風格拍攝。背景純白，陰影非常淡，整體只用明亮的色調。"
       },
       "summary": {
         "ja": "風景と人物が白に近い明るい色だけになり、影はごく薄くなって、右下のヒストグラムの山が右端へ寄る。",
@@ -878,15 +933,18 @@
       "category": "tone-finish",
       "name": {
         "ja": "ローキー",
-        "en": "Low-key"
+        "en": "Low-key",
+        "zh-Hant": "Low Key（低調）"
       },
       "meaning": {
         "ja": "暗い色が中心の、光の当たる所だけが浮かぶ写真",
-        "en": "A dark image where only the lit parts stand out"
+        "en": "A dark image where only the lit parts stand out",
+        "zh-Hant": "以暗色調為主，只有受光處浮現出來"
       },
       "ask": {
         "ja": "黒背景のウイスキーの瓶をローキーで。横からの1灯だけで、光の当たる縁だけ浮かび、画面の大半は黒に沈めて。",
-        "en": "Low-key shot of a whisky bottle on black, a single side light, only the lit edges showing and most of the frame in deep black."
+        "en": "Low-key shot of a whisky bottle on black, a single side light, only the lit edges showing and most of the frame in deep black.",
+        "zh-Hant": "黑色背景上的威士忌酒瓶，用 Low Key 低調風格拍攝。僅用側邊一盞燈，讓受光的邊緣浮現出來，畫面大半沉入黑色。"
       },
       "summary": {
         "ja": "画面の大半が暗く沈み、太陽も消えて、横から日の当たる胸像の右の縁だけが光って浮かぶ。ヒストグラムの山は左端へ寄る。",
@@ -928,15 +986,18 @@
       "category": "tone-finish",
       "name": {
         "ja": "モノクロ",
-        "en": "Black and white"
+        "en": "Black and white",
+        "zh-Hant": "黑白"
       },
       "meaning": {
         "ja": "色を抜いて明るさだけで見せる",
-        "en": "Remove colour and show brightness only"
+        "en": "Remove colour and show brightness only",
+        "zh-Hant": "去掉顏色，只用明暗呈現"
       },
       "ask": {
         "ja": "海辺のスナップをモノクロで。コントラストは少し強めに、空と砂の明るさの差を残して。",
-        "en": "Beach snapshot in black and white, contrast slightly raised, keeping the difference in brightness between sky and sand."
+        "en": "Beach snapshot in black and white, contrast slightly raised, keeping the difference in brightness between sky and sand.",
+        "zh-Hant": "海邊的隨手拍，轉成黑白。對比稍微拉高一點，保留天空與沙灘之間的明暗差異。"
       },
       "summary": {
         "ja": "同じ風景から色が抜け、太陽も人物の縁の光も灰色になり、明るさの差だけで形が見える。",
@@ -975,15 +1036,18 @@
       "category": "tone-finish",
       "name": {
         "ja": "デュオトーン",
-        "en": "Duotone"
+        "en": "Duotone",
+        "zh-Hant": "雙色調"
       },
       "meaning": {
         "ja": "暗部と明部を2色だけで表す",
-        "en": "Show the image in two colours, one for darks and one for lights"
+        "en": "Show the image in two colours, one for darks and one for lights",
+        "zh-Hant": "只用兩種顏色表現暗部與亮部"
       },
       "ask": {
         "ja": "人物写真を濃い藍とピンクのデュオトーンに。暗い所は藍、明るい所はピンクの2色だけで。",
-        "en": "Portrait photo as a navy-and-pink duotone: darks in navy, lights in pink, nothing else."
+        "en": "Portrait photo as a navy-and-pink duotone: darks in navy, lights in pink, nothing else.",
+        "zh-Hant": "把人像照片做成深藍與粉紅的雙色調。暗部用深藍、亮部用粉紅，只用這兩種顏色。"
       },
       "summary": {
         "ja": "同じ風景の色が、暗い所は藍、明るい所はピンクの2色の間だけに置き換わる。",
@@ -1022,15 +1086,18 @@
       "category": "tone-finish",
       "name": {
         "ja": "ティール＆オレンジ",
-        "en": "Teal and orange"
+        "en": "Teal and orange",
+        "zh-Hant": "Teal & Orange"
       },
       "meaning": {
         "ja": "影を青緑、肌や明部を橙に寄せる色調",
-        "en": "Pushes shadows to teal and skin and highlights to orange"
+        "en": "Pushes shadows to teal and skin and highlights to orange",
+        "zh-Hant": "陰影偏青綠色，膚色與亮部偏橘色的色調"
       },
       "ask": {
         "ja": "街を歩く人物を映画のようなティール＆オレンジで。影と空は青緑、肌と夕日は橙に寄せて。",
-        "en": "Person walking in the city with a cinematic teal and orange grade: shadows and sky toward teal, skin and sunlight toward orange."
+        "en": "Person walking in the city with a cinematic teal and orange grade: shadows and sky toward teal, skin and sunlight toward orange.",
+        "zh-Hant": "在街上走路的人物，調成電影感的 Teal & Orange。陰影和天空偏青綠色，皮膚和夕陽偏橘色。"
       },
       "summary": {
         "ja": "同じ風景の空・丘・地面・人物の影が青緑へ、日の当たる人物の縁と太陽が橙へ寄り、補色の対比になる。",
@@ -1069,15 +1136,18 @@
       "category": "tone-finish",
       "name": {
         "ja": "フィルムグレイン",
-        "en": "Film grain"
+        "en": "Film grain",
+        "zh-Hant": "底片顆粒"
       },
       "meaning": {
         "ja": "フィルム写真のような細かい粒子を乗せる",
-        "en": "Fine, film-like grain over the image"
+        "en": "Fine, film-like grain over the image",
+        "zh-Hant": "加上像底片相機拍出來的細緻顆粒"
       },
       "ask": {
         "ja": "海辺の写真にフィルムグレインを。細かい粒子を全体に、黒は少し浮かせて暖かい色に。",
-        "en": "Add film grain to the beach photo: fine grain all over, blacks slightly lifted and warm."
+        "en": "Add film grain to the beach photo: fine grain all over, blacks slightly lifted and warm.",
+        "zh-Hant": "幫海邊的照片加上底片顆粒。整體加上細緻的顆粒，黑色稍微提起並帶一點暖色。"
       },
       "summary": {
         "ja": "同じ風景の全体に細かい粒が乗り、色が少し暖かいクリーム色に寄る。",
@@ -1119,15 +1189,18 @@
       "category": "tone-finish",
       "name": {
         "ja": "ライトリーク",
-        "en": "Light leak"
+        "en": "Light leak",
+        "zh-Hant": "漏光"
       },
       "meaning": {
         "ja": "フィルムに光がもれたような赤橙のにじみ",
-        "en": "Red-orange glow as if light leaked onto the film"
+        "en": "Red-orange glow as if light leaked onto the film",
+        "zh-Hant": "像底片被光線漏進去，出現紅橘色的暈染"
       },
       "ask": {
         "ja": "夏の思い出の写真に、ライトリークを右端から。赤と橙の光がにじみ込むように。",
-        "en": "Summer memory photo with a light leak coming in from the right edge, red and orange light bleeding in."
+        "en": "Summer memory photo with a light leak coming in from the right edge, red and orange light bleeding in.",
+        "zh-Hant": "夏天回憶的照片，從右側邊緣加入漏光。讓紅色和橘色的光暈滲進畫面。"
       },
       "summary": {
         "ja": "同じ風景の右端から、外側ほど淡い黄、端ほど赤い光のにじみが帯になって入り、ゆっくり揺れる。",
@@ -1166,15 +1239,18 @@
       "category": "tone-finish",
       "name": {
         "ja": "二重露光（多重露光）",
-        "en": "Double exposure"
+        "en": "Double exposure",
+        "zh-Hant": "多重曝光"
       },
       "meaning": {
         "ja": "2枚の写真を1枚に重ねて写し込む",
-        "en": "Two photos layered into one frame"
+        "en": "Two photos layered into one frame",
+        "zh-Hant": "把兩張照片疊在同一個畫面裡"
       },
       "ask": {
         "ja": "横顔のシルエットに森と山の風景を二重露光で重ねて。背景は白、顔の中にだけ風景が見えるように。",
-        "en": "Double exposure of a profile silhouette and a forest-and-mountain landscape on a white background, the landscape visible only inside the head."
+        "en": "Double exposure of a profile silhouette and a forest-and-mountain landscape on a white background, the landscape visible only inside the head.",
+        "zh-Hant": "把側臉剪影和森林山景用多重曝光疊在一起。背景是白色，風景只出現在臉的輪廓裡面。"
       },
       "summary": {
         "ja": "背景が白く飛び、胸像の形の中にだけ、縮めた丘・家・木・太陽の風景が写り込む。",

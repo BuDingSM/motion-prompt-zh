@@ -422,6 +422,10 @@ const DOC = {
     intro: '名前を見つけたら、そのままAIに伝えてください。「何秒で」「どのくらい強く」「何が動くか」を添えると、思った通りに近づきます。',
     no: '番号', name: '名前', en: '英語名', meaning: 'ひとこと', ask: 'AIへの頼み方の例',
     more: '番号を押すと、ギャラリーの動く見本が開きます。1つの名前の秒数・イージングの数値・参考コード:', all: 'パックの一覧', preview: '見本' },
+  'zh-Hant': { gen: '這個檔案由 tools/build.mjs 根據 meta.json 產生。要修改請編輯 meta.json，不要改這個檔案。', names: '個名稱', pack: '包', langs: '語言',
+    intro: '找到名稱後，直接告訴 AI。再加上「幾秒」「多強」「什麼在動」，結果會更接近你想要的。',
+    no: '編號', name: '名稱', en: '英文名稱', meaning: '一句話說明', ask: '對 AI 的說法範例',
+    more: '點編號會在圖庫打開會動的範例。單一名稱的秒數、緩動數值和參考程式碼：', all: '所有包', preview: '範例' },
 };
 const LANG_NAME = { en: 'English', ja: '日本語', zh: '中文', 'zh-Hans': '简体中文', 'zh-Hant': '繁體中文', ko: '한국어', es: 'Español', fr: 'Français', de: 'Deutsch', pt: 'Português', it: 'Italiano', id: 'Bahasa Indonesia', vi: 'Tiếng Việt', th: 'ไทย', hi: 'हिन्दी', ar: 'العربية', ru: 'Русский', tr: 'Türkçe' };
 const readmeName = lang => (lang === BASE_LANG ? 'README.md' : `README.${lang}.md`);

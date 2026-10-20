@@ -1,5 +1,5 @@
 {
- "version": "1.f866ac2552",
+ "version": "1.45af2a203e",
  "site": "https://showheyohtaki.github.io/motion-prompt/",
  "repo": "https://github.com/showheyohtaki/motion-prompt",
  "count": 144,
@@ -9,27 +9,32 @@
    "order": 1,
    "title": {
     "ja": "モーショングラフィックスの動き",
-    "en": "Motion graphics moves"
+    "en": "Motion graphics moves",
+    "zh-Hant": "Motion Graphics 動態手法"
    },
    "langs": [
     "en",
-    "ja"
+    "ja",
+    "zh-Hant"
    ],
    "categories": [
     {
      "slug": "entrances-text",
      "ja": "登場・文字の演出",
-     "en": "Entrances & text"
+     "en": "Entrances & text",
+     "zh-Hant": "登場與文字動態"
     },
     {
      "slug": "motion-polish",
      "ja": "動きの味付け",
-     "en": "Motion polish"
+     "en": "Motion polish",
+     "zh-Hant": "動態質感"
     },
     {
      "slug": "transitions-highlights",
      "ja": "切り替え・見せ場",
-     "en": "Transitions & highlights"
+     "en": "Transitions & highlights",
+     "zh-Hant": "轉場與吸睛效果"
     }
    ],
    "count": 24,
@@ -46,27 +51,32 @@
    "order": 2,
    "title": {
     "ja": "カメラワークと切り替え",
-    "en": "Camera moves & transitions"
+    "en": "Camera moves & transitions",
+    "zh-Hant": "運鏡與轉場"
    },
    "langs": [
     "en",
-    "ja"
+    "ja",
+    "zh-Hant"
    ],
    "categories": [
     {
      "slug": "camera-movement",
      "ja": "カメラの動き",
-     "en": "Camera Movement"
+     "en": "Camera Movement",
+     "zh-Hant": "鏡頭運動"
     },
     {
      "slug": "shooting-style-time",
      "ja": "撮り方・時間の演出",
-     "en": "Shooting Style & Time"
+     "en": "Shooting Style & Time",
+     "zh-Hant": "拍攝手法與時間效果"
     },
     {
      "slug": "transitions",
      "ja": "切り替え（トランジション）",
-     "en": "Transitions"
+     "en": "Transitions",
+     "zh-Hant": "轉場"
     }
    ],
    "count": 24,
@@ -83,27 +93,32 @@
    "order": 3,
    "title": {
     "ja": "UIパーツの名前",
-    "en": "UI component names"
+    "en": "UI component names",
+    "zh-Hant": "UI 元件名稱"
    },
    "langs": [
     "en",
-    "ja"
+    "ja",
+    "zh-Hant"
    ],
    "categories": [
     {
      "slug": "open-overlay",
      "ja": "開く・重なるパーツ",
-     "en": "Opening & overlays"
+     "en": "Opening & overlays",
+     "zh-Hant": "展開與彈出式元件"
     },
     {
      "slug": "select-switch",
      "ja": "選ぶ・切り替えるパーツ",
-     "en": "Choosing & switching"
+     "en": "Choosing & switching",
+     "zh-Hant": "選擇與切換元件"
     },
     {
      "slug": "navigate-status",
      "ja": "案内する・状態を伝えるパーツ",
-     "en": "Navigation & status"
+     "en": "Navigation & status",
+     "zh-Hant": "導覽與狀態元件"
     }
    ],
    "count": 24,
@@ -120,27 +135,32 @@
    "order": 4,
    "title": {
     "ja": "LP・Webサイトの演出",
-    "en": "Landing page & web effects"
+    "en": "Landing page & web effects",
+    "zh-Hant": "Landing Page 與網站效果"
    },
    "langs": [
     "en",
-    "ja"
+    "ja",
+    "zh-Hant"
    ],
    "categories": [
     {
      "slug": "scroll",
      "ja": "スクロールで起きる演出",
-     "en": "Scroll effects"
+     "en": "Scroll effects",
+     "zh-Hant": "捲動時的效果"
     },
     {
      "slug": "hover-click",
      "ja": "マウス・クリックへの反応",
-     "en": "Hover & click interactions"
+     "en": "Hover & click interactions",
+     "zh-Hant": "滑鼠與點擊的互動"
     },
     {
      "slug": "loading-loops",
      "ja": "読み込み・移動・動き続ける演出",
-     "en": "Loading, navigation & ambient loops"
+     "en": "Loading, navigation & ambient loops",
+     "zh-Hant": "載入、轉場與持續動態"
     }
    ],
    "count": 24,
@@ -157,27 +177,32 @@
    "order": 5,
    "title": {
     "ja": "写真の表現・光と画風",
-    "en": "Photo looks, lighting & styles"
+    "en": "Photo looks, lighting & styles",
+    "zh-Hant": "攝影風格：光線、鏡頭與調色"
    },
    "langs": [
     "en",
-    "ja"
+    "ja",
+    "zh-Hant"
    ],
    "categories": [
     {
      "slug": "lighting",
      "ja": "光の当て方・時間帯",
-     "en": "Lighting & time of day"
+     "en": "Lighting & time of day",
+     "zh-Hant": "打光方式與時段"
     },
     {
      "slug": "lens-camera",
      "ja": "レンズ・カメラの効果",
-     "en": "Lens & camera effects"
+     "en": "Lens & camera effects",
+     "zh-Hant": "鏡頭與相機效果"
     },
     {
      "slug": "tone-finish",
      "ja": "仕上げ・画風",
-     "en": "Tones & finishing looks"
+     "en": "Tones & finishing looks",
+     "zh-Hant": "調色與風格"
     }
    ],
    "count": 24,
@@ -239,15 +264,18 @@
    "cycle": 4.7,
    "name": {
     "ja": "ポップイン",
-    "en": "Pop-in"
+    "en": "Pop-in",
+    "zh-Hant": "Pop-in"
    },
    "meaning": {
     "ja": "ポンと弾んで現れる",
-    "en": "Pops into view with a small bounce"
+    "en": "Pops into view with a small bounce",
+    "zh-Hant": "彈跳一下出現"
    },
    "ask": {
     "ja": "ロゴをポップインで出して。0.4秒で、行き過ぎは少しだけ。",
-    "en": "Bring the logo in with a pop-in, about 0.4 s, with a slight overshoot."
+    "en": "Bring the logo in with a pop-in, about 0.4 s, with a slight overshoot.",
+    "zh-Hant": "請用 Pop-in 讓 Logo 出現，大約 0.4 秒，Overshoot 只要一點點。"
    },
    "summary": {
     "ja": "アプリのアイコンがポンと弾んで現れ、通知バッジが遅れてポンと出る。",
@@ -297,15 +325,18 @@
    "cycle": 4.7,
    "name": {
     "ja": "スタガー",
-    "en": "Stagger"
+    "en": "Stagger",
+    "zh-Hant": "Stagger"
    },
    "meaning": {
     "ja": "少しずつ時間をずらして順に出す",
-    "en": "Items appear one after another, slightly offset in time"
+    "en": "Items appear one after another, slightly offset in time",
+    "zh-Hant": "項目依序錯開時間逐一出現"
    },
    "ask": {
     "ja": "5枚のカードをスタガーで出して。左から0.08秒ずつずらして。",
-    "en": "Bring in the five cards with a stagger, 0.08 s apart, left to right."
+    "en": "Bring in the five cards with a stagger, 0.08 s apart, left to right.",
+    "zh-Hant": "請用 Stagger 讓 5 張卡片出現，由左至右每張間隔 0.08 秒。"
    },
    "summary": {
     "ja": "グラフの棒が、少しずつ時間をずらして左から順に立ち上がる。",
@@ -350,15 +381,18 @@
    "cycle": 4.7,
    "name": {
     "ja": "バースト",
-    "en": "Burst"
+    "en": "Burst",
+    "zh-Hant": "Burst"
    },
    "meaning": {
     "ja": "登場に合わせて線や粒が弾ける",
-    "en": "Lines and dots burst outward as something appears"
+    "en": "Lines and dots burst outward as something appears",
+    "zh-Hant": "出現時線條與粒子向外迸開"
    },
    "ask": {
     "ja": "ハートが出る瞬間に、まわりへバーストを入れて。短い線を8本、0.3秒で消す。",
-    "en": "Add a burst around the heart the moment it appears: 8 short lines that fade in 0.3 s."
+    "en": "Add a burst around the heart the moment it appears: 8 short lines that fade in 0.3 s.",
+    "zh-Hant": "愛心出現的瞬間，在周圍加上 Burst：8 條短線，0.3 秒內淡出消失。"
    },
    "summary": {
     "ja": "「いいね」のハートが点くと同時に、まわりに輪・線・粒が弾ける。",
@@ -408,15 +442,18 @@
    "cycle": 4.7,
    "name": {
     "ja": "ラインドロー",
-    "en": "Line draw"
+    "en": "Line draw",
+    "zh-Hant": "線條動畫"
    },
    "meaning": {
     "ja": "線が描かれるように伸びる",
-    "en": "A line extends as if it were being drawn"
+    "en": "A line extends as if it were being drawn",
+    "zh-Hant": "線條像被畫出來般延伸"
    },
    "ask": {
     "ja": "グラフの折れ線を、ラインドローで左から描いて。1.2秒かけて。",
-    "en": "Reveal the chart line with a line draw from the left, over 1.2 s."
+    "en": "Reveal the chart line with a line draw from the left, over 1.2 s.",
+    "zh-Hant": "請用線條動畫從左邊畫出折線圖的線條，花 1.2 秒。"
    },
    "summary": {
     "ja": "グラフの線が描かれるように伸び、消えるときは後ろから追いかけて消える。",
@@ -465,15 +502,18 @@
    "cycle": 4.7,
    "name": {
     "ja": "マスクリビール",
-    "en": "Mask reveal"
+    "en": "Mask reveal",
+    "zh-Hant": "Mask Reveal"
    },
    "meaning": {
     "ja": "見えない枠の中から文字がせり上がる",
-    "en": "Text rises into view from behind an invisible edge"
+    "en": "Text rises into view from behind an invisible edge",
+    "zh-Hant": "文字從看不見的邊界後方升起"
    },
    "ask": {
     "ja": "タイトルをマスクリビールで下からせり上げて。0.6秒、行ごとに少しずらして。",
-    "en": "Bring the title in with a mask reveal from below, 0.6 s, each line slightly after the one before."
+    "en": "Bring the title in with a mask reveal from below, 0.6 s, each line slightly after the one before.",
+    "zh-Hant": "標題請用 Mask Reveal 從下方升起，0.6 秒，每一行稍微錯開。"
    },
    "summary": {
     "ja": "1本の線を境に、見えない枠の向こうから見出しがせり上がる。",
@@ -521,15 +561,18 @@
    "cycle": 4.7,
    "name": {
     "ja": "タイプライター",
-    "en": "Typewriter"
+    "en": "Typewriter",
+    "zh-Hant": "打字機效果"
    },
    "meaning": {
     "ja": "1文字ずつ打たれるように出る",
-    "en": "Text appears one character at a time, as if typed"
+    "en": "Text appears one character at a time, as if typed",
+    "zh-Hant": "文字像一個字一個字打出來"
    },
    "ask": {
     "ja": "この一文をタイプライターで出して。1文字0.05秒、末尾にカーソルを付けて。",
-    "en": "Show this sentence with a typewriter effect, 0.05 s per character, with a cursor at the end."
+    "en": "Show this sentence with a typewriter effect, 0.05 s per character, with a cursor at the end.",
+    "zh-Hant": "這句話請用打字機效果呈現，每個字 0.05 秒，結尾加上游標。"
    },
    "summary": {
     "ja": "入力欄に1文字ずつ打たれ、打ち終わると送信ボタンが点いて押される。",
@@ -579,15 +622,18 @@
    "cycle": 4.7,
    "name": {
     "ja": "カウントアップ",
-    "en": "Count-up"
+    "en": "Count-up",
+    "zh-Hant": "數字跳動"
    },
    "meaning": {
     "ja": "数字が勢いよく増えていく",
-    "en": "A number runs up quickly to its final value"
+    "en": "A number runs up quickly to its final value",
+    "zh-Hant": "數字快速累加到最終數值"
    },
    "ask": {
     "ja": "数字を0から1,280までカウントアップさせて。1.5秒で、最後はゆっくり止めて。",
-    "en": "Count the figure up from 0 to 1,280 in 1.5 s, slowing down at the end."
+    "en": "Count the figure up from 0 to 1,280 in 1.5 s, slowing down at the end.",
+    "zh-Hant": "請用數字跳動讓數字從 0 跳到 1,280，花 1.5 秒，最後慢慢停下來。"
    },
    "summary": {
     "ja": "数字が勢いよく増えて、最後にピタッと決まる。",
@@ -636,15 +682,18 @@
    "cycle": 4.7,
    "name": {
     "ja": "キネティックタイポグラフィ",
-    "en": "Kinetic typography"
+    "en": "Kinetic typography",
+    "zh-Hant": "Kinetic Typography"
    },
    "meaning": {
     "ja": "言葉に合わせて文字が動き回る",
-    "en": "Words move, scale and turn in time with what is said"
+    "en": "Words move, scale and turn in time with what is said",
+    "zh-Hant": "文字隨著話語移動、縮放、旋轉"
    },
    "ask": {
     "ja": "このナレーションをキネティックタイポグラフィにして。強調する語は大きく、拍に合わせて出して。",
-    "en": "Turn this narration into kinetic typography: make the stressed words larger and land them on the beat."
+    "en": "Turn this narration into kinetic typography: make the stressed words larger and land them on the beat.",
+    "zh-Hant": "請把這段旁白做成 Kinetic Typography：強調的詞放大，並配合節拍出現。"
    },
    "summary": {
     "ja": "言葉の意味に合わせて文字が動く（のびる／はねる／まわる／ドン！）。",
@@ -694,15 +743,18 @@
    "cycle": 4.7,
    "name": {
     "ja": "イージング",
-    "en": "Easing"
+    "en": "Easing",
+    "zh-Hant": "Easing"
    },
    "meaning": {
     "ja": "緩急をつけて気持ちよく動かす",
-    "en": "Motion speeds up and slows down instead of moving at one speed"
+    "en": "Motion speeds up and slows down instead of moving at one speed",
+    "zh-Hant": "速度有快有慢，而不是等速移動"
    },
    "ask": {
     "ja": "この移動にイージングをかけて。イーズアウトで、止まり際をゆっくりに。",
-    "en": "Add easing to this move: ease-out, slowing down as it stops."
+    "en": "Add easing to this move: ease-out, slowing down as it stops.",
+    "zh-Hant": "這段移動請加上 Easing，用 Ease-out，讓停下來之前慢慢減速。"
    },
    "summary": {
     "ja": "同じ距離を同じ時間で動く2つの四角。上は一定の速さ、下は緩急あり。",
@@ -751,15 +803,18 @@
    "cycle": 4.7,
    "name": {
     "ja": "オーバーシュート",
-    "en": "Overshoot"
+    "en": "Overshoot",
+    "zh-Hant": "Overshoot"
    },
    "meaning": {
     "ja": "行き過ぎてから戻って止まる",
-    "en": "Goes a little past the target, then settles back"
+    "en": "Goes a little past the target, then settles back",
+    "zh-Hant": "衝過目標一點，再回彈停住"
    },
    "ask": {
     "ja": "メーターの針をオーバーシュートさせて。目標を1割ほど越えてから戻して。",
-    "en": "Give the gauge needle an overshoot: about 10% past the target, then back."
+    "en": "Give the gauge needle an overshoot: about 10% past the target, then back.",
+    "zh-Hant": "請讓儀表的指針加上 Overshoot，衝過目標約 10% 之後再回到目標。"
    },
    "summary": {
     "ja": "メーターの針が、目標を行き過ぎてから戻って止まる。",
@@ -807,15 +862,18 @@
    "cycle": 4.7,
    "name": {
     "ja": "スクワッシュ＆ストレッチ",
-    "en": "Squash & stretch"
+    "en": "Squash & stretch",
+    "zh-Hant": "擠壓與伸展"
    },
    "meaning": {
     "ja": "つぶれて伸びて弾力を出す",
-    "en": "Squashes and stretches so that it feels elastic"
+    "en": "Squashes and stretches so that it feels elastic",
+    "zh-Hant": "物體擠壓再拉長，帶出彈性感"
    },
    "ask": {
     "ja": "ボールの着地にスクワッシュ＆ストレッチを入れて。つぶれは弱めに。",
-    "en": "Add squash and stretch when the ball lands; keep the squash subtle."
+    "en": "Add squash and stretch when the ball lands; keep the squash subtle.",
+    "zh-Hant": "球落地時請加上擠壓與伸展，擠壓的幅度要小一點。"
    },
    "summary": {
     "ja": "弾むキャラクターが、着地でつぶれ、飛ぶときに伸びる。",
@@ -862,15 +920,18 @@
    "cycle": 4.7,
    "name": {
     "ja": "モーフィング",
-    "en": "Shape morph"
+    "en": "Shape morph",
+    "zh-Hant": "形狀變形"
    },
    "meaning": {
     "ja": "形が別の形に変わる",
-    "en": "One shape turns smoothly into another"
+    "en": "One shape turns smoothly into another",
+    "zh-Hant": "一個形狀平滑變成另一個形狀"
    },
    "ask": {
     "ja": "丸を星にモーフィングさせて。0.8秒で、途中で色も青から黄へ。",
-    "en": "Morph the circle into a star in 0.8 s, changing the color from blue to yellow on the way."
+    "en": "Morph the circle into a star in 0.8 s, changing the color from blue to yellow on the way.",
+    "zh-Hant": "請用形狀變形把圓形變成星形，0.8 秒，過程中顏色也從藍色漸變成黃色。"
    },
    "summary": {
     "ja": "丸 → 四角 → 星 → ハートと、形と色がなめらかに変わる。",
@@ -919,15 +980,18 @@
    "cycle": 4.7,
    "name": {
     "ja": "リキッドモーション",
-    "en": "Liquid motion"
+    "en": "Liquid motion",
+    "zh-Hant": "液態動畫"
    },
    "meaning": {
     "ja": "液体のようにぬるっと動く",
-    "en": "Shapes move and merge like liquid"
+    "en": "Shapes move and merge like liquid",
+    "zh-Hant": "像液體一樣黏滑地流動、融合"
    },
    "ask": {
     "ja": "ロゴの登場をリキッドモーションにして。しずくが集まってロゴの形になるように。",
-    "en": "Make the logo entrance a liquid motion: drops gather and form the shape."
+    "en": "Make the logo entrance a liquid motion: drops gather and form the shape.",
+    "zh-Hant": "Logo 的登場請用液態動畫，像水滴聚在一起組成 Logo 的形狀。"
    },
    "summary": {
     "ja": "しずくが伸びて、ちぎれて、ぬるっと1つにまとまる。",
@@ -975,15 +1039,18 @@
    "cycle": 4.7,
    "name": {
     "ja": "モーショントレイル",
-    "en": "Motion trail"
+    "en": "Motion trail",
+    "zh-Hant": "動態殘影"
    },
    "meaning": {
     "ja": "動いた跡に残像が尾を引く",
-    "en": "A fading trail follows a moving object"
+    "en": "A fading trail follows a moving object",
+    "zh-Hant": "移動的物體後方拖著漸淡的殘影"
    },
    "ask": {
     "ja": "飛んでいく丸にモーショントレイルを付けて。残像は5個、後ろほど薄く。",
-    "en": "Add a motion trail to the flying circle: five copies that fade out behind it."
+    "en": "Add a motion trail to the flying circle: five copies that fade out behind it.",
+    "zh-Hant": "飛行中的圓形請加上動態殘影，5 個殘影，越後面越淡。"
    },
    "summary": {
     "ja": "8の字に動く丸の跡に、残像が尾を引く。",
@@ -1030,15 +1097,18 @@
    "cycle": 4.7,
    "name": {
     "ja": "パーティクル",
-    "en": "Particles"
+    "en": "Particles",
+    "zh-Hant": "粒子特效"
    },
    "meaning": {
     "ja": "粒が飛び散る",
-    "en": "Many small pieces fly out and scatter"
+    "en": "Many small pieces fly out and scatter",
+    "zh-Hant": "許多小粒子向外飛散"
    },
    "ask": {
     "ja": "達成の瞬間に、下からパーティクルを噴き上げて。4色で、1.5秒で落ちきるように。",
-    "en": "At the moment of success, shoot particles up from the bottom: four colors, all fallen within 1.5 s."
+    "en": "At the moment of success, shoot particles up from the bottom: four colors, all fallen within 1.5 s.",
+    "zh-Hant": "達成的瞬間，請用粒子特效從下方往上噴出，4 種顏色，1.5 秒內全部落完。"
    },
    "summary": {
     "ja": "粒が下の口から次々と噴き出して、飛び散って落ちる。",
@@ -1085,15 +1155,18 @@
    "cycle": 4.7,
    "name": {
     "ja": "パララックス",
-    "en": "Parallax"
+    "en": "Parallax",
+    "zh-Hant": "Parallax"
    },
    "meaning": {
     "ja": "手前と奥をずらして動かし奥行きを出す",
-    "en": "Near and far layers move at different speeds to show depth"
+    "en": "Near and far layers move at different speeds to show depth",
+    "zh-Hant": "近景與遠景速度不同，營造景深"
    },
    "ask": {
     "ja": "この風景を3層に分けて、パララックスで横に流して。手前ほど速く。",
-    "en": "Split this landscape into three layers and scroll them with parallax, nearer layers faster."
+    "en": "Split this landscape into three layers and scroll them with parallax, nearer layers faster.",
+    "zh-Hant": "請把這張風景分成 3 層，以 Parallax 橫向平移，越近的圖層移動越快。"
    },
    "summary": {
     "ja": "横に動く景色。手前ほど大きく、奥ほど小さく動いて、奥行きが出る。",
@@ -1138,15 +1211,18 @@
    "cycle": 4.7,
    "name": {
     "ja": "マスクトランジション",
-    "en": "Mask transition"
+    "en": "Mask transition",
+    "zh-Hant": "遮罩轉場"
    },
    "meaning": {
     "ja": "形の中から次の画面が現れる",
-    "en": "The next scene appears inside a growing shape"
+    "en": "The next scene appears inside a growing shape",
+    "zh-Hant": "下一個畫面從擴大的形狀中現出"
    },
    "ask": {
     "ja": "次の場面へはマスクトランジションで。中央の丸が0.7秒で広がって切り替わるように。",
-    "en": "Go to the next scene with a mask transition: a circle grows from the center in 0.7 s."
+    "en": "Go to the next scene with a mask transition: a circle grows from the center in 0.7 s.",
+    "zh-Hant": "切換到下一個場景請用遮罩轉場，中央的圓形在 0.7 秒內擴大並完成切換。"
    },
    "summary": {
     "ja": "丸や星の形の「窓」が広がり、その中に次の画面が見える。",
@@ -1193,15 +1269,18 @@
    "cycle": 4.7,
    "name": {
     "ja": "シェイプトランジション",
-    "en": "Shape transition"
+    "en": "Shape transition",
+    "zh-Hant": "形狀轉場"
    },
    "meaning": {
     "ja": "図形が画面を覆って切り替わる",
-    "en": "Shapes cover the screen and uncover the next scene"
+    "en": "Shapes cover the screen and uncover the next scene",
+    "zh-Hant": "形狀覆蓋畫面後露出下一個場景"
    },
    "ask": {
     "ja": "場面の切り替えはシェイプトランジションで。4色の斜めの帯が左から覆うように。",
-    "en": "Change scenes with a shape transition: four diagonal color bands sweep in from the left."
+    "en": "Change scenes with a shape transition: four diagonal color bands sweep in from the left.",
+    "zh-Hant": "場景切換請用形狀轉場，4 種顏色的斜向色帶從左邊掃過來覆蓋畫面。"
    },
    "summary": {
     "ja": "色のついた帯が画面を覆い隠し、抜けると次の画面になっている。",
@@ -1248,15 +1327,18 @@
    "cycle": 4.7,
    "name": {
     "ja": "リキッドトランジション",
-    "en": "Liquid transition"
+    "en": "Liquid transition",
+    "zh-Hant": "液態轉場"
    },
    "meaning": {
     "ja": "液体が流れ込んで切り替わる",
-    "en": "Liquid flows in and replaces the scene"
+    "en": "Liquid flows in and replaces the scene",
+    "zh-Hant": "液體流入並取代原本的畫面"
    },
    "ask": {
     "ja": "ここはリキッドトランジションで。上から青いインクが垂れて画面を満たすように。",
-    "en": "Use a liquid transition here: blue ink drips down from the top and fills the frame."
+    "en": "Use a liquid transition here: blue ink drips down from the top and fills the frame.",
+    "zh-Hant": "這裡請用液態轉場，藍色墨水從上方滴下來填滿畫面。"
    },
    "summary": {
     "ja": "ペンキのような液体が上から垂れて流れ込み、次の画面になる。",
@@ -1304,15 +1386,18 @@
    "cycle": 4.7,
    "name": {
     "ja": "ズームスルー",
-    "en": "Zoom through"
+    "en": "Zoom through",
+    "zh-Hant": "Zoom Through 穿越轉場"
    },
    "meaning": {
     "ja": "物の中へ突き抜けて次へ",
-    "en": "Zooms into an object and passes through it into the next scene"
+    "en": "Zooms into an object and passes through it into the next scene",
+    "zh-Hant": "鑽進物體裡穿過去，進入下一個場景"
    },
    "ask": {
     "ja": "ロゴの「O」の穴へズームスルーして、次の場面へ。0.6秒で、加速しながら。",
-    "en": "Zoom through the hole of the \"O\" in the logo into the next scene, 0.6 s, accelerating."
+    "en": "Zoom through the hole of the \"O\" in the logo into the next scene, 0.6 s, accelerating.",
+    "zh-Hant": "請用 Zoom Through 穿越轉場鑽進 Logo「O」的洞，進入下一個場景，0.6 秒，逐漸加速。"
    },
    "summary": {
     "ja": "文字の「O」の穴へ突っ込んで、その先の画面へ抜ける。",
@@ -1359,15 +1444,18 @@
    "cycle": 4.7,
    "name": {
     "ja": "フリップ",
-    "en": "Flip"
+    "en": "Flip",
+    "zh-Hant": "卡片翻轉"
    },
    "meaning": {
     "ja": "カードのように裏返る",
-    "en": "Turns over like a card to show the other side"
+    "en": "Turns over like a card to show the other side",
+    "zh-Hant": "像卡片一樣翻到背面"
    },
    "ask": {
     "ja": "料金カードをフリップで裏返して、裏に詳細を出して。0.5秒で。",
-    "en": "Flip the pricing card to show the details on its back, in 0.5 s."
+    "en": "Flip the pricing card to show the details on its back, in 0.5 s.",
+    "zh-Hant": "請用卡片翻轉讓價格卡片翻到背面，並在背面顯示詳細內容，0.5 秒。"
    },
    "summary": {
     "ja": "カードが縦の軸で回って裏返り、裏の面が出る。",
@@ -1414,15 +1502,18 @@
    "cycle": 4.7,
    "name": {
     "ja": "ライトスイープ",
-    "en": "Light sweep"
+    "en": "Light sweep",
+    "zh-Hant": "掃光"
    },
    "meaning": {
     "ja": "光が表面を横切る",
-    "en": "A band of light crosses a surface"
+    "en": "A band of light crosses a surface",
+    "zh-Hant": "一道光掃過表面"
    },
    "ask": {
     "ja": "ロゴが止まったあとに、ライトスイープを1回。左上から右下へ、弱めに。",
-    "en": "After the logo settles, add one light sweep from top-left to bottom-right, subtle."
+    "en": "After the logo settles, add one light sweep from top-left to bottom-right, subtle.",
+    "zh-Hant": "Logo 停住之後，請加一次掃光，由左上掃到右下，亮度淡一點。"
    },
    "summary": {
     "ja": "ロゴの表面を、光の帯が斜めに横切る。",
@@ -1470,15 +1561,18 @@
    "cycle": 4.7,
    "name": {
     "ja": "グリッチ",
-    "en": "Glitch"
+    "en": "Glitch",
+    "zh-Hant": "Glitch"
    },
    "meaning": {
     "ja": "映像がバグったように乱れる",
-    "en": "The picture breaks up as if it were malfunctioning"
+    "en": "The picture breaks up as if it were malfunctioning",
+    "zh-Hant": "畫面像故障一樣失真跳動"
    },
    "ask": {
     "ja": "タイトルに一瞬だけグリッチを入れて。0.3秒、色ずれは弱めで、点滅はさせないで。",
-    "en": "Add a brief glitch to the title: 0.3 s, a mild color split, no flashing."
+    "en": "Add a brief glitch to the title: 0.3 s, a mild color split, no flashing.",
+    "zh-Hant": "標題請加上短暫的 Glitch，0.3 秒，RGB 分離輕微，不要閃爍。"
    },
    "summary": {
     "ja": "文字が横にずれ、色がずれ、帯が走る。明るさの点滅はさせない。",
@@ -1527,15 +1621,18 @@
    "cycle": 4.7,
    "name": {
     "ja": "インパクトシェイク",
-    "en": "Impact shake"
+    "en": "Impact shake",
+    "zh-Hant": "畫面震動"
    },
    "meaning": {
     "ja": "着地の衝撃で画面が揺れる",
-    "en": "The whole frame shakes when something lands"
+    "en": "The whole frame shakes when something lands",
+    "zh-Hant": "落地的衝擊讓整個畫面震動"
    },
    "ask": {
     "ja": "見出しがドンと落ちた瞬間に、インパクトシェイクを入れて。0.4秒で収まる程度に。",
-    "en": "Add an impact shake when the headline lands; it should settle within 0.4 s."
+    "en": "Add an impact shake when the headline lands; it should settle within 0.4 s.",
+    "zh-Hant": "標題砰地落下的瞬間，請加上畫面震動，0.4 秒內要平息。"
    },
    "summary": {
     "ja": "重い見出しの板がドンと落ち、その衝撃で画面ごと揺れる。",
@@ -1585,15 +1682,18 @@
    "cycle": 9.4,
    "name": {
     "ja": "パン",
-    "en": "Pan"
+    "en": "Pan",
+    "zh-Hant": "橫搖"
    },
    "meaning": {
     "ja": "カメラを横に振る",
-    "en": "Pivot the camera left or right"
+    "en": "Pivot the camera left or right",
+    "zh-Hant": "攝影機原地左右轉動"
    },
    "ask": {
     "ja": "カメラの位置は固定で、街並みを左から右へゆっくりパン。5秒かけて。",
-    "en": "Slow pan from left to right across the skyline, camera fixed in place, over 5 seconds."
+    "en": "Slow pan from left to right across the skyline, camera fixed in place, over 5 seconds.",
+    "zh-Hant": "攝影機位置固定，由左往右慢慢橫搖，掃過整片街景，整段花 5 秒。"
    },
    "summary": {
     "ja": "カメラの位置は変えず、首を左から右へ振る。回転なので手前も奥も同じ量だけ横に流れる。",
@@ -1642,15 +1742,18 @@
    "cycle": 9.4,
    "name": {
     "ja": "ティルト",
-    "en": "Tilt"
+    "en": "Tilt",
+    "zh-Hant": "直搖"
    },
    "meaning": {
     "ja": "カメラを縦に振る",
-    "en": "Pivot the camera up or down"
+    "en": "Pivot the camera up or down",
+    "zh-Hant": "攝影機原地上下轉動"
    },
    "ask": {
     "ja": "人物の足元から塔の先まで、ゆっくりティルトアップ。",
-    "en": "Slow tilt up from the person's feet to the top of the tower."
+    "en": "Slow tilt up from the person's feet to the top of the tower.",
+    "zh-Hant": "攝影機原地不動，從人物的腳部慢慢往上直搖，一路搖到塔頂。"
    },
    "summary": {
     "ja": "カメラの位置は変えず、首を下から上へ振る。足元の人物から塔の先端まで見上げていく。",
@@ -1698,15 +1801,18 @@
    "cycle": 9.4,
    "name": {
     "ja": "ドリーイン",
-    "en": "Dolly in"
+    "en": "Dolly in",
+    "zh-Hant": "Dolly in"
    },
    "meaning": {
     "ja": "カメラごと被写体に近づく",
-    "en": "Move the camera toward the subject"
+    "en": "Move the camera toward the subject",
+    "zh-Hant": "攝影機本身朝被攝體前進"
    },
    "ask": {
     "ja": "人物の顔へゆっくりドリーイン。ズームではなく、カメラごと近づく。",
-    "en": "Slow dolly in toward her face; move the camera, do not zoom."
+    "en": "Slow dolly in toward her face; move the camera, do not zoom.",
+    "zh-Hant": "用 Dolly in 讓攝影機慢慢朝她的臉前進。要實際移動攝影機，不要用變焦。"
    },
    "summary": {
     "ja": "カメラそのものが被写体へ前進する。手前の物ほど大きく速く流れ、奥の山はほとんど変わらない。",
@@ -1755,15 +1861,18 @@
    "cycle": 9.4,
    "name": {
     "ja": "ズームイン",
-    "en": "Zoom in"
+    "en": "Zoom in",
+    "zh-Hant": "Zoom in"
    },
    "meaning": {
     "ja": "レンズで寄る（位置は動かない）",
-    "en": "Magnify with the lens (camera stays put)"
+    "en": "Magnify with the lens (camera stays put)",
+    "zh-Hant": "攝影機不動，只用鏡頭放大"
    },
    "ask": {
     "ja": "カメラは動かさず、窓辺の人物へ3秒でズームイン。",
-    "en": "The camera stays still; zoom in on the person at the window over 3 seconds."
+    "en": "The camera stays still; zoom in on the person at the window over 3 seconds.",
+    "zh-Hant": "攝影機不動，用 3 秒對窗邊的人物做 Zoom in。"
    },
    "summary": {
     "ja": "カメラの位置は動かさず、レンズの焦点距離だけを伸ばす。画面全体が同じ比率で拡大する。",
@@ -1812,15 +1921,18 @@
    "cycle": 9.4,
    "name": {
     "ja": "トラッキング",
-    "en": "Tracking shot"
+    "en": "Tracking shot",
+    "zh-Hant": "跟拍"
    },
    "meaning": {
     "ja": "被写体と並んで動く",
-    "en": "Move along with the subject"
+    "en": "Move along with the subject",
+    "zh-Hant": "攝影機跟著被攝體一起移動"
    },
    "ask": {
     "ja": "歩く人物を真横からトラッキング。同じ速さで並んで動く。",
-    "en": "Tracking shot from the side, moving along with the walking person at the same speed."
+    "en": "Tracking shot from the side, moving along with the walking person at the same speed.",
+    "zh-Hant": "攝影機從正側面跟拍走路的人物，以相同速度與他並排移動。"
    },
    "summary": {
     "ja": "歩く人物と同じ速さでカメラが真横に並走する。人物は画面中央のまま、手前の杭ほど速く後ろへ流れる。",
@@ -1868,15 +1980,18 @@
    "cycle": 9.4,
    "name": {
     "ja": "オービット",
-    "en": "Orbit (Arc shot)"
+    "en": "Orbit (Arc shot)",
+    "zh-Hant": "環繞運鏡"
    },
    "meaning": {
     "ja": "被写体の周りを回り込む",
-    "en": "Circle around the subject"
+    "en": "Circle around the subject",
+    "zh-Hant": "攝影機繞著被攝體轉"
    },
    "ask": {
     "ja": "立っている人物の周りを半周オービット。人物は画面の中央のまま。",
-    "en": "Half orbit around the standing person, keeping them in the center of the frame."
+    "en": "Half orbit around the standing person, keeping them in the center of the frame.",
+    "zh-Hant": "用環繞運鏡讓攝影機繞著站立的人物走半圈，人物始終保持在畫面中央。"
    },
    "summary": {
     "ja": "被写体を中心に、カメラが円を描いて回り込む。人物は中央のまま、背景の木と建物が横に大きく流れる。",
@@ -1925,15 +2040,18 @@
    "cycle": 9.4,
    "name": {
     "ja": "クレーンアップ",
-    "en": "Crane up"
+    "en": "Crane up",
+    "zh-Hant": "升鏡"
    },
    "meaning": {
     "ja": "カメラが上へ昇っていく",
-    "en": "Lift the camera up"
+    "en": "Lift the camera up",
+    "zh-Hant": "攝影機往上升起"
    },
    "ask": {
     "ja": "人物の目の高さから、街全体が見える高さまでクレーンアップ。",
-    "en": "Crane up from eye level until the whole town comes into view."
+    "en": "Crane up from eye level until the whole town comes into view.",
+    "zh-Hant": "攝影機從人物的視線高度垂直往上升鏡，一路升到整個小鎮都入鏡為止。"
    },
    "summary": {
     "ja": "カメラが真上へ上昇しながら下を向き、人物を見下ろす構図になる。",
@@ -1982,15 +2100,18 @@
    "cycle": 9.4,
    "name": {
     "ja": "ドリーズーム",
-    "en": "Dolly zoom (Vertigo)"
+    "en": "Dolly zoom (Vertigo)",
+    "zh-Hant": "希區考克變焦"
    },
    "meaning": {
     "ja": "人物はそのまま背景だけ伸び縮み",
-    "en": "Subject stays, background warps"
+    "en": "Subject stays, background warps",
+    "zh-Hant": "主體大小不變，背景被拉扯變形"
    },
    "ask": {
     "ja": "気づいた瞬間の顔にドリーズーム。人物の大きさは変えず、背景だけが遠ざかる。",
-    "en": "Dolly zoom on his face at the moment he realizes: he stays the same size while the background stretches away."
+    "en": "Dolly zoom on his face at the moment he realizes: he stays the same size while the background stretches away.",
+    "zh-Hant": "在他意識到的瞬間，對他的臉用希區考克變焦：人物大小維持不變，只有背景往後拉遠。"
    },
    "summary": {
     "ja": "カメラを引きながら同じ比率でズームする。人物の大きさは変わらず、背景だけが迫ってくる。",
@@ -2039,15 +2160,18 @@
    "cycle": 9.4,
    "name": {
     "ja": "ラックフォーカス",
-    "en": "Rack focus"
+    "en": "Rack focus",
+    "zh-Hant": "焦點轉移"
    },
    "meaning": {
     "ja": "ピントを手前と奥のあいだで送る",
-    "en": "Shift focus between near and far"
+    "en": "Shift focus between near and far",
+    "zh-Hant": "焦點在前景與後景之間轉移"
    },
    "ask": {
     "ja": "手前のカップから奥の人物へ、1秒でラックフォーカス。",
-    "en": "Rack focus from the cup in the foreground to the person behind it, in 1 second."
+    "en": "Rack focus from the cup in the foreground to the person behind it, in 1 second.",
+    "zh-Hant": "用 1 秒做焦點轉移，把對焦點從前景的杯子移到後方的人物。"
    },
    "summary": {
     "ja": "カメラは動かさず、ピントを手前の花から奥の人物へ送る。ぼけている側が入れ替わる。",
@@ -2096,15 +2220,18 @@
    "cycle": 9.4,
    "name": {
     "ja": "手持ち",
-    "en": "Handheld"
+    "en": "Handheld",
+    "zh-Hant": "手持"
    },
    "meaning": {
     "ja": "手で持って撮ったように小さく揺らす（ハンドヘルド）",
-    "en": "A slight shake, as if the camera were held by hand"
+    "en": "A slight shake, as if the camera were held by hand",
+    "zh-Hant": "像用手拿著拍的輕微晃動"
    },
    "ask": {
     "ja": "手持ちで、歩く人物の後ろをついていく。揺れは弱めに。",
-    "en": "Handheld shot following behind the walking person, with only a slight shake."
+    "en": "Handheld shot following behind the walking person, with only a slight shake.",
+    "zh-Hant": "用手持攝影從後方跟著走路的人物拍攝，晃動要輕微。"
    },
    "summary": {
     "ja": "三脚を使わず手で持ったような、小さく不規則な揺れを画面全体に加える。",
@@ -2153,15 +2280,18 @@
    "cycle": 9.4,
    "name": {
     "ja": "FPV",
-    "en": "FPV drone shot"
+    "en": "FPV drone shot",
+    "zh-Hant": "FPV 穿越機"
    },
    "meaning": {
     "ja": "ドローンで突き進む疾走感",
-    "en": "Fast, immersive fly-through"
+    "en": "Fast, immersive fly-through",
+    "zh-Hant": "高速、身歷其境的穿梭飛行"
    },
    "ask": {
     "ja": "FPVドローンで、森の木々の間をすり抜けて川の上へ出る。",
-    "en": "FPV drone shot weaving between the trees and out over the river."
+    "en": "FPV drone shot weaving between the trees and out over the river.",
+    "zh-Hant": "用 FPV 穿越機鏡頭在樹林間高速穿梭，再飛出樹林、來到河面上方。"
    },
    "summary": {
     "ja": "並木の間を低空・高速で前進しながら、機体を左右に傾けて蛇行する一人称視点。",
@@ -2210,15 +2340,18 @@
    "cycle": 9.4,
    "name": {
     "ja": "ダッチアングル",
-    "en": "Dutch angle"
+    "en": "Dutch angle",
+    "zh-Hant": "荷蘭角"
    },
    "meaning": {
     "ja": "画面を斜めに傾ける",
-    "en": "Tilt the frame diagonally"
+    "en": "Tilt the frame diagonally",
+    "zh-Hant": "讓畫面沿鏡頭軸向歪斜一邊"
    },
    "ask": {
     "ja": "不安な場面なので、ダッチアングルで15度ほど傾けて。",
-    "en": "Use a Dutch angle of about 15 degrees for this uneasy scene."
+    "en": "Use a Dutch angle of about 15 degrees for this uneasy scene.",
+    "zh-Hant": "這場戲氣氛不安，請用荷蘭角，讓畫面歪斜約 15 度。"
    },
    "summary": {
     "ja": "水平だったカメラを光軸まわりに傾け、地平線を斜めにしたまま止める。",
@@ -2267,15 +2400,18 @@
    "cycle": 9.4,
    "name": {
     "ja": "スローモーション",
-    "en": "Slow motion"
+    "en": "Slow motion",
+    "zh-Hant": "慢動作"
    },
    "meaning": {
     "ja": "動きをゆっくり見せる",
-    "en": "Play the action slower"
+    "en": "Play the action slower",
+    "zh-Hant": "把動作放慢播放"
    },
    "ask": {
     "ja": "水しぶきが上がる瞬間を、スローモーションで。",
-    "en": "Show the moment of the splash in slow motion."
+    "en": "Show the moment of the splash in slow motion.",
+    "zh-Hant": "用慢動作呈現水花濺起的瞬間。"
    },
    "summary": {
     "ja": "固定カメラの前で人物がゆっくり跳び上がり、葉もゆっくり落ちる。動き全体を引き伸ばして見せる。",
@@ -2324,15 +2460,18 @@
    "cycle": 9.4,
    "name": {
     "ja": "スピードランプ",
-    "en": "Speed ramp"
+    "en": "Speed ramp",
+    "zh-Hant": "速度漸變"
    },
    "meaning": {
     "ja": "速い→遅いと速さを変える",
-    "en": "Change speed mid-shot"
+    "en": "Change speed mid-shot",
+    "zh-Hant": "同一個鏡頭中途改變速度"
    },
    "ask": {
     "ja": "ジャンプの頂点だけ遅くなるスピードランプ。前後は通常の速さで。",
-    "en": "Speed ramp: normal speed, slowing at the top of the jump, then back to normal."
+    "en": "Speed ramp: normal speed, slowing at the top of the jump, then back to normal.",
+    "zh-Hant": "速度漸變：跳躍前後維持正常速度，只在跳到最高點時平順放慢。"
    },
    "summary": {
     "ja": "1つのショットの途中で再生速度を速い状態から遅い状態へ滑らかに変える。左下のグラフが速度を示す。",
@@ -2380,15 +2519,18 @@
    "cycle": 9.4,
    "name": {
     "ja": "タイムラプス",
-    "en": "Time-lapse"
+    "en": "Time-lapse",
+    "zh-Hant": "縮時攝影"
    },
    "meaning": {
     "ja": "長い時間を早送りで見せる",
-    "en": "Compress hours into seconds"
+    "en": "Compress hours into seconds",
+    "zh-Hant": "把幾個小時壓縮成幾秒"
    },
    "ask": {
     "ja": "夕方から夜まで、街の灯りがともっていくタイムラプス。",
-    "en": "Time-lapse of the city from dusk to night as the lights come on."
+    "en": "Time-lapse of the city from dusk to night as the lights come on.",
+    "zh-Hant": "用縮時攝影拍城市從黃昏到入夜、燈一盞盞亮起來。"
    },
    "summary": {
     "ja": "固定カメラのまま、朝6時から夕方18時までを数秒に縮める。太陽・雲・人・影が早送りで動く。",
@@ -2437,15 +2579,18 @@
    "cycle": 9.4,
    "name": {
     "ja": "フリーズフレーム",
-    "en": "Freeze frame"
+    "en": "Freeze frame",
+    "zh-Hant": "定格"
    },
    "meaning": {
     "ja": "動きを一瞬止める",
-    "en": "Pause the action for a beat"
+    "en": "Pause the action for a beat",
+    "zh-Hant": "讓動作停住一拍"
    },
    "ask": {
     "ja": "振り向いた瞬間でフリーズフレーム。1秒止めて、名前を出す。",
-    "en": "Freeze frame at the moment she turns around; hold for 1 second and show her name."
+    "en": "Freeze frame at the moment she turns around; hold for 1 second and show her name.",
+    "zh-Hant": "在她轉身的瞬間定格，停住 1 秒，並顯示她的名字字幕。"
    },
    "summary": {
     "ja": "跳び上がった人物が頂点に来た瞬間に映像を止め、1.4秒後に続きから再開する。",
@@ -2493,15 +2638,18 @@
    "cycle": 9.4,
    "name": {
     "ja": "ジャンプカット",
-    "en": "Jump cut"
+    "en": "Jump cut",
+    "zh-Hant": "跳接"
    },
    "meaning": {
     "ja": "同じ画角のまま時間を飛ばす",
-    "en": "Same framing, skip ahead in time"
+    "en": "Same framing, skip ahead in time",
+    "zh-Hant": "同樣的構圖，時間往前跳"
    },
    "ask": {
     "ja": "同じ画角のままジャンプカットでつないで、準備の様子をテンポよく見せる。",
-    "en": "Use jump cuts from the same framing to move quickly through the preparation."
+    "en": "Use jump cuts from the same framing to move quickly through the preparation.",
+    "zh-Hant": "維持同一個構圖，用跳接節奏明快地帶過準備的過程。"
    },
    "summary": {
     "ja": "カメラの位置も画角も同じまま、人物の位置と時刻だけが飛ぶ。同じ場面の中で時間を省く切り方。",
@@ -2550,15 +2698,18 @@
    "cycle": 9.4,
    "name": {
     "ja": "マッチカット",
-    "en": "Match cut"
+    "en": "Match cut",
+    "zh-Hant": "匹配剪接"
    },
    "meaning": {
     "ja": "形や動きをそろえて場面を変える",
-    "en": "Cut on a matching shape or motion"
+    "en": "Cut on a matching shape or motion",
+    "zh-Hant": "用相同的形狀或動作接到下一個鏡頭"
    },
    "ask": {
     "ja": "丸いコーヒーカップから、同じ位置にある満月へマッチカット。",
-    "en": "Match cut from the round coffee cup to a full moon in the same position."
+    "en": "Match cut from the round coffee cup to a full moon in the same position.",
+    "zh-Hant": "用匹配剪接，從圓形的咖啡杯接到滿月，兩者在畫面中的位置相同。"
    },
    "summary": {
     "ja": "投げ上げたボールが、次のカットでは同じ位置・同じ大きさの太陽になる。形をそろえて別の場面へつなぐ。",
@@ -2606,15 +2757,18 @@
    "cycle": 9.4,
    "name": {
     "ja": "ホイップパン",
-    "en": "Whip pan"
+    "en": "Whip pan",
+    "zh-Hant": "甩鏡"
    },
    "meaning": {
     "ja": "素早く振ってブレで次へ",
-    "en": "Fast pan blur into the next shot"
+    "en": "Fast pan blur into the next shot",
+    "zh-Hant": "快速橫搖，在動態模糊中接到下一個鏡頭"
    },
    "ask": {
     "ja": "ホイップパンで右へ素早く振って、次の場所へつなぐ。",
-    "en": "Whip pan to the right and land in the next location."
+    "en": "Whip pan to the right and land in the next location.",
+    "zh-Hant": "攝影機原地快速往右甩鏡，在動態模糊中接到下一個地點。"
    },
    "summary": {
     "ja": "カメラを素早く横に振り、流れてぼけた映像の中で次の場面に入れ替える。",
@@ -2662,15 +2816,18 @@
    "cycle": 9.4,
    "name": {
     "ja": "クロスディゾルブ",
-    "en": "Cross dissolve"
+    "en": "Cross dissolve",
+    "zh-Hant": "交叉溶解"
    },
    "meaning": {
     "ja": "前後の映像を重ねて溶かす",
-    "en": "Blend one shot into the next"
+    "en": "Blend one shot into the next",
+    "zh-Hant": "一個鏡頭漸漸疊化成下一個"
    },
    "ask": {
     "ja": "朝の部屋から夜の同じ部屋へ、1秒のクロスディゾルブ。",
-    "en": "Cross dissolve from the room in the morning to the same room at night, 1 second."
+    "en": "Cross dissolve from the room in the morning to the same room at night, 1 second.",
+    "zh-Hant": "用 1 秒的交叉溶解，從早晨的房間轉到同一個房間的夜晚。"
    },
    "summary": {
     "ja": "前の絵に次の絵を重ね、不透明度を上げていって入れ替える。途中は2つの絵が透けて重なる。",
@@ -2719,15 +2876,18 @@
    "cycle": 9.4,
    "name": {
     "ja": "ワイプ",
-    "en": "Wipe"
+    "en": "Wipe",
+    "zh-Hant": "擦除轉場"
    },
    "meaning": {
     "ja": "境目が横切って画面が入れ替わる",
-    "en": "A moving edge replaces the shot"
+    "en": "A moving edge replaces the shot",
+    "zh-Hant": "一條移動的邊界把畫面換掉"
    },
    "ask": {
     "ja": "左から右へのワイプで、次の場面に入れ替える。",
-    "en": "Wipe from left to right into the next scene."
+    "en": "Wipe from left to right into the next scene.",
+    "zh-Hant": "用由左往右的擦除轉場，讓畫面換成下一個場景。"
    },
    "summary": {
     "ja": "縦の境界線が左から右へ動き、通過した側から次の絵に置き換わる。",
@@ -2776,15 +2936,18 @@
    "cycle": 9.4,
    "name": {
     "ja": "スマッシュカット",
-    "en": "Smash cut"
+    "en": "Smash cut",
+    "zh-Hant": "Smash cut"
    },
    "meaning": {
     "ja": "対照的な場面へ前触れなく切り替える",
-    "en": "Abrupt cut to a contrasting scene"
+    "en": "Abrupt cut to a contrasting scene",
+    "zh-Hant": "突然切到反差很大的場景"
    },
    "ask": {
     "ja": "静かな寝室から、騒がしい交差点へスマッシュカット。",
-    "en": "Smash cut from the quiet bedroom to a noisy intersection."
+    "en": "Smash cut from the quiet bedroom to a noisy intersection.",
+    "zh-Hant": "用 Smash cut 從安靜的臥室直接切到吵雜的十字路口。"
    },
    "summary": {
     "ja": "人物が寝ている静かな場面から、前触れなく激しい場面へ直結で切り替える。音量メーターも一気に上がる。",
@@ -2833,15 +2996,18 @@
    "cycle": 9.4,
    "name": {
     "ja": "Jカット",
-    "en": "J-cut"
+    "en": "J-cut",
+    "zh-Hant": "J-cut"
    },
    "meaning": {
     "ja": "次の場面の音が先に聞こえる",
-    "en": "Next scene's audio starts first"
+    "en": "Next scene's audio starts first",
+    "zh-Hant": "下一場的聲音先進來"
    },
    "ask": {
     "ja": "Jカットで、次の場面の波の音を先に聞かせてから、海の映像に切り替える。",
-    "en": "J-cut: let the sound of waves from the next scene start before cutting to the sea."
+    "en": "J-cut: let the sound of waves from the next scene start before cutting to the sea.",
+    "zh-Hant": "J-cut：先讓下一場的海浪聲響起，再切到海的畫面。"
    },
    "summary": {
     "ja": "映像が切り替わる前に、次の場面の音が先に入る。上に映像、下に映像と音のタイムラインを表示する。",
@@ -2890,15 +3056,18 @@
    "cycle": 9.4,
    "name": {
     "ja": "Lカット",
-    "en": "L-cut"
+    "en": "L-cut",
+    "zh-Hant": "L-cut"
    },
    "meaning": {
     "ja": "前の場面の音が後まで残る",
-    "en": "Previous scene's audio carries over"
+    "en": "Previous scene's audio carries over",
+    "zh-Hant": "上一場的聲音延續過來"
    },
    "ask": {
     "ja": "Lカットで、彼女の話し声を残したまま、聞き手の顔に切り替える。",
-    "en": "L-cut: keep her voice going while cutting to the listener's face."
+    "en": "L-cut: keep her voice going while cutting to the listener's face.",
+    "zh-Hant": "L-cut：切到聽她說話的人的臉，同時讓她的聲音繼續播放。"
    },
    "summary": {
     "ja": "映像が次の場面に切り替わったあとも、前の場面の音がしばらく残る。上に映像、下に映像と音のタイムラインを表示する。",
@@ -2947,15 +3116,18 @@
    "cycle": 4.5,
    "name": {
     "ja": "モーダル",
-    "en": "Modal dialog"
+    "en": "Modal dialog",
+    "zh-Hant": "Modal"
    },
    "meaning": {
     "ja": "画面を暗くして中央に窓が出る",
-    "en": "A window opens in the middle while the page behind dims"
+    "en": "A window opens in the middle while the page behind dims",
+    "zh-Hant": "畫面變暗，中央跳出一個視窗"
    },
    "ask": {
     "ja": "削除ボタンを押したらモーダルで確認を出して。背景は4割ほど暗くし、0.3秒で少し拡大しながらフェードイン。",
-    "en": "When the delete button is pressed, show a confirmation in a modal dialog. Dim the page about 40% and fade it in over 0.3 s with a slight scale-up."
+    "en": "When the delete button is pressed, show a confirmation in a modal dialog. Dim the page about 40% and fade it in over 0.3 s with a slight scale-up.",
+    "zh-Hant": "按下刪除按鈕時，用 Modal 跳出確認。背景變暗約 40%，並在 0.3 秒內一邊微放大一邊淡入。"
    },
    "summary": {
     "ja": "「開く」ボタンを押すと画面全体が暗くなり、中央に小窓が少し拡大しながら出る。×を押すと閉じる。",
@@ -3003,15 +3175,18 @@
    "cycle": 4.5,
    "name": {
     "ja": "ドロワー",
-    "en": "Drawer (Off-canvas)"
+    "en": "Drawer (Off-canvas)",
+    "zh-Hant": "Drawer"
    },
    "meaning": {
     "ja": "横からメニューが引き出される",
-    "en": "A menu panel slides in from the side of the screen"
+    "en": "A menu panel slides in from the side of the screen",
+    "zh-Hant": "從側邊滑出選單面板"
    },
    "ask": {
     "ja": "メニューボタンを押したら左からドロワーを出して。幅は画面の4割、0.4秒で引き出し、背景は少し暗く。",
-    "en": "Open a drawer from the left when the menu button is pressed: 40% of the screen wide, sliding in over 0.4 s, with the page slightly dimmed."
+    "en": "Open a drawer from the left when the menu button is pressed: 40% of the screen wide, sliding in over 0.4 s, with the page slightly dimmed.",
+    "zh-Hant": "按下選單按鈕時，從左側滑出 Drawer。寬度為螢幕的 40%，0.4 秒滑出，背景稍微變暗。"
    },
    "summary": {
     "ja": "「メニュー」を押すと左から縦長のパネルが引き出され、外側を押すと戻る。",
@@ -3059,15 +3234,18 @@
    "cycle": 4.5,
    "name": {
     "ja": "ボトムシート",
-    "en": "Bottom sheet"
+    "en": "Bottom sheet",
+    "zh-Hant": "Bottom Sheet"
    },
    "meaning": {
     "ja": "下からパネルがせり上がる",
-    "en": "A panel slides up from the bottom of the screen"
+    "en": "A panel slides up from the bottom of the screen",
+    "zh-Hant": "面板從畫面底部往上滑出"
    },
    "ask": {
     "ja": "「詳細を見る」を押したらボトムシートで詳細を出して。高さは画面の4割、0.4秒でせり上げ、下へ引くと閉じる。",
-    "en": "Show the details in a bottom sheet when \"View details\" is tapped: 40% of the screen tall, rising over 0.4 s, closing when dragged down."
+    "en": "Show the details in a bottom sheet when \"View details\" is tapped: 40% of the screen tall, rising over 0.4 s, closing when dragged down.",
+    "zh-Hant": "點「查看詳情」時，用 Bottom Sheet 顯示詳細內容。高度為螢幕的 40%，0.4 秒升起，往下拖曳就關閉。"
    },
    "summary": {
     "ja": "指で「詳細を見る」を押すと下からパネルがせり上がり、上端のつまみを下へ引くと閉じる。",
@@ -3114,15 +3292,18 @@
    "cycle": 4.5,
    "name": {
     "ja": "アコーディオン",
-    "en": "Accordion"
+    "en": "Accordion",
+    "zh-Hant": "手風琴"
    },
    "meaning": {
     "ja": "押すと中身が開閉する",
-    "en": "Click a heading to show or hide its content"
+    "en": "Click a heading to show or hide its content",
+    "zh-Hant": "點擊標題展開或收合內容"
    },
    "ask": {
     "ja": "よくある質問をアコーディオンにして。押した項目だけ0.35秒で開き、矢印を180度回して。",
-    "en": "Make the FAQ an accordion: the clicked item opens over 0.35 s and its arrow turns 180°."
+    "en": "Make the FAQ an accordion: the clicked item opens over 0.35 s and its arrow turns 180°.",
+    "zh-Hant": "把常見問題做成手風琴。只有點到的項目在 0.35 秒內展開，箭頭旋轉 180 度。"
    },
    "summary": {
     "ja": "3段の見出しのうち1段目を押すと下に本文が開き、下の段が押し下げられる。もう一度押すと閉じる。",
@@ -3169,15 +3350,18 @@
    "cycle": 4.5,
    "name": {
     "ja": "ドロップダウン",
-    "en": "Dropdown (select)"
+    "en": "Dropdown (select)",
+    "zh-Hant": "下拉選單"
    },
    "meaning": {
     "ja": "押すと選択肢が下に広がる",
-    "en": "Click a field to drop a list of options below it"
+    "en": "Click a field to drop a list of options below it",
+    "zh-Hant": "點擊欄位，選項往下展開"
    },
    "ask": {
     "ja": "都道府県の入力欄をドロップダウンにして。押したら0.25秒で選択肢を下に開き、選んだら閉じて値を入れて。",
-    "en": "Make the prefecture field a dropdown: open the options below it in 0.25 s and close it with the value filled in once one is picked."
+    "en": "Make the prefecture field a dropdown: open the options below it in 0.25 s and close it with the value filled in once one is picked.",
+    "zh-Hant": "把縣市欄位做成下拉選單。點擊後 0.25 秒內往下展開選項，選好後收起並填入所選的值。"
    },
    "summary": {
     "ja": "入力欄を押すと下に4つの選択肢が開き、「名古屋」を選ぶと閉じて欄に入る。",
@@ -3224,15 +3408,18 @@
    "cycle": 4.5,
    "name": {
     "ja": "ツールチップ",
-    "en": "Tooltip"
+    "en": "Tooltip",
+    "zh-Hant": "Tooltip"
    },
    "meaning": {
     "ja": "乗せると小さな説明が出る",
-    "en": "Hover over something to show a short label"
+    "en": "Hover over something to show a short label",
+    "zh-Hant": "游標移上去顯示簡短說明"
    },
    "ask": {
     "ja": "「?」アイコンにツールチップを付けて。カーソルを乗せて0.2秒で上に説明を出し、離れたら消して。",
-    "en": "Add a tooltip to the \"?\" icon: show the note above it 0.2 s after hover, and hide it when the cursor leaves."
+    "en": "Add a tooltip to the \"?\" icon: show the note above it 0.2 s after hover, and hide it when the cursor leaves.",
+    "zh-Hant": "幫「?」圖示加上 Tooltip。游標移上去 0.2 秒後在上方顯示說明，移開就消失。"
    },
    "summary": {
     "ja": "カーソルを「?」に乗せると、上に黒い吹き出しで短い説明が出る。離れると消える。",
@@ -3278,15 +3465,18 @@
    "cycle": 4.5,
    "name": {
     "ja": "ポップオーバー",
-    "en": "Popover"
+    "en": "Popover",
+    "zh-Hant": "Popover"
    },
    "meaning": {
     "ja": "押すと吹き出しの小窓が出る",
-    "en": "Click a button to open a small panel pointing at it"
+    "en": "Click a button to open a small panel pointing at it",
+    "zh-Hant": "點擊後跳出帶箭頭的小面板"
    },
    "ask": {
     "ja": "「詳細」ボタンにポップオーバーを付けて。押したら右に吹き出しの小窓を0.3秒で出し、OKで閉じて。",
-    "en": "Attach a popover to the \"Details\" button: clicking opens a small panel to its right over 0.3 s, and OK closes it."
+    "en": "Attach a popover to the \"Details\" button: clicking opens a small panel to its right over 0.3 s, and OK closes it.",
+    "zh-Hant": "幫「詳情」按鈕加上 Popover。點擊後 0.3 秒內在右側跳出帶箭頭的小面板，按「確定」就關閉。"
    },
    "summary": {
     "ja": "「詳細」を押すと右に、三角でボタンを指す白い小窓が出る。小窓のOKを押すと閉じる。",
@@ -3332,15 +3522,18 @@
    "cycle": 4.5,
    "name": {
     "ja": "トースト",
-    "en": "Toast notification"
+    "en": "Toast notification",
+    "zh-Hant": "Toast"
    },
    "meaning": {
     "ja": "隅に通知が出て自動で消える",
-    "en": "A short message appears in a corner and goes away on its own"
+    "en": "A short message appears in a corner and goes away on its own",
+    "zh-Hant": "角落跳出通知並自動消失"
    },
    "ask": {
     "ja": "保存したら右下にトーストで「保存しました」と出して。0.35秒で右から出し、2秒後に自動で消して。",
-    "en": "After saving, show \"Saved\" as a toast at the bottom right: slide it in from the right in 0.35 s and dismiss it automatically after 2 s."
+    "en": "After saving, show \"Saved\" as a toast at the bottom right: slide it in from the right in 0.35 s and dismiss it automatically after 2 s.",
+    "zh-Hant": "儲存後在右下角用 Toast 顯示「已儲存」。0.35 秒內從右側滑入，2 秒後自動消失。"
    },
    "summary": {
     "ja": "「保存」を押すと右下に黒い通知が右から滑り込み、残り時間の線が縮みきると右へ消える。",
@@ -3386,15 +3579,18 @@
    "cycle": 4.5,
    "name": {
     "ja": "タブ",
-    "en": "Tabs"
+    "en": "Tabs",
+    "zh-Hant": "頁籤"
    },
    "meaning": {
     "ja": "見出しを押して中身を切り替える",
-    "en": "Click a label to switch which panel is shown"
+    "en": "Click a label to switch which panel is shown",
+    "zh-Hant": "點擊頁籤標題切換內容"
    },
    "ask": {
     "ja": "料金ページの上にタブを3つ置いて。押したら下線を0.25秒で滑らせ、中身を0.2秒のクロスフェードで切り替えて。",
-    "en": "Put three tabs at the top of the pricing page. On click, slide the underline over 0.25 s and cross-fade the content in 0.2 s."
+    "en": "Put three tabs at the top of the pricing page. On click, slide the underline over 0.25 s and cross-fade the content in 0.2 s.",
+    "zh-Hant": "在價格頁面上方放三個頁籤。點擊時底線在 0.25 秒內滑動過去，內容以 0.2 秒的交叉淡入淡出切換。"
    },
    "summary": {
     "ja": "「概要・料金・レビュー」のタブを順に押すと、青い下線が滑って移り、下の中身が入れ替わる。",
@@ -3440,15 +3636,18 @@
    "cycle": 4.5,
    "name": {
     "ja": "カルーセル",
-    "en": "Carousel"
+    "en": "Carousel",
+    "zh-Hant": "輪播"
    },
    "meaning": {
     "ja": "横に送って順番に見せる",
-    "en": "Slides that move sideways to show one item at a time"
+    "en": "Slides that move sideways to show one item at a time",
+    "zh-Hant": "橫向切換，依序展示內容"
    },
    "ask": {
     "ja": "トップの画像をカルーセルにして。右矢印で1枚ずつ0.4秒で送り、下に今の位置の点を出して。",
-    "en": "Turn the top images into a carousel: the right arrow moves one slide in 0.4 s, with position dots below."
+    "en": "Turn the top images into a carousel: the right arrow moves one slide in 0.4 s, with position dots below.",
+    "zh-Hant": "把首頁頂部的圖片做成輪播。按右箭頭每次用 0.4 秒換一張，下方顯示目前位置的圓點。"
    },
    "summary": {
     "ja": "右の矢印を押すたびに、横に並んだ3種類の絵が1枚ずつ左へ送られ、下の点が移る。",
@@ -3494,15 +3693,18 @@
    "cycle": 4.5,
    "name": {
     "ja": "トグルスイッチ",
-    "en": "Toggle switch"
+    "en": "Toggle switch",
+    "zh-Hant": "Toggle"
    },
    "meaning": {
     "ja": "オン・オフを切り替える",
-    "en": "Flip a setting on or off"
+    "en": "Flip a setting on or off",
+    "zh-Hant": "切換開啟或關閉"
    },
    "ask": {
     "ja": "通知設定の各行にトグルスイッチを置いて。押したら0.2秒でつまみを滑らせ、オンは青にして。",
-    "en": "Put a toggle switch on each notification setting: the knob slides in 0.2 s and the track turns blue when on."
+    "en": "Put a toggle switch on each notification setting: the knob slides in 0.2 s and the track turns blue when on.",
+    "zh-Hant": "在通知設定的每一列放上 Toggle。點擊時圓鈕在 0.2 秒內滑動，開啟時軌道變成藍色。"
    },
    "summary": {
     "ja": "設定の3行のうち上の2つのスイッチを順にオンにし、その後オフに戻す。",
@@ -3546,15 +3748,18 @@
    "cycle": 4.5,
    "name": {
     "ja": "セグメントコントロール",
-    "en": "Segmented control"
+    "en": "Segmented control",
+    "zh-Hant": "Segmented Control"
    },
    "meaning": {
     "ja": "並んだボタンで表示を切り替える",
-    "en": "A row of joined buttons that switches the view"
+    "en": "A row of joined buttons that switches the view",
+    "zh-Hant": "用並排按鈕切換檢視"
    },
    "ask": {
     "ja": "グラフの上に「日・週・月」のセグメントコントロールを置いて。押したら選択の背景を0.25秒で滑らせ、グラフも同時に変えて。",
-    "en": "Put a Day / Week / Month segmented control above the chart: the selected background slides over 0.25 s and the chart changes with it."
+    "en": "Put a Day / Week / Month segmented control above the chart: the selected background slides over 0.25 s and the chart changes with it.",
+    "zh-Hant": "在圖表上方放「日／週／月」的 Segmented Control。點擊時選取背景在 0.25 秒內滑動，圖表同步改變。"
    },
    "summary": {
     "ja": "「日・週・月」を押すと青い選択部分が滑って移り、下の棒グラフの高さが変わる。",
@@ -3598,15 +3803,18 @@
    "cycle": 4.5,
    "name": {
     "ja": "チップ",
-    "en": "Filter chips"
+    "en": "Filter chips",
+    "zh-Hant": "Filter Chip"
    },
    "meaning": {
     "ja": "押して絞り込み条件を付け外し",
-    "en": "Small pills you click to add or remove a filter"
+    "en": "Small pills you click to add or remove a filter",
+    "zh-Hant": "點擊以加上或移除篩選條件"
    },
    "ask": {
     "ja": "一覧の上に絞り込みのチップを並べて。押したらチェックを付けて青くし、0.15秒で一覧を絞り込んで。",
-    "en": "Add filter chips above the list: a clicked chip gets a check mark and turns blue, and the list filters within 0.15 s."
+    "en": "Add filter chips above the list: a clicked chip gets a check mark and turns blue, and the list filters within 0.15 s.",
+    "zh-Hant": "在列表上方放 Filter Chip。點擊後出現勾號並變成藍色，0.15 秒內篩選列表。"
    },
    "summary": {
     "ja": "「新着」「無料」のチップを押すとチェックが付いて青くなり、条件に合わないカードが薄くなる。",
@@ -3650,15 +3858,18 @@
    "cycle": 4.5,
    "name": {
     "ja": "レンジスライダー",
-    "en": "Range slider"
+    "en": "Range slider",
+    "zh-Hant": "範圍滑桿"
    },
    "meaning": {
     "ja": "つまみ2つで範囲を選ぶ",
-    "en": "Two handles on one track pick a minimum and a maximum"
+    "en": "Two handles on one track pick a minimum and a maximum",
+    "zh-Hant": "用兩個滑鈕選出範圍"
    },
    "ask": {
     "ja": "価格の絞り込みをレンジスライダーにして。つまみは2つ、動かしている間は値を吹き出しで出して。",
-    "en": "Make the price filter a range slider with two handles, showing each value in a bubble while it is dragged."
+    "en": "Make the price filter a range slider with two handles, showing each value in a bubble while it is dragged.",
+    "zh-Hant": "把價格篩選做成範圍滑桿。要有兩個滑鈕，拖曳時用氣泡顯示數值。"
    },
    "summary": {
     "ja": "価格のスライダーで、左のつまみを右へ、右のつまみを左へ動かして範囲を狭め、元に戻す。",
@@ -3704,15 +3915,18 @@
    "cycle": 4.5,
    "name": {
     "ja": "ステッパー",
-    "en": "Stepper (+/−)"
+    "en": "Stepper (+/−)",
+    "zh-Hant": "數量加減器"
    },
    "meaning": {
     "ja": "＋/−ボタンで数を増減する",
-    "en": "Plus and minus buttons that change a number by one"
+    "en": "Plus and minus buttons that change a number by one",
+    "zh-Hant": "用 ＋/－ 按鈕增減數字"
    },
    "ask": {
     "ja": "数量の欄をステッパーにして。＋と−で1ずつ増減し、押すたびに数字を0.25秒で少し弾ませて。",
-    "en": "Make the quantity field a stepper: + and − change it by one, and the number pops slightly for 0.25 s on each press."
+    "en": "Make the quantity field a stepper: + and − change it by one, and the number pops slightly for 0.25 s on each press.",
+    "zh-Hant": "把數量欄位做成＋／－數量加減器。每按一次增減 1，數字輕輕彈一下，持續 0.25 秒。"
    },
    "summary": {
     "ja": "＋を3回押して数が1から4に増え、−を3回押して1に戻る。押すたびに数字が少し弾む。",
@@ -3757,15 +3971,18 @@
    "cycle": 4.5,
    "name": {
     "ja": "ページネーション",
-    "en": "Pagination"
+    "en": "Pagination",
+    "zh-Hant": "分頁（Pagination）"
    },
    "meaning": {
     "ja": "番号でページを送る",
-    "en": "Numbered buttons that move between pages"
+    "en": "Numbered buttons that move between pages",
+    "zh-Hant": "用頁碼切換頁面"
    },
    "ask": {
     "ja": "検索結果の下にページネーションを付けて。今のページは青い丸にし、押したら0.2秒で丸を移して一覧を入れ替えて。",
-    "en": "Add pagination under the search results: the current page is a blue circle that moves in 0.2 s on click, and the list is replaced."
+    "en": "Add pagination under the search results: the current page is a blue circle that moves in 0.2 s on click, and the list is replaced.",
+    "zh-Hant": "在搜尋結果下方加上分頁頁碼。目前頁碼用藍色圓形標示，點擊後圓形在 0.2 秒內移動，並換成對應的列表。"
    },
    "summary": {
     "ja": "下の番号で2、3と押すと青い丸が移り、上の一覧が切り替わる。最後に1へ戻る。",
@@ -3809,15 +4026,18 @@
    "cycle": 4.5,
    "name": {
     "ja": "ハンバーガーメニュー",
-    "en": "Hamburger menu"
+    "en": "Hamburger menu",
+    "zh-Hant": "漢堡選單"
    },
    "meaning": {
     "ja": "三本線を押すとメニューが開く",
-    "en": "A three-line icon that opens the menu"
+    "en": "A three-line icon that opens the menu",
+    "zh-Hant": "點擊三條線圖示打開選單"
    },
    "ask": {
     "ja": "スマホのヘッダー右にハンバーガーメニューを置いて。押したら三本線を0.3秒で×に変え、メニューを上から下ろして。",
-    "en": "Put a hamburger menu at the right of the mobile header: on tap, morph the three lines into × in 0.3 s and drop the menu down from the top."
+    "en": "Put a hamburger menu at the right of the mobile header: on tap, morph the three lines into × in 0.3 s and drop the menu down from the top.",
+    "zh-Hant": "在手機版頁首右側放漢堡選單。點擊時三條線在 0.3 秒內變成 ×，選單從上方往下展開。"
    },
    "summary": {
     "ja": "ヘッダー右の三本線を押すと×に変わり、ヘッダーの下からメニューが下りてくる。もう一度押すと閉じる。",
@@ -3861,15 +4081,18 @@
    "cycle": 4.5,
    "name": {
     "ja": "パンくずリスト",
-    "en": "Breadcrumbs"
+    "en": "Breadcrumbs",
+    "zh-Hant": "麵包屑"
    },
    "meaning": {
     "ja": "今いる場所を階層で示す",
-    "en": "A trail of links showing where the page sits in the site"
+    "en": "A trail of links showing where the page sits in the site",
+    "zh-Hant": "以階層顯示目前所在位置"
    },
    "ask": {
     "ja": "記事ページの上にパンくずリストを付けて。「ホーム › 講座 › Web制作」の形で、今のページは太字でリンクなし。",
-    "en": "Add breadcrumbs above the article: \"Home › Courses › Web design\", with the current page in bold and not linked."
+    "en": "Add breadcrumbs above the article: \"Home › Courses › Web design\", with the current page in bold and not linked.",
+    "zh-Hant": "在文章頁上方加上麵包屑。格式為「首頁 › 課程 › 網頁設計」，目前頁面用粗體且不加連結。"
    },
    "summary": {
     "ja": "パンくずの「講座」を押すと一つ上の一覧ページに戻り、一覧のカードを押すと元の詳細ページへ進む。",
@@ -3915,15 +4138,18 @@
    "cycle": 4.5,
    "name": {
     "ja": "メガメニュー",
-    "en": "Mega menu"
+    "en": "Mega menu",
+    "zh-Hant": "Mega Menu"
    },
    "meaning": {
     "ja": "大きな一覧メニューが広がる",
-    "en": "A wide panel of grouped links that opens from the main menu"
+    "en": "A wide panel of grouped links that opens from the main menu",
+    "zh-Hant": "展開大型的分組連結面板"
    },
    "ask": {
     "ja": "ヘッダーの「製品」にメガメニューを付けて。乗せたら0.25秒で全幅のパネルを下ろし、3列のリンクと画像を並べて。",
-    "en": "Give \"Products\" in the header a mega menu: on hover, drop a full-width panel in 0.25 s with three columns of links and an image."
+    "en": "Give \"Products\" in the header a mega menu: on hover, drop a full-width panel in 0.25 s with three columns of links and an image.",
+    "zh-Hant": "幫頁首的「產品」加上 Mega Menu。游標移上去時 0.25 秒內往下展開滿版面板，排列三欄連結和一張圖片。"
    },
    "summary": {
     "ja": "ヘッダーの「製品」にカーソルを乗せると、全幅のパネルが下りて3列のリンクと画像が並ぶ。離れると閉じる。",
@@ -3969,15 +4195,18 @@
    "cycle": 4.5,
    "name": {
     "ja": "ステップインジケーター",
-    "en": "Step indicator"
+    "en": "Step indicator",
+    "zh-Hant": "步驟指示器"
    },
    "meaning": {
     "ja": "手続きの何番目かを示す",
-    "en": "Shows which step of a process you are on"
+    "en": "Shows which step of a process you are on",
+    "zh-Hant": "顯示目前進行到第幾步"
    },
    "ask": {
     "ja": "申し込みフォームの上にステップインジケーターを付けて。入力・確認・支払い・完了の4段階で、済んだ段階はチェックにして。",
-    "en": "Add a step indicator above the sign-up form with four steps: Details, Review, Payment, Done; completed steps show a check."
+    "en": "Add a step indicator above the sign-up form with four steps: Details, Review, Payment, Done; completed steps show a check.",
+    "zh-Hant": "在申請表單上方加上步驟指示器。分為填寫、確認、付款、完成四個步驟，已完成的步驟顯示勾號。"
    },
    "summary": {
     "ja": "「次へ」を押すたびに、4段階の丸が順にチェックに変わり、青い線が次の段階へ伸びる。",
@@ -4024,15 +4253,18 @@
    "cycle": 4.5,
    "name": {
     "ja": "スケルトン",
-    "en": "Skeleton screen"
+    "en": "Skeleton screen",
+    "zh-Hant": "Skeleton"
    },
    "meaning": {
     "ja": "読み込み中に灰色の枠を出す",
-    "en": "Grey shapes stand in for content while it loads"
+    "en": "Grey shapes stand in for content while it loads",
+    "zh-Hant": "載入時以灰色方塊佔位"
    },
    "ask": {
     "ja": "一覧の読み込み中はスケルトンを出して。中身と同じ形の灰色の枠にして、光が左から右へ0.9秒で流れるように。",
-    "en": "While the list loads, show a skeleton screen: grey blocks in the shape of the content, with a shine sweeping left to right every 0.9 s."
+    "en": "While the list loads, show a skeleton screen: grey blocks in the shape of the content, with a shine sweeping left to right every 0.9 s.",
+    "zh-Hant": "列表載入時顯示 Skeleton。做成和內容形狀相同的灰色方塊，並讓光澤每 0.9 秒由左向右掃過。"
    },
    "summary": {
     "ja": "再読み込みを押すと、一覧の中身が同じ形の灰色の枠に変わり、光が横に流れる。読み込みが済むと中身に戻る。",
@@ -4076,15 +4308,18 @@
    "cycle": 4.5,
    "name": {
     "ja": "スピナー",
-    "en": "Spinner"
+    "en": "Spinner",
+    "zh-Hant": "Spinner"
    },
    "meaning": {
     "ja": "くるくる回って待ちを示す",
-    "en": "A spinning circle that means \"please wait\""
+    "en": "A spinning circle that means \"please wait\"",
+    "zh-Hant": "旋轉的圓圈表示請稍候"
    },
    "ask": {
     "ja": "送信中はボタンの上にスピナーを出して。1秒に1回転強で回し、終わったら青い丸のチェックに替えて。",
-    "en": "While sending, show a spinner over the form, turning a little over once per second, then replace it with a blue check when done."
+    "en": "While sending, show a spinner over the form, turning a little over once per second, then replace it with a blue check when done.",
+    "zh-Hant": "送出中在按鈕上顯示 Spinner。大約每秒轉一圈多一點，完成後換成藍色圓形的勾號。"
    },
    "summary": {
     "ja": "「送信」を押すと画面が白くかすみ、中央で青い弧が回る。済むとチェックに変わって消える。",
@@ -4130,15 +4365,18 @@
    "cycle": 4.5,
    "name": {
     "ja": "バッジ",
-    "en": "Badge"
+    "en": "Badge",
+    "zh-Hant": "Badge"
    },
    "meaning": {
     "ja": "件数を小さな丸で示す",
-    "en": "A small dot with a number showing a count"
+    "en": "A small dot with a number showing a count",
+    "zh-Hant": "以小圓點顯示數量"
    },
    "ask": {
     "ja": "ヘッダーのベルにバッジを付けて未読数を出して。増えるたびに0.3秒で少し弾ませ、開いたら消して。",
-    "en": "Add a badge to the bell in the header to show the unread count: it pops for 0.3 s each time the count goes up and disappears when opened."
+    "en": "Add a badge to the bell in the header to show the unread count: it pops for 0.3 s each time the count goes up and disappears when opened.",
+    "zh-Hant": "在頁首的鈴鐺加上 Badge 顯示未讀數。每次數字增加就在 0.3 秒內微微彈跳，點開後消失。"
    },
    "summary": {
     "ja": "ヘッダーのベルに通知が届くたび、右上の青い丸の数が1・2・3と増える。ベルを押すと消える。",
@@ -4184,15 +4422,18 @@
    "cycle": 4.5,
    "name": {
     "ja": "エンプティステート",
-    "en": "Empty state"
+    "en": "Empty state",
+    "zh-Hant": "Empty State"
    },
    "meaning": {
     "ja": "中身がないときの案内画面",
-    "en": "The screen shown when there is nothing to list yet"
+    "en": "The screen shown when there is nothing to list yet",
+    "zh-Hant": "沒有內容時顯示的引導畫面"
    },
    "ask": {
     "ja": "リストが空になったらエンプティステートを出して。線画のアイコン、「まだ何もありません」、追加するボタンを0.35秒で出して。",
-    "en": "When the list is empty, show an empty state: a line icon, \"Nothing here yet\" and an add button, fading in over 0.35 s."
+    "en": "When the list is empty, show an empty state: a line icon, \"Nothing here yet\" and an add button, fading in over 0.35 s.",
+    "zh-Hant": "列表清空時顯示 Empty State。用 0.35 秒淡入線條圖示、「目前還沒有任何內容」和新增按鈕。"
    },
    "summary": {
     "ja": "一覧の2行をごみ箱で順に消すと、空の箱の線画と「まだ何もありません」「追加する」ボタンが出る。",
@@ -4236,15 +4477,18 @@
    "cycle": 4.8,
    "name": {
     "ja": "パララックススクロール",
-    "en": "Parallax scrolling"
+    "en": "Parallax scrolling",
+    "zh-Hant": "Parallax 視差滾動"
    },
    "meaning": {
     "ja": "スクロールで奥の層ほどゆっくり動く",
-    "en": "On scroll, background layers move slower than the content"
+    "en": "On scroll, background layers move slower than the content",
+    "zh-Hant": "捲動時，越後面的圖層移動得越慢"
    },
    "ask": {
     "ja": "ファーストビューの背景をパララックススクロールにして。背景はスクロール量の0.3倍で動かして。",
-    "en": "Make the hero background a parallax scroll: move it at 0.3× the scroll distance."
+    "en": "Make the hero background a parallax scroll: move it at 0.3× the scroll distance.",
+    "zh-Hant": "Hero 區塊的背景做成 Parallax 視差滾動，背景的移動量是捲動距離的 0.3 倍。"
    },
    "summary": {
     "ja": "ページを下へスクロールすると、見出しはふつうに上がり、空と太陽・遠い山・近い山はそれより遅く動く。",
@@ -4291,15 +4535,18 @@
    "cycle": 4.8,
    "name": {
     "ja": "スクロールでフェードイン",
-    "en": "Fade-in on scroll"
+    "en": "Fade-in on scroll",
+    "zh-Hant": "捲動淡入"
    },
    "meaning": {
     "ja": "画面に入った要素がふわっと現れる",
-    "en": "Elements fade in as they scroll into view"
+    "en": "Elements fade in as they scroll into view",
+    "zh-Hant": "進入畫面的元素會柔和地淡入"
    },
    "ask": {
     "ja": "各セクションの見出しとカードを、スクロールでフェードインさせて。下から30px、0.6秒で。",
-    "en": "Fade in each section's heading and cards on scroll: up from 30 px below, over 0.6 s."
+    "en": "Fade in each section's heading and cards on scroll: up from 30 px below, over 0.6 s.",
+    "zh-Hant": "各區塊的標題和卡片加上捲動淡入，從下方 30 px 處往上浮現，時間 0.6 秒。"
    },
    "summary": {
     "ja": "スクロールで画面に入った見出し・カード・本文が、それぞれ下から浮かび上がりながら現れる。",
@@ -4346,15 +4593,18 @@
    "cycle": 4.8,
    "name": {
     "ja": "追従ヘッダー",
-    "en": "Sticky header"
+    "en": "Sticky header",
+    "zh-Hant": "Sticky Header"
    },
    "meaning": {
     "ja": "スクロールしてもヘッダーが上に残る",
-    "en": "The header stays at the top while the page scrolls"
+    "en": "The header stays at the top while the page scrolls",
+    "zh-Hant": "捲動頁面時，Header 固定停在最上方"
    },
    "ask": {
     "ja": "ヘッダーを追従ヘッダーにして。上に張り付いたら下に薄い影を付けて。",
-    "en": "Make the header a sticky header, with a soft shadow once it sticks to the top."
+    "en": "Make the header a sticky header, with a soft shadow once it sticks to the top.",
+    "zh-Hant": "把 Header 做成 Sticky Header，黏到頂端之後在下緣加一層淡淡的陰影。"
    },
    "summary": {
     "ja": "上のお知らせの帯はスクロールで消えるが、その下のヘッダーは画面の上端に来たところで止まり、本文がその下を通っていく。",
@@ -4401,15 +4651,18 @@
    "cycle": 4.8,
    "name": {
     "ja": "ピン留め",
-    "en": "Pinning"
+    "en": "Pinning",
+    "zh-Hant": "Pin（捲動固定）"
    },
    "meaning": {
     "ja": "セクションを止めて中身だけ進める",
-    "en": "A section stays fixed while scrolling advances its content"
+    "en": "A section stays fixed while scrolling advances its content",
+    "zh-Hant": "區塊固定不動，只讓內容隨捲動推進"
    },
    "ask": {
     "ja": "「3ステップ」のセクションをピン留めして、スクロールで1ステップずつ写真と番号を切り替えて。",
-    "en": "Pin the three-step section and switch the photo and number one step at a time as the user scrolls."
+    "en": "Pin the three-step section and switch the photo and number one step at a time as the user scrolls.",
+    "zh-Hant": "把「三步驟」區塊 Pin 住，隨著捲動，一次切換一個步驟的照片和編號。"
    },
    "summary": {
     "ja": "濃紺のセクションが画面いっぱいに来たところで止まり、スクロールし続けると番号と写真がステップ1→2→3と切り替わり、終わると再び流れていく。",
@@ -4456,15 +4709,18 @@
    "cycle": 4.8,
    "name": {
     "ja": "横スクロール",
-    "en": "Horizontal scroll"
+    "en": "Horizontal scroll",
+    "zh-Hant": "橫向捲動"
    },
    "meaning": {
     "ja": "縦のスクロールで中身が横に流れる",
-    "en": "Scrolling down moves the content sideways"
+    "en": "Scrolling down moves the content sideways",
+    "zh-Hant": "往下捲動時，內容改為橫向移動"
    },
    "ask": {
     "ja": "実績のセクションを横スクロールにして。縦にスクロールした分だけ、カードを左へ流して。",
-    "en": "Turn the work section into a horizontal scroll: move the cards left as far as the user scrolls down."
+    "en": "Turn the work section into a horizontal scroll: move the cards left as far as the user scrolls down.",
+    "zh-Hant": "把作品區塊做成橫向捲動：區塊固定在畫面上，使用者往下捲多少，卡片就往左移多少。"
    },
    "summary": {
     "ja": "縦にスクロールすると、セクションが止まったまま、番号付きの作品カード4枚が左へ流れていく。",
@@ -4511,15 +4767,18 @@
    "cycle": 4.8,
    "name": {
     "ja": "スクロールスナップ",
-    "en": "Scroll snap"
+    "en": "Scroll snap",
+    "zh-Hant": "Scroll Snap"
    },
    "meaning": {
     "ja": "スクロールが区切りの位置にピタッと止まる",
-    "en": "Scrolling settles exactly on the next section"
+    "en": "Scrolling settles exactly on the next section",
+    "zh-Hant": "捲動後會剛好停在區塊的分界位置"
    },
    "ask": {
     "ja": "セクションごとにスクロールスナップさせて。少し回しただけで次のセクションの頭に合わせて。",
-    "en": "Add scroll snap per section, so a small scroll lands on the top of the next section."
+    "en": "Add scroll snap per section, so a small scroll lands on the top of the next section.",
+    "zh-Hant": "每個區塊都加上 Scroll Snap，只要稍微捲一下，就自動對齊到下一個區塊的頂端。"
    },
    "summary": {
     "ja": "少しだけスクロールすると、残りは自動で送られて、次のセクションの頭がちょうど画面の上にそろう。",
@@ -4564,15 +4823,18 @@
    "cycle": 4.8,
    "name": {
     "ja": "スクロールプログレスバー",
-    "en": "Scroll progress bar"
+    "en": "Scroll progress bar",
+    "zh-Hant": "閱讀進度條"
    },
    "meaning": {
     "ja": "読み進めた割合を上の線で見せる",
-    "en": "A bar at the top shows how far you have read"
+    "en": "A bar at the top shows how far you have read",
+    "zh-Hant": "用最上方的線條顯示閱讀進度"
    },
    "ask": {
     "ja": "記事ページの上にスクロールプログレスバーを付けて。太さ4px、色はブランドの朱色で。",
-    "en": "Add a scroll progress bar at the top of the article page, 4 px thick, in the brand orange."
+    "en": "Add a scroll progress bar at the top of the article page, 4 px thick, in the brand orange.",
+    "zh-Hant": "在文章頁最上方加上閱讀進度條，粗 4 px，顏色用品牌的橘紅色。"
    },
    "summary": {
     "ja": "記事を少しずつ読み進めるごとに、画面の上端の線が左から伸び、最後まで来ると端まで届く。",
@@ -4616,15 +4878,18 @@
    "cycle": 4.8,
    "name": {
     "ja": "マーカーアニメーション",
-    "en": "Highlighter animation"
+    "en": "Highlighter animation",
+    "zh-Hant": "螢光筆動畫"
    },
    "meaning": {
     "ja": "大事な言葉に蛍光ペンの線が引かれる",
-    "en": "A highlighter stroke is drawn under key words"
+    "en": "A highlighter stroke is drawn under key words",
+    "zh-Hant": "重點文字的下半部被螢光筆塗上顏色"
    },
    "ask": {
     "ja": "強調したい言葉に、スクロールで画面に入ったらマーカーアニメーションで黄色の線を引いて。0.8秒で左から。",
-    "en": "When the key phrase scrolls into view, draw a yellow highlighter animation under it, left to right in 0.8 s."
+    "en": "When the key phrase scrolls into view, draw a yellow highlighter animation under it, left to right in 0.8 s.",
+    "zh-Hant": "重點文字捲動進入畫面時，用螢光筆動畫由左到右塗上黃色底色，蓋住文字下半部，時間 0.8 秒。"
    },
    "summary": {
     "ja": "スクロールで文章が画面に入ると、大事な言葉の下半分に黄色い蛍光ペンの線が左から引かれる。",
@@ -4671,15 +4936,18 @@
    "cycle": 4.8,
    "name": {
     "ja": "ホバーで浮き上がる",
-    "en": "Hover lift"
+    "en": "Hover lift",
+    "zh-Hant": "Hover 浮起效果"
    },
    "meaning": {
     "ja": "カーソルを乗せると影を付けて浮く",
-    "en": "On hover, the element rises with a deeper shadow"
+    "en": "On hover, the element rises with a deeper shadow",
+    "zh-Hant": "滑鼠移上去時，元素加深陰影並浮起"
    },
    "ask": {
     "ja": "カードにカーソルを乗せたら、ホバーで浮き上がるようにして。上に8px、影を濃く、0.3秒で。",
-    "en": "Give the cards a hover lift: up 8 px with a deeper shadow, over 0.3 s."
+    "en": "Give the cards a hover lift: up 8 px with a deeper shadow, over 0.3 s.",
+    "zh-Hant": "卡片加上 Hover 浮起效果：滑鼠移上去時往上浮 8 px，陰影加深，時間 0.3 秒。"
    },
    "summary": {
     "ja": "カーソルが乗ったカードだけが少し上に持ち上がり、下の影が広がる。カーソルが離れると元に戻る。",
@@ -4724,15 +4992,18 @@
    "cycle": 4.8,
    "name": {
     "ja": "ホバーで画像ズーム",
-    "en": "Image zoom on hover"
+    "en": "Image zoom on hover",
+    "zh-Hant": "Hover 圖片放大"
    },
    "meaning": {
     "ja": "枠はそのままで写真だけ拡大する",
-    "en": "The photo enlarges inside a fixed frame"
+    "en": "The photo enlarges inside a fixed frame",
+    "zh-Hant": "外框不變，只有裡面的照片放大"
    },
    "ask": {
     "ja": "実績の写真にホバーで画像ズームを付けて。枠は固定で、中身を1.1倍まで0.5秒で。",
-    "en": "Add an image zoom on hover to the work photos: fixed frame, content to 1.1× over 0.5 s."
+    "en": "Add an image zoom on hover to the work photos: fixed frame, content to 1.1× over 0.5 s.",
+    "zh-Hant": "作品照片加上 Hover 圖片放大，外框固定，裡面的圖在 0.5 秒內放大到 1.1 倍。"
    },
    "summary": {
     "ja": "カーソルが乗った写真だけが、枠の大きさは変えずに中身がゆっくり拡大し、離れると戻る。",
@@ -4775,15 +5046,18 @@
    "cycle": 4.8,
    "name": {
     "ja": "マウスストーカー",
-    "en": "Cursor follower"
+    "en": "Cursor follower",
+    "zh-Hant": "滑鼠跟隨效果"
    },
    "meaning": {
     "ja": "カーソルを丸が遅れて追いかける",
-    "en": "A shape trails the mouse pointer with a delay"
+    "en": "A shape trails the mouse pointer with a delay",
+    "zh-Hant": "一個圓形延遲跟隨滑鼠游標移動"
    },
    "ask": {
     "ja": "サイト全体にマウスストーカーを付けて。直径30pxの朱色の丸が、少し遅れてカーソルを追うように。",
-    "en": "Add a cursor follower across the site: a 30 px orange circle that trails the pointer slightly."
+    "en": "Add a cursor follower across the site: a 30 px orange circle that trails the pointer slightly.",
+    "zh-Hant": "全站加上滑鼠跟隨效果，一個直徑 30 px 的橘紅色圓形，稍微延遲地跟著游標移動。"
    },
    "summary": {
     "ja": "カーソルがページの上を動き回ると、朱色の丸が少し遅れてそのあとを追いかける。",
@@ -4828,15 +5102,18 @@
    "cycle": 4.8,
    "name": {
     "ja": "マグネティックボタン",
-    "en": "Magnetic button"
+    "en": "Magnetic button",
+    "zh-Hant": "磁吸按鈕"
    },
    "meaning": {
     "ja": "近づいたカーソルにボタンが吸い寄せられる",
-    "en": "The button is pulled toward a nearby cursor"
+    "en": "The button is pulled toward a nearby cursor",
+    "zh-Hant": "游標靠近時，按鈕會被吸過去"
    },
    "ask": {
     "ja": "問い合わせボタンをマグネティックボタンにして。カーソルとの差の0.3倍だけ寄って、離れたらぷるんと戻して。",
-    "en": "Make the contact button a magnetic button: move 0.3× toward the cursor, and spring back when it leaves."
+    "en": "Make the contact button a magnetic button: move 0.3× toward the cursor, and spring back when it leaves.",
+    "zh-Hant": "把聯絡我們按鈕做成磁吸按鈕，往游標方向移動兩者距離的 0.3 倍，游標離開後要彈性地回到原位。"
    },
    "summary": {
     "ja": "カーソルが近づくとボタンがカーソルの方へ引き寄せられてついていき、離れるとぷるんと揺れて元の位置に戻る。",
@@ -4881,15 +5158,18 @@
    "cycle": 4.8,
    "name": {
     "ja": "リップルエフェクト",
-    "en": "Ripple effect"
+    "en": "Ripple effect",
+    "zh-Hant": "漣漪效果"
    },
    "meaning": {
     "ja": "押した場所から波紋が広がる",
-    "en": "A ripple spreads from the point that was pressed"
+    "en": "A ripple spreads from the point that was pressed",
+    "zh-Hant": "從點擊的位置向外擴散出波紋"
    },
    "ask": {
     "ja": "送信ボタンにリップルエフェクトを付けて。押した位置から白い円が0.6秒で広がって消えるように。",
-    "en": "Add a ripple effect to the submit button: a white circle spreads from the click point and fades in 0.6 s."
+    "en": "Add a ripple effect to the submit button: a white circle spreads from the click point and fades in 0.6 s.",
+    "zh-Hant": "送出按鈕加上漣漪效果，從點擊位置擴散出白色圓形，0.6 秒內擴散並淡出。"
    },
    "summary": {
     "ja": "ボタンを押すたびに、押した場所を中心に白い円が広がってボタンの中を満たし、薄れて消える。",
@@ -4934,15 +5214,18 @@
    "cycle": 4.8,
    "name": {
     "ja": "下線アニメーション",
-    "en": "Underline animation"
+    "en": "Underline animation",
+    "zh-Hant": "底線動畫"
    },
    "meaning": {
     "ja": "乗せたリンクの下線が左から伸びる",
-    "en": "A link's underline grows from the left on hover"
+    "en": "A link's underline grows from the left on hover",
+    "zh-Hant": "滑鼠移到連結上時，底線從左邊延伸出來"
    },
    "ask": {
     "ja": "メニューのリンクに下線アニメーションを付けて。乗せたら左から0.3秒で伸び、離れたら右へ抜けるように。",
-    "en": "Add an underline animation to the menu links: grow from the left in 0.3 s on hover, and exit to the right on leave."
+    "en": "Add an underline animation to the menu links: grow from the left in 0.3 s on hover, and exit to the right on leave.",
+    "zh-Hant": "選單連結加上底線動畫，滑鼠移上去時底線在 0.3 秒內從左邊延伸出來，移開時往右邊收掉。"
    },
    "summary": {
     "ja": "カーソルが乗ったリンクの下に、朱色の線が左から伸び、離れると線は右へ縮んで抜けていく。",
@@ -4987,15 +5270,18 @@
    "cycle": 4.8,
    "name": {
     "ja": "ビフォーアフタースライダー",
-    "en": "Before/after slider"
+    "en": "Before/after slider",
+    "zh-Hant": "Before/After 對比滑桿"
    },
    "meaning": {
     "ja": "境目をドラッグして前と後を見比べる",
-    "en": "Drag a divider to compare before and after"
+    "en": "Drag a divider to compare before and after",
+    "zh-Hant": "拖曳分隔線，比較前後的差異"
    },
    "ask": {
     "ja": "施工例の写真をビフォーアフタースライダーにして。真ん中の線をドラッグすると、左が施工前、右が施工後で見比べられるように。",
-    "en": "Show the project photos as a before/after slider: drag the middle line to compare before on the left and after on the right."
+    "en": "Show the project photos as a before/after slider: drag the middle line to compare before on the left and after on the right.",
+    "zh-Hant": "把施工案例照片做成 Before/After 對比滑桿，拖曳中間的線，左邊顯示施工前、右邊顯示施工後，方便比較。"
    },
    "summary": {
     "ja": "写真の真ん中の線をドラッグして左右に動かすと、左側は色のない「前」、右側は色のある「後」の範囲が入れ替わる。",
@@ -5040,15 +5326,18 @@
    "cycle": 4.8,
    "name": {
     "ja": "離脱防止ポップアップ",
-    "en": "Exit-intent popup"
+    "en": "Exit-intent popup",
+    "zh-Hant": "Exit-intent 彈出視窗"
    },
    "meaning": {
     "ja": "ページを離れそうな時に出す引き止めの小窓",
-    "en": "A popup shown when the visitor is about to leave"
+    "en": "A popup shown when the visitor is about to leave",
+    "zh-Hant": "訪客快離開頁面時跳出的慰留視窗"
    },
    "ask": {
     "ja": "LPに離脱防止ポップアップを付けて。カーソルが画面の上へ出たら、クーポンの小窓を1回だけ出して。",
-    "en": "Add an exit-intent popup to the landing page: when the cursor leaves through the top, show a coupon popup once."
+    "en": "Add an exit-intent popup to the landing page: when the cursor leaves through the top, show a coupon popup once.",
+    "zh-Hant": "Landing Page 加上 Exit-intent 彈出視窗，游標移出畫面上緣時，跳出優惠券視窗，而且只出現一次。"
    },
    "summary": {
     "ja": "カーソルがページの上の方（タブや閉じるボタンのある所）へ出ていくと、背景が暗くなって「ちょっと待って！」の小窓が開く。×で閉じる。",
@@ -5095,15 +5384,18 @@
    "cycle": 4.8,
    "name": {
     "ja": "ローディング画面",
-    "en": "Preloader"
+    "en": "Preloader",
+    "zh-Hant": "Loading 畫面"
    },
    "meaning": {
     "ja": "読み込み中に出す画面",
-    "en": "A screen shown while the page loads"
+    "en": "A screen shown while the page loads",
+    "zh-Hant": "頁面載入期間顯示的畫面"
    },
    "ask": {
     "ja": "サイトを開いたときのローディング画面を作って。ロゴと％の数字を出して、100%になったら幕が上がるように。",
-    "en": "Make a preloader for the site: logo and a percentage, and the screen lifts away at 100%."
+    "en": "Make a preloader for the site: logo and a percentage, and the screen lifts away at 100%.",
+    "zh-Hant": "幫網站做開場的 Loading 畫面，顯示 Logo 和百分比數字，到 100% 時畫面像布幕一樣往上拉開。"
    },
    "summary": {
     "ja": "濃紺の画面でロゴの下の数字が0%から100%まで進み、終わると画面が上へ抜けて、下のページがふわっと現れる。",
@@ -5150,15 +5442,18 @@
    "cycle": 4.8,
    "name": {
     "ja": "遅延読み込み",
-    "en": "Lazy loading"
+    "en": "Lazy loading",
+    "zh-Hant": "Lazy Loading"
    },
    "meaning": {
     "ja": "画面に入った画像だけを読み込む",
-    "en": "Images load only when they come into view"
+    "en": "Images load only when they come into view",
+    "zh-Hant": "只載入進入畫面的圖片"
    },
    "ask": {
     "ja": "ギャラリーの画像を遅延読み込みにして。読み込むまでは灰色の枠、届いたら0.3秒でフェードインして。",
-    "en": "Lazy load the gallery images: grey placeholders until loaded, then fade in over 0.3 s."
+    "en": "Lazy load the gallery images: grey placeholders until loaded, then fade in over 0.3 s.",
+    "zh-Hant": "相簿的圖片改用 Lazy Loading，載入前先顯示灰色佔位框，圖片載入後用 0.3 秒淡入。"
    },
    "summary": {
     "ja": "スクロールで画面に入った灰色の枠に読み込み中の印が回り、画像が届くと順にフェードインする。上の段は最初から読み込み済み。",
@@ -5205,15 +5500,18 @@
    "cycle": 4.8,
    "name": {
     "ja": "無限スクロール",
-    "en": "Infinite scroll"
+    "en": "Infinite scroll",
+    "zh-Hant": "無限捲動"
    },
    "meaning": {
     "ja": "下まで来ると続きが自動で足される",
-    "en": "More items load automatically at the bottom"
+    "en": "More items load automatically at the bottom",
+    "zh-Hant": "捲到底部時自動載入更多內容"
    },
    "ask": {
     "ja": "お知らせの一覧を無限スクロールにして。下まで来たら読み込み表示を出して、10件ずつ足して。",
-    "en": "Make the news list an infinite scroll: show a spinner at the bottom and add ten items at a time."
+    "en": "Make the news list an infinite scroll: show a spinner at the bottom and add ten items at a time.",
+    "zh-Hant": "最新消息列表改成無限捲動，捲到底時顯示載入中的圖示，每次增加 10 筆。"
    },
    "summary": {
     "ja": "一覧を下へスクロールして最後まで来ると、読み込み中の印が回り、新しい項目が3件足されて続きが読めるようになる。",
@@ -5258,15 +5556,18 @@
    "cycle": 4.8,
    "name": {
     "ja": "ページ遷移アニメーション",
-    "en": "Page transition"
+    "en": "Page transition",
+    "zh-Hant": "頁面轉場"
    },
    "meaning": {
     "ja": "ページを移るときの切り替えの演出",
-    "en": "An animation that bridges two pages"
+    "en": "An animation that bridges two pages",
+    "zh-Hant": "換頁時的過場動畫"
    },
    "ask": {
     "ja": "ページ遷移アニメーションを付けて。リンクを押したら朱色の幕が左から右へ横切って次のページに切り替わるように。",
-    "en": "Add a page transition: on link click, an orange panel sweeps across left to right and the next page appears."
+    "en": "Add a page transition: on link click, an orange panel sweeps across left to right and the next page appears.",
+    "zh-Hant": "加上頁面轉場，點擊連結後有一片橘紅色的幕布由左往右橫掃過畫面，接著切換到下一頁。"
    },
    "summary": {
     "ja": "作品の一覧でカードを押すと朱色の幕が左から画面を覆い、URLが変わって幕が右へ抜けると詳しいページになっている。「一覧へ」で同じように戻る。",
@@ -5313,15 +5614,18 @@
    "cycle": 4.8,
    "name": {
     "ja": "スムーススクロール",
-    "en": "Smooth scroll"
+    "en": "Smooth scroll",
+    "zh-Hant": "平滑捲動"
    },
    "meaning": {
     "ja": "ページ内リンクでなめらかに移動する",
-    "en": "In-page links glide to their target instead of jumping"
+    "en": "In-page links glide to their target instead of jumping",
+    "zh-Hant": "點擊錨點連結時順暢地移動過去"
    },
    "ask": {
     "ja": "メニューのページ内リンクをスムーススクロールにして。固定ヘッダーの高さ分ずらして止めて。",
-    "en": "Make the menu's in-page links smooth scroll, stopping below the fixed header."
+    "en": "Make the menu's in-page links smooth scroll, stopping below the fixed header.",
+    "zh-Hant": "選單的錨點連結改成平滑捲動，停止的位置要扣掉固定式 Header 的高度。"
    },
    "summary": {
     "ja": "メニューの「料金」を押すとページがなめらかに料金の欄まで動き、右下の上向きボタンを押すと同じように一番上へ戻る。",
@@ -5367,15 +5671,18 @@
    "cycle": 4.8,
    "name": {
     "ja": "マーキー",
-    "en": "Marquee"
+    "en": "Marquee",
+    "zh-Hant": "Marquee 跑馬燈"
    },
    "meaning": {
     "ja": "文字や画像が帯で流れ続ける",
-    "en": "Text or logos scroll across in an endless band"
+    "en": "Text or logos scroll across in an endless band",
+    "zh-Hant": "文字或圖片在橫帶中不斷流動"
    },
    "ask": {
     "ja": "サービス名をマーキーで右から左へ流して。途切れずにループさせて、速さは1秒に80pxくらい。",
-    "en": "Run the service names in a marquee from right to left, looping without a gap, at about 80 px per second."
+    "en": "Run the service names in a marquee from right to left, looping without a gap, at about 80 px per second.",
+    "zh-Hant": "服務名稱用 Marquee 跑馬燈由右往左流動，無縫循環，速度大約每秒 80 px。"
    },
    "summary": {
     "ja": "濃紺の帯の中で、大きな英字のサービス名と朱色の点が、途切れずに左へ流れ続ける。",
@@ -5420,15 +5727,18 @@
    "cycle": 4.8,
    "name": {
     "ja": "グラデーションアニメーション",
-    "en": "Animated gradient"
+    "en": "Animated gradient",
+    "zh-Hant": "漸層動畫"
    },
    "meaning": {
     "ja": "背景の色の混ざり方が動き続ける",
-    "en": "Background colours keep drifting and blending"
+    "en": "Background colours keep drifting and blending",
+    "zh-Hant": "背景色彩的混合不斷流動變化"
    },
    "ask": {
     "ja": "ファーストビューの背景をグラデーションアニメーションにして。朱色と青がゆっくり混ざり合うように、10秒で1周。",
-    "en": "Give the hero an animated gradient background: orange and blue slowly blending, one loop every 10 s."
+    "en": "Give the hero an animated gradient background: orange and blue slowly blending, one loop every 10 s.",
+    "zh-Hant": "Hero 區塊的背景做成漸層動畫，橘紅色和藍色慢慢地混合，10 秒循環一次。"
    },
    "summary": {
     "ja": "見出しの後ろで、朱色・薄い朱色・青・薄い青のぼんやりした色の塊がゆっくり回り、混ざり方が変わり続ける。",
@@ -5473,15 +5783,18 @@
    "cycle": 4.8,
    "name": {
     "ja": "ふわふわアニメーション",
-    "en": "Floating animation"
+    "en": "Floating animation",
+    "zh-Hant": "漂浮動畫"
    },
    "meaning": {
     "ja": "飾りがゆっくり上下に浮き沈みする",
-    "en": "Elements bob gently up and down"
+    "en": "Elements bob gently up and down",
+    "zh-Hant": "裝飾元素緩慢地上下飄浮"
    },
    "ask": {
     "ja": "ファーストビューのスマホの画像に、ふわふわアニメーションを付けて。上下8px、2.4秒で1往復。",
-    "en": "Give the phone image in the hero a floating animation: 8 px up and down, one bob every 2.4 s."
+    "en": "Give the phone image in the hero a floating animation: 8 px up and down, one bob every 2.4 s.",
+    "zh-Hant": "Hero 區塊的手機圖片加上漂浮動畫，上下 8 px，2.4 秒一個來回。"
    },
    "summary": {
     "ja": "見出しの横で、スマホの画像とハートの丸・評価の札が、それぞれ少しずつずれてゆっくり上下し、スマホの下の影も伸び縮みする。",
@@ -5527,15 +5840,18 @@
    "cycle": 5,
    "name": {
     "ja": "逆光",
-    "en": "Backlighting"
+    "en": "Backlighting",
+    "zh-Hant": "逆光"
    },
    "meaning": {
     "ja": "被写体の真後ろから光を当てる",
-    "en": "The light source sits behind the subject"
+    "en": "The light source sits behind the subject",
+    "zh-Hant": "光源在被攝者的正後方"
    },
    "ask": {
     "ja": "草原に立つ人物を逆光で。夕日を頭の真後ろに置き、髪の輪郭が光ってふんわりとかすむように。",
-    "en": "Backlit portrait of a person in a meadow, the low sun right behind their head, glowing hair outline and soft haze."
+    "en": "Backlit portrait of a person in a meadow, the low sun right behind their head, glowing hair outline and soft haze.",
+    "zh-Hant": "站在草原上的人物，用逆光拍攝，把夕陽放在頭部正後方，讓髮絲的輪廓發亮，整體帶一點柔柔的霧感。"
    },
    "summary": {
     "ja": "画面の外にあった太陽が人物の頭の真後ろへ回り込む。胸像の縁が細く光り、全体に淡い光の色がかかり、カメラ側の体は暗く沈む。",
@@ -5582,15 +5898,18 @@
    "cycle": 5,
    "name": {
     "ja": "リムライト",
-    "en": "Rim light"
+    "en": "Rim light",
+    "zh-Hant": "輪廓光"
    },
    "meaning": {
     "ja": "後ろからの光で輪郭だけを光らせる",
-    "en": "A light from behind that outlines the subject's edge"
+    "en": "A light from behind that outlines the subject's edge",
+    "zh-Hant": "從後方打光，只讓輪廓發亮"
    },
    "ask": {
     "ja": "黒背景の人物に、斜め後ろ左右からリムライト。顔は暗いままで、頭と肩の輪郭だけ細く光らせて。",
-    "en": "Portrait on a black background with rim lights from both rear sides; the face stays dark and only the outline of the head and shoulders glows."
+    "en": "Portrait on a black background with rim lights from both rear sides; the face stays dark and only the outline of the head and shoulders glows.",
+    "zh-Hant": "黑色背景的人像，用輪廓光，從左右兩側斜後方各打一盞。臉保持暗的，只讓頭部和肩膀的輪廓亮起一圈細細的光邊。"
    },
    "summary": {
     "ja": "周りが暗く落ち、斜め後ろ左右の2灯で、暗い人物の頭と肩の両側にだけ細い光の縁が出る。右下の図で2灯の位置を示す。",
@@ -5637,15 +5956,18 @@
    "cycle": 5,
    "name": {
     "ja": "シルエット",
-    "en": "Silhouette"
+    "en": "Silhouette",
+    "zh-Hant": "剪影"
    },
    "meaning": {
     "ja": "明るい空を背に、被写体を黒い形だけで見せる",
-    "en": "The subject shows as a black shape against a bright sky"
+    "en": "The subject shows as a black shape against a bright sky",
+    "zh-Hant": "以明亮的天空為背景，被攝者只呈現黑色的形狀"
    },
    "ask": {
     "ja": "夕焼けの浜辺でジャンプする人物をシルエットで。露出は空に合わせて、人物とヤシの木は真っ黒に。",
-    "en": "Silhouette of a person jumping on a beach at sunset; expose for the sky so the person and the palm tree turn pure black."
+    "en": "Silhouette of a person jumping on a beach at sunset; expose for the sky so the person and the palm tree turn pure black.",
+    "zh-Hant": "夕陽下在沙灘上跳躍的人物，拍成剪影。曝光以天空為準，讓人物和椰子樹變成全黑。"
    },
    "summary": {
     "ja": "露出を明るい夕空に合わせていくと、人物・建物・街灯・木が細部のない黒い形になり、空だけが明るく残る。",
@@ -5693,15 +6015,18 @@
    "cycle": 5,
    "name": {
     "ja": "スプリットライティング",
-    "en": "Split lighting"
+    "en": "Split lighting",
+    "zh-Hant": "分割光"
    },
    "meaning": {
     "ja": "真横からの光で顔を半分ずつ明暗に分ける",
-    "en": "Light from the side splits the face into lit and dark halves"
+    "en": "Light from the side splits the face into lit and dark halves",
+    "zh-Hant": "從正側面打光，把臉分成一半亮一半暗"
    },
    "ask": {
     "ja": "男性の横からスプリットライティングで。光は真横90°、鼻筋を境に顔の左半分は影に沈めて。",
-    "en": "Portrait with split lighting: the light at 90° to the side, the face divided down the nose, the far half in shadow."
+    "en": "Portrait with split lighting: the light at 90° to the side, the face divided down the nose, the far half in shadow.",
+    "zh-Hant": "男性的人像，用分割光。光從正側面 90° 打過來，以鼻樑為界，臉的左半邊沉入陰影。"
    },
    "summary": {
     "ja": "光が正面寄り（20°）から真横（90°）へ回り、頭の影が三日月から半分へ広がって、顔が鼻筋の位置で縦に明暗2つに分かれる。",
@@ -5747,15 +6072,18 @@
    "cycle": 5,
    "name": {
     "ja": "レンブラントライティング",
-    "en": "Rembrandt lighting"
+    "en": "Rembrandt lighting",
+    "zh-Hant": "林布蘭光"
    },
    "meaning": {
     "ja": "影側の頬に三角形の光が残る斜め上からの光",
-    "en": "High side light that leaves a lit triangle on the shadow cheek"
+    "en": "High side light that leaves a lit triangle on the shadow cheek",
+    "zh-Hant": "從斜上方打光，在陰影側的臉頰留下一塊三角形亮光"
    },
    "ask": {
     "ja": "老人の肖像をレンブラントライティングで。光は斜め45°・上から、影側の頬に小さな三角形の光を残して。",
-    "en": "Portrait of an old man in Rembrandt lighting: light from 45° to the side and above, leaving a small triangle of light on the shadow-side cheek."
+    "en": "Portrait of an old man in Rembrandt lighting: light from 45° to the side and above, leaving a small triangle of light on the shadow-side cheek.",
+    "zh-Hant": "老人的肖像，用林布蘭光。光從側前方 45°、偏高處往下打，在陰影側的臉頰上留下一小塊三角形的亮光。"
    },
    "summary": {
     "ja": "斜め45°・上45°の光が入り、顔の右側が影に沈む中で、影側の頬にだけ小さな逆三角形の光が残る。",
@@ -5801,15 +6129,18 @@
    "cycle": 5,
    "name": {
     "ja": "バタフライライティング",
-    "en": "Butterfly lighting"
+    "en": "Butterfly lighting",
+    "zh-Hant": "蝴蝶光"
    },
    "meaning": {
     "ja": "正面の高い位置から当て、鼻の下に蝶形の影",
-    "en": "High frontal light that casts a butterfly shadow under the nose"
+    "en": "High frontal light that casts a butterfly shadow under the nose",
+    "zh-Hant": "從正前方偏高處打光，鼻子下方出現蝴蝶形的陰影"
    },
    "ask": {
     "ja": "女性のビューティーポートレートをバタフライライティングで。光は顔の正面・真上寄り45°、鼻の下に小さな蝶の形の影を。",
-    "en": "Beauty portrait with butterfly lighting: light straight in front and 45° above, a small butterfly-shaped shadow under the nose."
+    "en": "Beauty portrait with butterfly lighting: light straight in front and 45° above, a small butterfly-shaped shadow under the nose.",
+    "zh-Hant": "女性的美妝人像，用蝴蝶光。光在臉的正前方、偏上 45° 的位置，鼻子下方留下一小塊蝴蝶形狀的陰影。"
    },
    "summary": {
     "ja": "顔の正面・高い位置からの光が入り、顔は左右対称に明るくなり、あごの下にだけ左右対称の小さな影が落ちる。",
@@ -5855,15 +6186,18 @@
    "cycle": 5,
    "name": {
     "ja": "ゴールデンアワー",
-    "en": "Golden hour"
+    "en": "Golden hour",
+    "zh-Hant": "黃金時刻"
    },
    "meaning": {
     "ja": "日没前・日の出後の低く赤みのある光",
-    "en": "The low, warm light just after sunrise or before sunset"
+    "en": "The low, warm light just after sunrise or before sunset",
+    "zh-Hant": "日落前、日出後那段低角度、偏暖的光線"
    },
    "ask": {
     "ja": "草原の人物をゴールデンアワーの光で。太陽は地平線近く、影が長く伸びて全体が橙色に。",
-    "en": "A person in a field at golden hour: the sun near the horizon, long shadows, everything warm orange."
+    "en": "A person in a field at golden hour: the sun near the horizon, long shadows, everything warm orange.",
+    "zh-Hant": "草原上的人物，用黃金時刻的光線。太陽靠近地平線，影子拉得很長，整個畫面偏橘色。"
    },
    "summary": {
     "ja": "太陽が地平線近くまで下り、空と地面が橙に染まり、人物の左側が光り、街灯と木の影が右へ長く伸びる。",
@@ -5911,15 +6245,18 @@
    "cycle": 5,
    "name": {
     "ja": "ブルーアワー",
-    "en": "Blue hour"
+    "en": "Blue hour",
+    "zh-Hant": "藍調時刻"
    },
    "meaning": {
     "ja": "日没後・日の出前の、空が深い青になる時間",
-    "en": "The time after sunset or before sunrise when the sky turns deep blue"
+    "en": "The time after sunset or before sunrise when the sky turns deep blue",
+    "zh-Hant": "日落後、日出前天空轉為深藍色的時段"
    },
    "ask": {
     "ja": "港町の夜景をブルーアワーで。空は深い青、ビルの窓と街灯の暖かい光が水面に映るように。",
-    "en": "Harbour city at blue hour: deep blue sky, warm windows and streetlights reflected in the water."
+    "en": "Harbour city at blue hour: deep blue sky, warm windows and streetlights reflected in the water.",
+    "zh-Hant": "港口城市的夜景，拍藍調時刻。天空是深藍色，大樓的窗戶和路燈的暖光倒映在水面上。"
    },
    "summary": {
     "ja": "太陽が沈みきると、空が深い青の2段になり、建物の窓と街灯がアンバーに灯り、人物は青い影の形になる。",
@@ -5967,15 +6304,18 @@
    "cycle": 5,
    "name": {
     "ja": "ボケ",
-    "en": "Bokeh"
+    "en": "Bokeh",
+    "zh-Hant": "散景"
    },
    "meaning": {
     "ja": "ピントの外の点光源が丸くやわらかくぼける",
-    "en": "Out-of-focus points of light melt into soft discs"
+    "en": "Out-of-focus points of light melt into soft discs",
+    "zh-Hant": "對焦範圍外的點光源，化成圓形柔軟的光斑"
    },
    "ask": {
     "ja": "夜の街に立つ人物を、背景の街の灯りが大きな丸いボケになるように。f/1.4で、人物にはピントを合わせて。",
-    "en": "Person in a city at night with big round bokeh from the street lights behind; f/1.4, focus on the person."
+    "en": "Person in a city at night with big round bokeh from the street lights behind; f/1.4, focus on the person.",
+    "zh-Hant": "夜晚的城市裡站著一個人，背景的路燈要變成大顆圓形的散景。光圈 f/1.4，對焦在人物身上。"
    },
    "summary": {
     "ja": "絞りを開けていくと、ピントの合った人物はそのまま、背景の建物はぼけ、街灯と遠くの灯りが大きく薄い光の丸に広がる。",
@@ -6024,15 +6364,18 @@
    "cycle": 5,
    "name": {
     "ja": "ティルトシフト",
-    "en": "Tilt-shift"
+    "en": "Tilt-shift",
+    "zh-Hant": "移軸"
    },
    "meaning": {
     "ja": "上下をぼかして本物の町を模型のように見せる",
-    "en": "Blur top and bottom so a real scene looks like a miniature"
+    "en": "Blur top and bottom so a real scene looks like a miniature",
+    "zh-Hant": "把上下兩側模糊，讓真實的街景看起來像模型"
    },
    "ask": {
     "ja": "高い所から見下ろした町をティルトシフトで。中央の帯だけピントを合わせて上下を強くぼかし、色を濃くしてミニチュア風に。",
-    "en": "High-angle view of a town with a tilt-shift look: a narrow sharp band across the middle, strong blur above and below, boosted colour, like a miniature model."
+    "en": "High-angle view of a town with a tilt-shift look: a narrow sharp band across the middle, strong blur above and below, boosted colour, like a miniature model.",
+    "zh-Hant": "從高處俯瞰的城鎮，用移軸效果。只讓中間一條帶狀範圍對焦，上下強烈模糊，色彩調濃一點，做出迷你模型的感覺。"
    },
    "summary": {
     "ja": "街の上下の帯がぼけていき、道と車と小さな人たちの並ぶ中央の帯だけにピントが残って、模型の街のように見える。",
@@ -6079,15 +6422,18 @@
    "cycle": 5,
    "name": {
     "ja": "長時間露光",
-    "en": "Long exposure"
+    "en": "Long exposure",
+    "zh-Hant": "長曝"
    },
    "meaning": {
     "ja": "シャッターを長く開け、動く光を線にする",
-    "en": "Keep the shutter open long so moving lights become lines"
+    "en": "Keep the shutter open long so moving lights become lines",
+    "zh-Hant": "快門開很久，讓移動的光變成線條"
    },
    "ask": {
     "ja": "夜の道路を長時間露光で。シャッター8秒で、車の形は消えて、ヘッドライトとテールランプだけが白と赤の光の線になるように。",
-    "en": "Night road as a long exposure, 8-second shutter: the cars disappear and only their headlights and tail lights remain as white and red trails."
+    "en": "Night road as a long exposure, 8-second shutter: the cars disappear and only their headlights and tail lights remain as white and red trails.",
+    "zh-Hant": "夜晚的馬路，用長曝拍攝。快門 8 秒，車子的形體消失，只剩頭燈和尾燈拉成白色與紅色的光軌。"
    },
    "summary": {
     "ja": "街が夜になり、走る車の本体は薄く消えていき、後ろに赤い尾灯の線が伸び、反対車線には白とアンバーの光の線が通る。",
@@ -6135,15 +6481,18 @@
    "cycle": 5,
    "name": {
     "ja": "流し撮り",
-    "en": "Panning shot"
+    "en": "Panning shot",
+    "zh-Hant": "追焦"
    },
    "meaning": {
     "ja": "動く被写体を追って撮り、背景だけ流す",
-    "en": "Follow a moving subject so only the background streaks"
+    "en": "Follow a moving subject so only the background streaks",
+    "zh-Hant": "跟著移動的被攝者拍，只讓背景拉出流動線條"
    },
    "ask": {
     "ja": "走る赤い車を流し撮りで。シャッター1/15秒、車はくっきり、背景の木や建物は横に流れるように。",
-    "en": "Panning shot of a red car driving past, 1/15 s shutter: the car sharp, the trees and buildings behind streaked sideways."
+    "en": "Panning shot of a red car driving past, 1/15 s shutter: the car sharp, the trees and buildings behind streaked sideways.",
+    "zh-Hant": "行駛中的紅色汽車，用追焦拍攝：相機跟著車子水平移動，快門 1/15 秒，車子清楚銳利，背景的樹和建築往橫向拉出流動的線條。"
    },
    "summary": {
     "ja": "走る車をカメラが追い、車は画面の中央でくっきりしたまま、背景の建物や木や街灯だけが横に流れる。",
@@ -6191,15 +6540,18 @@
    "cycle": 5,
    "name": {
     "ja": "レンズフレア",
-    "en": "Lens flare"
+    "en": "Lens flare",
+    "zh-Hant": "鏡頭耀光"
    },
    "meaning": {
     "ja": "強い光でレンズの中に光の輪や玉が出る",
-    "en": "Rings and spots of light from a bright source in the lens"
+    "en": "Rings and spots of light from a bright source in the lens",
+    "zh-Hant": "強光進入鏡頭，產生光環與光斑"
    },
    "ask": {
     "ja": "山の上の太陽を入れて、レンズフレアを。太陽から画面の中心をはさんで反対側へ、色のついた光の玉が並ぶように。",
-    "en": "Mountain landscape with the sun in frame and lens flare: coloured ghosts lined up from the sun through the centre to the opposite side."
+    "en": "Mountain landscape with the sun in frame and lens flare: coloured ghosts lined up from the sun through the centre to the opposite side.",
+    "zh-Hant": "把山頂的太陽拍進畫面，加上鏡頭耀光。讓彩色的光斑從太陽穿過畫面中心，一路排列到另一側。"
    },
    "summary": {
     "ja": "太陽が建物の陰から空へ出ると、太陽に光の筋が出て、太陽から画面の中心をはさんだ反対側まで、光の玉と六角形と輪が一列に並ぶ。",
@@ -6247,15 +6599,18 @@
    "cycle": 5,
    "name": {
     "ja": "魚眼レンズ",
-    "en": "Fisheye lens"
+    "en": "Fisheye lens",
+    "zh-Hant": "魚眼鏡頭"
    },
    "meaning": {
     "ja": "中心がふくらみ、直線が丸く曲がる超広角",
-    "en": "Ultra-wide lens that bulges the centre and bends straight lines"
+    "en": "Ultra-wide lens that bulges the centre and bends straight lines",
+    "zh-Hant": "中心膨脹、直線彎曲成弧形的超廣角鏡頭"
    },
    "ask": {
     "ja": "街の通りを魚眼レンズで。画角180°で、ビルの縦の線が外側へ丸く曲がるように。",
-    "en": "City street through a fisheye lens, 180° view, the building edges bowing outward."
+    "en": "City street through a fisheye lens, 180° view, the building edges bowing outward.",
+    "zh-Hant": "街道用魚眼鏡頭拍攝，視角 180°，大樓垂直的線條向外彎成圓弧。"
    },
    "summary": {
     "ja": "街角の中心がふくらみ、建物の縦の線と道の横の線が外側へ丸く曲がり、四隅はそのまま残る。",
@@ -6303,15 +6658,18 @@
    "cycle": 5,
    "name": {
     "ja": "色収差",
-    "en": "Chromatic aberration"
+    "en": "Chromatic aberration",
+    "zh-Hant": "色差"
    },
    "meaning": {
     "ja": "明暗の境に赤や青紫の色ずれが出る",
-    "en": "Red and blue-violet colour fringes along high-contrast edges"
+    "en": "Red and blue-violet colour fringes along high-contrast edges",
+    "zh-Hant": "明暗交界處出現紅色或藍紫色的色邊"
    },
    "ask": {
     "ja": "白い空と黒い枝の写真に、色収差を少し。画面の端に向かって、枝の縁に赤と青紫の色ずれが出るように。",
-    "en": "Black branches against a white sky with slight chromatic aberration: red and blue-violet fringes on the edges, stronger toward the corners."
+    "en": "Black branches against a white sky with slight chromatic aberration: red and blue-violet fringes on the edges, stronger toward the corners.",
+    "zh-Hant": "白色天空與黑色樹枝的照片，加一點色差（邊緣的紅色與藍紫色色邊）。越靠近畫面邊緣，色邊越明顯。"
    },
    "summary": {
     "ja": "街角の絵を赤・緑・青に分け、少しずつ違う大きさで重ねると、人物や建物や街灯の縁に赤と青緑のずれが出て、画面の端ほど大きくなる。",
@@ -6357,15 +6715,18 @@
    "cycle": 5,
    "name": {
     "ja": "周辺減光（ビネット）",
-    "en": "Vignette"
+    "en": "Vignette",
+    "zh-Hant": "暗角"
    },
    "meaning": {
     "ja": "画面の四隅が暗くなり、中央に目が集まる",
-    "en": "The corners darken and draw the eye to the centre"
+    "en": "The corners darken and draw the eye to the centre",
+    "zh-Hant": "畫面四角變暗，視線集中到中央"
    },
    "ask": {
     "ja": "海辺の写真に、ビネットを強めに。四隅だけなだらかに暗くして、中央の人物に目が行くように。",
-    "en": "Beach photo with a strong vignette: the corners darken gradually so the eye goes to the person in the middle."
+    "en": "Beach photo with a strong vignette: the corners darken gradually so the eye goes to the person in the middle.",
+    "zh-Hant": "海邊的照片，暗角加重、做得明顯一點。只讓四個角落平順地變暗，讓視線集中到中央的人物身上。"
    },
    "summary": {
     "ja": "画面の四隅からなだらかに暗くなり、中央の人物と道のあたりだけが明るく残る。",
@@ -6409,15 +6770,18 @@
    "cycle": 5,
    "name": {
     "ja": "ハイキー",
-    "en": "High-key"
+    "en": "High-key",
+    "zh-Hant": "High Key（高調）"
    },
    "meaning": {
     "ja": "明るい色だけで作る、白っぽく影の薄い写真",
-    "en": "A bright, white-toned image with very light shadows"
+    "en": "A bright, white-toned image with very light shadows",
+    "zh-Hant": "只用明亮的色調，畫面偏白、陰影很淡"
    },
    "ask": {
     "ja": "白い机の上のカップと瓶を、ハイキーで。背景は真っ白、影はごく薄く、全体を明るい色だけでまとめて。",
-    "en": "High-key still life of a cup and a bottle on a white table: pure white background, very faint shadows, only light tones."
+    "en": "High-key still life of a cup and a bottle on a white table: pure white background, very faint shadows, only light tones.",
+    "zh-Hant": "白色桌上的杯子與瓶子，用 High Key 高調風格拍攝。背景純白，陰影非常淡，整體只用明亮的色調。"
    },
    "summary": {
     "ja": "風景と人物が白に近い明るい色だけになり、影はごく薄くなって、右下のヒストグラムの山が右端へ寄る。",
@@ -6461,15 +6825,18 @@
    "cycle": 5,
    "name": {
     "ja": "ローキー",
-    "en": "Low-key"
+    "en": "Low-key",
+    "zh-Hant": "Low Key（低調）"
    },
    "meaning": {
     "ja": "暗い色が中心の、光の当たる所だけが浮かぶ写真",
-    "en": "A dark image where only the lit parts stand out"
+    "en": "A dark image where only the lit parts stand out",
+    "zh-Hant": "以暗色調為主，只有受光處浮現出來"
    },
    "ask": {
     "ja": "黒背景のウイスキーの瓶をローキーで。横からの1灯だけで、光の当たる縁だけ浮かび、画面の大半は黒に沈めて。",
-    "en": "Low-key shot of a whisky bottle on black, a single side light, only the lit edges showing and most of the frame in deep black."
+    "en": "Low-key shot of a whisky bottle on black, a single side light, only the lit edges showing and most of the frame in deep black.",
+    "zh-Hant": "黑色背景上的威士忌酒瓶，用 Low Key 低調風格拍攝。僅用側邊一盞燈，讓受光的邊緣浮現出來，畫面大半沉入黑色。"
    },
    "summary": {
     "ja": "画面の大半が暗く沈み、太陽も消えて、横から日の当たる胸像の右の縁だけが光って浮かぶ。ヒストグラムの山は左端へ寄る。",
@@ -6516,15 +6883,18 @@
    "cycle": 5,
    "name": {
     "ja": "モノクロ",
-    "en": "Black and white"
+    "en": "Black and white",
+    "zh-Hant": "黑白"
    },
    "meaning": {
     "ja": "色を抜いて明るさだけで見せる",
-    "en": "Remove colour and show brightness only"
+    "en": "Remove colour and show brightness only",
+    "zh-Hant": "去掉顏色，只用明暗呈現"
    },
    "ask": {
     "ja": "海辺のスナップをモノクロで。コントラストは少し強めに、空と砂の明るさの差を残して。",
-    "en": "Beach snapshot in black and white, contrast slightly raised, keeping the difference in brightness between sky and sand."
+    "en": "Beach snapshot in black and white, contrast slightly raised, keeping the difference in brightness between sky and sand.",
+    "zh-Hant": "海邊的隨手拍，轉成黑白。對比稍微拉高一點，保留天空與沙灘之間的明暗差異。"
    },
    "summary": {
     "ja": "同じ風景から色が抜け、太陽も人物の縁の光も灰色になり、明るさの差だけで形が見える。",
@@ -6568,15 +6938,18 @@
    "cycle": 5,
    "name": {
     "ja": "デュオトーン",
-    "en": "Duotone"
+    "en": "Duotone",
+    "zh-Hant": "雙色調"
    },
    "meaning": {
     "ja": "暗部と明部を2色だけで表す",
-    "en": "Show the image in two colours, one for darks and one for lights"
+    "en": "Show the image in two colours, one for darks and one for lights",
+    "zh-Hant": "只用兩種顏色表現暗部與亮部"
    },
    "ask": {
     "ja": "人物写真を濃い藍とピンクのデュオトーンに。暗い所は藍、明るい所はピンクの2色だけで。",
-    "en": "Portrait photo as a navy-and-pink duotone: darks in navy, lights in pink, nothing else."
+    "en": "Portrait photo as a navy-and-pink duotone: darks in navy, lights in pink, nothing else.",
+    "zh-Hant": "把人像照片做成深藍與粉紅的雙色調。暗部用深藍、亮部用粉紅，只用這兩種顏色。"
    },
    "summary": {
     "ja": "同じ風景の色が、暗い所は藍、明るい所はピンクの2色の間だけに置き換わる。",
@@ -6620,15 +6993,18 @@
    "cycle": 5,
    "name": {
     "ja": "ティール＆オレンジ",
-    "en": "Teal and orange"
+    "en": "Teal and orange",
+    "zh-Hant": "Teal & Orange"
    },
    "meaning": {
     "ja": "影を青緑、肌や明部を橙に寄せる色調",
-    "en": "Pushes shadows to teal and skin and highlights to orange"
+    "en": "Pushes shadows to teal and skin and highlights to orange",
+    "zh-Hant": "陰影偏青綠色，膚色與亮部偏橘色的色調"
    },
    "ask": {
     "ja": "街を歩く人物を映画のようなティール＆オレンジで。影と空は青緑、肌と夕日は橙に寄せて。",
-    "en": "Person walking in the city with a cinematic teal and orange grade: shadows and sky toward teal, skin and sunlight toward orange."
+    "en": "Person walking in the city with a cinematic teal and orange grade: shadows and sky toward teal, skin and sunlight toward orange.",
+    "zh-Hant": "在街上走路的人物，調成電影感的 Teal & Orange。陰影和天空偏青綠色，皮膚和夕陽偏橘色。"
    },
    "summary": {
     "ja": "同じ風景の空・丘・地面・人物の影が青緑へ、日の当たる人物の縁と太陽が橙へ寄り、補色の対比になる。",
@@ -6672,15 +7048,18 @@
    "cycle": 5,
    "name": {
     "ja": "フィルムグレイン",
-    "en": "Film grain"
+    "en": "Film grain",
+    "zh-Hant": "底片顆粒"
    },
    "meaning": {
     "ja": "フィルム写真のような細かい粒子を乗せる",
-    "en": "Fine, film-like grain over the image"
+    "en": "Fine, film-like grain over the image",
+    "zh-Hant": "加上像底片相機拍出來的細緻顆粒"
    },
    "ask": {
     "ja": "海辺の写真にフィルムグレインを。細かい粒子を全体に、黒は少し浮かせて暖かい色に。",
-    "en": "Add film grain to the beach photo: fine grain all over, blacks slightly lifted and warm."
+    "en": "Add film grain to the beach photo: fine grain all over, blacks slightly lifted and warm.",
+    "zh-Hant": "幫海邊的照片加上底片顆粒。整體加上細緻的顆粒，黑色稍微提起並帶一點暖色。"
    },
    "summary": {
     "ja": "同じ風景の全体に細かい粒が乗り、色が少し暖かいクリーム色に寄る。",
@@ -6727,15 +7106,18 @@
    "cycle": 5,
    "name": {
     "ja": "ライトリーク",
-    "en": "Light leak"
+    "en": "Light leak",
+    "zh-Hant": "漏光"
    },
    "meaning": {
     "ja": "フィルムに光がもれたような赤橙のにじみ",
-    "en": "Red-orange glow as if light leaked onto the film"
+    "en": "Red-orange glow as if light leaked onto the film",
+    "zh-Hant": "像底片被光線漏進去，出現紅橘色的暈染"
    },
    "ask": {
     "ja": "夏の思い出の写真に、ライトリークを右端から。赤と橙の光がにじみ込むように。",
-    "en": "Summer memory photo with a light leak coming in from the right edge, red and orange light bleeding in."
+    "en": "Summer memory photo with a light leak coming in from the right edge, red and orange light bleeding in.",
+    "zh-Hant": "夏天回憶的照片，從右側邊緣加入漏光。讓紅色和橘色的光暈滲進畫面。"
    },
    "summary": {
     "ja": "同じ風景の右端から、外側ほど淡い黄、端ほど赤い光のにじみが帯になって入り、ゆっくり揺れる。",
@@ -6779,15 +7161,18 @@
    "cycle": 5,
    "name": {
     "ja": "二重露光（多重露光）",
-    "en": "Double exposure"
+    "en": "Double exposure",
+    "zh-Hant": "多重曝光"
    },
    "meaning": {
     "ja": "2枚の写真を1枚に重ねて写し込む",
-    "en": "Two photos layered into one frame"
+    "en": "Two photos layered into one frame",
+    "zh-Hant": "把兩張照片疊在同一個畫面裡"
    },
    "ask": {
     "ja": "横顔のシルエットに森と山の風景を二重露光で重ねて。背景は白、顔の中にだけ風景が見えるように。",
-    "en": "Double exposure of a profile silhouette and a forest-and-mountain landscape on a white background, the landscape visible only inside the head."
+    "en": "Double exposure of a profile silhouette and a forest-and-mountain landscape on a white background, the landscape visible only inside the head.",
+    "zh-Hant": "把側臉剪影和森林山景用多重曝光疊在一起。背景是白色，風景只出現在臉的輪廓裡面。"
    },
    "summary": {
     "ja": "背景が白く飛び、胸像の形の中にだけ、縮めた丘・家・木・太陽の風景が写り込む。",
