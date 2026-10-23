@@ -301,7 +301,9 @@ packs.forEach((p, i) => {
 
 // ---------------------------------------------------------------- assemble
 // Scaling the 2D context is only safe when the code never addresses device pixels directly.
-const PIXEL_BOUND = /\b(setTransform|resetTransform|getTransform|getImageData|putImageData|createImageData)\b|\.canvas\b/;
+// Reading the transform (getTransform) is allowed: lp2 #09 uses it to draw its offscreen canvases at the caller's scale.
+// check.mjs still compares a 2x drawing with the 1x one for every pack marked scalable.
+const PIXEL_BOUND = /\b(setTransform|resetTransform|getImageData|putImageData|createImageData)\b|\.canvas\b/;
 
 // The version changes whenever any pack source changes, so the skill CLI's cache never serves stale elements.
 const contentHash = crypto.createHash('sha256');
