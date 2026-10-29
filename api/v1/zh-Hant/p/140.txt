@@ -1,0 +1,15 @@
+請使用「頁面捲曲（Page curl）」，它是「動態圖形動效（第二輯）」中的一個名稱。
+Motion Prompt #140
+
+它是什麼：Peels back like paper to show the next page
+範例展示：A page peels back from its corner and folds over, revealing the next page beneath.
+規格：
+- Page 1 (white) → page 2 (cream) → page 1, 2.35 s each. The curl starts at the bottom-right corner, 0.35–1.75 s (1.4 s), quadratic ease-in-out.
+- The fold line moves from the corner in the direction (−1, −0.42), normalised, by 0→600 px.
+- The part beyond the fold line is mirrored across it to form the flap, the back of the page (light grey or beige), with a drop shadow (blur 14, offset 4, 4) and a white 2 px edge.
+- The next page shows where the paper has lifted, with a 50 px shadow gradient along the fold.
+適用情境：Use it for books, catalogues, albums or chapter breaks, where a paper feel or reading on suits the content.
+
+參考實作（Canvas 2D，畫面只由時間決定的函式）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh-Hant/e/140.txt
+共用輔助程式碼：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/motion2.js
+請保留參考實作的形狀、時間安排與緩動數值，只替換文字、色彩和素材，以符合目前製作的內容。

@@ -1,0 +1,17 @@
+请使用“定格（Freeze frame）”，它是“摄影机运动与转场”中的一个名称。
+Motion Prompt #040
+
+它是什么：让动作停住一拍
+示例展示：The picture stops at the moment a jumping person reaches the top, then resumes from the same frame 1.4 s later.
+规格：
+- Camera: completely fixed (height 1.3 m); what stops is the footage time
+- Freeze: stops at 1.6 s and resumes at 3.0 s (1.4 s); footage time runs normally for 0–1.6 s, stays at 1.6 s while frozen, then continues as u-1.4
+- Subject: the jump of a person 7 m away is a parabola over footage time 0.6–2.6 s, peak 1.1 m; the freeze lands exactly on the peak (50% through)
+- Nine falling leaves also stop during the freeze; they fall 1.5× as fast as in 13 Slow motion
+- Freeze markers: a 5 px blue border and a pause icon at bottom centre (two blue bars on a 68×40 px white rounded box), fading in and out over 0.12 s
+- Top-right readout shows "FREEZE" only while frozen; no cross-fade reset
+适用场景：To emphasise a decisive moment, or to pause so a name or caption can be placed over the frame.
+
+参考实现（Canvas 2D，画面只由时间决定的函数）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh/e/040.txt
+共享辅助代码：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/camera.js
+请保留参考实现的形状、时间安排和缓动数值，只替换文字、颜色和素材，以适配当前制作的内容。

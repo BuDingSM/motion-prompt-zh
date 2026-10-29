@@ -1,0 +1,16 @@
+请使用“聚光灯悬停（Spotlight hover）”，它是“落地页与网站效果（第二辑）”中的一个名称。
+Motion Prompt #154
+
+它是什么：Only the area around the cursor lights up
+示例展示：As the cursor moves over the dark cards, only a circle around it is lit, and the edges of nearby cards glow.
+规格：
+- A 511 × 168 viewport: a dark page (#121828) with three dark cards (147 × 116, radius 10). One pass takes 4.7 s (twice per 9.4 s pack cycle).
+- The cursor keeps moving in a figure eight: x = 255 + 190·sin(2πt/4.7), y = 92 + 40·sin(4πt/4.7).
+- Inside each card only, a white radial light of radius 115 px is centered on the cursor (opacity 0.34 at the center → 0); it does not spill outside the cards.
+- Card borders (width 2) glow by distance from the cursor: an orange radial light (rgb(255,122,82)) of radius 120 px. Far edges keep only the faint base line (8% white).
+- No lag: the light sits exactly at the cursor (the usual build puts the coordinates in CSS variables used as the radial-gradient center).
+适用场景：Use it on dark-themed sites with rows of feature or pricing cards, to make the spot under the pointer stand out.
+
+参考实现（Canvas 2D，画面只由时间决定的函数）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh/e/154.txt
+共享辅助代码：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/lp2.js
+请保留参考实现的形状、时间安排和缓动数值，只替换文字、颜色和素材，以适配当前制作的内容。

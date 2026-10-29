@@ -1,0 +1,15 @@
+請使用「Parallax」，它是「動態圖形動效」中的一個名稱。
+Motion Prompt #016
+
+它是什麼：近景與遠景速度不同，營造景深
+範例展示：A landscape pans sideways; near layers move more and far layers move less, creating depth.
+規格：
+- Camera pan: ±108 px on a sine wave, one round trip per 4.7 s.
+- Each layer is offset by pan × factor in the opposite direction. Factors from back to front: stars 0.05, moon 0.1, far ridge 0.28, middle ridge 0.6, front hill and trees 1.25, nearest dark shapes 2.1.
+- Far layers use darker colours close to the background, nearer layers brighter ones; the nearest layer is a large dark silhouette along the bottom.
+- Every layer is drawn at least 200 px beyond both sides of the frame so its ends never show.
+適用情境：Use it to give flat artwork or photos depth: backgrounds, landscapes, scrolling scenes.
+
+參考實作（Canvas 2D，畫面只由時間決定的函式）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh-Hant/e/016.txt
+共用輔助程式碼：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/motion.js
+請保留參考實作的形狀、時間安排與緩動數值，只替換文字、色彩和素材，以符合目前製作的內容。

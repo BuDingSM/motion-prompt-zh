@@ -1,0 +1,17 @@
+請使用「Pop-in」，它是「動態圖形動效」中的一個名稱。
+Motion Prompt #001
+
+它是什麼：彈跳一下出現
+範例展示：An app icon pops in with a bounce, then a notification badge pops in a moment later.
+規格：
+- One pop per 2.35 s (twice per 4.7 s cycle: a star on coral first, then a heart on blue).
+- Icon: 116 px rounded square (radius 30). From 0.28 s, scale 0→1 with a spring: 1 − e^(−6.5t)·cos(15t), peaking at about 1.26.
+- At the same time, rotation −0.35 rad (about −20°) → 0 with a spring: 1 − e^(−6t)·cos(11t).
+- Badge: yellow circle, radius 25, with "1", at the icon's top-right (+52, −52). Starts at 0.62 s with spring 1 − e^(−7t)·cos(17t).
+- Exit: 1.86–2.12 s. Scale is multiplied by (1 − backIn, s = 2.2), so it swells slightly and then shrinks to 0.
+- Floor shadow: 62 × 8 ellipse that scales with the icon (clamped to 0–1).
+適用情境：Use it to bring in a small element such as an icon, button or badge with a light accent.
+
+參考實作（Canvas 2D，畫面只由時間決定的函式）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh-Hant/e/001.txt
+共用輔助程式碼：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/motion.js
+請保留參考實作的形狀、時間安排與緩動數值，只替換文字、色彩和素材，以符合目前製作的內容。

@@ -1,0 +1,15 @@
+请使用“返回顶部按钮（Back-to-top button）”，它是“落地页与网站效果（第二辑）”中的一个名称。
+Motion Prompt #151
+
+它是什么：Appears lower down and returns you to the top
+示例展示：After scrolling down, a round arrow button appears at the bottom right; clicking it takes the page straight back to the top.
+规格：
+- A 511 × 168 viewport. Scroll 0→300 px (to the bottom of the page) over 0.2–1.7 s, cubic ease-in-out. One pass takes 4.7 s (twice per 9.4 s pack cycle).
+- Button: an orange circle at the bottom right (center x = 472, y = 138; radius 19; white up arrow; 10 px shadow blur). Between 80 and 140 px of scroll it fades in while rising 10 px (cubic ease-out).
+- It is clicked at 2.6 s. While the cursor is on it, it darkens over 0.2 s (#FF5A2C → #D9431C).
+- After the click the scroll goes 300→0 over 2.66–3.26 s (0.6 s, cubic ease-in-out); below 80 px the button fades out by the same formula.
+适用场景：Use it on long pages such as blog posts, long landing pages or product lists, so readers can get back to the menu at the top.
+
+参考实现（Canvas 2D，画面只由时间决定的函数）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh/e/151.txt
+共享辅助代码：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/lp2.js
+请保留参考实现的形状、时间安排和缓动数值，只替换文字、颜色和素材，以适配当前制作的内容。

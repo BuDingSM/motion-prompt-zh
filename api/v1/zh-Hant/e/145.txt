@@ -1,0 +1,50 @@
+// Motion Prompt #145 · MIT License (c) 2026 Shohei Ohtaki · https://budingsm.github.io/motion-prompt-zh/#145
+//
+// 滾動時間線 / Timeline on scroll
+// 類別包: lp2 (落地頁與網站效果（第二輯）) · element 01 · 分類: Scroll effects
+// 效果說明: As the page scrolls down, an orange line grows down the timeline; each dot it reaches fills in and its year and event slide in from the right. Scrolling back up reverses it.
+// 動效規格:
+//   - A 511 × 168 browser viewport. Scroll: 0→190 px over 0.3–2.3 s, 190→0 over 3.0–4.3 s (cubic ease-in-out). One pass takes 4.7 s (twice per 9.4 s pack cycle).
+//   - The timeline line is at x = 168: an orange line grows over a gray track (width 3). Its tip sits at scroll + 126 px, so always 126 px from the top of the viewport (42 px from the bottom).
+//   - Five items (2018–2026), with dots (white, radius 7.5, ring width 2.5) at page y = 72, 126, 180, 234 and 288.
+//   - Over the 22 px of line growth after the tip passes a dot (cubic ease-out): the ring turns orange, an inner dot grows from radius 0 to 4, and the year (18 px, orange) and event (15 px) fade in while sliding 16 px from the right.
+//   - Scrolling back shrinks the line and hides the items by the same formula. The scrollbar thumb on the right follows the scroll.
+// 適用情境: Use it for company history, milestones or a step-by-step process that reads in time order.
+// 標籤: timeline, scroll, history, milestones, scroll-driven, progress-line
+// 尺寸: 539x208 px · 週期: 9.4 s
+// 依賴: kit lp2 -> https://budingsm.github.io/motion-prompt-zh/api/v1/kit/lp2.js
+// 動態範例: https://budingsm.github.io/motion-prompt-zh/#145
+//
+// cells[i](k, w, h, u)：k = CanvasRenderingContext2D（呼叫方已清空畫布並完成 save/restore），w、h = 尺寸，u = [0, cycle) 內的秒數。畫面只由 u 決定。
+// 以下是元素程式碼。CELLS、常數和輔助函式位於 kit 中。
+
+// @element 01
+// 01 タイムラインアニメーション（スクロールに合わせて年表の線が上から伸び、線が届いた年が順に現れる）
+CELLS[0] = (k, w, h, u) => {
+  u = snapU(u);
+  frame(k);
+  const y = steps([[0.3, 0], [2.3, 190], [3.0, 190], [4.3, 0]], u);
+  const ROWS = [[72, '2018', '創業'], [126, '2020', '1号店オープン'], [180, '2022', '会員1万人'], [234, '2024', 'アプリ公開'], [288, '2026', '海外へ']];
+  const LX = 168, L = y + 126;                         // 線の先（画面の下から 42px の所までページと一緒に伸びる）
+  view(k, () => {
+    k.save(); k.translate(0, -y);
+    txt(k, 'HISTORY', 34, 34, `800 11px ${EN}`, C.acc, 'left', 'alphabetic', '2px');
+    txt(k, 'あゆみ', 34, 60, `800 20px ${JP}`, C.ink);
+    pic(k, 34, 76, 100, 62, 0, 6); bars(k, 34, 148, 90, 2);
+    k.fillStyle = C.faint; rr(k, LX - 1.5, 52, 3, 248, 1.5); k.fill();
+    k.fillStyle = C.acc; rr(k, LX - 1.5, 52, 3, clamp(L - 52, 0, 248), 1.5); k.fill();
+    for (const [iy, yr, lab] of ROWS) {
+      const q = eOut(clamp((L - iy) / 22));
+      k.fillStyle = '#fff'; k.beginPath(); k.arc(LX, iy, 7.5, 0, 7); k.fill();
+      k.lineWidth = 2.5; k.strokeStyle = q > 0 ? C.acc : C.faint; k.stroke();
+      if (q > 0) { k.fillStyle = C.acc; k.beginPath(); k.arc(LX, iy, 4 * q, 0, 7); k.fill(); }
+      k.save(); k.globalAlpha = q; k.translate(16 * (1 - q), 0);
+      txt(k, yr, LX + 22, iy + 6, `800 18px ${EN}`, C.acc);
+      txt(k, lab, LX + 82, iy + 5, `700 15px ${JP}`, C.ink);
+      bars(k, LX + 82, iy + 15, 190, 1, C.faint, 5);
+      k.restore();
+    }
+    k.restore();
+    sbar(k, y / 190, 0.45);
+  });
+};

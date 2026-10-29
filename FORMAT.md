@@ -3,7 +3,7 @@
 Motion Prompt is a library of names: the words a field uses for the things you ask an AI to make, each
 with a moving sample. Each element is a small, dependency-free Canvas 2D animation that is a
 **pure function of time**, with its name and a one-line meaning in several languages, an example
-of how to ask for it, and a copyable prompt (ja/en), so people can tell Claude Code / Codex
+of how to ask for it, and a copyable prompt (ja/en/zh/zh-Hant), so people can tell Claude Code / Codex
 "use #012 and #045" or "swap this title for #005".
 
 Repo: GitHub `showheyohtaki/motion-prompt` (MIT) → GitHub Pages
@@ -134,15 +134,14 @@ A field without the new language shows its English text in that list. The headin
 list ("Name", "What it is", …) are English unless you add a block for the language to `DOC` in
 `tools/build.mjs`; add its display name to `LANG_NAME` there too.
 
-The gallery, `api/v1/<lang>/` and the copyable prompt are served in `ja` and `en` only (`LANGS` in
-`tools/build.mjs`). In those, a pack with no Japanese shows its English text. Other languages are
-carried in `api/v1/catalog.json` and shown in the generated lists.
+The gallery, `api/v1/<lang>/` and the copyable prompt are served in `ja`, `en`, `zh` and `zh-Hant`
+(`LANGS` in `tools/build.mjs`). In those, a pack with no translation shows its English text.
 
 ## Generated API (tools/build.mjs writes these; the skill CLI and the site read them)
 
 ```
 api/v1/catalog.json                 { version, count, packs:[…], elements:[{ id, pack, no, slug, category, width, height, cycle, name, meaning, ask, summary, spec, use, tags }] }
-api/v1/<lang>/catalog.tsv           header comment line, then: id  pack  category  title  tags  summary      (lang = ja | en)
+api/v1/<lang>/catalog.tsv           header comment line, then: id  pack  category  title  tags  summary      (lang = ja | en | zh | zh-Hant)
 api/v1/<lang>/e/<id>.txt            one element: license line, info header (name, what it shows, spec, use, size, cycle, "Needs: kit <pack>", live demo URL), then the element code block
 api/v1/<lang>/p/<id>.txt            the copy-paste prompt for that element (same text the site's "copy prompt" button copies)
 api/v1/kit/<pack>.js                @kit + all @shared blocks of the pack, plus a short header showing how to run one element standalone

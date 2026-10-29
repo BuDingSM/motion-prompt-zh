@@ -1,0 +1,16 @@
+请使用“往返循环（Ping-pong loop）”，它是“动态图形动效（第二辑）”中的一个名称。
+Motion Prompt #127
+
+它是什么：Plays forward, then backward, over and over
+示例展示：A square travels to one end, then comes back along the same path as if played in reverse, again and again.
+规格：
+- One round trip per 4.7 s: 2.35 s forward, then the same motion played backwards for 2.35 s (progress g goes 0→1→0, linear).
+- A mint rounded square (48 px, radius 13) hops from x = 92 to 447 along three arches of height 62·|sin(3πg)|, turning one full turn with g.
+- Four ghost copies, 0.045 s apart, opacity 0.1–0.4.
+- A playback bar below: blue with a play label while going forward, coral with a reverse label while going back. The progress bar and its knob follow g.
+- Vertical posts mark the two turning points.
+适用场景：Use it for loaders, idle animations and any move that should repeat back and forth without a cut.
+
+参考实现（Canvas 2D，画面只由时间决定的函数）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh/e/127.txt
+共享辅助代码：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/motion2.js
+请保留参考实现的形状、时间安排和缓动数值，只替换文字、颜色和素材，以适配当前制作的内容。

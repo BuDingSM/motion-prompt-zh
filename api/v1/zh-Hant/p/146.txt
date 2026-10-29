@@ -1,0 +1,15 @@
+請使用「滾動文字顯現（Scroll text reveal）」，它是「落地頁與網站效果（第二輯）」中的一個名稱。
+Motion Prompt #146
+
+它是什麼：Text darkens letter by letter as you scroll
+範例展示：A light gray headline darkens one character at a time from the top left as the page scrolls, and fades back from the end when scrolling up.
+規格：
+- A 511 × 168 viewport. Scroll progress p: 0→1 over 0.3–2.6 s, 1→0 over 3.2–4.4 s (cubic ease-in-out). The page moves up by p × 40 px. One pass takes 4.7 s (twice per 9.4 s pack cycle).
+- A three-line headline, 24 characters in all (27 px, weight 800, 38 px line height), all light gray (#D6DBE4) at the start.
+- Character n (counting from 0) has darkness clamp(p × 26 − n): each character takes 1/26 of the progress to reach the text color (#1C2333), in step with the scroll.
+- Scrolling back fades them from the last character by the same formula. The body-text bars and the scrollbar thumb move with the page.
+適用情境：Use it on a short statement, such as a concept or a message from the founder, that should be read slowly.
+
+參考實作（Canvas 2D，畫面只由時間決定的函式）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh-Hant/e/146.txt
+共用輔助程式碼：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/lp2.js
+請保留參考實作的形狀、時間安排與緩動數值，只替換文字、色彩和素材，以符合目前製作的內容。

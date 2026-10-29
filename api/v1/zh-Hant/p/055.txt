@@ -1,0 +1,16 @@
+請使用「Popover」，它是「UI 組件名稱」中的一個名稱。
+Motion Prompt #055
+
+它是什麼：點擊後跳出帶箭頭的小面板
+範例展示：Clicking "Details" opens a small white panel to its right with a pointer at the button; clicking OK inside closes it.
+規格：
+- 4.5 s cycle on a 542×191 card. An outlined blue "Details" button (108×36) at (24, 112); the cursor clicks it at 1.0 s.
+- Show amount a: 0→1 over 1.0–1.28 s with easeOutCubic; opacity a, sliding 6 px in from the right.
+- Panel: white 300×120, radius 10, at (156, 62), 1 px border, shadow blur 22, offset y 6. A 10-wide triangle on its left edge (y 122–138) points at the button.
+- Inside: a bold title bar, two text lines, an outlined 70×26 button and a blue 72×26 OK button.
+- Close: the cursor moves to OK (402, 157) by 3.0 s and clicks at 3.3 s; a is multiplied by (1 − easeInOutCubic over 3.3–3.5 s).
+適用情境：Use it for a short setting or confirmation that belongs right next to the button that opened it.
+
+參考實作（Canvas 2D，畫面只由時間決定的函式）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh-Hant/e/055.txt
+共用輔助程式碼：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/ui.js
+請保留參考實作的形狀、時間安排與緩動數值，只替換文字、色彩和素材，以符合目前製作的內容。

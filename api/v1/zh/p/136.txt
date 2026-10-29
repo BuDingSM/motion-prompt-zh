@@ -1,0 +1,15 @@
+请使用“线条抖动（Line boil）”，它是“动态图形动效（第二辑）”中的一个名称。
+Motion Prompt #136
+
+它是什么：Hand-drawn lines wobble frame to frame
+示例展示：A hand-drawn line picture wobbles every few frames while the picture itself stays still.
+规格：
+- A still line drawing (a yellow star, a white cloud, mint sparkle strokes, a faint ground line). Line widths 6–8, round caps.
+- The drawing does not move. 47 times per 4.7 s (about every 0.1 s) every point is redrawn with a fixed random offset of up to ±3.5 px in x and in y.
+- Each line is first turned into a row of points (every 6–13 px; 96 points round the cloud) and drawn as quadratic curves through the midpoints between them, so it wobbles like hand-drawn frames.
+- The offsets are a hash of the frame number and the point number, so the same frame always looks the same.
+适用场景：Use it on hand-drawn illustrations, icons or lettering to make even a still picture feel drawn by hand.
+
+参考实现（Canvas 2D，画面只由时间决定的函数）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh/e/136.txt
+共享辅助代码：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/motion2.js
+请保留参考实现的形状、时间安排和缓动数值，只替换文字、颜色和素材，以适配当前制作的内容。

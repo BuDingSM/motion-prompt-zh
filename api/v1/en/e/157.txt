@@ -1,6 +1,6 @@
-// Motion Prompt #157 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#157
+// Motion Prompt #157 · MIT License (c) 2026 Shohei Ohtaki · https://budingsm.github.io/motion-prompt-zh/#157
 //
-// Hover image reveal / ホバーで画像プレビュー
+// Hover image reveal / Hover image reveal
 // Pack: lp2 (Landing page & web effects, part 2) · element 13 · Category: Mouse & input interactions
 // What happens: With the cursor on a row of a text-only list, that row's photo fades in beside the cursor and follows it.
 // Motion spec:
@@ -11,8 +11,8 @@
 // When to use it: Use it on lists of work, projects or properties that stay text-only and light, while letting people check a photo for the rows they care about.
 // Tags: hover, image-reveal, list, cursor-follow, preview, portfolio
 // Size: 539x208 px · Cycle: 9.4 s
-// Needs: kit lp2 -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/lp2.js
-// Live demo: https://showheyohtaki.github.io/motion-prompt/#157
+// Needs: kit lp2 -> https://budingsm.github.io/motion-prompt-zh/api/v1/kit/lp2.js
+// Live demo: https://budingsm.github.io/motion-prompt-zh/#157
 //
 // cells[i](k, w, h, u): k = CanvasRenderingContext2D (already cleared and wrapped in save/restore by the caller), w,h = size, u = seconds in [0, cycle). The picture depends only on u.
 // Element code starts here. CELLS, constants and helpers live in the kit.

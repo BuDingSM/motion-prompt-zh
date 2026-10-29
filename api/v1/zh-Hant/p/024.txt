@@ -1,0 +1,17 @@
+請使用「畫面震動（Impact shake）」，它是「動態圖形動效」中的一個名稱。
+Motion Prompt #024
+
+它是什麼：落地的衝擊讓整個畫面震動
+範例展示：A heavy headline slab drops with a thud and the whole frame shakes from the impact.
+規格：
+- One drop per 2.35 s (a yellow slab first, then a coral one). The slab is 250 × 100, radius 18.
+- Fall: 0.3–0.62 s from above the frame to the floor, cubic ease-in (accelerating). While falling it is stretched 1.12× vertically.
+- Lands at 0.62 s. The whole frame shakes for 1.1 s: x 15 px × e^(−5t) × sin(2π·5t), y 11 px × e^(−5t) × cos(2π·6.5t), rotation 0.02 rad × e^(−5t) × sin(2π·5t + 0.6).
+- For 0.3 s after landing the slab squashes vertically by up to 22% and recovers (it widens by the same amount; anchored at its base).
+- Four background blocks hop up to 24 px, 0.03–0.06 s late, over 0.5 s. Six white lines and six dust puffs spread from the floor and fade within 0.55 s.
+- Exit: the slab moves 300 px up at 1.85–2.2 s (backIn, s = 1.6).
+適用情境：Use it to land an important headline or number with weight and force.
+
+參考實作（Canvas 2D，畫面只由時間決定的函式）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh-Hant/e/024.txt
+共用輔助程式碼：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/motion.js
+請保留參考實作的形狀、時間安排與緩動數值，只替換文字、色彩和素材，以符合目前製作的內容。

@@ -1,0 +1,16 @@
+请使用“横向卷动（Horizontal scroll）”，它是“落地页与网站效果”中的一个名称。
+Motion Prompt #077
+
+它是什么：往下卷动时，内容改为横向移动
+示例展示：As the page scrolls down, the section holds still and four numbered work cards travel to the left.
+规格：
+- Scroll: 0→420 px at 0.3–3.0 s, 420→0 at 3.5–4.5 s (cubic ease-in-out).
+- The heading "WORKS" scrolls away; the section reaches the top at 40 px of scroll and stays there.
+- Cards: four at 200 × 112, gap 20, side padding 34. Horizontal travel = 34·2 + 200·4 + 20·3 − 511 = 417 px.
+- Card x = start x − p × 417, with p = (scroll − 40) / 380: linear in scroll, no easing.
+- The scrollbar thumb moves down while the cards move sideways.
+适用场景：Use it to show work, case studies or products in a row inside a long vertical page.
+
+参考实现（Canvas 2D，画面只由时间决定的函数）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh/e/077.txt
+共享辅助代码：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/lp.js
+请保留参考实现的形状、时间安排和缓动数值，只替换文字、颜色和素材，以适配当前制作的内容。

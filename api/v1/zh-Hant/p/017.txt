@@ -1,0 +1,16 @@
+請使用「遮罩轉場（Mask transition）」，它是「動態圖形動效」中的一個名稱。
+Motion Prompt #017
+
+它是什麼：下一個畫面從擴大的形狀中現出
+範例展示：A circle- or star-shaped window grows, showing the next scene inside it.
+規格：
+- Day scene → night scene → day scene, 2.35 s each. The change runs at 0.45–1.6 s of each half (1.15 s), cubic ease-in-out.
+- The next scene is drawn on top of the current one, clipped to a shape; the shape grows until it covers the frame.
+- Day→night: a circle from the sun's centre (112, 104), radius 0→470.
+- Night→day: a five-point star from the moon's centre (427, 104), outer radius 0→1150, rotating 1.2 rad (about 69°) as it grows.
+- While it grows, the edge of the shape has a white outline (width 7).
+適用情境：Use it to change scenes starting from an object in the frame, such as a sun, logo or button.
+
+參考實作（Canvas 2D，畫面只由時間決定的函式）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh-Hant/e/017.txt
+共用輔助程式碼：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/motion.js
+請保留參考實作的形狀、時間安排與緩動數值，只替換文字、色彩和素材，以符合目前製作的內容。

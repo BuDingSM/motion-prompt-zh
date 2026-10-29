@@ -1,0 +1,15 @@
+請使用「波浪文字（Wave text）」，它是「動態圖形動效（第二輯）」中的一個名稱。
+Motion Prompt #130
+
+它是什麼：Letters rise and fall in turn, like a wave
+範例展示：The letters of "WAVE TEXT" rise and fall one after another, like a wave.
+規格：
+- "WAVE TEXT" (70 px, bold, 4 px letter spacing). Three waves per 4.7 s (1.567 s per wave).
+- Vertical offset of letter i = −28·sin(φ − 0.62i), with φ = 2π × 3 × time ÷ 4.7 (each letter lags the previous by 0.62 rad).
+- Rising letters stretch vertically (1 + 0.06·s) and shift from white towards yellow (s is the sine value, clamped to 0–1 for the colour).
+- A shadow ellipse under each letter shrinks as the letter rises.
+適用情境：Use it on a logo, a short heading or a caption timed to music, to add fun and rhythm.
+
+參考實作（Canvas 2D，畫面只由時間決定的函式）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh-Hant/e/130.txt
+共用輔助程式碼：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/motion2.js
+請保留參考實作的形狀、時間安排與緩動數值，只替換文字、色彩和素材，以符合目前製作的內容。

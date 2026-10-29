@@ -1,0 +1,15 @@
+请使用“脉冲（Pulse）”，它是“动态图形动效（第二辑）”中的一个名称。
+Motion Prompt #125
+
+它是什么：Its size throbs like a heartbeat
+示例展示：A heart throbs like a heartbeat, a double beat each time, with rings spreading out.
+规格：
+- A coral heart. One beat per 1.175 s (four per 4.7 s); each beat is a double "lub-dub".
+- Scale = 1 + 0.26·G(0.2 s, width 0.065) + 0.15·G(0.44 s, width 0.07), where G = e^(−((t − centre) ÷ width)²): a quick swell that drops straight back.
+- Two heart-shaped outlines spread from 0.16 s and 0.40 s: scale 1.2→2.4 over 0.8 s, cubic ease-out.
+- As they spread, their opacity goes 0.75→0 (the second at 60%) and the line width 8.5→1.5 px.
+适用场景：Use it for a like, a recording or live indicator, or a button you want pressed, to make it feel alive.
+
+参考实现（Canvas 2D，画面只由时间决定的函数）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh/e/125.txt
+共享辅助代码：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/motion2.js
+请保留参考实现的形状、时间安排和缓动数值，只替换文字、颜色和素材，以适配当前制作的内容。

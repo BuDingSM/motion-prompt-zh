@@ -1,0 +1,15 @@
+請使用「立方體轉場（Cube transition）」，它是「動態圖形動效（第二輯）」中的一個名稱。
+Motion Prompt #139
+
+它是什麼：Changes scenes like a turning cube
+範例展示：Like a turning cube, the front face swings away and the next face comes round.
+規格：
+- Face A (an "A" on coral) and face B (a "B" on mint), each 250 × 146. 2.35 s each, A→B→A.
+- Rotation 0→90° at 0.45–1.6 s (1.15 s), cubic ease-in-out, around a vertical axis through the centre of the cube (depth equal to the face width, 250).
+- Perspective: camera distance 820 px. Each face is drawn as 2 px vertical slices, each sized and placed by its perspective factor.
+- The face turning away darkens up to 55% (0.55·sinφ); the incoming face starts 55% dark and brightens (0.55·cosφ). The floor shadow follows the visible width.
+適用情境：Use it to show products, plans or screens one after another with a sense of depth.
+
+參考實作（Canvas 2D，畫面只由時間決定的函式）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh-Hant/e/139.txt
+共用輔助程式碼：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/motion2.js
+請保留參考實作的形狀、時間安排與緩動數值，只替換文字、色彩和素材，以符合目前製作的內容。

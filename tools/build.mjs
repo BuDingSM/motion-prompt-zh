@@ -12,11 +12,11 @@ import vm from 'node:vm';
 import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 
-const SITE = 'https://showheyohtaki.github.io/motion-prompt/';
-const REPO = 'https://github.com/showheyohtaki/motion-prompt';
+const SITE = 'https://budingsm.github.io/motion-prompt-zh/';
+const REPO = 'https://github.com/BuDingSM/motion-prompt-zh';
 const LICENCE = 'MIT License (c) 2026 Shohei Ohtaki';
 const VERSION = 1;
-const LANGS = ['ja', 'en'];   // languages of the gallery, the API folders and the copyable prompt
+const LANGS = ['ja', 'en', 'zh', 'zh-Hant']; // gallery, API folders and copyable prompts
 const BASE_LANG = 'en';       // every text field needs this one; any other language code is optional
 
 const args = process.argv.slice(2);
@@ -37,12 +37,16 @@ const isStr = v => typeof v === 'string' && v.trim() !== '';
 // This function is also written into assets/catalog.js (as source text), so the site's
 // "copy prompt" button and api/v1/<lang>/p/<id>.txt can never drift apart. Keep it self-contained.
 function mpPrompt(el, packTitle, lang) {
-  var base = 'https://showheyohtaki.github.io/motion-prompt/';
+  var base = 'https://budingsm.github.io/motion-prompt-zh/';
   var en = lang === 'en';
+  var ja = lang === 'ja';
+  var hant = lang === 'zh-Hant';
+  var localName = el.name[lang] || el.name.en;
+  var englishName = el.name.en;
   var spec = el.spec[lang].map(function (s) { return '- ' + s; }).join('\n');
   var ref = base + 'api/v1/' + lang + '/e/' + el.id + '.txt';
   var kit = base + 'api/v1/kit/' + el.pack + '.js';
-  var same = el.name.en === el.name.ja;
+  var same = localName === englishName;
   var mean = el.meaning && (el.meaning[lang] || el.meaning.en);
   if (en) {
     return [
@@ -60,19 +64,24 @@ function mpPrompt(el, packTitle, lang) {
       'Keep the shapes, timing and easing values of the reference implementation as they are, and change only the text, colours and assets to fit what I am making.'
     ]).join('\n');
   }
-  return [
-    '「' + el.name.ja + (same ? '' : '（' + el.name.en + '）') + '」を使ってください。「' + packTitle + '」の名前の1つです。',
-    'Motion Prompt #' + el.id,
-    ''
+  if (ja) return [
+    '「' + localName + (same ? '' : '（' + englishName + '）') + '」を使ってください。「' + packTitle + '」の名前の1つです。',
+    'Motion Prompt #' + el.id, ''
   ].concat(mean ? ['どういうものか: ' + mean] : [], [
-    '見本で起きること: ' + el.summary.ja,
-    '仕様:',
-    spec,
-    '使いどころ: ' + el.use.ja,
-    '',
+    '見本で起きること: ' + el.summary[lang], '仕様:', spec, '使いどころ: ' + el.use[lang], '',
     '参考実装（Canvas 2D・時刻だけで絵が決まる関数）: ' + ref,
     '共通の補助コード: ' + kit,
     '参考実装の形・タイミング・イージングの数値はそのまま使い、中の文字・色・素材だけ、いま作っている物に合わせてください。'
+  ]).join('\n');
+  var labels = hant
+    ? { open: '請使用「', close: '」，它是「', inPack: '」中的一個名稱。', mean: '它是什麼：', sample: '範例展示：', spec: '規格：', when: '適用情境：', ref: '參考實作（Canvas 2D，畫面只由時間決定的函式）：', kit: '共用輔助程式碼：', keep: '請保留參考實作的形狀、時間安排與緩動數值，只替換文字、色彩和素材，以符合目前製作的內容。' }
+    : { open: '请使用“', close: '”，它是“', inPack: '”中的一个名称。', mean: '它是什么：', sample: '示例展示：', spec: '规格：', when: '适用场景：', ref: '参考实现（Canvas 2D，画面只由时间决定的函数）：', kit: '共享辅助代码：', keep: '请保留参考实现的形状、时间安排和缓动数值，只替换文字、颜色和素材，以适配当前制作的内容。' };
+  return [
+    labels.open + localName + (same ? '' : (hant ? '（' : '（') + englishName + '）') + labels.close + packTitle + labels.inPack,
+    'Motion Prompt #' + el.id, ''
+  ].concat(mean ? [labels.mean + mean] : [], [
+    labels.sample + el.summary[lang], labels.spec, spec, labels.when + el.use[lang], '',
+    labels.ref + ref, labels.kit + kit, labels.keep
   ]).join('\n');
 }
 
@@ -348,21 +357,27 @@ const T = {
   en: { what: 'What happens', spec: 'Motion spec', use: 'When to use it', size: 'Size', cycle: 'Cycle', needs: 'Needs', demo: 'Live demo', pack: 'Pack', cat: 'Category', tags: 'Tags',
     sig: 'cells[i](k, w, h, u): k = CanvasRenderingContext2D (already cleared and wrapped in save/restore by the caller), w,h = size, u = seconds in [0, cycle). The picture depends only on u.',
     code: 'Element code starts here. CELLS, constants and helpers live in the kit.' },
+  zh: { what: '效果说明', spec: '动效规格', use: '适用场景', size: '尺寸', cycle: '周期', needs: '依赖', demo: '动态示例', pack: '类别包', cat: '分类', tags: '标签',
+    sig: 'cells[i](k, w, h, u)：k = CanvasRenderingContext2D（调用方已清空画布并完成 save/restore），w、h = 尺寸，u = [0, cycle) 内的秒数。画面只由 u 决定。',
+    code: '以下是元素代码。CELLS、常量和辅助函数位于 kit 中。' },
+  'zh-Hant': { what: '效果說明', spec: '動效規格', use: '適用情境', size: '尺寸', cycle: '週期', needs: '依賴', demo: '動態範例', pack: '類別包', cat: '分類', tags: '標籤',
+    sig: 'cells[i](k, w, h, u)：k = CanvasRenderingContext2D（呼叫方已清空畫布並完成 save/restore），w、h = 尺寸，u = [0, cycle) 內的秒數。畫面只由 u 決定。',
+    code: '以下是元素程式碼。CELLS、常數和輔助函式位於 kit 中。' },
 };
 
 function elementTxt(el, lang) {
   const t = T[lang], p = packOf[el.pack];
   const cat = p.categories.find(c => c.slug === el.category);
-  const name = lang === 'ja' ? `${el.name.ja} / ${el.name.en}` : `${el.name.en} / ${el.name.ja}`;
+  const name = `${el.name[lang] || el.name.en} / ${el.name.en}`;
   const head = [
     `Motion Prompt #${el.id} · ${LICENCE} · ${SITE}#${el.id}`,
     '',
     name,
     `${t.pack}: ${el.pack} (${p.title[lang]}) · element ${el.no} · ${t.cat}: ${cat ? cat[lang] : el.category}`,
-    `${t.what}: ${el.summary[lang]}`,
+    `${t.what}: ${el.summary[lang] || el.summary.en}`,
     `${t.spec}:`,
-    ...el.spec[lang].map(s => `  - ${s}`),
-    `${t.use}: ${el.use[lang]}`,
+    ...(el.spec[lang] || el.spec.en).map(s => `  - ${s}`),
+    `${t.use}: ${el.use[lang] || el.use.en}`,
     `${t.tags}: ${el.tags.join(', ')}`,
     `${t.size}: ${el.width}x${el.height} px · ${t.cycle}: ${el.cycle} s`,
     `${t.needs}: kit ${el.pack} -> ${SITE}api/v1/kit/${el.pack}.js`,
@@ -406,8 +421,8 @@ function catalogTsv(lang) {
   const head = `# Motion Prompt catalog (${lang}) · ${catalog.count} elements · ${SITE} · columns: id\tpack\tcategory\ttitle\ttags\tsummary`;
   const rows = catalog.elements.map(el => {
     const cat = packOf[el.pack].categories.find(c => c.slug === el.category);
-    const title = lang === 'ja' ? `${el.name.ja} (${el.name.en})` : `${el.name.en} (${el.name.ja})`;
-    return [el.id, el.pack, cat ? cat[lang] : el.category, title, el.tags.join(','), el.summary[lang]].map(tsvCell).join('\t');
+    const title = `${el.name[lang] || el.name.en} (${el.name.en})`;
+    return [el.id, el.pack, cat ? (cat[lang] || cat.en) : el.category, title, el.tags.join(','), el.summary[lang] || el.summary.en].map(tsvCell).join('\t');
   });
   return [head, ...rows].join('\n') + '\n';
 }
@@ -428,6 +443,10 @@ const DOC = {
     intro: '找到名稱後，直接告訴 AI。再加上「幾秒」「多強」「什麼在動」，結果會更接近你想要的。',
     no: '編號', name: '名稱', en: '英文名稱', meaning: '一句話說明', ask: '對 AI 的說法範例',
     more: '點編號會在圖庫打開會動的範例。單一名稱的秒數、緩動數值和參考程式碼：', all: '所有包', preview: '範例' },
+  zh: { gen: '此文件由 tools/build.mjs 根据 meta.json 生成。如需修改，请编辑 meta.json，不要直接修改此文件。', names: '个名称', pack: '类别包', langs: '语言',
+    intro: '找到名称后，直接告诉 AI。再补充“几秒”“强度”和“什么在动”，结果会更接近你的想法。',
+    no: '编号', name: '名称', en: '英文名称', meaning: '效果说明', ask: '给 AI 的示例说法',
+    more: '点击编号即可在画廊打开动态示例。单个名称的时长、缓动数值和参考代码：', all: '全部类别包', preview: '示例' },
 };
 const LANG_NAME = { en: 'English', ja: '日本語', zh: '中文', 'zh-Hans': '简体中文', 'zh-Hant': '繁體中文', ko: '한국어', es: 'Español', fr: 'Français', de: 'Deutsch', pt: 'Português', it: 'Italiano', id: 'Bahasa Indonesia', vi: 'Tiếng Việt', th: 'ไทย', hi: 'हिन्दी', ar: 'العربية', ru: 'Русский', tr: 'Türkçe' };
 const readmeName = lang => (lang === BASE_LANG ? 'README.md' : `README.${lang}.md`);

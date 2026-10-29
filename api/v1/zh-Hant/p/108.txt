@@ -1,0 +1,17 @@
+請使用「追焦（Panning shot）」，它是「攝影風格、光線與鏡頭效果」中的一個名稱。
+Motion Prompt #108
+
+它是什麼：跟著移動的被攝者拍，只讓背景拉出流動線條
+範例展示：The camera follows the moving car: the car stays sharp in the middle of the frame while only the buildings, trees and lamps behind it streak sideways.
+規格：
+- Street corner: buildings, trees and lamps behind a road at y 132–162 (no large person in front)
+- Car: without the effect it drives from x −80 to 620 in 5 s; with it, it stays at x 270 ±10 px
+- Streak: the background is drawn 12 times spread over 46 px sideways and averaged (spread 0 → 46 px)
+- Wheels: a spoke line turns 12 times per 5 s
+- Top-right shutter speed 1/1000 → 1/15
+- Timing: the effect comes in from 0.4 s to 1.4 s, holds until 4.0 s and is gone again by 4.8 s (one pass = 5 s, cubic ease-in-out (about cubic-bezier(0.65,0,0.35,1)))
+適用情境：To show the speed of a car, bike or runner in a still photo.
+
+參考實作（Canvas 2D，畫面只由時間決定的函式）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh-Hant/e/108.txt
+共用輔助程式碼：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/photo.js
+請保留參考實作的形狀、時間安排與緩動數值，只替換文字、色彩和素材，以符合目前製作的內容。

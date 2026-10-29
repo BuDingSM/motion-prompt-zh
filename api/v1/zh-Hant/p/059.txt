@@ -1,0 +1,15 @@
+請使用「Toggle（Toggle switch）」，它是「UI 組件名稱」中的一個名稱。
+Motion Prompt #059
+
+它是什麼：切換開啓或關閉
+範例展示：The switches on the first two of three setting rows are turned on in turn, then off again.
+規格：
+- 4.5 s cycle on a 542×191 card. Three setting rows 60 px apart with dividers. At x 450 a 64×34 track (radius 17) and a white knob (radius 13, shadow).
+- Clicks: row 1 on at 1.0 s, row 2 on at 1.8 s, row 1 off at 3.0 s, row 2 off at 3.6 s. Row 3 stays off.
+- Each switch takes 0.2 s with easeOutCubic; the knob slides 30 px (17 → 47).
+- The track colour blends from grey #d9d7d5 to blue #1f5ae8 with the switch progress.
+適用情境：Use it for settings that take effect immediately and have only two states.
+
+參考實作（Canvas 2D，畫面只由時間決定的函式）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh-Hant/e/059.txt
+共用輔助程式碼：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/ui.js
+請保留參考實作的形狀、時間安排與緩動數值，只替換文字、色彩和素材，以符合目前製作的內容。

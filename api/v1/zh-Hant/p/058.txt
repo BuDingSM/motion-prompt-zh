@@ -1,0 +1,16 @@
+請使用「輪播（Carousel）」，它是「UI 組件名稱」中的一個名稱。
+Motion Prompt #058
+
+它是什麼：橫向切換，依序展示內容
+範例展示：Each click on the right arrow slides a row of three different images one step to the left, and the dot below moves.
+規格：
+- 4.5 s cycle on a 542×191 card. Slides 330×138, radius 8, centred with an 18 px gap; the neighbours peek in at the edges.
+- White round buttons (radius 18, shadow blur 10) with chevrons at left and right; three dots below (current one blue 16×8, others 8×8).
+- The cursor clicks the right arrow (514, 88) at 1.0, 2.1 and 3.2 s.
+- Each click moves the row 348 px left (one slide plus gap) over 0.4 s with easeInOutCubic.
+- The three pictures (landscape, three circles, bar chart) repeat, so after three moves the first is back.
+適用情境：Use it to show several images or featured items in limited space, one at a time.
+
+參考實作（Canvas 2D，畫面只由時間決定的函式）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh-Hant/e/058.txt
+共用輔助程式碼：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/ui.js
+請保留參考實作的形狀、時間安排與緩動數值，只替換文字、色彩和素材，以符合目前製作的內容。

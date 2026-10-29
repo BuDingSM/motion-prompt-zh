@@ -1,4 +1,4 @@
-Please use "Page curl" (ページめくり), one of the names in "Motion graphics moves, part 2".
+Please use "Page curl", one of the names in "Motion graphics moves, part 2".
 Motion Prompt #140
 
 What it is: Peels back like paper to show the next page
@@ -10,6 +10,6 @@ Spec:
 - The next page shows where the paper has lifted, with a 50 px shadow gradient along the fold.
 When to use it: Use it for books, catalogues, albums or chapter breaks, where a paper feel or reading on suits the content.
 
-Reference implementation (Canvas 2D, a function whose picture depends only on the time): https://showheyohtaki.github.io/motion-prompt/api/v1/en/e/140.txt
-Shared helper code: https://showheyohtaki.github.io/motion-prompt/api/v1/kit/motion2.js
+Reference implementation (Canvas 2D, a function whose picture depends only on the time): https://budingsm.github.io/motion-prompt-zh/api/v1/en/e/140.txt
+Shared helper code: https://budingsm.github.io/motion-prompt-zh/api/v1/kit/motion2.js
 Keep the shapes, timing and easing values of the reference implementation as they are, and change only the text, colours and assets to fit what I am making.

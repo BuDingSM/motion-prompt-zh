@@ -1,0 +1,15 @@
+请使用“分页（Pagination）（Pagination）”，它是“UI 组件名称”中的一个名称。
+Motion Prompt #064
+
+它是什么：用页码切换页面
+示例展示：Clicking 2 and then 3 in the page numbers moves the blue circle and swaps the list above; finally it goes back to 1.
+规格：
+- 4.5 s cycle on a 542×191 card. "‹ 1 2 3 4 5 ›" centred, each 36 in diameter with 8 px gaps, at y 160. A blue circle (radius 18) marks the current page, with white text.
+- The cursor clicks 2 at 1.0 s, 3 at 2.1 s and 1 at 3.3 s.
+- The blue circle moves 44 px per page over 0.2 s each with easeInOutCubic (88 px at once from 3 back to 1).
+- The three-row list above dips in opacity 1 → 0 → 1 within 0.2 s either side of 1.05, 2.15 and 3.35 s, and its content changes at the dip.
+适用场景：Use it to split a long list, such as search results or articles, into numbered pages.
+
+参考实现（Canvas 2D，画面只由时间决定的函数）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh/e/064.txt
+共享辅助代码：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/ui.js
+请保留参考实现的形状、时间安排和缓动数值，只替换文字、颜色和素材，以适配当前制作的内容。

@@ -1,0 +1,15 @@
+請使用「懸停文字滾動（Text roll on hover）」，它是「落地頁與網站效果（第二輯）」中的一個名稱。
+Motion Prompt #156
+
+它是什麼：Letters roll up and swap on hover
+範例展示：With the cursor on a menu word, its letters roll up and out one by one while the same word rolls in from below in orange; it rolls back when the cursor leaves.
+規格：
+- A 511 × 168 viewport with three menu words (WORKS, ABOUT, CONTACT; 30 px, weight 800, 1 px letter spacing). The cursor rests on each, left to right, for about 0.85 s. One pass takes 4.7 s (twice per 9.4 s pack cycle).
+- An orange copy of each word sits 40 px below it, and both are clipped to a 39 px tall box (overflow: hidden).
+- On hover each letter, staggered by 0.035 s, moves 40 px up and out over 0.36 s (cubic ease-in-out) while its orange copy rises into place.
+- On leave the letters roll back down with the same stagger and timing.
+適用情境：Use it on header menus or buttons to give short text links a tactile response.
+
+參考實作（Canvas 2D，畫面只由時間決定的函式）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh-Hant/e/156.txt
+共用輔助程式碼：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/lp2.js
+請保留參考實作的形狀、時間安排與緩動數值，只替換文字、色彩和素材，以符合目前製作的內容。

@@ -1,6 +1,6 @@
-// Motion Prompt #146 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#146
+// Motion Prompt #146 · MIT License (c) 2026 Shohei Ohtaki · https://budingsm.github.io/motion-prompt-zh/#146
 //
-// Scroll text reveal / スクロールテキストリビール
+// Scroll text reveal / Scroll text reveal
 // Pack: lp2 (Landing page & web effects, part 2) · element 02 · Category: Scroll effects
 // What happens: A light gray headline darkens one character at a time from the top left as the page scrolls, and fades back from the end when scrolling up.
 // Motion spec:
@@ -11,8 +11,8 @@
 // When to use it: Use it on a short statement, such as a concept or a message from the founder, that should be read slowly.
 // Tags: scroll, text-reveal, scroll-driven, typography, opacity, storytelling
 // Size: 539x208 px · Cycle: 9.4 s
-// Needs: kit lp2 -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/lp2.js
-// Live demo: https://showheyohtaki.github.io/motion-prompt/#146
+// Needs: kit lp2 -> https://budingsm.github.io/motion-prompt-zh/api/v1/kit/lp2.js
+// Live demo: https://budingsm.github.io/motion-prompt-zh/#146
 //
 // cells[i](k, w, h, u): k = CanvasRenderingContext2D (already cleared and wrapped in save/restore by the caller), w,h = size, u = seconds in [0, cycle). The picture depends only on u.
 // Element code starts here. CELLS, constants and helpers live in the kit.

@@ -22,7 +22,7 @@
       installSkillP: 'ターミナルで実行します。入れたあとは、AIに「motion-prompt のライブラリ出して」と頼むと、このギャラリーが開きます。選んで「AIに渡す」を押すと、AIに届きます。',
       installPromptH: 'プロンプトで導入',
       installPromptP: '下の文を Claude Code や Codex に貼ると、AIがスキルを入れて使い方を教えてくれます。',
-      installPrompt: 'https://github.com/showheyohtaki/motion-prompt を読んで、motion-prompt スキルをこの環境に入れてください。入れたら、使い方を3行で教えてください。',
+      installPrompt: 'https://github.com/BuDingSM/motion-prompt-zh を読んで、motion-prompt 中文版のスキルをこの環境に入れてください。入れたら、使い方を3行で教えてください。',
       copy: 'コピー', copied: 'コピーしました', copyFailed: 'コピーできませんでした',
       copyCmdLabel: '導入コマンドをコピー', copyInstallLabel: '導入用のプロンプトをコピー',
       galleryH: '見本の一覧', packFilterLabel: 'パックで絞り込む', catFilterLabel: 'カテゴリで絞り込む',
@@ -81,7 +81,7 @@
       installSkillP: 'Run this in a terminal. After that, say "open the motion-prompt library" to your AI and this gallery opens. Pick what you want and press "Send to AI".',
       installPromptH: 'Install with a prompt',
       installPromptP: 'Paste the text below into Claude Code or Codex. The AI installs the skill and tells you how to use it.',
-      installPrompt: 'Read https://github.com/showheyohtaki/motion-prompt and install the motion-prompt skill in this environment. When it is installed, tell me how to use it in three lines.',
+      installPrompt: 'Read https://github.com/BuDingSM/motion-prompt-zh and install the motion-prompt skill in this environment. When it is installed, tell me how to use it in three lines.',
       copy: 'Copy', copied: 'Copied', copyFailed: 'Could not copy',
       copyCmdLabel: 'Copy the install command', copyInstallLabel: 'Copy the install prompt',
       galleryH: 'Gallery', packFilterLabel: 'Filter by pack', catFilterLabel: 'Filter by category',
@@ -130,6 +130,26 @@
     },
   };
 
+  var zhText = {
+    title: 'Motion Prompt｜给 AI 使用的动效名称库', skip: '跳转到示例列表', navLabel: '站内导航', navHow: '使用方法', navFound: '案例', langLabel: '语言',
+    themeToDark: '切换到深色模式', themeToLight: '切换到浅色模式', eyebrow: '给 AI 使用的动效名称库',
+    h1: '成为<wbr>指挥 AI 的<wbr>创意<wbr>总监', lead: '收录动态图形、摄影机运动、UI 组件、落地页与网站效果、摄影表现等 {n} 个名称，并配有动态示例。复制提示词即可同时交给 AI 动效规格和参考实现。',
+    factMoves: '名称', factPacks: '类别包', factLicense: '许可', installSkillH: '安装技能', installSkillP: '在终端运行命令。安装后，对 AI 说“打开 motion-prompt 画廊”，即可在浏览器中查看并选择示例。',
+    installPromptH: '用提示词安装', installPromptP: '将下面的文字粘贴给 Claude Code 或 Codex，AI 会安装技能并说明使用方法。', copy: '复制', copied: '已复制', copyFailed: '复制失败', copyCmdLabel: '复制安装命令', copyInstallLabel: '复制安装提示词',
+    galleryH: '示例列表', packFilterLabel: '按类别包筛选', catFilterLabel: '按分类筛选', all: '全部', allIn: '此类别包全部', searchLabel: '搜索示例', searchPh: '名称、编号或标签', pause: '暂停', play: '播放', pauseLabel: '暂停所有示例', playLabel: '播放所有示例',
+    count: '{n} 个', countOf: '{n} 个（共 {total} 个）', empty: '没有找到结果，请尝试其他词语或编号。', openLabel: '打开 #{id} {name}', loadFailed: '加载失败', howH: '使用方法',
+    s1h: '让 AI 打开名称库', s1p: '对已安装 motion-prompt 技能的 AI 说“打开 motion-prompt 画廊”，画廊会在浏览器中打开。', s2h: '边看边选择', s2p: '点击想使用的示例，可以选择多个。选中的示例会排列在页面底部，并可添加简短备注。', s3h: '发送给 AI 并提出要求', s3p: '点击“发送给 AI”，然后告诉 AI 如何把这些动效用到项目中。',
+    skillH: '可以这样说', skillP: '不需要记住名称或编号。不确定时，可以像查字典一样让 AI 打开名称库。', say1: '打开 motion-prompt 画廊', say2: '有哪些摄影机运动？显示列表。', say3: '（发送选择后）请用这种方式编辑这段视频的开头。', altH: '没有技能或知道编号时', altP1: '把页面底部“复制已选内容”生成的文字粘贴给 AI，其中包含示例和规格链接。', altP2: '知道编号时，也可以直接说：“使用 motion-prompt 中的 #012 和 #045。”', implH: '关于参考实现', implP: '每个示例都是只由时间决定画面的 Canvas 2D 函数，不依赖外部库，也适合逐帧导出视频。', author: '作者',
+    thanks1: '“动态示例 + 可复制提示词”的形式受到', thanks2: '启发，感谢。', whyLink: '为什么制作', makeLink: '为自己的领域或语言制作一套', addLink: '添加你所在领域的名称', listLink: '名称列表（GitHub）', removeP1: '如需删除或修正内容，请使用', removeLink: 'GitHub Issue 表单', removeP2: '提交。',
+    dAsk: '如何向 AI 提出要求', ownP: '这里提供的是示例。你也可以为自己的领域和语言制作同类名称库。', ownLink: '制作方法与提示词（make-your-own）', dSpec: '动效规格', dUse: '适用场景', tagsLabel: '标签', promptLabel: '复制的提示词', copyPrompt: '复制提示词', copyCode: '复制代码', showCode: '查看代码', prev: '上一个名称', next: '下一个名称', close: '关闭', kitLink: '共享辅助代码（kit/{pack}.js）', txtLink: '带规格的代码（{id}.txt）', codeLoading: '加载中…', codeFailed: '代码加载失败。', size: '{w}×{h} px，{c} 秒循环', pick: '选择', picked: '已选择', pickLabel: '选择 #{id} {name}', unpickLabel: '移除 #{id} {name}', trayCount: '已选择 {n} 个', trayWait: 'AI 正在等待。完成后点击“发送给 AI”。', trayEmpty: '点击示例上的“选择”，它会显示在这里。', noteLabel: '备注（可选）', notePh: '例如：用于片头标题', send: '发送给 AI', sending: '正在发送…', copyPicked: '复制已选内容', shareUrl: '复制选择链接', clearAll: '全部清除', pickedLive: '已选择 #{id} {name}。共 {n} 个。', unpickedLive: '已移除 #{id} {name}。还剩 {n} 个。', clearedLive: '已清除全部选择。', outIntro: '我从 motion-prompt 画廊中选择了以下 {n} 个动效，请在编辑中使用。', outDemo: '示例', outSpec: '规格和代码', outNote: '备注', outEnd: 'motion-prompt 技能的 get 命令可以返回完整规格；没有技能时，请打开每行的“规格和代码”链接。'
+  };
+  I18N.zh = Object.assign({}, I18N.en, zhText);
+  I18N['zh-Hant'] = Object.assign({}, I18N.zh, {
+    title: 'Motion Prompt｜給 AI 使用的動效名稱庫', h1: '成為<wbr>指揮 AI 的<wbr>創意<wbr>總監', lead: '收錄動態圖形、攝影機運動、UI 元件、Landing Page 與網站效果、攝影表現等 {n} 個名稱，並配有動態範例。複製提示詞即可同時交給 AI 動效規格和參考實作。',
+    installSkillH: '安裝技能', installSkillP: '在終端機執行指令。安裝後，對 AI 說「開啟 motion-prompt 圖庫」，即可在瀏覽器中查看並選擇範例。', galleryH: '範例列表', searchLabel: '搜尋範例', searchPh: '名稱、編號或標籤', all: '全部', allIn: '此類別包全部',
+    howH: '使用方法', s1h: '讓 AI 開啟名稱庫', s2h: '邊看邊選擇', s3h: '傳送給 AI 並提出要求', skillH: '可以這樣說', altH: '沒有技能或知道編號時', implH: '關於參考實作', dSpec: '動效規格', dUse: '適用情境', tagsLabel: '標籤', copyPrompt: '複製提示詞', copyCode: '複製程式碼', showCode: '查看程式碼', prev: '上一個名稱', next: '下一個名稱', close: '關閉', pick: '選擇', picked: '已選擇', send: '傳送給 AI', copyPicked: '複製已選內容', clearAll: '全部清除', noteLabel: '備註（可選）', outDemo: '範例', outSpec: '規格和程式碼', outNote: '備註'
+  });
+
   // ------------------------------------------------------------------ state
   var store = {
     get: function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
@@ -138,7 +158,7 @@
   var reduceMotion = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : { matches: false };
   var darkQuery = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : { matches: false };
   var state = {
-    lang: root.lang === 'en' ? 'en' : 'ja',
+    lang: root.lang === 'en' || root.lang === 'zh' || root.lang === 'zh-Hant' ? root.lang : 'ja',
     pack: 'all', cat: 'all', q: '',
     playing: !reduceMotion.matches,
     open: null,           // id shown in the detail view
@@ -159,7 +179,9 @@
   }
   function names(el) {
     var ja = state.lang === 'ja';
-    return { main: ja ? el.name.ja : el.name.en, sub: ja ? el.name.en : el.name.ja };
+    var local = state.lang === 'zh' || state.lang === 'zh-Hant';
+    return { main: ja ? el.name.ja : local ? (el.name[state.lang] || el.name.en) : el.name.en,
+      sub: ja ? el.name.en : local ? el.name.en : el.name.ja };
   }
   function h(tag, attrs, kids) {
     var n = document.createElement(tag);
@@ -448,10 +470,10 @@
     var mean = $('#d-meaning'), ask = $('#d-ask'), askH = $('#d-ask-h');
     mean.textContent = el.meaning ? el.meaning[lang] || el.meaning.en || '' : ''; mean.hidden = !mean.textContent;
     ask.textContent = el.ask ? el.ask[lang] || el.ask.en || '' : ''; ask.hidden = askH.hidden = !ask.textContent;
-    $('#d-summary').textContent = el.summary[lang];
+    $('#d-summary').textContent = el.summary[lang] || el.summary.en;
     var spec = $('#d-spec'); spec.textContent = '';
-    el.spec[lang].forEach(function (s) { spec.appendChild(h('li', { text: s })); });
-    $('#d-use').textContent = el.use[lang];
+    (el.spec[lang] || el.spec.en).forEach(function (s) { spec.appendChild(h('li', { text: s })); });
+    $('#d-use').textContent = el.use[lang] || el.use.en;
     var tags = $('#d-tags'); tags.textContent = '';
     el.tags.forEach(function (s) { tags.appendChild(h('li', { text: s })); });
     $('#d-prompt').textContent = PROMPT(el, p.title[lang], lang);
@@ -548,7 +570,7 @@
   // ------------------------------------------------------------------ picks (choose → copy, share, or send to the waiting agent)
   // The "pick" command of the skill opens this page with ?cb=http://127.0.0.1:<port>/?t=<token>. "Send to AI" then
   // navigates the whole tab there (a top-level GET, not fetch: an https page may not fetch from 127.0.0.1).
-  var SITE = CAT.site || 'https://showheyohtaki.github.io/motion-prompt/';
+  var SITE = CAT.site || 'https://budingsm.github.io/motion-prompt-zh/';
   var PICK_KEY = 'mp-pick', PICK_CB_KEY = 'mp-pick-cb', NOTE_MAX = 300;
   var CHECK_SVG = '<svg viewBox="0 0 16 16" width="14" height="14"><path d="M3.5 8.4l3 3 6-6.6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   var X_SVG = '<svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>';

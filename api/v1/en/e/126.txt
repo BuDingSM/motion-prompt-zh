@@ -1,6 +1,6 @@
-// Motion Prompt #126 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#126
+// Motion Prompt #126 · MIT License (c) 2026 Shohei Ohtaki · https://budingsm.github.io/motion-prompt-zh/#126
 //
-// Motion path / モーションパス
+// Motion path / Motion path
 // Pack: motion2 (Motion graphics moves, part 2) · element 06 · Category: Motion techniques
 // What happens: A paper plane follows a dotted path, turning as it goes and looping the loop on the way.
 // Motion spec:
@@ -11,8 +11,8 @@
 // When to use it: Use it whenever something should follow a set route: a flying object, a car, a journey on a map.
 // Tags: motion-path, path, curve, trajectory, follow-path, orient-to-path, loop
 // Size: 539x208 px · Cycle: 4.7 s
-// Needs: kit motion2 -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/motion2.js
-// Live demo: https://showheyohtaki.github.io/motion-prompt/#126
+// Needs: kit motion2 -> https://budingsm.github.io/motion-prompt-zh/api/v1/kit/motion2.js
+// Live demo: https://budingsm.github.io/motion-prompt-zh/#126
 //
 // cells[i](k, w, h, u): k = CanvasRenderingContext2D (already cleared and wrapped in save/restore by the caller), w,h = size, u = seconds in [0, cycle). The picture depends only on u.
 // Element code starts here. CELLS, constants and helpers live in the kit.

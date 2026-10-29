@@ -1,0 +1,31 @@
+// Motion Prompt #141 · MIT License (c) 2026 Shohei Ohtaki · https://budingsm.github.io/motion-prompt-zh/#141
+//
+// 像素化 / Pixelate
+// 类别包: motion2 (动态图形动效（第二辑）) · element 21 · 分类: Transitions & highlights
+// 效果说明: The picture turns into coarser and coarser blocks, switches at the coarsest point, then sharpens again.
+// 动效规格:
+//   - Field scene → city scene → field, 2.35 s each. At 0.2–1.9 s (1.7 s) the block size steps up and back down through 1, 2, 3, 4, 6, 8, 11, 15, 20, 27 and 36 px (coarsest at the midpoint, 1.05 s).
+//   - The first half shows the old scene and the second half the new one; the swap happens at the coarsest step.
+//   - Method: shrink the frame to width ÷ block size with smoothing on, then scale it back up with smoothing off.
+// 适用场景: Use it for game-like, retro or digital scene changes, or to blur something out as the scene switches.
+// 标签: pixelate, mosaic, pixel, transition, retro, 8-bit, scene-change
+// 尺寸: 539x208 px · 周期: 4.7 s
+// 依赖: kit motion2 -> https://budingsm.github.io/motion-prompt-zh/api/v1/kit/motion2.js
+// 动态示例: https://budingsm.github.io/motion-prompt-zh/#141
+//
+// cells[i](k, w, h, u)：k = CanvasRenderingContext2D（调用方已清空画布并完成 save/restore），w、h = 尺寸，u = [0, cycle) 内的秒数。画面只由 u 决定。
+// 以下是元素代码。CELLS、常量和辅助函数位于 kit 中。
+
+// @element 21
+// 21 ピクセレート（画面がだんだん粗いモザイクになり、いちばん粗いところで切り替わって細かく戻る）
+const SMC = mkCanvas(CW, CH), SMK = SMC.getContext('2d');
+const BLV = [1, 2, 3, 4, 6, 8, 11, 15, 20, 27, 36];
+CELLS[20] = abCell((k, w, h, u, a, b) => {
+  const S = [scField, scCity], p = P(u, TA - 0.3, TB + 0.4), tri = 1 - Math.abs(2 * p - 1), bs = BLV[Math.round(tri * (BLV.length - 1))];
+  const scr = p < 0.5 ? a : b;
+  if (bs <= 1) return S[scr](k, w, h);
+  TK.setTransform(1, 0, 0, 1, 0, 0); TK.globalCompositeOperation = 'source-over'; TK.clearRect(0, 0, w, h); S[scr](TK, w, h);
+  const sw = Math.ceil(w / bs), sh = Math.ceil(h / bs);
+  SMK.setTransform(1, 0, 0, 1, 0, 0); SMK.clearRect(0, 0, CW, CH); SMK.imageSmoothingEnabled = true; SMK.imageSmoothingQuality = 'high'; SMK.drawImage(TMP, 0, 0, sw, sh);
+  k.imageSmoothingEnabled = false; k.drawImage(SMC, 0, 0, sw, sh, 0, 0, sw * bs, sh * bs); k.imageSmoothingEnabled = true;
+});

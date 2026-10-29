@@ -1,0 +1,26 @@
+// Motion Prompt #138 · MIT License (c) 2026 Shohei Ohtaki · https://budingsm.github.io/motion-prompt-zh/#138
+//
+// 百葉窗轉場 / Blinds transition
+// 類別包: motion2 (動態圖形動效（第二輯）) · element 18 · 分類: Transitions & highlights
+// 效果說明: Gaps in a row of thin strips widen until the next scene is fully open.
+// 動效規格:
+//   - Day scene → night scene → day, 2.35 s each. Seven horizontal strips (208 ÷ 7 ≈ 29.7 px each).
+//   - 0.4–1.65 s (1.25 s), quadratic ease-in-out: in every strip at once, the next scene is revealed from the strip's top edge downward, opening from 0 to the full strip height.
+//   - The previous scene stays underneath. Neither picture moves.
+// 適用情境: Use it for a clear switch between two scenes, such as day and night or before and after, or for a retro feel.
+// 標籤: blinds, venetian-blinds, stripes, transition, wipe, scene-change
+// 尺寸: 539x208 px · 週期: 4.7 s
+// 依賴: kit motion2 -> https://budingsm.github.io/motion-prompt-zh/api/v1/kit/motion2.js
+// 動態範例: https://budingsm.github.io/motion-prompt-zh/#138
+//
+// cells[i](k, w, h, u)：k = CanvasRenderingContext2D（呼叫方已清空畫布並完成 save/restore），w、h = 尺寸，u = [0, cycle) 內的秒數。畫面只由 u 決定。
+// 以下是元素程式碼。CELLS、常數和輔助函式位於 kit 中。
+
+// @element 18
+// 18 ブラインド（細い帯ごとのすき間がだんだん広がって、次の画面が開く）
+CELLS[17] = abCell((k, w, h, u, a, b) => {
+  const p = eIOs(P(u, TA - 0.1, TB + 0.15)), N = 7, sh = h / N, S = [scrA, scrB];
+  S[a](k, w, h);
+  if (p <= 0) return;
+  k.save(); k.beginPath(); for (let i = 0; i < N; i++) k.rect(0, i * sh, w, sh * p + (p > 0.999 ? 1 : 0)); k.clip(); S[b](k, w, h); k.restore();
+});

@@ -1,4 +1,4 @@
-Please use "Stacking cards" (スタッキングカード), one of the names in "Landing page & web effects, part 2".
+Please use "Stacking cards", one of the names in "Landing page & web effects, part 2".
 Motion Prompt #147
 
 What it is: Cards stack on top of each other on scroll
@@ -11,6 +11,6 @@ Spec:
 - Card shadow: 14 px blur, 2 px upward. The scrollbar thumb follows the scroll.
 When to use it: Use it for steps, features or plans that should be shown one card at a time, in order.
 
-Reference implementation (Canvas 2D, a function whose picture depends only on the time): https://showheyohtaki.github.io/motion-prompt/api/v1/en/e/147.txt
-Shared helper code: https://showheyohtaki.github.io/motion-prompt/api/v1/kit/lp2.js
+Reference implementation (Canvas 2D, a function whose picture depends only on the time): https://budingsm.github.io/motion-prompt-zh/api/v1/en/e/147.txt
+Shared helper code: https://budingsm.github.io/motion-prompt-zh/api/v1/kit/lp2.js
 Keep the shapes, timing and easing values of the reference implementation as they are, and change only the text, colours and assets to fit what I am making.

@@ -1,0 +1,15 @@
+請使用「Skeleton（Skeleton screen）」，它是「UI 組件名稱」中的一個名稱。
+Motion Prompt #069
+
+它是什麼：載入時以灰色方塊佔位
+範例展示：Clicking reload turns the list into grey blocks of the same shape with a sweeping shine; the content returns when loading ends.
+規格：
+- 4.5 s cycle on a 542×191 card. A two-row list (a 96×56 picture and three text lines each). The cursor clicks the reload icon at top right at 1.0 s.
+- Over 1.05–1.2 s (linear) the content switches to grey #e9e7e5 rounded blocks of the same size and position.
+- Shine: a white band 160 wide (transparent at the edges, opacity 0.75 in the middle) sweeps from x −200 to x 742 every 0.9 s, drawn only over the blocks.
+- The content returns over 3.0–3.3 s (linear).
+適用情境：Use it for lists or cards that take a moment to load, so the layout is visible while people wait.
+
+參考實作（Canvas 2D，畫面只由時間決定的函式）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh-Hant/e/069.txt
+共用輔助程式碼：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/ui.js
+請保留參考實作的形狀、時間安排與緩動數值，只替換文字、色彩和素材，以符合目前製作的內容。

@@ -1,0 +1,15 @@
+請使用「Marquee 跑馬燈（Marquee）」，它是「落地頁與網站效果」中的一個名稱。
+Motion Prompt #094
+
+它是什麼：文字或圖片在橫帶中不斷流動
+範例展示：Inside a navy band, large service names separated by orange dots keep moving to the left without a gap.
+規格：
+- Band: 58 tall, navy, full viewport width. Text: 30 px, heavy weight, 1 px letter spacing, white.
+- One set is four words (WEB DESIGN / BRANDING / MOTION / UI/UX), 64 px apart, with an orange dot (radius 6) in each gap.
+- Each cycle (4.8 s) moves left by the width of one set (about 881 px here) at constant speed. The set is measured and the offset wraps by that width, so there is no visible seam.
+- The set is repeated until the viewport width is filled.
+適用情境：Use it to show service names, client logos or a tagline with energy.
+
+參考實作（Canvas 2D，畫面只由時間決定的函式）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh-Hant/e/094.txt
+共用輔助程式碼：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/lp.js
+請保留參考實作的形狀、時間安排與緩動數值，只替換文字、色彩和素材，以符合目前製作的內容。

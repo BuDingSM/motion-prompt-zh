@@ -1,0 +1,17 @@
+請使用「形狀變形（Shape morph）」，它是「動態圖形動效」中的一個名稱。
+Motion Prompt #012
+
+它是什麼：一個形狀平滑變成另一個形狀
+範例展示：A shape changes smoothly from circle to square to star to heart, with its colour.
+規格：
+- Four shapes, 1.175 s each: circle → square with rounded-off corners → star → heart → back to circle. Base radius 64.
+- Each segment holds first, then morphs to the next shape between 0.62 s and 0.04 s before its end (0.58 s).
+- Every outline is stored as 240 points; points with the same index are linearly interpolated. Progress uses backOut (s = 1.6), so it overshoots slightly.
+- Colour: blue → coral → yellow → mint, blended with quadratic ease-in-out.
+- During the morph the scale swells by 1 + 0.07 × sin(π × progress).
+- Four dots below; the dot for the current shape is larger and coloured.
+適用情境：Use it to turn one icon or logo into another without a cut.
+
+參考實作（Canvas 2D，畫面只由時間決定的函式）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh-Hant/e/012.txt
+共用輔助程式碼：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/motion.js
+請保留參考實作的形狀、時間安排與緩動數值，只替換文字、色彩和素材，以符合目前製作的內容。

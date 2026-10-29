@@ -1,0 +1,16 @@
+请使用“手风琴（Accordion）”，它是“UI 组件名称”中的一个名称。
+Motion Prompt #052
+
+它是什么：点击标题展开或收合内容
+示例展示：Clicking the first of three headings opens its content and pushes the rows below down; clicking again closes it.
+规格：
+- 4.5 s cycle on a 542×191 card. Three headings (494 wide, 34 tall, radius 8, gap 6) with a down chevron at the right.
+- The cursor reaches the first heading at 0.95 s and clicks at 1.0 s and 3.3 s.
+- Open amount ex: 0→1 over 1.0–1.35 s with easeInOutCubic, then 1→0 over 3.3–3.62 s.
+- The first row grows from 34 to 92 tall (+58·ex) and pushes the rows below down; its two content lines are clipped to the row and fade in with opacity ex.
+- While open, the chevron rotates 180°·ex, the border turns light blue and the heading blue.
+适用场景：Use it for FAQs or long details where people scan the headings and open only what they need.
+
+参考实现（Canvas 2D，画面只由时间决定的函数）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh/e/052.txt
+共享辅助代码：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/ui.js
+请保留参考实现的形状、时间安排和缓动数值，只替换文字、颜色和素材，以适配当前制作的内容。

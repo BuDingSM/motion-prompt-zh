@@ -1,0 +1,35 @@
+// Motion Prompt #070 · MIT License (c) 2026 Shohei Ohtaki · https://budingsm.github.io/motion-prompt-zh/#070
+//
+// Spinner / Spinner
+// 類別包: ui (UI 組件名稱) · element 22 · 分類: 導覽與狀態元件
+// 效果說明: Clicking "Send" washes the card white and a blue arc spins in the middle; when finished it changes to a check and fades.
+// 動效規格:
+//   - 4.5 s cycle on a 542×191 card. The cursor clicks "Send" (120×40, bottom centre) at 1.0 s.
+//   - Over 1.05–1.2 s (linear) a white scrim (opacity 0.78) and the spinner fade in over the whole card.
+//   - Spinner at (271, 92): a pale ring, radius 26, 6 thick, with a blue 243° (1.35π) arc on top (round caps), turning 1.3 times per second (468°/s).
+//   - Over 2.95–3.05 s the spinner fades; over 2.95–3.2 s a blue circle (radius 28) with a white check scales 0.7 → 1 (easeOutCubic).
+//   - Everything fades out linearly over 3.75–4.0 s.
+// 適用情境: Use it for short waits of unknown length, such as sending or saving.
+// 標籤: spinner, loading, loader, activity-indicator, progress-circle, busy
+// 尺寸: 542x191 px · 週期: 4.5 s
+// 依賴: kit ui -> https://budingsm.github.io/motion-prompt-zh/api/v1/kit/ui.js
+// 動態範例: https://budingsm.github.io/motion-prompt-zh/#070
+//
+// cells[i](k, w, h, u)：k = CanvasRenderingContext2D（呼叫方已清空畫布並完成 save/restore），w、h = 尺寸，u = [0, cycle) 內的秒數。畫面只由 u 決定。
+// 以下是元素程式碼。CELLS、常數和輔助函式位於 kit 中。
+
+// @element 22
+// 22 スピナー（Spinner）
+CELLS[21] = ui((w, h, t) => {
+  const load = seg(t, 1.05, 1.2) * (1 - seg(t, 2.95, 3.05));
+  const done = seg(t, 2.95, 3.15) * (1 - seg(t, 3.75, 4.0));
+  pageLines(24, 18, 494); strokeRR(24, 90, 494, 34, 7, C.line2, 1.5);
+  fillRR(w / 2 - 60, 140, 120, 40, 8, C.blue); text('送信', w / 2, 160, 16, '#fff', 600, 'center');
+  const ov = Math.max(load, done);
+  if (ov > 0) {
+    X.fillStyle = `rgba(255,255,255,${.78 * ov})`; X.fillRect(0, 0, w, h);
+    if (load > 0) { X.save(); X.globalAlpha = load; ring(w / 2, 92, 26, '#e3e8f5', 6); X.beginPath(); const a0 = t * Math.PI * 2 * 1.3; X.arc(w / 2, 92, 26, a0, a0 + Math.PI * 1.35); X.strokeStyle = C.blue; X.lineWidth = 6; X.lineCap = 'round'; X.stroke(); X.restore(); }
+    if (done > 0) { X.save(); X.globalAlpha = done; const s = .7 + .3 * eo(seg(t, 2.95, 3.2)); X.translate(w / 2, 92); X.scale(s, s); circle(0, 0, 28, C.blue); check(0, 0, 11, '#fff', 4); X.restore(); }
+  }
+  pointer([[.3, w + 30, h + 30], [.95, w / 2 + 6, 166], [1.5, w / 2 + 6, 166], [2.2, w + 30, h + 30]], [1.0], t);
+});

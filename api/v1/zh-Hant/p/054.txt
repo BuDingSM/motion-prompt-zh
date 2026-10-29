@@ -1,0 +1,16 @@
+請使用「Tooltip」，它是「UI 組件名稱」中的一個名稱。
+Motion Prompt #054
+
+它是什麼：遊標移上去顯示簡短說明
+範例展示：Hovering over a "?" icon shows a short note in a dark bubble above it; it disappears when the cursor leaves.
+規格：
+- 4.5 s cycle on a 542×191 card. A "?" icon (blue ring, radius 13) at (196, 121) next to a label.
+- The cursor only hovers, no click: it arrives on "?" at 1.05 s, stays until 3.15 s and leaves the card by 4.1 s.
+- Show amount a: 0→1 over 1.15–1.35 s with easeOutCubic; opacity a, rising 6 px into place.
+- Bubble: #26282c, 184×36, radius 8, top at y 64, with a 16-wide, 8-tall triangle pointing down at the icon; white 15 px text.
+- Hide: linear 1→0 over 3.25–3.45 s.
+適用情境：Use it to add a one-line hint to an icon or abbreviation without taking space on the page.
+
+參考實作（Canvas 2D，畫面只由時間決定的函式）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh-Hant/e/054.txt
+共用輔助程式碼：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/ui.js
+請保留參考實作的形狀、時間安排與緩動數值，只替換文字、色彩和素材，以符合目前製作的內容。

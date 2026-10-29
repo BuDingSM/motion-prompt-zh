@@ -1,0 +1,16 @@
+请使用“Toast（Toast notification）”，它是“UI 组件名称”中的一个名称。
+Motion Prompt #056
+
+它是什么：角落跳出通知并自动消失
+示例展示：Clicking "Save" slides a dark notice into the bottom-right corner; when its time bar runs out it slides away.
+规格：
+- 4.5 s cycle on a 542×191 card. The cursor clicks the blue "Save" button (110×36, bottom left) at 1.0 s and leaves to the bottom left.
+- Toast: #26282c, 214×52, radius 10, 18 px from the right and 16 px from the bottom; slides in 240 px from the right over 1.05–1.4 s with easeOutCubic.
+- Inside: a white check in a blue circle and white 15 px text "Saved".
+- A time-left line along the bottom (3 px tall) shrinks linearly from 194 px to 0 over 1.4–3.2 s.
+- Exit: slides 240 px out to the right over 3.2–3.55 s with easeInOutCubic.
+适用场景：Use it to confirm a result such as a save or send without interrupting the user.
+
+参考实现（Canvas 2D，画面只由时间决定的函数）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh/e/056.txt
+共享辅助代码：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/ui.js
+请保留参考实现的形状、时间安排和缓动数值，只替换文字、颜色和素材，以适配当前制作的内容。

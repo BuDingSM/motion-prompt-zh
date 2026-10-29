@@ -1,6 +1,6 @@
-// Motion Prompt #155 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#155
+// Motion Prompt #155 · MIT License (c) 2026 Shohei Ohtaki · https://budingsm.github.io/motion-prompt-zh/#155
 //
-// Image swap on hover / ホバーで画像切り替え
+// Image swap on hover / Image swap on hover
 // Pack: lp2 (Landing page & web effects, part 2) · element 11 · Category: Mouse & input interactions
 // What happens: With the cursor on a product card, the front photo of the T-shirt cross-fades to a back view; it returns to the front when the cursor leaves.
 // Motion spec:
@@ -11,8 +11,8 @@
 // When to use it: Use it on e-commerce product grids to show another angle or an on-model shot without leaving the list.
 // Tags: image-swap, hover, crossfade, product-card, ecommerce, thumbnail
 // Size: 539x208 px · Cycle: 9.4 s
-// Needs: kit lp2 -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/lp2.js
-// Live demo: https://showheyohtaki.github.io/motion-prompt/#155
+// Needs: kit lp2 -> https://budingsm.github.io/motion-prompt-zh/api/v1/kit/lp2.js
+// Live demo: https://budingsm.github.io/motion-prompt-zh/#155
 //
 // cells[i](k, w, h, u): k = CanvasRenderingContext2D (already cleared and wrapped in save/restore by the caller), w,h = size, u = seconds in [0, cycle). The picture depends only on u.
 // Element code starts here. CELLS, constants and helpers live in the kit.

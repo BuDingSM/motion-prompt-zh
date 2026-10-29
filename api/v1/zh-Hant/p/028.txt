@@ -1,0 +1,17 @@
+請使用「Zoom in」，它是「攝影機運動與轉場」中的一個名稱。
+Motion Prompt #028
+
+它是什麼：攝影機不動，只用鏡頭放大
+範例展示：The camera does not move; only the focal length gets longer, so the whole picture enlarges by the same ratio.
+規格：
+- Camera: position and direction fixed (height 1.5 m); only the focal length changes, 330 px → 1200 px (shown as 24mm → 87mm, about 3.6×)
+- Exponential interpolation: f = 330 × (8/2.2)^p, where p is a cubic ease-in-out from 0.5 s to 3.4 s (2.9 s)
+- Subject: a person stands still 8 m ahead; the final size matches 03 Dolly in (about 3.6×)
+- No parallax: the foreground post and rock, the person, buildings and mountains all scale by the same ratio (overlaps do not change)
+- Return: hold 3.4–4.2 s, then cross-fade back to the start over the last 0.5 s (one pass = 4.7 s)
+- Top-right readout shows the focal length in mm (24mm → 87mm)
+適用情境：To direct attention to one point without moving the camera; it looks flatter and more observational than a dolly in.
+
+參考實作（Canvas 2D，畫面只由時間決定的函式）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh-Hant/e/028.txt
+共用輔助程式碼：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/camera.js
+請保留參考實作的形狀、時間安排與緩動數值，只替換文字、色彩和素材，以符合目前製作的內容。

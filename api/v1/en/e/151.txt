@@ -1,6 +1,6 @@
-// Motion Prompt #151 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#151
+// Motion Prompt #151 · MIT License (c) 2026 Shohei Ohtaki · https://budingsm.github.io/motion-prompt-zh/#151
 //
-// Back-to-top button / トップへ戻るボタン
+// Back-to-top button / Back-to-top button
 // Pack: lp2 (Landing page & web effects, part 2) · element 07 · Category: Scroll effects
 // What happens: After scrolling down, a round arrow button appears at the bottom right; clicking it takes the page straight back to the top.
 // Motion spec:
@@ -11,8 +11,8 @@
 // When to use it: Use it on long pages such as blog posts, long landing pages or product lists, so readers can get back to the menu at the top.
 // Tags: back-to-top, scroll-to-top, button, navigation, floating-button, smooth-scroll
 // Size: 539x208 px · Cycle: 9.4 s
-// Needs: kit lp2 -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/lp2.js
-// Live demo: https://showheyohtaki.github.io/motion-prompt/#151
+// Needs: kit lp2 -> https://budingsm.github.io/motion-prompt-zh/api/v1/kit/lp2.js
+// Live demo: https://budingsm.github.io/motion-prompt-zh/#151
 //
 // cells[i](k, w, h, u): k = CanvasRenderingContext2D (already cleared and wrapped in save/restore by the caller), w,h = size, u = seconds in [0, cycle). The picture depends only on u.
 // Element code starts here. CELLS, constants and helpers live in the kit.

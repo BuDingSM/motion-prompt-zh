@@ -1,0 +1,16 @@
+請使用「麪包屑（Breadcrumbs）」，它是「UI 組件名稱」中的一個名稱。
+Motion Prompt #066
+
+它是什麼：以階層顯示目前所在位置
+範例展示：Clicking "Courses" in the breadcrumbs goes up to the list page; clicking a card there returns to the detail page.
+規格：
+- 4.5 s cycle on a 542×191 card. At the top "Home › Courses › Web design" (in Japanese, 17 px): links blue, current page black and bold; a divider at y 46.
+- The cursor hovers "Courses" (underline 0.9–1.2 s) and clicks at 1.0 s.
+- Up amount: 0→1 over 1.0–1.25 s with easeInOutCubic. "› Web design" fades out and "Courses" becomes the current page (black, bold).
+- Content cross-fades from a detail page (title and text) to a list of three cards (158×118, with a landscape picture).
+- Back: the cursor moves onto the first card (blue outline 2.45–2.8 s) and clicks at 2.7 s; the detail page returns over 2.7–2.95 s.
+適用情境：Use it on sites with deep hierarchies to show where the page is and give a way back up.
+
+參考實作（Canvas 2D，畫面只由時間決定的函式）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh-Hant/e/066.txt
+共用輔助程式碼：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/ui.js
+請保留參考實作的形狀、時間安排與緩動數值，只替換文字、色彩和素材，以符合目前製作的內容。

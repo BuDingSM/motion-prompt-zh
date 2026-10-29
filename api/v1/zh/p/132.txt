@@ -1,0 +1,14 @@
+请使用“可变字体动画（Variable font animation）”，它是“动态图形动效（第二辑）”中的一个名称。
+Motion Prompt #132
+
+它是什么：The weight of the letters changes smoothly
+示例展示：The same word goes smoothly from thin to very bold and back, with a slider below showing the weight.
+规格：
+- "MOTION" (112 px, system-ui, 2 px letter spacing). The weight goes back and forth twice per 4.7 s: v = 0.5 − 0.5·cos(2π × 2 × time ÷ 4.7), which eases at both ends.
+- Weight = round(100 + 800v), from 100 to 900, set directly as the font weight.
+- A slider below (x = 112→427, y = 180) labelled thin on the left and bold on the right. The knob (yellow, radius 14) follows v, with the current weight shown above it.
+适用场景：Use it on a title, a logo or a single word to show loudness or emotion through the letters themselves.
+
+参考实现（Canvas 2D，画面只由时间决定的函数）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh/e/132.txt
+共享辅助代码：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/motion2.js
+请保留参考实现的形状、时间安排和缓动数值，只替换文字、颜色和素材，以适配当前制作的内容。

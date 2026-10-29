@@ -1,0 +1,16 @@
+请使用“Parallax 视差滚动（Parallax scrolling）”，它是“落地页与网站效果”中的一个名称。
+Motion Prompt #073
+
+它是什么：卷动时，越后面的图层移动得越慢
+示例展示：As the page scrolls down, the headline moves up normally while the sky and sun, far hills and near hills move more slowly.
+规格：
+- A browser window with a 511 × 168 viewport. Scroll: 0→120 px at 0.3–1.9 s, 120→0 at 2.9–4.3 s (cubic ease-in-out).
+- Each layer moves by scroll × factor: sky and sun 0.15, far hills 0.4, near hills 0.7.
+- Headline (28 px), button and the next section move at 1.0 (normal scrolling).
+- The next section (white) starts at the bottom of the hero (168 px) and slides over the slower background.
+- The scrollbar thumb on the right moves with the scroll.
+适用场景：Use it to give the hero or a section photo a sense of depth.
+
+参考实现（Canvas 2D，画面只由时间决定的函数）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh/e/073.txt
+共享辅助代码：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/lp.js
+请保留参考实现的形状、时间安排和缓动数值，只替换文字、颜色和素材，以适配当前制作的内容。

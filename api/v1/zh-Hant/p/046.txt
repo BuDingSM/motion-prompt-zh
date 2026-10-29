@@ -1,0 +1,17 @@
+請使用「Smash cut」，它是「攝影機運動與轉場」中的一個名稱。
+Motion Prompt #046
+
+它是什麼：突然切到反差很大的場景
+範例展示：A quiet scene of a person asleep cuts with no warning straight to an intense one; the volume meter jumps at the same moment.
+規格：
+- Join: a straight cut at 2.4 s (0 frames); no transition effect, the contrast does the work
+- Outgoing shot (0–2.4 s): fixed camera (height 1.2 m, focal length 330 px); a person lying down 7 m away, three "z" letters float up and fade; volume meter at about 0–1 of 8 bars (0.08±0.04)
+- Incoming shot (2.4–4.2 s): focal length 2.6× (858 px) for a tight framing, rolled -0.12 rad (about -7°); the person has both arms raised, with 18 radial blue lines
+- Shake in the incoming shot: roll ±0.03 rad (about 6 cycles per second) and yaw ±0.006 rad (about 8 per second); volume meter at 0.85±0.15, nearly full
+- Return: cross-fade back to the quiet shot over the last 0.5 s (quadratic ease-in-out)
+- Top-right readout shows "♪ 靜か" (quiet) → "♪ 大音量" (loud)
+適用情境：For comedy or shock, showing in an instant the gap between calm and chaos or between expectation and reality.
+
+參考實作（Canvas 2D，畫面只由時間決定的函式）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh-Hant/e/046.txt
+共用輔助程式碼：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/camera.js
+請保留參考實作的形狀、時間安排與緩動數值，只替換文字、色彩和素材，以符合目前製作的內容。

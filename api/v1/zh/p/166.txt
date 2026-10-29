@@ -1,0 +1,16 @@
+请使用“点赞按钮动效（Like button animation）”，它是“落地页与网站效果（第二辑）”中的一个名称。
+Motion Prompt #166
+
+它是什么：The heart pops with a burst when liked
+示例展示：Clicking the heart fills it red with a springy pop, small particles burst around it and the count beside it goes up by one; clicking again undoes it.
+规格：
+- A 511 × 168 viewport: a post card with an outlined heart (line width 2.4) and the count "128" on the right. The heart is clicked at 0.9 s and clicked again at 3.3 s to undo. One pass takes 4.7 s (twice per 9.4 s pack cycle).
+- In the 0.1 s before the click it squeezes to 0.78×; at the click it fills red (#F23D5C), grows 0.78 → 1.45× in 0.12 s (cubic ease-out), then settles to 1× as 1 + 0.45·e^(−7t)·cos(15t).
+- 0.08–0.58 s after the click: a red ring (radius 15 → 33, opacity 0.5 → 0) and six small particles in six directions (red, yellow, orange) flying out from radius 24 to 37 as they fade.
+- Count: 0.05–0.35 s after the click (cubic ease-out) 128 slides up and out and a red 129 comes in from below; undoing slides it back down to 128.
+- Undo: the heart goes back to an outline and dips to 0.84× and back over 0.4 s around the click (no particles).
+适用场景：Use it on like, favorite or save buttons, to confirm the tap clearly and pleasantly.
+
+参考实现（Canvas 2D，画面只由时间决定的函数）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh/e/166.txt
+共享辅助代码：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/lp2.js
+请保留参考实现的形状、时间安排和缓动数值，只替换文字、颜色和素材，以适配当前制作的内容。

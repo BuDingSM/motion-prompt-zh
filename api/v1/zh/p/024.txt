@@ -1,0 +1,17 @@
+请使用“画面震动（Impact shake）”，它是“动态图形动效”中的一个名称。
+Motion Prompt #024
+
+它是什么：落地的冲击让整个画面震动
+示例展示：A heavy headline slab drops with a thud and the whole frame shakes from the impact.
+规格：
+- One drop per 2.35 s (a yellow slab first, then a coral one). The slab is 250 × 100, radius 18.
+- Fall: 0.3–0.62 s from above the frame to the floor, cubic ease-in (accelerating). While falling it is stretched 1.12× vertically.
+- Lands at 0.62 s. The whole frame shakes for 1.1 s: x 15 px × e^(−5t) × sin(2π·5t), y 11 px × e^(−5t) × cos(2π·6.5t), rotation 0.02 rad × e^(−5t) × sin(2π·5t + 0.6).
+- For 0.3 s after landing the slab squashes vertically by up to 22% and recovers (it widens by the same amount; anchored at its base).
+- Four background blocks hop up to 24 px, 0.03–0.06 s late, over 0.5 s. Six white lines and six dust puffs spread from the floor and fade within 0.55 s.
+- Exit: the slab moves 300 px up at 1.85–2.2 s (backIn, s = 1.6).
+适用场景：Use it to land an important headline or number with weight and force.
+
+参考实现（Canvas 2D，画面只由时间决定的函数）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh/e/024.txt
+共享辅助代码：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/motion.js
+请保留参考实现的形状、时间安排和缓动数值，只替换文字、颜色和素材，以适配当前制作的内容。

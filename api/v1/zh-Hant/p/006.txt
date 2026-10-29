@@ -1,0 +1,17 @@
+請使用「打字機效果（Typewriter）」，它是「動態圖形動效」中的一個名稱。
+Motion Prompt #006
+
+它是什麼：文字像一個字一個字打出來
+範例展示：Text is typed into an input field one character at a time, then the send button lights up and is pressed.
+規格：
+- One pass per 4.7 s. Nine characters appear in a white input field (471 × 92, radius 30), one every 0.24 s starting at 0.3 s (typing ends at 2.46 s).
+- Each new character settles from scale 1.35 to 1: 1 + 0.35·e^(−16t).
+- Cursor (coral, 5 × 44) sits after the last character: solid while typing, otherwise blinking with a 0.94 s period (on for 0.5 s).
+- Send button (radius 30): grey, then a blue disc appears from 2.58 s with spring 1 − e^(−6.5t)·cos(15t).
+- Press: the button shrinks by up to 20% at 2.96–3.21 s (half sine). At 3.13–3.41 s the text moves 70 px up while fading out.
+- The cursor returns to the start once the text is half faded (about 3.27 s); at 3.51–3.81 s the blue fades.
+適用情境：Use it to show someone typing: a prompt, a search query, a chat message.
+
+參考實作（Canvas 2D，畫面只由時間決定的函式）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh-Hant/e/006.txt
+共用輔助程式碼：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/motion.js
+請保留參考實作的形狀、時間安排與緩動數值，只替換文字、色彩和素材，以符合目前製作的內容。

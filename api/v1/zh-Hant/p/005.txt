@@ -1,0 +1,16 @@
+請使用「Mask Reveal（Mask reveal）」，它是「動態圖形動效」中的一個名稱。
+Motion Prompt #005
+
+它是什麼：文字從看不見的邊界後方升起
+範例展示：Headline text slides out from behind an invisible edge marked by a single line.
+規格：
+- One pass per 2.35 s. Divider line (coral, 380 × 6, y = 124): grows from the centre at 0.1–0.5 s (cubic ease-in-out), shrinks away at 2.05–2.3 s.
+- Top text (bold 98 px, white): clipped to the area above the line (y 8–119); moves up into place from 120 px below at 0.35–1.0 s, quintic ease-out.
+- Bottom text (32 px, yellow): clipped to the area below the line (y 129–181); moves down into place from 60 px above at 0.55–1.15 s, quintic ease-out.
+- Exit: top text moves 150 px up at 1.7–2.05 s (backIn, s = 1.2, dipping slightly first); bottom text moves 70 px down at 1.75–2.05 s (cubic ease-in).
+- Opacity never changes; the text is hidden only by leaving the clip area.
+適用情境：Use it for titles and headings that should appear in a clean, composed way.
+
+參考實作（Canvas 2D，畫面只由時間決定的函式）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh-Hant/e/005.txt
+共用輔助程式碼：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/motion.js
+請保留參考實作的形狀、時間安排與緩動數值，只替換文字、色彩和素材，以符合目前製作的內容。

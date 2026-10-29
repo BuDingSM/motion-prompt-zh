@@ -1,0 +1,38 @@
+// Motion Prompt #152 · MIT License (c) 2026 Shohei Ohtaki · https://budingsm.github.io/motion-prompt-zh/#152
+//
+// 滾動縮放 / Zoom on scroll
+// 類別包: lp2 (落地頁與網站效果（第二輯）) · element 08 · 分類: Scroll effects
+// 效果說明: As the page scrolls, a small photo in the middle grows to fill the window, the text around it fades away and a headline appears over the photo.
+// 動效規格:
+//   - A 511 × 168 viewport. Scroll progress p: 0→1 over 0.3–2.3 s, 1→0 over 3.0–4.4 s (cubic ease-in-out). One pass takes 4.7 s (twice per 9.4 s pack cycle).
+//   - Photo frame: from 155 × 90 in the middle (x = 178, y = 58, radius 8) to the full 511 × 168 window (radius 0); position, width, height and radius change in proportion to p.
+//   - The heading and text around it fade out while p goes 0→0.45 (opacity 1 − 2.2p).
+//   - While p goes 0.7→1, a white headline (26 px, 2 px letter spacing) fades in at the center of the photo. The scrollbar thumb follows the scroll.
+// 適用情境: Use it on travel, real-estate or brand sites to pull the visitor into the photo.
+// 標籤: zoom, scroll, image, scale, scroll-driven, hero, fullscreen
+// 尺寸: 539x208 px · 週期: 9.4 s
+// 依賴: kit lp2 -> https://budingsm.github.io/motion-prompt-zh/api/v1/kit/lp2.js
+// 動態範例: https://budingsm.github.io/motion-prompt-zh/#152
+//
+// cells[i](k, w, h, u)：k = CanvasRenderingContext2D（呼叫方已清空畫布並完成 save/restore），w、h = 尺寸，u = [0, cycle) 內的秒數。畫面只由 u 決定。
+// 以下是元素程式碼。CELLS、常數和輔助函式位於 kit 中。
+
+// @element 08
+// 08 スクロールで拡大（スクロールに合わせて、小さな写真が窓いっぱいまで広がる）
+CELLS[7] = (k, w, h, u) => {
+  u = snapU(u);
+  frame(k);
+  const p = steps([[0.3, 0], [2.3, 1], [3.0, 1], [4.4, 0]], u);
+  const x = lerp(178, 0, p), y = lerp(58, 0, p), ww = lerp(155, VW, p), hh = lerp(90, VH, p);
+  view(k, () => {
+    const a = 1 - clamp(p * 2.2);
+    k.save(); k.globalAlpha = a;
+    txt(k, '景色の中へ', VW / 2, 38, `800 19px ${JP}`, C.ink, 'center');
+    bars(k, 34, 66, 120, 4, C.faint, 6, 14); bars(k, 357, 66, 120, 4, C.faint, 6, 14);
+    k.restore();
+    pic(k, x, y, ww, hh, 0, lerp(8, 0, p));
+    const b = clamp((p - 0.7) / 0.3);
+    if (b > 0) { k.save(); k.globalAlpha = b; txt(k, '絶景へようこそ', VW / 2, VH / 2 + 2, `800 26px ${JP}`, '#fff', 'center', 'middle', '2px'); k.restore(); }
+    sbar(k, p * 0.6, 0.4);
+  });
+};

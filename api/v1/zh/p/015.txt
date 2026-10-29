@@ -1,0 +1,16 @@
+请使用“粒子特效（Particles）”，它是“动态图形动效”中的一个名称。
+Motion Prompt #015
+
+它是什么：许多小粒子向外飞散
+示例展示：Particles keep shooting up from an emitter, spread out and fall.
+规格：
+- 84 particles, emitted from the bottom centre (horizontal centre, 20 px above the bottom edge).
+- Initial velocity: ±190 px/s horizontally, 250–400 px/s upward. Gravity 470 px/s² (parabolic paths).
+- Each particle repeats with a period of 2.35 s or about 1.57 s, with a random start offset (fixed seed, so every run looks the same).
+- Lifetime up to 1.5 s: fade in over the first 0.06 s, fade out over the last 30%. Scale 1.15→0.7.
+- Shapes are circles, squares and triangles (size 5–11 px) in blue, coral, yellow and mint, spinning at up to ±4.5 rad/s.
+适用场景：Use it to add celebration or liveliness, in place of confetti or sparks.
+
+参考实现（Canvas 2D，画面只由时间决定的函数）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh/e/015.txt
+共享辅助代码：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/motion.js
+请保留参考实现的形状、时间安排和缓动数值，只替换文字、颜色和素材，以适配当前制作的内容。

@@ -1,0 +1,24 @@
+// Motion Prompt #044 · MIT License (c) 2026 Shohei Ohtaki · https://budingsm.github.io/motion-prompt-zh/#044
+//
+// 交叉溶解 / Cross dissolve
+// 类别包: camera (摄影机运动与转场) · element 20 · 分类: 转场
+// 效果说明: The next picture is laid over the current one and its opacity rises until it takes over; both show through each other midway.
+// 动效规格:
+//   - Join: 1.5 s, from 1.5 s to 3.0 s; the incoming picture's opacity goes 0 → 100%
+//   - Easing: quadratic ease-in-out (about cubic-bezier(0.45,0,0.55,1)); 50% at 2.25 s
+//   - The outgoing picture stays fully opaque underneath and the incoming one is drawn on top (the outgoing one is not faded out first)
+//   - Camera: fixed in both pictures (A at height 1.4 m; B at height 1.6 m, pitch +0.1 rad); the subjects do not move either
+//   - Only the outgoing picture shows for 0–1.5 s, only the incoming one for 3.0–4.7 s
+//   - Alternates A→B and B→A every 4.7 s (9.4 s for the round trip); top-right readout shows "A → B" / "B → A"
+// 适用场景: To convey a gentle passage of time or change of place, or to move into a memory.
+// 标签: cross dissolve, dissolve, crossfade, fade, opacity, blend, transition
+// 尺寸: 539x208 px · 周期: 9.4 s
+// 依赖: kit camera -> https://budingsm.github.io/motion-prompt-zh/api/v1/kit/camera.js
+// 动态示例: https://budingsm.github.io/motion-prompt-zh/#044
+//
+// cells[i](k, w, h, u)：k = CanvasRenderingContext2D（调用方已清空画布并完成 save/restore），w、h = 尺寸，u = [0, cycle) 内的秒数。画面只由 u 决定。
+// 以下是元素代码。CELLS、常量和辅助函数位于 kit 中。
+
+// @element 20
+// 20 クロスディゾルブ
+CELLS[19] = shot(abCell((k, w, h, u, A, B) => blend(k, kk => A(kk, w, h), kk => B(kk, w, h), eIOs(P(u, 1.5, 3.0)))));

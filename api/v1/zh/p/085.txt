@@ -1,0 +1,15 @@
+请使用“涟漪效果（Ripple effect）”，它是“落地页与网站效果”中的一个名称。
+Motion Prompt #085
+
+它是什么：从点击的位置向外扩散出波纹
+示例展示：Each click sends a white circle out from the click point to fill the button, then it fades away.
+规格：
+- Button 280 × 56 (orange, radius 10). Clicks at 0.7 s (left of centre) and 2.9 s (right of centre).
+- The circle is centred on the click point; its radius grows from 0 to the distance to the button's farthest corner over 0.6 s (cubic ease-out).
+- White at 0.4 opacity, fading to 0 between 0.3 and 0.8 s after the click.
+- The circle is clipped to the button (overflow: hidden); the label sits above it.
+适用场景：Use it to confirm a press on a button or list item right where it happened.
+
+参考实现（Canvas 2D，画面只由时间决定的函数）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh/e/085.txt
+共享辅助代码：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/lp.js
+请保留参考实现的形状、时间安排和缓动数值，只替换文字、颜色和素材，以适配当前制作的内容。

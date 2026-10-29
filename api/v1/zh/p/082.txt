@@ -1,0 +1,14 @@
+请使用“Hover 图片放大（Image zoom on hover）”，它是“落地页与网站效果”中的一个名称。
+Motion Prompt #082
+
+它是什么：外框不变，只有里面的照片放大
+示例展示：The photo under the cursor slowly enlarges while its frame stays the same size, and shrinks back when the cursor leaves.
+规格：
+- Two photo frames, 222 × 118 (radius 8). The cursor rests on the left one, then the right one, for about 1.5 s each.
+- On hover the content scales 1→1.15 from the centre over 0.5 s (cubic ease-out); on leave it returns over 0.5 s.
+- Anything outside the frame is clipped (overflow: hidden). The frame and the caption do not move.
+适用场景：Use it on photo grids (work, products, articles) to show which item is about to be chosen.
+
+参考实现（Canvas 2D，画面只由时间决定的函数）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh/e/082.txt
+共享辅助代码：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/lp.js
+请保留参考实现的形状、时间安排和缓动数值，只替换文字、颜色和素材，以适配当前制作的内容。

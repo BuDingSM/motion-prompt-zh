@@ -1,0 +1,16 @@
+請使用「Lazy Loading（Lazy loading）」，它是「落地頁與網站效果」中的一個名稱。
+Motion Prompt #090
+
+它是什麼：只載入進入畫面的圖片
+範例展示：As grey placeholders scroll into view, a spinner turns in each, and the images fade in as they arrive. The top row is loaded from the start.
+規格：
+- A 3 × 3 grid of 151 × 92 placeholders; the first row is shown from the start. Scroll: 0→110 px at 0.35–1.1 s, 110→225 px at 1.7–2.5 s, 225→0 at 3.5–4.5 s (cubic ease-in-out).
+- Loading starts when a placeholder's top edge passes above the bottom of the viewport (168 px), with each column 0.12 s later than the one to its left.
+- For 0.45 s a spinner (radius 11, one turn per 0.8 s) turns in the placeholder's centre.
+- Then the image fades in 0→1 over 0.35 s (cubic ease-out). Unloaded placeholders show an image icon.
+- Placeholders that leave the bottom of the view are reset out of sight.
+適用情境：Use it on image-heavy pages to make the first view load faster.
+
+參考實作（Canvas 2D，畫面只由時間決定的函式）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh-Hant/e/090.txt
+共用輔助程式碼：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/lp.js
+請保留參考實作的形狀、時間安排與緩動數值，只替換文字、色彩和素材，以符合目前製作的內容。

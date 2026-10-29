@@ -1,0 +1,15 @@
+请使用“热点（Hotspots）”，它是“落地页与网站效果（第二辑）”中的一个名称。
+Motion Prompt #163
+
+它是什么：Dots on an image open notes when clicked
+示例展示：White dots pulse on the product picture; clicking one opens a tooltip about that part, and clicking another dot swaps the tooltip.
+规格：
+- A 511 × 168 viewport: a product picture (a backpack) on the left, name and price on the right, with two dots on the picture (white circle, radius 8, drop shadow; orange center, radius 4). One pass takes 4.7 s (twice per 9.4 s pack cycle).
+- Pulse: from each dot a white ring (width 2) grows from radius 8 to 20 while fading from 0.75 to 0 opacity, every 1.57 s (a third of 4.7 s), two rings half a period apart.
+- At 0.9 s the upper dot is clicked: a tooltip (136 × 48, radius 8, with a pointer toward the dot) appears to its left over 0.25 s (cubic ease-out), rising 6 px.
+- At 2.4 s the lower dot is clicked: the first tooltip fades over 0.25 s and the next one opens to the right of the lower dot. A second click at 3.8 s closes it.
+适用场景：Use it on products, floor plans or maps, to explain different spots within one picture.
+
+参考实现（Canvas 2D，画面只由时间决定的函数）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh/e/163.txt
+共享辅助代码：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/lp2.js
+请保留参考实现的形状、时间安排和缓动数值，只替换文字、颜色和素材，以适配当前制作的内容。

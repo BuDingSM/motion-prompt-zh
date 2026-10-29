@@ -1,0 +1,16 @@
+请使用“悬停 3D 倾斜（3D tilt on hover）”，它是“落地页与网站效果（第二辑）”中的一个名称。
+Motion Prompt #153
+
+它是什么：The card tilts in 3D following the cursor
+示例展示：As the cursor moves over the card, the card tilts in depth to match the cursor position and a glare moves across its surface; it settles flat when the cursor leaves.
+规格：
+- A 511 × 168 viewport with a 220 × 132 card (radius 14) in the middle. The cursor comes in, visits points near the card's corners every 0.6 s and leaves (cubic ease-in-out). One pass takes 4.7 s (twice per 9.4 s pack cycle).
+- Tilt: the cursor offset from the card center is divided by half the width and height to give −1…1; the horizontal offset × 0.32 rad (about 18°) is the rotation about Y, the vertical offset × 0.32 rad the rotation about X. The side under the cursor tips away.
+- Depth: viewer distance 520 px (like perspective: 520px); nearer parts are drawn larger.
+- On hover the tilt and glare ramp up over 0.4 s (cubic ease-out); on leave the card returns flat over the same 0.4 s.
+- Glare: a white radial light of radius 130 px at the cursor (opacity 0.42 at the center). The floor shadow shifts up to 10 px against the tilt.
+适用场景：Use it on member cards, product packaging or pricing cards to make them feel like objects you can pick up.
+
+参考实现（Canvas 2D，画面只由时间决定的函数）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh/e/153.txt
+共享辅助代码：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/lp2.js
+请保留参考实现的形状、时间安排和缓动数值，只替换文字、颜色和素材，以适配当前制作的内容。

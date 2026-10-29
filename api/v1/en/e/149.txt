@@ -1,6 +1,6 @@
-// Motion Prompt #149 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#149
+// Motion Prompt #149 · MIT License (c) 2026 Shohei Ohtaki · https://budingsm.github.io/motion-prompt-zh/#149
 //
-// Hide-on-scroll header / 隠れるヘッダー
+// Hide-on-scroll header / Hide-on-scroll header
 // Pack: lp2 (Landing page & web effects, part 2) · element 05 · Category: Scroll effects
 // What happens: Scrolling down slides the header up out of view to free the screen; scrolling up even a little brings it straight back.
 // Motion spec:
@@ -11,8 +11,8 @@
 // When to use it: Use it when screen space is tight, as on phones, to give the content more room while keeping the menu one small scroll away.
 // Tags: header, hide-on-scroll, headroom, navigation, sticky-header, scroll-direction
 // Size: 539x208 px · Cycle: 9.4 s
-// Needs: kit lp2 -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/lp2.js
-// Live demo: https://showheyohtaki.github.io/motion-prompt/#149
+// Needs: kit lp2 -> https://budingsm.github.io/motion-prompt-zh/api/v1/kit/lp2.js
+// Live demo: https://budingsm.github.io/motion-prompt-zh/#149
 //
 // cells[i](k, w, h, u): k = CanvasRenderingContext2D (already cleared and wrapped in save/restore by the caller), w,h = size, u = seconds in [0, cycle). The picture depends only on u.
 // Element code starts here. CELLS, constants and helpers live in the kit.

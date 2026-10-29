@@ -5,7 +5,7 @@ description: 'Motion Prompt (showheyohtaki.github.io/motion-prompt) is a numbere
 
 # Motion Prompt
 
-Motion Prompt is a library of names for the things people ask an AI to make (motion-graphics moves, camera moves and transitions, UI components, landing-page and web effects, photo looks and lighting, and whatever packs are added later), numbered so that people and agents can refer to them precisely. Every element has a three-digit ID (`#012`), a name in English and usually in other languages too, a one-line meaning, and a live demo at `https://showheyohtaki.github.io/motion-prompt/#<id>`.
+Motion Prompt is a library of names for the things people ask an AI to make (motion-graphics moves, camera moves and transitions, UI components, landing-page and web effects, photo looks and lighting, and whatever packs are added later), numbered so that people and agents can refer to them precisely. Every element has a three-digit ID (`#012`), a name in English and usually in other languages too, a one-line meaning, and a live demo at `https://budingsm.github.io/motion-prompt-zh/#<id>`.
 
 - An element is one Canvas 2D drawing function, stored as `cells[i] = (ctx, w, h, u) => { … }`. `ctx` is a 2D context that the caller has cleared and wrapped in `save()`/`restore()`. `w, h` are the card size. `u` is the time in seconds, `0 <= u < cycle`.
 - It is a **pure function of `u`**: no clock, no randomness at draw time, no state between calls. The same code plays live and renders frame by frame, and it loops seamlessly at `u = cycle`.
@@ -22,14 +22,14 @@ node <skill-dir>/scripts/motion-prompt.mjs <command>
 | Command | Use |
 |---|---|
 | `pick` | Opens the gallery in the user's browser and waits until they press 「AIに渡す」 / "Send to AI". Prints the picked elements in order (number, names, meaning, how to ask, spec, demo link) and the user's note, then exits. `--pack <pack>` opens it filtered to one pack, `--lang ja` in Japanese, `--timeout <seconds>` (default 900), `--no-open` only prints the URL, `--local` serves the gallery from a full clone of the repository. See [Let the user pick](#let-the-user-pick). |
-| `search <words...>` | Ranks elements against a few words describing one scene's motion. English and Japanese both work: `search typewriter text`, `search 文字 登場`. Narrow with `--pack <pack>`; ask for more rows with `--limit 20`. |
+| `search <words...>` | Ranks elements against a few words describing one scene's motion. English, Chinese and Japanese all work: `search typewriter text`, `search 打字机`, `search 文字 登場`. Narrow with `--pack <pack>`; ask for more rows with `--limit 20`. |
 | `list` | An overview: each pack, its categories and how many elements they hold. With `--pack <pack>` it prints that pack's elements one per line. |
 | `get <id> [<id>...]` | Prints each element's spec followed by its code. One call takes at most 8 IDs. Accepts `12`, `012`, `#012` or a demo URL. |
 | `kit <pack>` | The shared constants and helpers that the pack's elements need. |
 | `prompt <id>` | The ready-made copy-paste prompt for one element. |
 | `info` | Where the data is being read from, how many elements it holds, its version and where the cache lives. Run it first when something looks wrong. |
 
-`--lang ja` gives Japanese names and text; the default is `--lang en`, and `search` switches to Japanese by itself when the words are Japanese (`pick` prints in the language the user browsed in, unless you pass `--lang`). `--out <dir>` writes files instead of printing them (`get`, `kit`, `prompt`). `--refresh` skips the disk cache.
+`--lang ja`, `--lang en`, `--lang zh` and `--lang zh-Hant` select the language of names and text; the default is `--lang en`, and `search` switches to Japanese or Simplified Chinese when the search words indicate those languages. `--out <dir>` writes files instead of printing them (`get`, `kit`, `prompt`). `--refresh` skips the disk cache.
 
 ## Let the user pick
 

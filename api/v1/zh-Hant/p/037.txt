@@ -1,0 +1,17 @@
+請使用「慢動作（Slow motion）」，它是「攝影機運動與轉場」中的一個名稱。
+Motion Prompt #037
+
+它是什麼：把動作放慢播放
+範例展示：In front of a fixed camera a person rises and falls slowly through a jump while leaves drift down slowly; the whole action is stretched out.
+規格：
+- Camera: completely fixed (height 1.3 m); only the subject moves
+- Subject: a person 7 m away takes 3.8 s for one jump (0.5 s to 4.3 s); height = 4q(1-q)×1.1 m, a parabola peaking at 1.1 m, with q linear in time
+- Both arms are raised while airborne; the person stands still for 0.5 s before the jump and 0.4 s after landing
+- Leaves: 9 leaves fall from 3.4 m to the ground over 4.7 s while rotating, each offset by 1/9 of the cycle
+- Top-right readout shows "120fps ×0.25" (playback stretched 4×)
+- No hold and no cross-fade; loops seamlessly every 4.7 s
+適用情境：To let viewers study a brief action or expression, or to emphasise an emotional peak.
+
+參考實作（Canvas 2D，畫面只由時間決定的函式）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh-Hant/e/037.txt
+共用輔助程式碼：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/camera.js
+請保留參考實作的形狀、時間安排與緩動數值，只替換文字、色彩和素材，以符合目前製作的內容。

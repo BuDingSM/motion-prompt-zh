@@ -1,0 +1,15 @@
+请使用“文字蒙版（Text mask）”，它是“动态图形动效（第二辑）”中的一个名称。
+Motion Prompt #133
+
+它是什么：Letters cut out to show a picture inside
+示例展示：Heavy letters are cut out so that a moving seascape shows only inside them; near the end of the cycle the whole picture appears.
+规格：
+- "OCEAN" (weight 900, system-ui, 2 px letter spacing). The font size starts at 172 px and drops 2 px at a time until the word is at most 500 px wide.
+- The scene inside keeps moving: coral sky, a yellow sun bobbing ±6 px, blue sea below y = 116 with four white wavy lines drifting 240 px per 4.7 s in alternating directions, a sailboat crossing once per 4.7 s, clouds drifting 60 px.
+- Method: draw the word on an offscreen canvas, then composite the scene onto it with source-in, so the scene remains only inside the letters. A white 4 px outline around the letters.
+- Outside the letters the scene shows at 12% opacity; it rises to 100% at 3.45–3.85 s and returns to 12% at 4.25–4.65 s (smoothstep).
+适用场景：Use it to show a photo or footage inside a title or brand name, putting the word and the picture together.
+
+参考实现（Canvas 2D，画面只由时间决定的函数）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh/e/133.txt
+共享辅助代码：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/motion2.js
+请保留参考实现的形状、时间安排和缓动数值，只替换文字、颜色和素材，以适配当前制作的内容。

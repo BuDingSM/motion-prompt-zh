@@ -1,0 +1,17 @@
+请使用“手持（Handheld）”，它是“摄影机运动与转场”中的一个名称。
+Motion Prompt #034
+
+它是什么：像用手拿著拍的轻微晃动
+示例展示：Adds a small, irregular shake to the whole frame, as if the camera were held by hand instead of on a tripod.
+规格：
+- Camera: position almost fixed; yaw, pitch, roll and height each get a sum of sine waves with different periods (T = 2π×u/4.7)
+- Yaw (rad) = 0.016·sin(3T) + 0.008·sin(7T+1) + 0.004·sin(13T+2), at most about ±1.6°
+- Pitch (rad) = 0.012·sin(4T+2) + 0.006·sin(9T+0.5) + 0.003·sin(17T+1.2), at most about ±1.2°
+- Roll (rad) = 0.02·sin(5T+1) + 0.008·sin(11T+3), at most about ±1.6°; height = 1.5 + 0.03·sin(6T) m
+- Subject: a person stands still 6.5 m ahead; the shake runs continuously with no easing or hold
+- All multipliers are integers, so it loops seamlessly every 4.7 s; top-right readout shows "HANDHELD"
+适用场景：To give a documentary feel or the sense of being present in the scene.
+
+参考实现（Canvas 2D，画面只由时间决定的函数）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh/e/034.txt
+共享辅助代码：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/camera.js
+请保留参考实现的形状、时间安排和缓动数值，只替换文字、颜色和素材，以适配当前制作的内容。

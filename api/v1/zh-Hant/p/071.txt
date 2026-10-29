@@ -1,0 +1,16 @@
+請使用「Badge」，它是「UI 組件名稱」中的一個名稱。
+Motion Prompt #071
+
+它是什麼：以小圓點顯示數量
+範例展示：Each time a notification arrives, the blue dot on the bell in the header counts up 1, 2, 3; clicking the bell clears it.
+規格：
+- 4.5 s cycle on a 542×191 card. A 54-tall header with a line-drawn bell at (482, 27) on the right.
+- Badge: a blue circle of radius 12 at the bell's top right (+12, −12), 2.5 px white rim, white 14 px number.
+- Notifications arrive at 0.7, 1.3 and 1.9 s: the count goes 1 → 2 → 3. The first scales in over 0.7–0.9 s with easeOutCubic.
+- Each arrival pops the scale from 1.3 back to 1 over 0.3 s and sends out a ripple ring (radius 12 → 28, opacity 0.5 → 0) over 0.5 s.
+- The cursor reaches the bell at 2.95 s and clicks at 3.0 s; the badge shrinks to 0 over 3.0–3.25 s with easeInOutCubic.
+適用情境：Use it to call attention to a count, such as unread messages or items in a cart.
+
+參考實作（Canvas 2D，畫面只由時間決定的函式）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh-Hant/e/071.txt
+共用輔助程式碼：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/ui.js
+請保留參考實作的形狀、時間安排與緩動數值，只替換文字、色彩和素材，以符合目前製作的內容。

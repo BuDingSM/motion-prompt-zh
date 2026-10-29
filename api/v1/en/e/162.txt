@@ -1,6 +1,6 @@
-// Motion Prompt #162 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#162
+// Motion Prompt #162 · MIT License (c) 2026 Shohei Ohtaki · https://budingsm.github.io/motion-prompt-zh/#162
 //
-// Lightbox / ライトボックス
+// Lightbox / Lightbox
 // Pack: lp2 (Landing page & web effects, part 2) · element 18 · Category: Showcase effects
 // What happens: Clicking a thumbnail in the gallery dims the page and shows that photo large in the center; the × shrinks it back into its thumbnail.
 // Motion spec:
@@ -11,8 +11,8 @@
 // When to use it: Use it for case studies, portfolios or product photos that should be seen large without leaving the page.
 // Tags: lightbox, modal, gallery, image, overlay, zoom
 // Size: 539x208 px · Cycle: 9.4 s
-// Needs: kit lp2 -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/lp2.js
-// Live demo: https://showheyohtaki.github.io/motion-prompt/#162
+// Needs: kit lp2 -> https://budingsm.github.io/motion-prompt-zh/api/v1/kit/lp2.js
+// Live demo: https://budingsm.github.io/motion-prompt-zh/#162
 //
 // cells[i](k, w, h, u): k = CanvasRenderingContext2D (already cleared and wrapped in save/restore by the caller), w,h = size, u = seconds in [0, cycle). The picture depends only on u.
 // Element code starts here. CELLS, constants and helpers live in the kit.

@@ -1,0 +1,15 @@
+请使用“Hover 浮起效果（Hover lift）”，它是“落地页与网站效果”中的一个名称。
+Motion Prompt #081
+
+它是什么：滑鼠移上去时，元素加深阴影并浮起
+示例展示：Only the card under the cursor lifts slightly and its shadow spreads; it settles back when the cursor leaves.
+规格：
+- Three cards (146 × 128, radius 10). The cursor rests on each, left to right, for about 1 s.
+- On hover the card rises 10 px over 0.3 s (cubic ease-out); on leave it returns over the same 0.3 s (like a CSS transition).
+- Shadow, changed together with the lift: blur 6→22 px, y offset 2→12 px, opacity 0.08→0.22.
+- Light grey page, white cards, so the shadow reads.
+适用场景：Use it to make cards and buttons look clickable.
+
+参考实现（Canvas 2D，画面只由时间决定的函数）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh/e/081.txt
+共享辅助代码：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/lp.js
+请保留参考实现的形状、时间安排和缓动数值，只替换文字、颜色和素材，以适配当前制作的内容。

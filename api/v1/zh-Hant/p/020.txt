@@ -1,0 +1,16 @@
+請使用「Zoom Through 穿越轉場（Zoom through）」，它是「動態圖形動效」中的一個名稱。
+Motion Prompt #020
+
+它是什麼：鑽進物體裏穿過去，進入下一個場景
+範例展示：The camera pushes into the hole of a letter O and comes out in the next scene.
+規格：
+- Scene X (ZOOM on yellow) → scene Y (GO! on blue) → scene X, 2.35 s each.
+- The current scene is scaled around the centre of an O's hole (radius 24.5). Maximum scale is 1.08× the value at which the hole covers the whole frame (about 14×).
+- Scale = maxScale^p (exponential zoom, which reads as constant speed).
+- p = 0.8 × cubic ease-in (0.25–1.2 s) + 0.2 × cubic ease-out (1.2–1.65 s): accelerate in, slow down at the end.
+- Inside the hole the next scene is placed at 1/maxScale. When the zoom ends it is exactly at full size, and the view switches to the next scene.
+適用情境：Use it to dive into a logo or letter and move to the next scene with momentum.
+
+參考實作（Canvas 2D，畫面只由時間決定的函式）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh-Hant/e/020.txt
+共用輔助程式碼：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/motion.js
+請保留參考實作的形狀、時間安排與緩動數值，只替換文字、色彩和素材，以符合目前製作的內容。

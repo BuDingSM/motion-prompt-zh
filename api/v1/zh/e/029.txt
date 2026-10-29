@@ -1,0 +1,28 @@
+// Motion Prompt #029 · MIT License (c) 2026 Shohei Ohtaki · https://budingsm.github.io/motion-prompt-zh/#029
+//
+// 跟拍 / Tracking shot
+// 类别包: camera (摄影机运动与转场) · element 05 · 分类: 镜头运动
+// 效果说明: The camera moves sideways at the same speed as a walking person; the person stays centred while nearer posts sweep past faster.
+// 动效规格:
+//   - Camera: moves right at a constant 1.7 m/s (x = -4.0 m → +4.0 m in 4.7 s); height 1.3 m, facing straight ahead; no easing
+//   - Subject: a person walks at the same x as the camera (7.5 m away) and stays in the centre of frame; legs and arms swing by sin(u×7)×0.42 rad
+//   - Parallax: posts every 1.6 m at 4 m depth sweep left fastest, then trees, then buildings (48 m away); mountains hardly move
+//   - Top-right readout shows "→ 1.7m/s"
+//   - Repeat: jumps back to the start every 4.7 s (posts and ground grid line up at the seam; background buildings and trees jump)
+// 适用场景: To follow a walking or running subject and keep the sense of movement while showing their action.
+// 标签: tracking, tracking shot, follow, truck, lateral, sideways, parallax, walk
+// 尺寸: 539x208 px · 周期: 9.4 s
+// 依赖: kit camera -> https://budingsm.github.io/motion-prompt-zh/api/v1/kit/camera.js
+// 动态示例: https://budingsm.github.io/motion-prompt-zh/#029
+//
+// cells[i](k, w, h, u)：k = CanvasRenderingContext2D（调用方已清空画布并完成 save/restore），w、h = 尺寸，u = [0, cycle) 内的秒数。画面只由 u 决定。
+// 以下是元素代码。CELLS、常量和辅助函数位于 kit 中。
+
+// @element 05
+// 05 トラッキング: 人物と並んで横移動（手前ほど速く流れる）
+CELLS[4] = shot((k, w, h, u) => {
+  const x = (u - CYC / 2) * 1.7;
+  const fgp = []; for (let i = -12; i <= 12; i++) fgp.push([i * 1.6, 4]);
+  world(k, w, h, cam({ x, y: 1.3 }), { person: { x, z: 7.5, walk: u * 7 }, fg: fgp });
+  return '→ 1.7m/s';
+});

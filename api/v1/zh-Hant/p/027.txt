@@ -1,0 +1,17 @@
+請使用「Dolly in」，它是「攝影機運動與轉場」中的一個名稱。
+Motion Prompt #027
+
+它是什麼：攝影機本身朝被攝體前進
+範例展示：The camera itself moves toward the subject; near objects grow and pass quickly while the distant mountains barely change.
+規格：
+- Camera: moves forward (in depth) 0 m → 5.8 m; height 1.5 m, direction and focal length (330 px, shown as 24mm) fixed
+- Timing: 0.5 s to 3.4 s (2.9 s), cubic ease-in-out (about cubic-bezier(0.65,0,0.35,1))
+- Subject: a person stands still 8 m ahead; distance goes 8 m → 2.2 m, so they appear about 3.6× larger
+- Parallax: a foreground post (1.5 m left, 3.6 m deep) and a rock (1.6 m right, 4.8 m deep) pass out of frame; mountains 120 m+ away stay almost the same size
+- Return: hold 3.4–4.2 s, then cross-fade back to the start over the last 0.5 s (one pass = 4.7 s)
+- The top-right readout stays at 24mm (the difference from 04 Zoom in)
+適用情境：To move in on a person or detail while keeping a sense of depth.
+
+參考實作（Canvas 2D，畫面只由時間決定的函式）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh-Hant/e/027.txt
+共用輔助程式碼：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/camera.js
+請保留參考實作的形狀、時間安排與緩動數值，只替換文字、色彩和素材，以符合目前製作的內容。

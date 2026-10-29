@@ -1,0 +1,31 @@
+// Motion Prompt #130 · MIT License (c) 2026 Shohei Ohtaki · https://budingsm.github.io/motion-prompt-zh/#130
+//
+// 波浪文字 / Wave text
+// 类别包: motion2 (动态图形动效（第二辑）) · element 10 · 分类: Text & shapes
+// 效果说明: The letters of "WAVE TEXT" rise and fall one after another, like a wave.
+// 动效规格:
+//   - "WAVE TEXT" (70 px, bold, 4 px letter spacing). Three waves per 4.7 s (1.567 s per wave).
+//   - Vertical offset of letter i = −28·sin(φ − 0.62i), with φ = 2π × 3 × time ÷ 4.7 (each letter lags the previous by 0.62 rad).
+//   - Rising letters stretch vertically (1 + 0.06·s) and shift from white towards yellow (s is the sine value, clamped to 0–1 for the colour).
+//   - A shadow ellipse under each letter shrinks as the letter rises.
+// 适用场景: Use it on a logo, a short heading or a caption timed to music, to add fun and rhythm.
+// 标签: wave-text, wave, text, letters, stagger, bounce, kinetic-type
+// 尺寸: 539x208 px · 周期: 4.7 s
+// 依赖: kit motion2 -> https://budingsm.github.io/motion-prompt-zh/api/v1/kit/motion2.js
+// 动态示例: https://budingsm.github.io/motion-prompt-zh/#130
+//
+// cells[i](k, w, h, u)：k = CanvasRenderingContext2D（调用方已清空画布并完成 save/restore），w、h = 尺寸，u = [0, cycle) 内的秒数。画面只由 u 决定。
+// 以下是元素代码。CELLS、常量和辅助函数位于 kit 中。
+
+// @element 10
+// 10 ウェーブテキスト（1文字ずつ、波のように順に上下する）
+CELLS[9] = (k, w, h, u) => {
+  stage(k);
+  const f = `800 70px ${DISP}`, cs = chars(k, 'WAVE TEXT', f, 4), Y = h / 2 + 2, ph = 2 * Math.PI * 3 * u / CYC;
+  cs.forEach((c, i) => {
+    if (c.ch === ' ') return;
+    const s = Math.sin(ph - i * 0.62), y = -28 * s;
+    k.fillStyle = 'rgba(0,0,0,.3)'; k.beginPath(); k.ellipse(w / 2 + c.x, Y + 62, c.w * (0.42 - 0.12 * s), 4, 0, 0, 7); k.fill();
+    k.save(); k.translate(w / 2 + c.x, Y + y); k.scale(1, 1 + 0.06 * s); txt(k, c.ch, 0, 0, f, mix('#FFFFFF', C.yel, clamp(s)), 'center', 'middle'); k.restore();
+  });
+};

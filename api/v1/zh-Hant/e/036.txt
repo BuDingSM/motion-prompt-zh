@@ -1,0 +1,24 @@
+// Motion Prompt #036 · MIT License (c) 2026 Shohei Ohtaki · https://budingsm.github.io/motion-prompt-zh/#036
+//
+// 荷蘭角 / Dutch angle
+// 類別包: camera (攝影機運動與轉場) · element 12 · 分類: 拍攝手法與時間效果
+// 效果說明: A level camera rolls around its lens axis and holds with the horizon on a diagonal.
+// 動效規格:
+//   - Camera: position fixed (height 1.5 m); roll only, 0 → 0.36 rad (about 21°); the whole picture turns around the frame centre
+//   - Timing: 0.6 s to 2.2 s (1.6 s), cubic ease-in-out (about cubic-bezier(0.65,0,0.35,1))
+//   - Subject: a person stands still 7 m ahead; horizon, buildings and person all tilt by the same angle
+//   - Hold: stays tilted from 2.2 s to 4.2 s (time to read the tilted composition itself)
+//   - Return: cross-fade back to the level start over the last 0.5 s (one pass = 4.7 s)
+//   - Top-right readout shows the angle (∠ 0° → ∠ 21°)
+// 適用情境: To express unease, tension or the feeling that something is wrong.
+// 標籤: dutch angle, dutch tilt, canted angle, oblique, roll, tension, tilted horizon
+// 尺寸: 539x208 px · 週期: 9.4 s
+// 依賴: kit camera -> https://budingsm.github.io/motion-prompt-zh/api/v1/kit/camera.js
+// 動態範例: https://budingsm.github.io/motion-prompt-zh/#036
+//
+// cells[i](k, w, h, u)：k = CanvasRenderingContext2D（呼叫方已清空畫布並完成 save/restore），w、h = 尺寸，u = [0, cycle) 內的秒數。畫面只由 u 決定。
+// 以下是元素程式碼。CELLS、常數和輔助函式位於 kit 中。
+
+// @element 12
+// 12 ダッチアングル
+CELLS[11] = shot(camCell((k, w, h, p) => world(k, w, h, cam({ roll: lerp(0, 0.36, p) }), { person: { z: 7 } }), p => `∠ ${Math.round(lerp(0, 0.36, p) * 57.3)}°`, 0.6, 2.2));

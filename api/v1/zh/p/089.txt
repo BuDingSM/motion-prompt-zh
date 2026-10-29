@@ -1,0 +1,16 @@
+请使用“Loading 画面（Preloader）”，它是“落地页与网站效果”中的一个名称。
+Motion Prompt #089
+
+它是什么：页面载入期间显示的画面
+示例展示：On a navy screen the number under the logo counts from 0% to 100%; then the screen lifts away and the page underneath fades in.
+规格：
+- A navy screen fills the viewport with a logo, a number (28 px) and a bar (180 × 4).
+- 0→100% at 0.25–2.1 s (cubic ease-out, rounded to whole numbers); the bar fills in orange at the same rate.
+- At 2.3–2.85 s the whole screen moves up 168 px and out (cubic ease-in-out).
+- The page heading and photo fade in 0→1 and rise from 14 px below at 2.35–2.95 s (cubic ease-out).
+- At 4.25–4.75 s the screen comes back down from the top, at 0% (the next load).
+适用场景：Use it on image- or video-heavy sites to turn the loading wait into a brand moment.
+
+参考实现（Canvas 2D，画面只由时间决定的函数）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh/e/089.txt
+共享辅助代码：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/lp.js
+请保留参考实现的形状、时间安排和缓动数值，只替换文字、颜色和素材，以适配当前制作的内容。

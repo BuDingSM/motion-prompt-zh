@@ -1,0 +1,16 @@
+請使用「頁籤（Tabs）」，它是「UI 組件名稱」中的一個名稱。
+Motion Prompt #057
+
+它是什麼：點擊頁籤標題切換內容
+範例展示：Clicking the tabs "Overview, Pricing, Reviews" in turn slides a blue underline across and swaps the content below.
+規格：
+- 4.5 s cycle on a 542×191 card. Three tabs at x 24, 114, 204, widths 70, 70, 100; a 2 px divider at y 50 and a 4 px blue underline.
+- The cursor clicks the second tab at 1.0 s, the third at 2.2 s and the first at 3.4 s.
+- Underline: position and width move to the new tab over 0.25 s from each click with easeInOutCubic (from the third back to the first it passes through the middle).
+- Labels: selected is blue and bold, others grey; the switch happens at 1.1, 2.3 and 3.5 s.
+- Content: the old panel fades out linearly in 0.2 s; 0.1 s later the new one fades in over 0.2 s while rising 8 px.
+適用情境：Use it to show several related views in the same space and let people switch between them.
+
+參考實作（Canvas 2D，畫面只由時間決定的函式）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh-Hant/e/057.txt
+共用輔助程式碼：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/ui.js
+請保留參考實作的形狀、時間安排與緩動數值，只替換文字、色彩和素材，以符合目前製作的內容。

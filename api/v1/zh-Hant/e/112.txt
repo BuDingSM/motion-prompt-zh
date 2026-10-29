@@ -1,0 +1,30 @@
+// Motion Prompt #112 · MIT License (c) 2026 Shohei Ohtaki · https://budingsm.github.io/motion-prompt-zh/#112
+//
+// 暗角 / Vignette
+// 類別包: photo (攝影風格、光線與鏡頭效果) · element 16 · 分類: 鏡頭與相機效果
+// 效果說明: The frame darkens smoothly from the corners while the person and the road in the middle stay bright.
+// 動效規格:
+//   - Scene 2: a street corner; buildings, trees and street lamps (x 114, 292, 494) behind a road at y 132–162; the person stands front left (feet at x 176, y 200, 124 px tall). 
+//   - Shape: an ellipse centred on the frame (vertical radius = horizontal × 208/539 × 1.35)
+//   - Clear out to 45% of the 334 px horizontal radius, then rgb(32,35,43) rising from 0% to 70% towards the edge
+//   - Timing: the effect comes in from 0.4 s to 1.4 s, holds until 4.0 s and is gone again by 4.8 s (one pass = 5 s, cubic ease-in-out (about cubic-bezier(0.65,0,0.35,1)))
+// 適用情境: To focus attention on the subject, or to suggest an old lens.
+// 標籤: vignette, vignetting, dark corners, edge darkening, lens falloff, focus
+// 尺寸: 539x208 px · 週期: 5 s
+// 依賴: kit photo -> https://budingsm.github.io/motion-prompt-zh/api/v1/kit/photo.js
+// 動態範例: https://budingsm.github.io/motion-prompt-zh/#112
+//
+// cells[i](k, w, h, u)：k = CanvasRenderingContext2D（呼叫方已清空畫布並完成 save/restore），w、h = 尺寸，u = [0, cycle) 內的秒數。畫面只由 u 決定。
+// 以下是元素程式碼。CELLS、常數和輔助函式位於 kit 中。
+
+// @element 16
+// 周辺減光（ビネット）: 四隅だけがなだらかに暗くなり、中央の人物に目が集まる
+CELLS[15] = cell((k, u) => {
+  const a = env(u);
+  stageStreet(k, BASE);
+  // 楕円の放射グラデーション: 半径の45%までは素通し、外へ向かって 0 → 70% の濃さ
+  k.save(); k.translate(CW / 2, CH / 2); k.scale(1, CH / CW * 1.35);
+  const g = k.createRadialGradient(0, 0, CW * 0.45 * 0.62, 0, 0, CW * 0.62);
+  g.addColorStop(0, 'rgba(32,35,43,0)'); g.addColorStop(1, `rgba(32,35,43,${(0.7 * a).toFixed(3)})`);
+  k.fillStyle = g; k.fillRect(-CW, -CW, CW * 2, CW * 2); k.restore();
+});

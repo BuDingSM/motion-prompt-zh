@@ -1,0 +1,31 @@
+// Motion Prompt #032 · MIT License (c) 2026 Shohei Ohtaki · https://budingsm.github.io/motion-prompt-zh/#032
+//
+// 希區考克變焦 / Dolly zoom (Vertigo)
+// 類別包: camera (攝影機運動與轉場) · element 08 · 分類: 鏡頭運動
+// 效果說明: The camera pulls back while zooming in by the same ratio; the person keeps the same size and only the background closes in.
+// 動效規格:
+//   - Camera: distance d to the person (8 m ahead) widens from 3.2 m → 8 m (a 4.8 m pull-back); height 1.3 m
+//   - Focal length: f = 330 × d/8 px, i.e. 132 px → 330 px (shown as 10mm → 24mm), keeping distance ÷ focal length constant
+//   - Timing: 0.5 s to 3.4 s (2.9 s), cubic ease-in-out (about cubic-bezier(0.65,0,0.35,1))
+//   - Subject: the person does not move and keeps the same height in frame; blue dashed lines 160 px wide at head (1.8 m) and feet show the size is constant
+//   - Background: buildings (48 m away) grow about 2.2× and mountains about 2.4×, closing in behind the person, while the ground in front of the person shrinks
+//   - Return: hold 3.4–4.2 s, then cross-fade back to the start over the last 0.5 s (one pass = 4.7 s)
+// 適用情境: For a moment of realisation, or to show unease or shock visually.
+// 標籤: dolly zoom, vertigo, zolly, push pull, background stretch, unease, camera move
+// 尺寸: 539x208 px · 週期: 9.4 s
+// 依賴: kit camera -> https://budingsm.github.io/motion-prompt-zh/api/v1/kit/camera.js
+// 動態範例: https://budingsm.github.io/motion-prompt-zh/#032
+//
+// cells[i](k, w, h, u)：k = CanvasRenderingContext2D（呼叫方已清空畫布並完成 save/restore），w、h = 尺寸，u = [0, cycle) 內的秒數。畫面只由 u 決定。
+// 以下是元素程式碼。CELLS、常數和輔助函式位於 kit 中。
+
+// @element 08
+// 08 ドリーズーム: 人物の大きさは一定、背景だけ伸び縮み
+CELLS[7] = shot(camCell((k, w, h, p) => {
+  const d = lerp(3.2, 8, p), f = F0 * d / 8 * 1.0;
+  const c = cam({ z: 8 - d, f, y: 1.3 });
+  world(k, w, h, c, {
+    person: { z: 8 }, trees: true,
+    after: (kk, cc) => { const top = proj(cc, 0, 1.8, 8).y, bot = proj(cc, 0, 0, 8).y; kk.strokeStyle = C.blue; kk.lineWidth = 1.6; kk.setLineDash([6, 5]); kk.beginPath(); kk.moveTo(-80, top); kk.lineTo(80, top); kk.moveTo(-80, bot); kk.lineTo(80, bot); kk.stroke(); kk.setLineDash([]); }
+  });
+}, p => mm(F0 * lerp(3.2, 8, p) / 8)));

@@ -1,0 +1,17 @@
+請使用「FPV 穿越機（FPV drone shot）」，它是「攝影機運動與轉場」中的一個名稱。
+Motion Prompt #035
+
+它是什麼：高速、身歷其境的穿梭飛行
+範例展示：A first-person view flying low and fast between two rows of trees, banking from side to side.
+規格：
+- Camera: flies forward at a constant 14 m/s (shown as 50km/h) with no easing; pitch fixed at -0.05 rad
+- Weave (T = 2π×u/4.7, two swings per 4.7 s): sideways 0.6·sin(2T-0.4) m, height 1.4 + 0.5·sin(2T) m
+- Bank: roll 0.22·sin(2T+0.6) rad (about ±12.6°), yaw 0.05·sin(2T) rad (about ±2.9°)
+- No subject. Trees 4.2 m tall stand 3.6 m to each side, every 8 m, the two rows offset by 4 m, and rush toward the camera
+- Speed lines: 10 radial strokes about 32–76 px long (longer toward the sides) in translucent grey, flowing outward and recycling
+- No hold and no cross-fade reset (the tree rows shift phase when it restarts every 4.7 s)
+適用情境：For speed and immersion, or to fly through a location in one continuous move.
+
+參考實作（Canvas 2D，畫面只由時間決定的函式）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh-Hant/e/035.txt
+共用輔助程式碼：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/camera.js
+請保留參考實作的形狀、時間安排與緩動數值，只替換文字、色彩和素材，以符合目前製作的內容。

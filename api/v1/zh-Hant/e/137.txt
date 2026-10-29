@@ -1,0 +1,31 @@
+// Motion Prompt #137 · MIT License (c) 2026 Shohei Ohtaki · https://budingsm.github.io/motion-prompt-zh/#137
+//
+// 推入轉場 / Push transition
+// 類別包: motion2 (動態圖形動效（第二輯）) · element 17 · 分類: Transitions & highlights
+// 效果說明: The next scene slides in from the side and pushes the current one out with it.
+// 動效規格:
+//   - Sea scene → mountain scene → sea scene, 2.35 s each. The change runs at 0.45–1.6 s of each half (1.15 s), cubic ease-in-out.
+//   - The two scenes stay joined and move together by the full frame width (539 px); no overlap and no fade.
+//   - Direction: sea→mountain moves left (the next scene enters from the right); mountain→sea moves right.
+//   - A navy line (width 6) marks the seam between the two scenes.
+// 適用情境: Use it to step through slides, photos or steps, when the change should feel continuous and moving forward.
+// 標籤: push, push-transition, slide, transition, scene-change, carousel
+// 尺寸: 539x208 px · 週期: 4.7 s
+// 依賴: kit motion2 -> https://budingsm.github.io/motion-prompt-zh/api/v1/kit/motion2.js
+// 動態範例: https://budingsm.github.io/motion-prompt-zh/#137
+//
+// cells[i](k, w, h, u)：k = CanvasRenderingContext2D（呼叫方已清空畫布並完成 save/restore），w、h = 尺寸，u = [0, cycle) 內的秒數。畫面只由 u 決定。
+// 以下是元素程式碼。CELLS、常數和輔助函式位於 kit 中。
+
+// @element 17
+// 17 プッシュ（次の画面が横から入ってきて、前の画面を一緒に押し出す）
+const SC17 = [scSea, scMtn];
+CELLS[16] = abCell((k, w, h, u, a, b) => {
+  const p = eIO(P(u, TA - 0.05, TB + 0.1)), dir = a === 0 ? -1 : 1;
+  if (p <= 0) return SC17[a](k, w, h);
+  if (p >= 1) return SC17[b](k, w, h);
+  k.save(); k.translate(dir * p * w, 0); SC17[a](k, w, h); k.restore();
+  k.save(); k.translate(dir * (p - 1) * w, 0); SC17[b](k, w, h); k.restore();
+  const ex = dir < 0 ? w * (1 - p) : w * p;
+  k.fillStyle = C.navy; k.fillRect(ex - 3, 0, 6, h);
+});

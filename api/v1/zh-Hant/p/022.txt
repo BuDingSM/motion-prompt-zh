@@ -1,0 +1,16 @@
+請使用「掃光（Light sweep）」，它是「動態圖形動效」中的一個名稱。
+Motion Prompt #022
+
+它是什麼：一道光掃過表面
+範例展示：A band of light crosses the surface of a logo badge at an angle.
+規格：
+- One sweep per 2.35 s. The light is drawn only inside a clip of the badge (400 × 112, radius 28, blue gradient).
+- Light band: a 116 px wide white gradient (opacity 0.72 in the middle, 0 at the edges) plus a thin 12 px band (opacity 0.5) 78 px away, rotated 0.42 rad (about 24°).
+- It moves from 130 px left of the badge to 130 px right of it (660 px) at 0.45–1.5 s, quadratic ease-in-out.
+- Sparkle: a four-point star at the top-right corner at 1.38–1.98 s; size 30 × sin(πq) × (1 + 0.2(1 − q)), rotating 0.9 rad.
+- The badge itself does not move.
+適用情境：Use it to give a logo, badge or button a premium finish.
+
+參考實作（Canvas 2D，畫面只由時間決定的函式）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh-Hant/e/022.txt
+共用輔助程式碼：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/motion.js
+請保留參考實作的形狀、時間安排與緩動數值，只替換文字、色彩和素材，以符合目前製作的內容。

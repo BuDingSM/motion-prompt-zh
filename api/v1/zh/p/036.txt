@@ -1,0 +1,17 @@
+请使用“荷兰角（Dutch angle）”，它是“摄影机运动与转场”中的一个名称。
+Motion Prompt #036
+
+它是什么：让画面沿镜头轴向歪斜一边
+示例展示：A level camera rolls around its lens axis and holds with the horizon on a diagonal.
+规格：
+- Camera: position fixed (height 1.5 m); roll only, 0 → 0.36 rad (about 21°); the whole picture turns around the frame centre
+- Timing: 0.6 s to 2.2 s (1.6 s), cubic ease-in-out (about cubic-bezier(0.65,0,0.35,1))
+- Subject: a person stands still 7 m ahead; horizon, buildings and person all tilt by the same angle
+- Hold: stays tilted from 2.2 s to 4.2 s (time to read the tilted composition itself)
+- Return: cross-fade back to the level start over the last 0.5 s (one pass = 4.7 s)
+- Top-right readout shows the angle (∠ 0° → ∠ 21°)
+适用场景：To express unease, tension or the feeling that something is wrong.
+
+参考实现（Canvas 2D，画面只由时间决定的函数）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh/e/036.txt
+共享辅助代码：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/camera.js
+请保留参考实现的形状、时间安排和缓动数值，只替换文字、颜色和素材，以适配当前制作的内容。

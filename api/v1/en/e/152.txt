@@ -1,6 +1,6 @@
-// Motion Prompt #152 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#152
+// Motion Prompt #152 · MIT License (c) 2026 Shohei Ohtaki · https://budingsm.github.io/motion-prompt-zh/#152
 //
-// Zoom on scroll / スクロールで拡大
+// Zoom on scroll / Zoom on scroll
 // Pack: lp2 (Landing page & web effects, part 2) · element 08 · Category: Scroll effects
 // What happens: As the page scrolls, a small photo in the middle grows to fill the window, the text around it fades away and a headline appears over the photo.
 // Motion spec:
@@ -11,8 +11,8 @@
 // When to use it: Use it on travel, real-estate or brand sites to pull the visitor into the photo.
 // Tags: zoom, scroll, image, scale, scroll-driven, hero, fullscreen
 // Size: 539x208 px · Cycle: 9.4 s
-// Needs: kit lp2 -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/lp2.js
-// Live demo: https://showheyohtaki.github.io/motion-prompt/#152
+// Needs: kit lp2 -> https://budingsm.github.io/motion-prompt-zh/api/v1/kit/lp2.js
+// Live demo: https://budingsm.github.io/motion-prompt-zh/#152
 //
 // cells[i](k, w, h, u): k = CanvasRenderingContext2D (already cleared and wrapped in save/restore by the caller), w,h = size, u = seconds in [0, cycle). The picture depends only on u.
 // Element code starts here. CELLS, constants and helpers live in the kit.

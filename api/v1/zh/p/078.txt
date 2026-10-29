@@ -1,0 +1,15 @@
+请使用“Scroll Snap（Scroll snap）”，它是“落地页与网站效果”中的一个名称。
+Motion Prompt #078
+
+它是什么：卷动后会刚好停在区块的分界位置
+示例展示：After a small scroll, the page carries itself the rest of the way until the next section's top lines up with the top of the view.
+规格：
+- Each section is as tall as the viewport (168 px). The first is pale blue, the second navy.
+- One snap per 2.4 s. At 0.45–0.85 s the user scrolls only 34 px (cubic ease-out).
+- At 0.9–1.5 s the page moves the remaining 134 px by itself and lines up the next section's top (cubic ease-out).
+- The second 2.4 s does the same upward, back to the first section (the behaviour of scroll-snap-type: y mandatory).
+适用场景：Use it for a page that should read one full screen at a time, like slides.
+
+参考实现（Canvas 2D，画面只由时间决定的函数）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh/e/078.txt
+共享辅助代码：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/lp.js
+请保留参考实现的形状、时间安排和缓动数值，只替换文字、颜色和素材，以适配当前制作的内容。

@@ -1,0 +1,16 @@
+請使用「卡片翻轉（Flip）」，它是「動態圖形動效」中的一個名稱。
+Motion Prompt #021
+
+它是什麼：像卡片一樣翻到背面
+範例展示：A card turns over around its vertical axis and shows its other side.
+規格：
+- A card (300 × 156, radius 22). Front (blue, Q) ⇄ back (yellow, A), 2.35 s each.
+- Rotates 180° at 0.45–1.5 s (1.05 s) with backOut (s = 1.5), going slightly past 180° and coming back.
+- Card width = original width × |cos θ|. The face artwork is swapped as it passes 90°.
+- Perspective: the card is drawn in thin vertical slices whose height varies by up to ±20% × sin θ from one side to the other (far side shorter, near side taller).
+- During the turn it scales up 8% and lifts 6 px on a sine curve; a dark overlay with opacity 0.34 × |sin θ| shades the face. An elliptical shadow sits on the floor.
+適用情境：Use it for two things that are sides of one another: question and answer, before and after.
+
+參考實作（Canvas 2D，畫面只由時間決定的函式）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh-Hant/e/021.txt
+共用輔助程式碼：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/motion.js
+請保留參考實作的形狀、時間安排與緩動數值，只替換文字、色彩和素材，以符合目前製作的內容。

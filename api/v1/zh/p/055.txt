@@ -1,0 +1,16 @@
+请使用“Popover”，它是“UI 组件名称”中的一个名称。
+Motion Prompt #055
+
+它是什么：点击后跳出带箭头的小面板
+示例展示：Clicking "Details" opens a small white panel to its right with a pointer at the button; clicking OK inside closes it.
+规格：
+- 4.5 s cycle on a 542×191 card. An outlined blue "Details" button (108×36) at (24, 112); the cursor clicks it at 1.0 s.
+- Show amount a: 0→1 over 1.0–1.28 s with easeOutCubic; opacity a, sliding 6 px in from the right.
+- Panel: white 300×120, radius 10, at (156, 62), 1 px border, shadow blur 22, offset y 6. A 10-wide triangle on its left edge (y 122–138) points at the button.
+- Inside: a bold title bar, two text lines, an outlined 70×26 button and a blue 72×26 OK button.
+- Close: the cursor moves to OK (402, 157) by 3.0 s and clicks at 3.3 s; a is multiplied by (1 − easeInOutCubic over 3.3–3.5 s).
+适用场景：Use it for a short setting or confirmation that belongs right next to the button that opened it.
+
+参考实现（Canvas 2D，画面只由时间决定的函数）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh/e/055.txt
+共享辅助代码：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/ui.js
+请保留参考实现的形状、时间安排和缓动数值，只替换文字、颜色和素材，以适配当前制作的内容。

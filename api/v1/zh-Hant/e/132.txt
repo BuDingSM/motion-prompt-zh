@@ -1,0 +1,32 @@
+// Motion Prompt #132 · MIT License (c) 2026 Shohei Ohtaki · https://budingsm.github.io/motion-prompt-zh/#132
+//
+// 可變字體動畫 / Variable font animation
+// 類別包: motion2 (動態圖形動效（第二輯）) · element 12 · 分類: Text & shapes
+// 效果說明: The same word goes smoothly from thin to very bold and back, with a slider below showing the weight.
+// 動效規格:
+//   - "MOTION" (112 px, system-ui, 2 px letter spacing). The weight goes back and forth twice per 4.7 s: v = 0.5 − 0.5·cos(2π × 2 × time ÷ 4.7), which eases at both ends.
+//   - Weight = round(100 + 800v), from 100 to 900, set directly as the font weight.
+//   - A slider below (x = 112→427, y = 180) labelled thin on the left and bold on the right. The knob (yellow, radius 14) follows v, with the current weight shown above it.
+// 適用情境: Use it on a title, a logo or a single word to show loudness or emotion through the letters themselves.
+// 標籤: variable-font, font-weight, typography, text, weight, kinetic-type
+// 尺寸: 539x208 px · 週期: 4.7 s
+// 依賴: kit motion2 -> https://budingsm.github.io/motion-prompt-zh/api/v1/kit/motion2.js
+// 動態範例: https://budingsm.github.io/motion-prompt-zh/#132
+//
+// cells[i](k, w, h, u)：k = CanvasRenderingContext2D（呼叫方已清空畫布並完成 save/restore），w、h = 尺寸，u = [0, cycle) 內的秒數。畫面只由 u 決定。
+// 以下是元素程式碼。CELLS、常數和輔助函式位於 kit 中。
+
+// @element 12
+// 12 可変フォントアニメーション（同じ単語の太さが、細→極太→細となめらかに変わる）
+CELLS[11] = (k, w, h, u) => {
+  stage(k);
+  const v = 0.5 - 0.5 * Math.cos(2 * Math.PI * 2 * u / CYC), wt = Math.round(100 + 800 * v);
+  txt(k, 'MOTION', w / 2, 80, `${wt} 112px system-ui`, '#fff', 'center', 'middle', '2px');
+  const x0 = 112, x1 = w - 112, y = 180, kx = x0 + (x1 - x0) * v;
+  txt(k, '細', x0 - 34, y + 1, `300 30px ${JP}`, C.dim, 'center', 'middle');
+  txt(k, '太', x1 + 34, y + 1, `900 30px ${JP}`, C.dim, 'center', 'middle');
+  k.fillStyle = C.navy3; rr(k, x0, y - 5, x1 - x0, 10, 5); k.fill();
+  k.fillStyle = C.blue; rr(k, x0, y - 5, Math.max(10, kx - x0), 10, 5); k.fill();
+  k.fillStyle = C.yel; k.beginPath(); k.arc(kx, y, 14, 0, 7); k.fill();
+  txt(k, String(wt), kx, y - 30, `800 24px ${DISP}`, C.yel, 'center', 'middle');
+};

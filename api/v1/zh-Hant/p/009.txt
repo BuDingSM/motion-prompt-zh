@@ -1,0 +1,17 @@
+請使用「Easing」，它是「動態圖形動效」中的一個名稱。
+Motion Prompt #009
+
+它是什麼：速度有快有慢，而不是等速移動
+範例展示：Two squares cover the same distance in the same time: the top one at constant speed, the bottom one eased.
+規格：
+- One round trip per 4.7 s. Two 62 px squares (radius 16) travel 316 px horizontally: out at 0.2–1.75 s (1.55 s), hold 0.8 s, back at 2.55–4.1 s.
+- Top (constant): linear motion; shape and colour never change.
+- Bottom (eased): cubic-bezier(.86, 0, .14, 1). Slow start, very fast middle, slow stop.
+- The bottom square stretches horizontally up to 1.5× and flattens to 0.8× in proportion to speed (speed ÷ 3.6, clamped to 0–1).
+- Behind it: 3 speed lines (up to 150 px × 0.8–1.25) and 4 ghost copies lagging 0.035 s each.
+- Each rail shows 12 dots marking positions at equal time intervals (evenly spaced on top, bunched at both ends below).
+適用情境：Use it on any move, scale or rotation so the motion accelerates and decelerates instead of looking mechanical.
+
+參考實作（Canvas 2D，畫面只由時間決定的函式）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh-Hant/e/009.txt
+共用輔助程式碼：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/motion.js
+請保留參考實作的形狀、時間安排與緩動數值，只替換文字、色彩和素材，以符合目前製作的內容。

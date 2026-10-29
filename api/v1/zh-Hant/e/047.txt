@@ -1,0 +1,24 @@
+// Motion Prompt #047 · MIT License (c) 2026 Shohei Ohtaki · https://budingsm.github.io/motion-prompt-zh/#047
+//
+// J-cut / J-cut
+// 類別包: camera (攝影機運動與轉場) · element 23 · 分類: 轉場
+// 效果說明: The next scene's audio starts before the picture changes; the picture is shown on top with video and audio timelines below.
+// 動效規格:
+//   - Join: the picture is a straight cut; only the audio switches to the next scene (B) before the picture does. The offset is 20% of the timeline (0.72 s)
+//   - Playhead: moves left to right at constant speed over 3.6 s (0.4 s to 4.0 s); audio switches at 35% (about 1.66 s), picture at 55% (about 2.38 s)
+//   - In the offset section (35–55%) the picture is still A while the audio is already B; the section is marked with a pale blue band and two blue dashed lines
+//   - Layout: the top 134 px is the picture (fixed camera, subjects do not move); the bottom 74 px holds two timeline rows, video and audio (A grey, B pale blue, waveform on the audio row)
+//   - Labels: "映像A / 映像B" (video A / B) at bottom left of the picture; the audio now playing at bottom right ("♪ Aの音" grey → "♪ Bの音" blue)
+//   - Return: cross-fade back to the start over the last 0.5 s (one pass = 4.7 s)
+// 適用情境: To build anticipation for the next scene, or to make a change of scene or speaker feel natural.
+// 標籤: j-cut, j cut, split edit, audio lead, sound first, audio transition, edit
+// 尺寸: 539x208 px · 週期: 9.4 s
+// 依賴: kit camera -> https://budingsm.github.io/motion-prompt-zh/api/v1/kit/camera.js
+// 動態範例: https://budingsm.github.io/motion-prompt-zh/#047
+//
+// cells[i](k, w, h, u)：k = CanvasRenderingContext2D（呼叫方已清空畫布並完成 save/restore），w、h = 尺寸，u = [0, cycle) 內的秒數。畫面只由 u 決定。
+// 以下是元素程式碼。CELLS、常數和輔助函式位於 kit 中。
+
+// @element 23
+// 23 Jカット: 音が先に次の場面（B）へ切り替わり、映像が後から追う
+CELLS[22] = shot(splitCell(0.2), 134);

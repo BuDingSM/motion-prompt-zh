@@ -1,0 +1,37 @@
+// Motion Prompt #131 · MIT License (c) 2026 Shohei Ohtaki · https://budingsm.github.io/motion-prompt-zh/#131
+//
+// 路徑文字 / Text on a path
+// 類別包: motion2 (動態圖形動效（第二輯）) · element 11 · 分類: Text & shapes
+// 效果說明: A line of text flows along a wavy line, each letter turning to follow it.
+// 動效規格:
+//   - Path: y = 118 + 42·sin(2πx ÷ 330 + 0.6) for x = −70 to 609, shown 6 px below as a navy dashed line (14/10, width 5).
+//   - "ALONG THE LINE • " (42 px, bold, 2 px letter spacing) is repeated. Each character is placed at its arc-length position on the path and rotated to the path direction.
+//   - The text moves along the path by the length of one copy of the string every 4.7 s, so the loop joins up.
+//   - Letters are white; the bullet is yellow.
+// 適用情境: Use it to run text along a shape: around a logo, along a road, river or wave, or as a looping band of text.
+// 標籤: text-on-path, path-text, curved-text, text, marquee, wave, scroll
+// 尺寸: 539x208 px · 週期: 4.7 s
+// 依賴: kit motion2 -> https://budingsm.github.io/motion-prompt-zh/api/v1/kit/motion2.js
+// 動態範例: https://budingsm.github.io/motion-prompt-zh/#131
+//
+// cells[i](k, w, h, u)：k = CanvasRenderingContext2D（呼叫方已清空畫布並完成 save/restore），w、h = 尺寸，u = [0, cycle) 內的秒數。畫面只由 u 決定。
+// 以下是元素程式碼。CELLS、常數和輔助函式位於 kit 中。
+
+// @element 11
+// 11 テキストオンパス（文字列が、波打つ線に沿って流れていく）
+const TOP = (() => { const pts = []; for (let x = -70; x <= CW + 70; x += 4) pts.push([x, 118 + 42 * Math.sin(x * 2 * Math.PI / 330 + 0.6)]); return { pts, cum: pathLen(pts) }; })();
+CELLS[10] = (k, w, h, u) => {
+  stage(k);
+  k.save(); k.setLineDash([14, 10]); k.strokeStyle = C.navy3; k.lineWidth = 5; k.lineCap = 'round'; k.beginPath(); TOP.pts.forEach((p, i) => i ? k.lineTo(p[0], p[1] + 6) : k.moveTo(p[0], p[1] + 6)); k.stroke(); k.restore();
+  const f = `800 42px ${DISP}`, S = 'ALONG THE LINE • '; k.font = f;
+  const ws = [...S].map(ch => k.measureText(ch).width + 2), run = ws.reduce((a, b) => a + b, 0), L = TOP.cum[TOP.cum.length - 1], shift = (u / CYC) * run;
+  for (let r = -2; r * run + shift < L; r++) {
+    let s = r * run + shift;
+    [...S].forEach((ch, j) => {
+      const c = s + ws[j] / 2; s += ws[j];
+      if (c < 0 || c > L || ch === ' ') return;
+      const p = ptAt(TOP.pts, TOP.cum, c / L);
+      k.save(); k.translate(p[0], p[1]); k.rotate(p[2]); txt(k, ch, 0, 0, f, ch === '•' ? C.yel : '#fff', 'center', 'alphabetic'); k.restore();
+    });
+  }
+};

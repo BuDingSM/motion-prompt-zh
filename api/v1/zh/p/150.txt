@@ -1,0 +1,15 @@
+请使用“滚动监听（Scrollspy）”，它是“落地页与网站效果（第二辑）”中的一个名称。
+Motion Prompt #150
+
+它是什么：Highlights the current section in the menu
+示例展示：As the article scrolls, the table-of-contents item for the section being read lights up, and the highlight moves on when the next heading comes in.
+规格：
+- A 511 × 168 viewport: a table of contents on the left (150 px wide, 4 items) and the article on the right, with headings 100 px apart. Scroll: 0→100 over 0.3–0.9 s, →200 over 1.35–1.95 s, →300 over 2.4–3.0 s, 300→0 over 3.5–4.4 s (cubic ease-in-out). One pass takes 4.7 s (twice per 9.4 s pack cycle).
+- Current item = the last heading whose top is above scroll + 40 px (a trigger line 40 px below the top of the viewport).
+- When it changes, over 0.25 s (cubic ease-out) the item gets a pale orange background (126 × 26, radius 6) and an orange bar on its left (width 4), and its text turns from gray to bold orange; the previous item reverts over the same 0.25 s.
+- The table of contents stays put; only the article scrolls. The scrollbar thumb follows the scroll.
+适用场景：Use it on long articles, documentation or FAQs to show where the reader is within the whole page.
+
+参考实现（Canvas 2D，画面只由时间决定的函数）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh/e/150.txt
+共享辅助代码：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/lp2.js
+请保留参考实现的形状、时间安排和缓动数值，只替换文字、颜色和素材，以适配当前制作的内容。

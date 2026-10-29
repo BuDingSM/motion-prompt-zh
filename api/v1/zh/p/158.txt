@@ -1,0 +1,16 @@
+请使用“浮动标签（Floating label）”，它是“落地页与网站效果（第二辑）”中的一个名称。
+Motion Prompt #158
+
+它是什么：The label floats up when you start typing
+示例展示：Clicking the field shrinks the label and moves it onto the top border, leaving the field free for typing; empty and unfocused, the label moves back inside.
+规格：
+- A 511 × 168 viewport with a 300 × 46 field (radius 8) holding the label "メールアドレス" (email address, 15 px). The field is clicked at 0.65 s, and a click outside at 3.95 s removes focus. One pass takes 4.7 s (twice per 9.4 s pack cycle).
+- While focused or not empty, over 0.24 s (cubic ease-out) the label shrinks 15 → 11.5 px and moves from the middle of the field onto the top border (left padding 14 → 10 px); the border is masked in white behind it.
+- While focused, over 0.15 s (cubic ease-out) the border turns from gray to orange and 1.5 → 2.2 px wide, and the label turns orange.
+- "hello@example.com" is typed one character per 0.075 s from 1.0 s and deleted one per 0.03 s from 3.2 s. Once empty and unfocused, the label moves back inside over the same 0.24 s.
+- The text caret blinks every 0.9 s (it stays on while typing).
+适用场景：Use it on forms with many fields, to keep each label visible without taking extra space.
+
+参考实现（Canvas 2D，画面只由时间决定的函数）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh/e/158.txt
+共享辅助代码：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/lp2.js
+请保留参考实现的形状、时间安排和缓动数值，只替换文字、颜色和素材，以适配当前制作的内容。

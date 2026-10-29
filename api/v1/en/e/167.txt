@@ -1,6 +1,6 @@
-// Motion Prompt #167 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#167
+// Motion Prompt #167 · MIT License (c) 2026 Shohei Ohtaki · https://budingsm.github.io/motion-prompt-zh/#167
 //
-// Scroll-down cue / スクロールダウンの合図
+// Scroll-down cue / Scroll-down cue
 // Pack: lp2 (Landing page & web effects, part 2) · element 23 · Category: Showcase effects
 // What happens: Below the hero, the word "SCROLL", a dot inside a mouse outline and arrows on either side keep repeating a downward motion.
 // Motion spec:
@@ -10,8 +10,8 @@
 // When to use it: Use it when the hero fills the screen and people need a hint that the page goes on below.
 // Tags: scroll-cue, scroll-indicator, scroll-down, hero, arrow, loop
 // Size: 539x208 px · Cycle: 9.4 s
-// Needs: kit lp2 -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/lp2.js
-// Live demo: https://showheyohtaki.github.io/motion-prompt/#167
+// Needs: kit lp2 -> https://budingsm.github.io/motion-prompt-zh/api/v1/kit/lp2.js
+// Live demo: https://budingsm.github.io/motion-prompt-zh/#167
 //
 // cells[i](k, w, h, u): k = CanvasRenderingContext2D (already cleared and wrapped in save/restore by the caller), w,h = size, u = seconds in [0, cycle). The picture depends only on u.
 // Element code starts here. CELLS, constants and helpers live in the kit.

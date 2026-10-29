@@ -1,0 +1,15 @@
+請使用「無限捲動（Infinite scroll）」，它是「落地頁與網站效果」中的一個名稱。
+Motion Prompt #091
+
+它是什麼：捲到底部時自動載入更多內容
+範例展示：Scrolling down to the end of the list brings up a spinner, then three new items are added so reading can go on.
+規格：
+- A list of items (331 × 44, radius 8, 52 apart) with a spinner (radius 10, one turn per 0.8 s) under the last item.
+- Scroll: 38→116 px at 0.25–0.85 s, 116→194 px at 1.15–1.75 s (cubic ease-in-out); it stops with the end of the list in view.
+- At 2.6 s three items are added: each fades 0→1 and rises from 10 px below over 0.35 s (cubic ease-out). The spinner moves to the new end.
+- Each cycle advances by three items (156 px). The content repeats every three items, so the end of the cycle looks the same as the start.
+適用情境：Use it for feeds and news lists that people should keep reading without paging.
+
+參考實作（Canvas 2D，畫面只由時間決定的函式）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh-Hant/e/091.txt
+共用輔助程式碼：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/lp.js
+請保留參考實作的形狀、時間安排與緩動數值，只替換文字、色彩和素材，以符合目前製作的內容。

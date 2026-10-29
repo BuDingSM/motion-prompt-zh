@@ -1,0 +1,15 @@
+請使用「即時校驗（Inline validation）」，它是「落地頁與網站效果（第二輯）」中的一個名稱。
+Motion Prompt #159
+
+它是什麼：Shows right or wrong while you type
+範例展示：While the email address is half typed the field turns red with an "invalid format" message; the moment it is complete it switches to a green check and "OK".
+規格：
+- A 511 × 168 viewport with a 300 × 44 email field (radius 8). Clicked at 0.45 s, clicked away at 4.2 s. "hana@example.com" (16 characters) is typed one character per 0.115 s from 0.75 s and deleted one per 0.03 s from 3.6 s. One pass takes 4.7 s (twice per 9.4 s pack cycle).
+- From the second character until the last one is typed it is invalid: over 0.15 s (cubic ease-out) the border turns red (#E5383B), the fill pale red (#FFF1F1), and a red "!" circle with "形式が正しくありません" (invalid format, 13 px) appears below.
+- When the last character makes it valid, over 0.25 s the border turns green (#1E9E5A), a green circle (radius 11, bouncing in with GSAP elastic.out(1, 0.3)) with a white check appears at the right end, and "OK" appears below.
+- While focused, the border turns from gray to navy and 1.5 → 2.2 px wide over 0.15 s. Once deletion starts, the messages go away.
+適用情境：Use it on sign-up or contact forms so people notice mistakes before they submit.
+
+參考實作（Canvas 2D，畫面只由時間決定的函式）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh-Hant/e/159.txt
+共用輔助程式碼：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/lp2.js
+請保留參考實作的形狀、時間安排與緩動數值，只替換文字、色彩和素材，以符合目前製作的內容。

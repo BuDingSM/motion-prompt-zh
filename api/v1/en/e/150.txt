@@ -1,6 +1,6 @@
-// Motion Prompt #150 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#150
+// Motion Prompt #150 · MIT License (c) 2026 Shohei Ohtaki · https://budingsm.github.io/motion-prompt-zh/#150
 //
-// Scrollspy / スクロールスパイ
+// Scrollspy / Scrollspy
 // Pack: lp2 (Landing page & web effects, part 2) · element 06 · Category: Scroll effects
 // What happens: As the article scrolls, the table-of-contents item for the section being read lights up, and the highlight moves on when the next heading comes in.
 // Motion spec:
@@ -11,8 +11,8 @@
 // When to use it: Use it on long articles, documentation or FAQs to show where the reader is within the whole page.
 // Tags: scrollspy, table-of-contents, toc, navigation, active-state, scroll
 // Size: 539x208 px · Cycle: 9.4 s
-// Needs: kit lp2 -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/lp2.js
-// Live demo: https://showheyohtaki.github.io/motion-prompt/#150
+// Needs: kit lp2 -> https://budingsm.github.io/motion-prompt-zh/api/v1/kit/lp2.js
+// Live demo: https://budingsm.github.io/motion-prompt-zh/#150
 //
 // cells[i](k, w, h, u): k = CanvasRenderingContext2D (already cleared and wrapped in save/restore by the caller), w,h = size, u = seconds in [0, cycle). The picture depends only on u.
 // Element code starts here. CELLS, constants and helpers live in the kit.

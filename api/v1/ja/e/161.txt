@@ -1,4 +1,4 @@
-// Motion Prompt #161 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#161
+// Motion Prompt #161 · MIT License (c) 2026 Shohei Ohtaki · https://budingsm.github.io/motion-prompt-zh/#161
 //
 // ビュートランジション / View transition (shared element)
 // パック: lp2 (LP・Webサイトの演出 第2弾) · element 17 · カテゴリ: 見せ場の演出
@@ -12,8 +12,8 @@
 // 使いどころ: 一覧と詳細を行き来するギャラリーや商品ページで、どの項目を開いたかを見失わせたくないとき。
 // タグ: view-transition, shared-element, page-transition, morph, gallery, navigation
 // サイズ: 539x208 px · 1周: 9.4 s
-// Needs: kit lp2 -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/lp2.js
-// 動く見本: https://showheyohtaki.github.io/motion-prompt/#161
+// Needs: kit lp2 -> https://budingsm.github.io/motion-prompt-zh/api/v1/kit/lp2.js
+// 動く見本: https://budingsm.github.io/motion-prompt-zh/#161
 //
 // cells[i](k, w, h, u) … k = CanvasRenderingContext2D（呼ぶ側でクリアと save/restore 済み）、w・h = サイズ、u = 秒（0 以上 1周 未満）。u だけで絵が決まる。
 // ここから要素のコード。CELLS や定数・補助関数は kit にある。

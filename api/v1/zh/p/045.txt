@@ -1,0 +1,17 @@
+请使用“擦除转场（Wipe）”，它是“摄影机运动与转场”中的一个名称。
+Motion Prompt #045
+
+它是什么：一条移动的边界把画面换掉
+示例展示：A vertical edge moves from left to right and the next picture replaces the current one behind it.
+规格：
+- Join: 1.1 s, from 1.7 s to 2.8 s; the edge travels from just outside the left side (x = -4 px) to just outside the right side (x = 543 px)
+- Easing: cubic ease-in-out (about cubic-bezier(0.65,0,0.35,1))
+- The incoming picture shows left of the edge and the outgoing one right of it; neither picture moves (a reveal by clipping, not a push)
+- Edge: a 4 px blue vertical line, visible only while it is moving
+- Camera: fixed in both pictures; the subjects do not move either
+- Alternates A→B and B→A every 4.7 s (9.4 s for the round trip); top-right readout shows "A → B" / "B → A"
+适用场景：To mark a clear change of scene or topic, or to switch between the two sides of a comparison.
+
+参考实现（Canvas 2D，画面只由时间决定的函数）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh/e/045.txt
+共享辅助代码：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/camera.js
+请保留参考实现的形状、时间安排和缓动数值，只替换文字、颜色和素材，以适配当前制作的内容。

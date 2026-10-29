@@ -1,0 +1,17 @@
+請使用「匹配剪接（Match cut）」，它是「攝影機運動與轉場」中的一個名稱。
+Motion Prompt #042
+
+它是什麼：用相同的形狀或動作接到下一個鏡頭
+範例展示：A thrown ball becomes, in the next shot, a sun at the same position and size; two different scenes are joined on a matching shape.
+規格：
+- Join: a straight cut at 2.3 s (0 frames); the blue circle has the same position (120 px right, 46 px above centre) and radius 17 px on both sides
+- Outgoing shot (0–2.3 s): fixed camera (height 1.4 m); a person (1.2 m left, 7 m away) throws a ball from 0.5 s, cubic ease-out (about cubic-bezier(0.33,1,0.68,1))
+- Ball: travels from above the person's head (2.3 m high) to the match point; radius 5 px → 17 px, on an arc bulging up to 30 px
+- Incoming shot (2.3–4.7 s): a different place (no buildings, height 1.2 m); the blue circle in the same spot is now the sun and sinks 14 px over 2.4 s
+- Marker: a blue dashed circle of radius 26 px fades in and out within 0.7 s either side of the cut
+- Top-right readout shows "SHOT 1" → "SHOT 2"; at 4.7 s it cuts straight back to SHOT 1
+適用情境：To link two scenes far apart in time or place through a shared shape or motion.
+
+參考實作（Canvas 2D，畫面只由時間決定的函式）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh-Hant/e/042.txt
+共用輔助程式碼：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/camera.js
+請保留參考實作的形狀、時間安排與緩動數值，只替換文字、色彩和素材，以符合目前製作的內容。

@@ -1,6 +1,6 @@
-// Motion Prompt #136 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#136
+// Motion Prompt #136 · MIT License (c) 2026 Shohei Ohtaki · https://budingsm.github.io/motion-prompt-zh/#136
 //
-// Line boil / ラインボイル
+// Line boil / Line boil
 // Pack: motion2 (Motion graphics moves, part 2) · element 16 · Category: Text & shapes
 // What happens: A hand-drawn line picture wobbles every few frames while the picture itself stays still.
 // Motion spec:
@@ -11,8 +11,8 @@
 // When to use it: Use it on hand-drawn illustrations, icons or lettering to make even a still picture feel drawn by hand.
 // Tags: line-boil, boil, hand-drawn, wobble, jitter, sketch, frame-by-frame
 // Size: 539x208 px · Cycle: 4.7 s
-// Needs: kit motion2 -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/motion2.js
-// Live demo: https://showheyohtaki.github.io/motion-prompt/#136
+// Needs: kit motion2 -> https://budingsm.github.io/motion-prompt-zh/api/v1/kit/motion2.js
+// Live demo: https://budingsm.github.io/motion-prompt-zh/#136
 //
 // cells[i](k, w, h, u): k = CanvasRenderingContext2D (already cleared and wrapped in save/restore by the caller), w,h = size, u = seconds in [0, cycle). The picture depends only on u.
 // Element code starts here. CELLS, constants and helpers live in the kit.

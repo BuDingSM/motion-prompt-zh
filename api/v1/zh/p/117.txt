@@ -1,0 +1,15 @@
+请使用“Teal & Orange（Teal and orange）”，它是“摄影风格、光线与镜头效果”中的一个名称。
+Motion Prompt #117
+
+它是什么：阴影偏青绿色，肤色与亮部偏橘色的色调
+示例展示：In the same landscape the sky, hills, ground and the shadowed figure shift to teal while the sunlit edge of the figure and the sun shift to orange, a complementary contrast.
+规格：
+- Scene 3: a bust on the left (head centre x 140, y 82, radius 28 px) and hills, a house, trees and the sun (x 432, y 54, radius 15 px) on the right. 
+- Teal: sky #CFE6E3, hills #8CC1BE and #62A2A1, ground #3F8083, trees #2F6A6E, figure #1D4E53
+- Orange: the light on the figure #FF9248, sun #FF8236, sun rings #FFC48C
+- Timing: the effect comes in from 0.4 s to 1.4 s, holds until 4.0 s and is gone again by 4.8 s (one pass = 5 s, cubic ease-in-out (about cubic-bezier(0.65,0,0.35,1)))
+适用场景：For a blockbuster, trailer-like look with strong colour contrast.
+
+参考实现（Canvas 2D，画面只由时间决定的函数）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh/e/117.txt
+共享辅助代码：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/photo.js
+请保留参考实现的形状、时间安排和缓动数值，只替换文字、颜色和素材，以适配当前制作的内容。

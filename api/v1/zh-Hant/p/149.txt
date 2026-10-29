@@ -1,0 +1,15 @@
+請使用「滾動隱藏頁頭（Hide-on-scroll header）」，它是「落地頁與網站效果（第二輯）」中的一個名稱。
+Motion Prompt #149
+
+它是什麼：Hides on scroll down, returns on scroll up
+範例展示：Scrolling down slides the header up out of view to free the screen; scrolling up even a little brings it straight back.
+規格：
+- A 511 × 168 viewport with a 34 px header fixed at the top. Scroll: 0→170 px over 0.3–1.1 s (down), 170→100 over 1.5–1.9 s (up), 100→230 over 2.4–2.9 s (down), 230→0 over 3.3–4.3 s (up), each with cubic ease-in-out. One pass takes 4.7 s (twice per 9.4 s pack cycle).
+- If the last movement was downward the header hides; if upward it shows. Within 34 px of the top of the page it always shows.
+- Hiding and showing both move it 36 px upward over 0.3 s (quadratic ease-in-out), like transform: translateY with a transition.
+- While scrolled, a 12 px shadow sits under the header (opacity 0→0.14 over the first 30 px of scroll). The scrollbar thumb follows the scroll.
+適用情境：Use it when screen space is tight, as on phones, to give the content more room while keeping the menu one small scroll away.
+
+參考實作（Canvas 2D，畫面只由時間決定的函式）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh-Hant/e/149.txt
+共用輔助程式碼：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/lp2.js
+請保留參考實作的形狀、時間安排與緩動數值，只替換文字、色彩和素材，以符合目前製作的內容。

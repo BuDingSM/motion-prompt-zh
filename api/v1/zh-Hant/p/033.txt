@@ -1,0 +1,17 @@
+請使用「焦點轉移（Rack focus）」，它是「攝影機運動與轉場」中的一個名稱。
+Motion Prompt #033
+
+它是什麼：焦點在前景與後景之間轉移
+範例展示：The camera does not move; focus shifts from a flower in the foreground to a person behind it, swapping which one is blurred.
+規格：
+- Camera: position, direction and focal length all fixed (height 1.1 m); only the blur amounts change
+- Blur: the foreground flower (0.75 m left, 2 m away) goes 0 px → 7 px; the person and background (person 0.9 m right, 9 m away) go 6 px → 0 px; the ground grid uses 0.6× the background blur
+- Timing: 1.0 s to 2.6 s (1.6 s), cubic ease-in-out (about cubic-bezier(0.65,0,0.35,1))
+- Focus marker: blue corner brackets travel in a straight line from the flower to the person, half-width shrinking 46 px → 30 px
+- Subject: neither the flower nor the person moves
+- Return: hold 2.6–4.2 s, then cross-fade back over the last 0.5 s; top-right readout shows focus distance (◎ 2m → ◎ 9m)
+適用情境：To move attention from foreground to background (or back) without cutting.
+
+參考實作（Canvas 2D，畫面只由時間決定的函式）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh-Hant/e/033.txt
+共用輔助程式碼：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/camera.js
+請保留參考實作的形狀、時間安排與緩動數值，只替換文字、色彩和素材，以符合目前製作的內容。

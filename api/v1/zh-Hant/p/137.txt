@@ -1,0 +1,15 @@
+請使用「推入轉場（Push transition）」，它是「動態圖形動效（第二輯）」中的一個名稱。
+Motion Prompt #137
+
+它是什麼：The next scene pushes the current one out
+範例展示：The next scene slides in from the side and pushes the current one out with it.
+規格：
+- Sea scene → mountain scene → sea scene, 2.35 s each. The change runs at 0.45–1.6 s of each half (1.15 s), cubic ease-in-out.
+- The two scenes stay joined and move together by the full frame width (539 px); no overlap and no fade.
+- Direction: sea→mountain moves left (the next scene enters from the right); mountain→sea moves right.
+- A navy line (width 6) marks the seam between the two scenes.
+適用情境：Use it to step through slides, photos or steps, when the change should feel continuous and moving forward.
+
+參考實作（Canvas 2D，畫面只由時間決定的函式）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh-Hant/e/137.txt
+共用輔助程式碼：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/motion2.js
+請保留參考實作的形狀、時間安排與緩動數值，只替換文字、色彩和素材，以符合目前製作的內容。

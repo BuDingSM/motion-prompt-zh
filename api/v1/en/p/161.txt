@@ -1,4 +1,4 @@
-Please use "View transition (shared element)" (ビュートランジション), one of the names in "Landing page & web effects, part 2".
+Please use "View transition (shared element)", one of the names in "Landing page & web effects, part 2".
 Motion Prompt #161
 
 What it is: A list photo expands into the detail page
@@ -11,6 +11,6 @@ Spec:
 - This is how the View Transitions API looks when the list photo and the detail photo share the same view-transition-name.
 When to use it: Use it on galleries or product pages that go back and forth between a list and a detail view, so people never lose track of what they opened.
 
-Reference implementation (Canvas 2D, a function whose picture depends only on the time): https://showheyohtaki.github.io/motion-prompt/api/v1/en/e/161.txt
-Shared helper code: https://showheyohtaki.github.io/motion-prompt/api/v1/kit/lp2.js
+Reference implementation (Canvas 2D, a function whose picture depends only on the time): https://budingsm.github.io/motion-prompt-zh/api/v1/en/e/161.txt
+Shared helper code: https://budingsm.github.io/motion-prompt-zh/api/v1/kit/lp2.js
 Keep the shapes, timing and easing values of the reference implementation as they are, and change only the text, colours and assets to fit what I am making.

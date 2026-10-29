@@ -1,0 +1,16 @@
+請使用「範圍滑桿（Range slider）」，它是「UI 組件名稱」中的一個名稱。
+Motion Prompt #062
+
+它是什麼：用兩個滑鈕選出範圍
+範例展示：On a price slider, the left handle is dragged right and the right handle left to narrow the range, then both go back.
+規格：
+- 4.5 s cycle on a 542×191 card. Track: x 54–488, 8 tall, at y 120; the part between the two handles is blue. Range ¥0–¥10,000.
+- Handles: white, radius 13, 3 px blue rim; while dragged, radius 15 with a light-blue halo of radius 24.
+- Low handle: 0.1 → 0.3 (¥1,000 → ¥3,000) over 1.0–1.6 s, back over 3.55–3.9 s. High handle: 1.0 → 0.8 (¥10,000 → ¥8,000) over 2.1–2.6 s, back over 2.95–3.3 s. All easeInOutCubic.
+- A value bubble (28 tall) above each handle, blue with white text while dragged. The range "¥1,000 – ¥10,000" is shown in blue at top right, updated in ¥100 steps.
+- The cursor sits on the handle it drags (presses at 1.0, 2.1, 2.95 and 3.55 s).
+適用情境：Use it to filter by a range, such as price, date or size, with a minimum and a maximum.
+
+參考實作（Canvas 2D，畫面只由時間決定的函式）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh-Hant/e/062.txt
+共用輔助程式碼：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/ui.js
+請保留參考實作的形狀、時間安排與緩動數值，只替換文字、色彩和素材，以符合目前製作的內容。

@@ -1,0 +1,14 @@
+請使用「百葉窗轉場（Blinds transition）」，它是「動態圖形動效（第二輯）」中的一個名稱。
+Motion Prompt #138
+
+它是什麼：The next scene opens through thin strips
+範例展示：Gaps in a row of thin strips widen until the next scene is fully open.
+規格：
+- Day scene → night scene → day, 2.35 s each. Seven horizontal strips (208 ÷ 7 ≈ 29.7 px each).
+- 0.4–1.65 s (1.25 s), quadratic ease-in-out: in every strip at once, the next scene is revealed from the strip's top edge downward, opening from 0 to the full strip height.
+- The previous scene stays underneath. Neither picture moves.
+適用情境：Use it for a clear switch between two scenes, such as day and night or before and after, or for a retro feel.
+
+參考實作（Canvas 2D，畫面只由時間決定的函式）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh-Hant/e/138.txt
+共用輔助程式碼：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/motion2.js
+請保留參考實作的形狀、時間安排與緩動數值，只替換文字、色彩和素材，以符合目前製作的內容。

@@ -1,0 +1,16 @@
+请使用“弹跳（Bounce）”，它是“动态图形动效（第二辑）”中的一个名称。
+Motion Prompt #123
+
+它是什么：Falls and bounces lower until it stops
+示例展示：A ball drops and bounces lower each time until it comes to rest.
+规格：
+- One drop per 2.35 s (twice per 4.7 s: yellow first, then coral). The ball has radius 26.
+- From 0.1 s it falls from 190 px above the floor. Gravity 1900 px/s²; each bounce keeps 56% of the speed (restitution 0.56); it stops when the rebound speed is below 35 px/s.
+- Sideways it moves x = 150→390 over 0.1–1.8 s with cubic ease-out.
+- Squash for 0.045 s either side of each impact: width 1 + sq, height 1 − sq, with sq up to 0.4 × min(1, impact speed ÷ 850). Impacts faster than 200 px/s flick short white lines left and right for 0.3 s.
+- The shadow gets smaller with height. Exit: 1.95–2.25 s, scale multiplied by (1 − backIn, s = 2).
+适用场景：Use it whenever something drops and lands: an icon, a word or a product that should feel heavy and springy.
+
+参考实现（Canvas 2D，画面只由时间决定的函数）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh/e/123.txt
+共享辅助代码：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/motion2.js
+请保留参考实现的形状、时间安排和缓动数值，只替换文字、颜色和素材，以适配当前制作的内容。

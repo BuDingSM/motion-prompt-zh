@@ -1,0 +1,15 @@
+請使用「倒數計時器（Countdown timer）」，它是「落地頁與網站效果（第二輯）」中的一個名稱。
+Motion Prompt #164
+
+它是什麼：Counts down the time left to a deadline
+範例展示：The hours, minutes and seconds under "キャンペーン終了まで" (until the campaign ends) count down every second; only the digits that change slide up and out as new ones come in from below.
+規格：
+- A 511 × 168 viewport: an orange gradient band with "キャンペーン終了まで" (until the campaign ends) and six digit tiles for hours, minutes and seconds (34 × 50 each, radius 6, 32 px digits). This card alone runs once per 9.4 s (the pack cycle).
+- It starts at 02:15:04 and counts down one second at a time, nine times, every 1 s from 0.4 s, ending at 02:14:55. At 4.4 s, 02:15:00 → 02:14:59 rolls the minutes over.
+- Only the tiles whose digit changes animate: over 0.32 s (cubic ease-in-out) the old digit slides up and out and the new one slides in from below, clipped to the tile.
+- At 9.4 s it goes back to 02:15:04 with a plain cut.
+適用情境：Use it before a limited-time offer or an application deadline, to make the time left plain to see.
+
+參考實作（Canvas 2D，畫面只由時間決定的函式）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh-Hant/e/164.txt
+共用輔助程式碼：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/lp2.js
+請保留參考實作的形狀、時間安排與緩動數值，只替換文字、色彩和素材，以符合目前製作的內容。

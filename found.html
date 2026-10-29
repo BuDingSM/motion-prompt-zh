@@ -1,17 +1,17 @@
 <!doctype html>
-<html lang="ja">
+<html lang="zh">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>見つけた事例｜Motion Prompt</title>
-<meta name="description" content="AIに頼むための名前を、見本と一緒にまとめて公開している人たちのポストです。Xの埋め込みとリンクで紹介しています。">
-<link rel="canonical" href="https://showheyohtaki.github.io/motion-prompt/found.html">
+<title>案例｜Motion Prompt 中文版</title>
+<meta name="description" content="使用动效名称和动态示例建立共同语言的公开案例。">
+<link rel="canonical" href="https://budingsm.github.io/motion-prompt-zh/found.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Motion Prompt">
-<meta property="og:title" content="見つけた事例｜Motion Prompt">
-<meta property="og:description" content="名前と見本で共通言語を作っている人たちのポストを、Xの埋め込みとリンクで紹介しています。">
-<meta property="og:url" content="https://showheyohtaki.github.io/motion-prompt/found.html">
-<meta property="og:image" content="https://showheyohtaki.github.io/motion-prompt/assets/og.png">
+<meta property="og:title" content="案例｜Motion Prompt 中文版">
+<meta property="og:description" content="使用动效名称和动态示例建立共同语言的公开案例。">
+<meta property="og:url" content="https://budingsm.github.io/motion-prompt-zh/found.html">
+<meta property="og:image" content="https://budingsm.github.io/motion-prompt-zh/assets/og.png">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:locale:alternate" content="en_US">
 <meta name="color-scheme" content="light dark">
@@ -22,7 +22,10 @@
   var d = document.documentElement, t = null, l = null;
   try { t = localStorage.getItem('mp-theme'); l = localStorage.getItem('mp-lang'); } catch (e) {}
   if (t === 'light' || t === 'dark') d.setAttribute('data-theme', t);
-  if (l !== 'ja' && l !== 'en') l = /^ja\b/i.test(navigator.language || 'ja') ? 'ja' : 'en';
+  if (l !== 'ja' && l !== 'en' && l !== 'zh' && l !== 'zh-Hant') {
+    var browserLang = navigator.language || 'zh-CN';
+    l = /^ja\b/i.test(browserLang) ? 'ja' : /^zh-TW|zh-HK|zh-MO/i.test(browserLang) ? 'zh-Hant' : /^zh\b/i.test(browserLang) ? 'zh' : 'en';
+  }
   d.lang = l;
 })();
 </script>
@@ -38,9 +41,11 @@
     <nav class="top-nav" aria-label="サイト内" data-t-attr="aria-label:navLabel">
       <a class="top-link top-how" href="./" data-t="navGallery">見本</a>
       <a class="top-link" href="found.html" aria-current="page" data-t="navFound">事例</a>
-      <a class="top-link top-gh" href="https://github.com/showheyohtaki/motion-prompt" rel="noopener">GitHub</a>
+      <a class="top-link top-gh" href="https://github.com/BuDingSM/motion-prompt-zh" rel="noopener">GitHub</a>
       <div class="seg" role="group" aria-label="言語" data-t-attr="aria-label:langLabel">
-        <button type="button" class="seg-b" data-lang="ja" aria-pressed="true" aria-label="日本語">JA</button>
+        <button type="button" class="seg-b" data-lang="zh" aria-pressed="true" aria-label="简体中文">简</button>
+        <button type="button" class="seg-b" data-lang="zh-Hant" aria-pressed="false" aria-label="繁體中文">繁</button>
+        <button type="button" class="seg-b" data-lang="ja" aria-pressed="false" aria-label="日本語">JA</button>
         <button type="button" class="seg-b" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
       </div>
       <button type="button" class="icon-b" id="theme" aria-label="ダークモードに切り替える">
@@ -78,12 +83,12 @@
       <div class="how-col">
         <h3 data-t="recH">ポストを推薦する（自薦も歓迎）</h3>
         <p data-t="recP">名前に見本を付けて公開しているポストを見つけたら、GitHub の Issue で知らせてください。自分のポストでもかまいません。載せるのは埋め込みとリンクだけで、画像や動画をこのサイトに写すことはしません。</p>
-        <p><a href="https://github.com/showheyohtaki/motion-prompt/issues/new?template=2-example.yml" rel="noopener" data-t="recLink">事例を推薦する（GitHub Issue）</a></p>
+        <p><a href="https://github.com/BuDingSM/motion-prompt-zh/issues/new?template=2-example.yml" rel="noopener" data-t="recLink">事例を推薦する（GitHub Issue）</a></p>
       </div>
       <div class="how-col">
         <h3 data-t="rmH">外してほしいとき</h3>
         <p data-t="rmP">ご自分のポストを外したい、紹介文が正しくない、という場合は Issue のフォームから依頼してください。確認できたら、すみやかに外します。</p>
-        <p><a href="https://github.com/showheyohtaki/motion-prompt/issues/new?template=3-removal.yml" rel="noopener" data-t="rmLink">削除・訂正を依頼する（GitHub Issue）</a></p>
+        <p><a href="https://github.com/BuDingSM/motion-prompt-zh/issues/new?template=3-removal.yml" rel="noopener" data-t="rmLink">削除・訂正を依頼する（GitHub Issue）</a></p>
       </div>
     </div>
   </section>
@@ -93,12 +98,12 @@
   <div class="wrap foot-in">
     <p><strong>Motion Prompt</strong> · MIT License · <span data-t="author">作者</span> <span data-t="authorName">大滝昇平</span>（<a href="https://x.com/showheyohtaki" rel="noopener">@showheyohtaki</a>）</p>
     <p class="foot-links">
-      <a href="https://github.com/showheyohtaki/motion-prompt/blob/main/README.ja.md#なぜ作ったか" data-href-ja="https://github.com/showheyohtaki/motion-prompt/blob/main/README.ja.md#なぜ作ったか" data-href-en="https://github.com/showheyohtaki/motion-prompt#why-i-made-this" rel="noopener" data-t="whyLink">なぜ作ったか</a>
-      <a href="https://github.com/showheyohtaki/motion-prompt/tree/main/packs" rel="noopener" data-t="listLink">名前の一覧（GitHub）</a>
-      <a href="https://github.com/showheyohtaki/motion-prompt/blob/main/make-your-own/README.ja.md" data-href-ja="https://github.com/showheyohtaki/motion-prompt/blob/main/make-your-own/README.ja.md" data-href-en="https://github.com/showheyohtaki/motion-prompt/tree/main/make-your-own" rel="noopener" data-t="makeLink">自分の分野・自分の言語で作る</a>
-      <a href="https://github.com/showheyohtaki/motion-prompt/blob/main/CONTRIBUTING.ja.md" data-href-ja="https://github.com/showheyohtaki/motion-prompt/blob/main/CONTRIBUTING.ja.md" data-href-en="https://github.com/showheyohtaki/motion-prompt/blob/main/CONTRIBUTING.md" rel="noopener" data-t="addLink">あなたの分野の名前を足す</a>
+      <a href="https://github.com/BuDingSM/motion-prompt-zh/blob/main/README.md" data-href-zh="https://github.com/BuDingSM/motion-prompt-zh/blob/main/README.md" data-href-zh-Hant="https://github.com/BuDingSM/motion-prompt-zh/blob/main/README.zh-Hant.md" data-href-ja="https://github.com/BuDingSM/motion-prompt-zh/blob/main/README.ja.md#なぜ作ったか" data-href-en="https://github.com/BuDingSM/motion-prompt-zh/blob/main/README.en.md#why-i-made-this" rel="noopener" data-t="whyLink">なぜ作ったか</a>
+      <a href="https://github.com/BuDingSM/motion-prompt-zh/tree/main/packs" rel="noopener" data-t="listLink">名前の一覧（GitHub）</a>
+      <a href="https://github.com/BuDingSM/motion-prompt-zh/blob/main/make-your-own/README.zh.md" data-href-zh="https://github.com/BuDingSM/motion-prompt-zh/blob/main/make-your-own/README.zh.md" data-href-zh-Hant="https://github.com/BuDingSM/motion-prompt-zh/blob/main/make-your-own/README.zh-Hant.md" data-href-ja="https://github.com/BuDingSM/motion-prompt-zh/blob/main/make-your-own/README.ja.md" data-href-en="https://github.com/BuDingSM/motion-prompt-zh/tree/main/make-your-own" rel="noopener" data-t="makeLink">自分の分野・自分の言語で作る</a>
+      <a href="https://github.com/BuDingSM/motion-prompt-zh/blob/main/CONTRIBUTING.ja.md" data-href-ja="https://github.com/BuDingSM/motion-prompt-zh/blob/main/CONTRIBUTING.ja.md" data-href-en="https://github.com/BuDingSM/motion-prompt-zh/blob/main/CONTRIBUTING.md" rel="noopener" data-t="addLink">あなたの分野の名前を足す</a>
     </p>
-    <p class="foot-remove"><span data-t="removeP1">掲載の削除・訂正は</span><a href="https://github.com/showheyohtaki/motion-prompt/issues/new?template=3-removal.yml" rel="noopener" data-t="removeLink">GitHub の Issue のフォーム</a><span data-t="removeP2">から依頼できます。確認後、すみやかに対応します。</span></p>
+    <p class="foot-remove"><span data-t="removeP1">掲載の削除・訂正は</span><a href="https://github.com/BuDingSM/motion-prompt-zh/issues/new?template=3-removal.yml" rel="noopener" data-t="removeLink">GitHub の Issue のフォーム</a><span data-t="removeP2">から依頼できます。確認後、すみやかに対応します。</span></p>
     <p class="foot-thanks"><span data-t="thanks1">動く見本を並べて、プロンプトをコピーして使う形は</span> <a href="https://lucianlabs.dev/uxui-prompt/" rel="noopener">Lucian UX/UI Prompt</a> <span data-t="thanks2">から着想を得ました。ありがとうございます。</span></p>
   </div>
 </footer>

@@ -1,0 +1,39 @@
+// Motion Prompt #051 · MIT License (c) 2026 Shohei Ohtaki · https://budingsm.github.io/motion-prompt-zh/#051
+//
+// Bottom Sheet / Bottom sheet
+// 類別包: ui (UI 組件名稱) · element 03 · 分類: 展開與彈出式元件
+// 效果說明: A finger taps "View details" and a panel rises from the bottom; dragging its handle down closes it.
+// 動效規格:
+//   - 4.5 s cycle on a 542×191 card. A finger (semi-transparent circle, radius 17, white rim) taps the "View details" pill (170×36, bottom centre) at 1.0 s.
+//   - Open amount: 0→1 over 1.05–1.45 s with easeOutCubic. Full-card scrim rgba(18,20,28) at opacity 0.36·a.
+//   - Sheet: white, 136 tall, top corners radius 18, top edge at y = 191 − 136·a. Shadow blur 22, offset y −4. A 52×6 grab handle at top centre.
+//   - Inside: a bold title bar and two rows with 26×26 icons.
+//   - Close: the finger lands on the handle (271, 68) at 2.75 s and drags down over 3.0–3.6 s; a is multiplied by (1 − easeInOutCubic over 3.0–3.6 s), so the sheet follows the finger off the bottom.
+// 適用情境: Use it on mobile to show details or choices while keeping the current screen in view.
+// 標籤: bottom-sheet, sheet, modal-sheet, mobile, slide-up, drag-to-dismiss, panel
+// 尺寸: 542x191 px · 週期: 4.5 s
+// 依賴: kit ui -> https://budingsm.github.io/motion-prompt-zh/api/v1/kit/ui.js
+// 動態範例: https://budingsm.github.io/motion-prompt-zh/#051
+//
+// cells[i](k, w, h, u)：k = CanvasRenderingContext2D（呼叫方已清空畫布並完成 save/restore），w、h = 尺寸，u = [0, cycle) 內的秒數。畫面只由 u 決定。
+// 以下是元素程式碼。CELLS、常數和輔助函式位於 kit 中。
+
+// @element 03
+// 03 ボトムシート（Bottom sheet）
+CELLS[2] = ui((w, h, t) => {
+  pageLines(24, 16, 494); fillRR(24, 76, 239, 54, 8, C.block); fillRR(279, 76, 239, 54, 8, C.block);
+  fillRR(186, 144, 170, 36, 18, C.blue); text('詳細を見る', 271, 162, 15, '#fff', 600, 'center');
+  const open = eo(seg(t, 1.05, 1.45));
+  const drag = eio(seg(t, 3.0, 3.6));
+  const a = open * (1 - drag);
+  if (open > 0 && a > 0.001) {
+    X.fillStyle = `rgba(18,20,28,${.36 * a})`; X.fillRect(0, 0, w, h);
+    const sh = 136, sy = h - sh * a;
+    shadowed(() => { rr(0, sy, w, sh + 20, 18); X.fillStyle = '#fff'; X.fill(); }, 22, -4, .2);
+    fillRR(w / 2 - 26, sy + 10, 52, 6, 3, C.line2);
+    bar(28, sy + 30, 160, C.ink, 11);
+    for (let i = 0; i < 2; i++) { const y = sy + 56 + i * 36; fillRR(28, y, 26, 26, 6, i ? C.mb : C.blue); bar(66, y + 4, 220, C.line); bar(66, y + 17, 140, C.line, 7); }
+  }
+  const sy = h - 136 * a;
+  finger([[.3, 271, 162], [1.6, 271, 162], [2.75, w / 2, h - 136 + 13], [3.0, w / 2, h - 136 + 13], [3.6, w / 2, h + 10]], [1.0, 3.0], t, (t > .6 && t < 1.6) || (t > 2.75 && t < 3.6));
+});

@@ -1,0 +1,15 @@
+請使用「底線動畫（Underline animation）」，它是「落地頁與網站效果」中的一個名稱。
+Motion Prompt #086
+
+它是什麼：滑鼠移到連結上時，底線從左邊延伸出來
+範例展示：Under the link the cursor is on, an orange line grows from the left; when the cursor leaves, the line shrinks away to the right.
+規格：
+- Three links (20 px, bold, 56 apart). The cursor rests on each, left to right, for about 1 s (hit area 6 px wider than the text on each side).
+- Underline: orange, 3 thick, 8 px below the baseline.
+- On hover, width 0→100% from the left end over 0.3 s (cubic ease-out).
+- On leave, the left end moves right over 0.3 s, so the line exits to the right (like scaleX with transform-origin on the right).
+適用情境：Use it on menu and text links to show where the pointer is, quietly.
+
+參考實作（Canvas 2D，畫面只由時間決定的函式）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh-Hant/e/086.txt
+共用輔助程式碼：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/lp.js
+請保留參考實作的形狀、時間安排與緩動數值，只替換文字、色彩和素材，以符合目前製作的內容。

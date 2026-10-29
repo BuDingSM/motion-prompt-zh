@@ -1,0 +1,16 @@
+請使用「背景視頻（Background video）」，它是「落地頁與網站效果（第二輯）」中的一個名稱。
+Motion Prompt #168
+
+它是什麼：A video plays behind the hero section
+範例展示：In the hero background, clouds and waves keep moving, while the headline and button sit still on top.
+規格：
+- A 511 × 168 viewport. Background footage (sky, clouds, mountains, sea) fills the hero, with a still headline (28 px, white) and button on top. The footage loops every 4.7 s (twice per 9.4 s pack cycle).
+- Clouds: the far layer repeats every 170 px and moves 170 px right per 4.7 s (about 36 px/s); the near layer repeats every 340 px and moves 340 px per 4.7 s (about 72 px/s). The mountains stay still.
+- Sea: three waves (y = 118, 130, 146; amplitude 2.5–3 px; wavelength 90, 60, 120 px); only the middle one runs the other way and moves two wavelengths per 4.7 s (the other two move one wavelength to the right).
+- For legibility, a 12% navy layer covers the footage, a gradient darkens the left 300 px (opacity 0.45 → 0), and the headline has a shadow (10 px blur).
+- A playing badge (pause, muted) sits at the bottom right. On a real site the video uses autoplay, muted, loop and playsinline.
+適用情境：Use it on hero sections for travel, hotels, restaurants or recruiting, where atmosphere and motion say more than one photo.
+
+參考實作（Canvas 2D，畫面只由時間決定的函式）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh-Hant/e/168.txt
+共用輔助程式碼：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/lp2.js
+請保留參考實作的形狀、時間安排與緩動數值，只替換文字、色彩和素材，以符合目前製作的內容。

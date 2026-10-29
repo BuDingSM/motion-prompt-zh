@@ -1,0 +1,31 @@
+// Motion Prompt #041 · MIT License (c) 2026 Shohei Ohtaki · https://budingsm.github.io/motion-prompt-zh/#041
+//
+// 跳接 / Jump cut
+// 类别包: camera (摄影机运动与转场) · element 17 · 分类: 转场
+// 效果说明: Camera position and framing stay the same while the person's position and the clock jump; time is skipped inside one scene.
+// 动效规格:
+//   - Join: a straight cut with no effect (0 frames); 5 shots of 0.94 s each (4.7 s ÷ 5)
+//   - Camera: identical position and framing in every shot (height 1.4 m, facing forward); the background does not move by a pixel
+//   - What changes: the person (7 m away) jumps in sideways position, -2.2 m → 1.4 m → -0.4 m → 2.4 m → 0.6 m; in shots 2 and 4 both arms are raised
+//   - Within each shot the person is still (the jump is shown only by the difference in position and pose)
+//   - Top-right clock: 10:02 → 10:17 → 10:41 → 11:06 → 11:30, showing that time was skipped in the same place
+//   - Shot 5 cuts straight back to shot 1
+// 适用场景: To tighten pauses in talk or work and raise the pace, or to show time passing quickly.
+// 标签: jump cut, cut, time skip, same framing, vlog, ellipsis, edit
+// 尺寸: 539x208 px · 周期: 9.4 s
+// 依赖: kit camera -> https://budingsm.github.io/motion-prompt-zh/api/v1/kit/camera.js
+// 动态示例: https://budingsm.github.io/motion-prompt-zh/#041
+//
+// cells[i](k, w, h, u)：k = CanvasRenderingContext2D（调用方已清空画布并完成 save/restore），w、h = 尺寸，u = [0, cycle) 内的秒数。画面只由 u 决定。
+// 以下是元素代码。CELLS、常量和辅助函数位于 kit 中。
+
+// @element 17
+// 17 ジャンプカット（同じ画角で人物の位置と時刻だけ飛ぶ）
+CELLS[16] = shot((k, w, h, u) => {
+  const shots = [[-2.2, 0], [1.4, 1], [-0.4, 0], [2.4, 1], [0.6, 0]];
+  const times = ['10:02', '10:17', '10:41', '11:06', '11:30'];
+  const i = Math.min(4, Math.floor(u / (CYC / 5)));
+  const [x, arm] = shots[i];
+  world(k, w, h, cam({ y: 1.4 }), { person: { x, z: 7, armUp: !!arm } });
+  return times[i];
+});

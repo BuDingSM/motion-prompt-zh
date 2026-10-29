@@ -1,0 +1,36 @@
+// Motion Prompt #020 · MIT License (c) 2026 Shohei Ohtaki · https://budingsm.github.io/motion-prompt-zh/#020
+//
+// Zoom Through 穿越轉場 / Zoom through
+// 類別包: motion (動態圖形動效) · element 20 · 分類: 轉場與吸睛效果
+// 效果說明: The camera pushes into the hole of a letter O and comes out in the next scene.
+// 動效規格:
+//   - Scene X (ZOOM on yellow) → scene Y (GO! on blue) → scene X, 2.35 s each.
+//   - The current scene is scaled around the centre of an O's hole (radius 24.5). Maximum scale is 1.08× the value at which the hole covers the whole frame (about 14×).
+//   - Scale = maxScale^p (exponential zoom, which reads as constant speed).
+//   - p = 0.8 × cubic ease-in (0.25–1.2 s) + 0.2 × cubic ease-out (1.2–1.65 s): accelerate in, slow down at the end.
+//   - Inside the hole the next scene is placed at 1/maxScale. When the zoom ends it is exactly at full size, and the view switches to the next scene.
+// 適用情境: Use it to dive into a logo or letter and move to the next scene with momentum.
+// 標籤: zoom, zoom-through, transition, push-in, scale, tunnel, scene-change
+// 尺寸: 539x208 px · 週期: 4.7 s
+// 依賴: kit motion -> https://budingsm.github.io/motion-prompt-zh/api/v1/kit/motion.js
+// 動態範例: https://budingsm.github.io/motion-prompt-zh/#020
+//
+// cells[i](k, w, h, u)：k = CanvasRenderingContext2D（呼叫方已清空畫布並完成 save/restore），w、h = 尺寸，u = [0, cycle) 內的秒數。畫面只由 u 決定。
+// 以下是元素程式碼。CELLS、常數和輔助函式位於 kit 中。
+
+// @element 20
+// 20 ズームスルー（文字の「O」の穴へ突っ込んで、その先の画面へ抜ける）
+function ring(k, x, y, col) { k.strokeStyle = col; k.lineWidth = 21; k.beginPath(); k.arc(x, y, 35, 0, 7); k.stroke(); }
+const ZP = [{ x: 228, y: 106, r: 24.5 }, { x: 300, y: 106, r: 24.5 }];
+function scrX(k, w, h) { k.fillStyle = C.yel; k.fillRect(0, 0, w, h); const f = `800 118px ${DISP}`; txt(k, 'Z', 128, 110, f, C.navy, 'center', 'middle'); ring(k, 228, 106, C.navy); ring(k, 324, 106, C.navy); txt(k, 'M', 432, 110, f, C.navy, 'center', 'middle'); }
+function scrY(k, w, h) { k.fillStyle = C.blue; k.fillRect(0, 0, w, h); const f = `800 118px ${DISP}`; txt(k, 'G', 208, 110, f, '#fff', 'center', 'middle'); ring(k, 300, 106, '#fff'); txt(k, '!', 372, 110, f, C.yel, 'center', 'middle'); }
+const SCZ = [scrX, scrY], ZBG = [C.yel, C.blue];
+CELLS[19] = abCell((k, w, h, u, a, b) => {
+  const po = ZP[a], Smax = Math.hypot(Math.max(po.x, w - po.x), Math.max(po.y, h - po.y)) / po.r * 1.08;
+  const p = eIn(P(u, TA - 0.25, TB - 0.3)) * 0.8 + eOut(P(u, TB - 0.3, TB + 0.15)) * 0.2;
+  if (p >= 1) return SCZ[b](k, w, h);
+  const s = Math.pow(Smax, p), Z = (kk, sc) => { kk.translate(po.x, po.y); kk.scale(sc, sc); kk.translate(-po.x, -po.y); };
+  k.save(); Z(k, s); SCZ[a](k, w, h);
+  k.save(); k.beginPath(); k.arc(po.x, po.y, po.r, 0, 7); k.clip(); k.fillStyle = ZBG[b]; k.fillRect(0, 0, w, h); Z(k, 1 / Smax); SCZ[b](k, w, h); k.restore();
+  k.restore();
+});

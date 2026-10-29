@@ -1,0 +1,15 @@
+請使用「Segmented Control（Segmented control）」，它是「UI 組件名稱」中的一個名稱。
+Motion Prompt #060
+
+它是什麼：用並排按鈕切換檢視
+範例展示：Clicking Day, Week or Month slides a blue highlight across and the bar chart below changes height.
+規格：
+- 4.5 s cycle on a 542×191 card. A grey 300×40 base (radius 10) at (121, 12), split into three 100-wide segments: Day, Week, Month (in Japanese).
+- Selection: blue 92×32, radius 8, shadow blur 6; the selected label is white.
+- The cursor clicks Week at 1.0 s, Month at 2.1 s and Day at 3.3 s; the selection slides over 0.25 s each with easeInOutCubic.
+- Chart below: seven bars 34 wide, 58 px apart (the sixth is blue). Heights move between three data sets (about 30–85, 40–100, 60–115) together with the selection, eased the same way.
+適用情境：Use it to switch between two to four views of the same content, such as day, week and month.
+
+參考實作（Canvas 2D，畫面只由時間決定的函式）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh-Hant/e/060.txt
+共用輔助程式碼：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/ui.js
+請保留參考實作的形狀、時間安排與緩動數值，只替換文字、色彩和素材，以符合目前製作的內容。

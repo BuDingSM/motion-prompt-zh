@@ -72,7 +72,7 @@ Every text field in `packs/<pack>/meta.json` is an object keyed by language code
 
 You can ask a coding AI to do steps 1 to 3 ("add Spanish to packs/camera/meta.json following CONTRIBUTING.md; list every name you are not sure about"). Then check the names yourself; that part is the contribution.
 
-The gallery site and the skill's command line are in English and Japanese for now. Your language appears in the lists under `packs/` and in `api/v1/catalog.json`. [FORMAT.md](FORMAT.md) has the details.
+The gallery site and the skill's command line support English, Japanese, Simplified Chinese (`zh`) and Traditional Chinese (`zh-Hant`). [FORMAT.md](FORMAT.md) has the details.
 
 To also make the videos in your language, use [`make-your-own/prompts/en/01-translate.md`](make-your-own/prompts/en/01-translate.md).
 

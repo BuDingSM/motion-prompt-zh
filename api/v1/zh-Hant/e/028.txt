@@ -1,0 +1,25 @@
+// Motion Prompt #028 · MIT License (c) 2026 Shohei Ohtaki · https://budingsm.github.io/motion-prompt-zh/#028
+//
+// Zoom in / Zoom in
+// 類別包: camera (攝影機運動與轉場) · element 04 · 分類: 鏡頭運動
+// 效果說明: The camera does not move; only the focal length gets longer, so the whole picture enlarges by the same ratio.
+// 動效規格:
+//   - Camera: position and direction fixed (height 1.5 m); only the focal length changes, 330 px → 1200 px (shown as 24mm → 87mm, about 3.6×)
+//   - Exponential interpolation: f = 330 × (8/2.2)^p, where p is a cubic ease-in-out from 0.5 s to 3.4 s (2.9 s)
+//   - Subject: a person stands still 8 m ahead; the final size matches 03 Dolly in (about 3.6×)
+//   - No parallax: the foreground post and rock, the person, buildings and mountains all scale by the same ratio (overlaps do not change)
+//   - Return: hold 3.4–4.2 s, then cross-fade back to the start over the last 0.5 s (one pass = 4.7 s)
+//   - Top-right readout shows the focal length in mm (24mm → 87mm)
+// 適用情境: To direct attention to one point without moving the camera; it looks flatter and more observational than a dolly in.
+// 標籤: zoom, zoom in, focal length, lens, magnify, telephoto, camera move
+// 尺寸: 539x208 px · 週期: 9.4 s
+// 依賴: kit camera -> https://budingsm.github.io/motion-prompt-zh/api/v1/kit/camera.js
+// 動態範例: https://budingsm.github.io/motion-prompt-zh/#028
+//
+// cells[i](k, w, h, u)：k = CanvasRenderingContext2D（呼叫方已清空畫布並完成 save/restore），w、h = 尺寸，u = [0, cycle) 內的秒數。畫面只由 u 決定。
+// 以下是元素程式碼。CELLS、常數和輔助函式位於 kit 中。
+
+// @element 04
+// 04 ズームイン: 位置は固定・焦点距離だけ伸びる（全体が同じ比率で拡大）
+CELLS[3] = shot(camCell((k, w, h, p) => world(k, w, h, cam({ f: F0 * Math.pow(8 / 2.2, p) }), { person: { z: 8 }, fg: [[-1.5, 3.6], [1.6, 4.8, 'rock']] }),
+  p => mm(F0 * Math.pow(8 / 2.2, p))));

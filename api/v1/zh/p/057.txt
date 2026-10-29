@@ -1,0 +1,16 @@
+请使用“页签（Tabs）”，它是“UI 组件名称”中的一个名称。
+Motion Prompt #057
+
+它是什么：点击页签标题切换内容
+示例展示：Clicking the tabs "Overview, Pricing, Reviews" in turn slides a blue underline across and swaps the content below.
+规格：
+- 4.5 s cycle on a 542×191 card. Three tabs at x 24, 114, 204, widths 70, 70, 100; a 2 px divider at y 50 and a 4 px blue underline.
+- The cursor clicks the second tab at 1.0 s, the third at 2.2 s and the first at 3.4 s.
+- Underline: position and width move to the new tab over 0.25 s from each click with easeInOutCubic (from the third back to the first it passes through the middle).
+- Labels: selected is blue and bold, others grey; the switch happens at 1.1, 2.3 and 3.5 s.
+- Content: the old panel fades out linearly in 0.2 s; 0.1 s later the new one fades in over 0.2 s while rising 8 px.
+适用场景：Use it to show several related views in the same space and let people switch between them.
+
+参考实现（Canvas 2D，画面只由时间决定的函数）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh/e/057.txt
+共享辅助代码：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/ui.js
+请保留参考实现的形状、时间安排和缓动数值，只替换文字、颜色和素材，以适配当前制作的内容。

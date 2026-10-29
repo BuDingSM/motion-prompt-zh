@@ -1,6 +1,6 @@
-// Motion Prompt #130 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#130
+// Motion Prompt #130 · MIT License (c) 2026 Shohei Ohtaki · https://budingsm.github.io/motion-prompt-zh/#130
 //
-// Wave text / ウェーブテキスト
+// Wave text / Wave text
 // Pack: motion2 (Motion graphics moves, part 2) · element 10 · Category: Text & shapes
 // What happens: The letters of "WAVE TEXT" rise and fall one after another, like a wave.
 // Motion spec:
@@ -11,8 +11,8 @@
 // When to use it: Use it on a logo, a short heading or a caption timed to music, to add fun and rhythm.
 // Tags: wave-text, wave, text, letters, stagger, bounce, kinetic-type
 // Size: 539x208 px · Cycle: 4.7 s
-// Needs: kit motion2 -> https://showheyohtaki.github.io/motion-prompt/api/v1/kit/motion2.js
-// Live demo: https://showheyohtaki.github.io/motion-prompt/#130
+// Needs: kit motion2 -> https://budingsm.github.io/motion-prompt-zh/api/v1/kit/motion2.js
+// Live demo: https://budingsm.github.io/motion-prompt-zh/#130
 //
 // cells[i](k, w, h, u): k = CanvasRenderingContext2D (already cleared and wrapped in save/restore by the caller), w,h = size, u = seconds in [0, cycle). The picture depends only on u.
 // Element code starts here. CELLS, constants and helpers live in the kit.

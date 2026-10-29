@@ -78,13 +78,21 @@
     },
   };
 
+  I18N.zh = Object.assign({}, I18N.en, {
+    title: '案例｜Motion Prompt', skip: '跳转到案例列表', navLabel: '站内导航', navGallery: '画廊', navFound: '案例', langLabel: '语言', themeToDark: '切换到深色模式', themeToLight: '切换到浅色模式', eyebrow: '我们发现的案例', h1: '用名称和示例建立共同语言',
+    lead: '这里收录使用名称向 AI 提出要求，并配有动态示例或速查表的公开内容。领域、语言和视觉风格各不相同。我们只选择作者自己制作示例的内容，帖子及其权利归作者所有。', leadNote: '被列在这里不代表作者支持本网站，介绍文字由本网站编写。', noteH: '关于嵌入内容', noteP: '本页面使用 X（原 Twitter）的嵌入显示帖子。打开后会从 X 的服务器加载内容并使用 X Cookie，X 可能记录浏览行为并用于广告。嵌入加载时会请求不要用于个性化。', notePrivacy: 'X 隐私政策', noteCookies: 'X 如何使用 Cookie', listH: '案例列表', loadListFailed: '无法加载列表。', count: '{n} 条', postLang: { ja: '日文', en: '英文' }, postLangLabel: '帖子语言：{l}', viewOnX: '在 X 中查看', viewOnXLabel: '在 X 中查看 {a} 的帖子', loading: '加载中…', gone: '无法显示此帖子，可能已被删除。', failed: '无法从 X 加载，可能被内容拦截器阻止。仍可点击“在 X 中查看”。', shown: '已显示 {a} 的帖子', moreH: '知道好的案例吗？', recH: '推荐帖子（欢迎自荐）', recP: '如果发现带有名称和示例的帖子，请通过 GitHub Issue 告诉我们。我们只嵌入并链接原帖，不复制图片或视频。', recLink: '推荐案例（GitHub Issue）', rmH: '希望移除时', rmP: '如果希望移除自己的帖子，或介绍文字有误，请使用 Issue 表单。确认后我们会尽快处理。', rmLink: '请求删除或修正（GitHub Issue）', author: '作者', whyLink: '为什么制作', makeLink: '为自己的领域或语言制作', addLink: '添加你所在领域的名称', listLink: '名称列表（GitHub）', removeP1: '如需删除或修正，请使用', removeLink: 'GitHub Issue 表单', removeP2: '提交。', thanks1: '“动态示例 + 可复制提示词”的形式受到', thanks2: '启发，感谢。'
+  });
+  I18N['zh-Hant'] = Object.assign({}, I18N.zh, {
+    title: '案例｜Motion Prompt', navGallery: '圖庫', navFound: '案例', eyebrow: '我們發現的案例', h1: '用名稱和範例建立共同語言', lead: '這裡收錄使用名稱向 AI 提出要求，並配有動態範例或速查表的公開內容。領域、語言和視覺風格各不相同。', noteH: '關於嵌入內容', listH: '案例列表', count: '{n} 條', postLang: { ja: '日文', en: '英文' }, viewOnX: '在 X 中查看', loading: '載入中…', moreH: '知道好的案例嗎？', recH: '推薦貼文（歡迎自薦）', rmH: '希望移除時', author: '作者'
+  });
+
   var store = {
     get: function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
     set: function (k, v) { try { localStorage.setItem(k, v); } catch (e) { /* private mode etc. */ } },
     del: function (k) { try { localStorage.removeItem(k); } catch (e) { /* ignore */ } },
   };
   var darkQuery = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : { matches: false };
-  var state = { lang: root.lang === 'en' ? 'en' : 'ja', data: null };
+  var state = { lang: root.lang === 'en' || root.lang === 'zh' || root.lang === 'zh-Hant' ? root.lang : 'ja', data: null };
   var cards = [];   // { item, el, box, status, shown, token }
 
   function t(key, vars) {

@@ -1,32 +1,35 @@
 <!doctype html>
-<html lang="ja">
+<html lang="zh">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Motion Prompt｜AIに頼むための「名前」のライブラリ</title>
-<meta name="description" content="AIに何かを作ってもらうときに使う「名前」のライブラリです。モーショングラフィックス、カメラワーク、UIパーツ、LP・Webサイトの演出、写真の表現の名前に、動く見本・一言の意味・頼み方の例が付いています。MITライセンス。">
-<link rel="canonical" href="https://showheyohtaki.github.io/motion-prompt/">
+<title>Motion Prompt 中文版｜给 AI 使用的动效名称库</title>
+<meta name="description" content="给 AI 使用的动效名称库，包含动态图形、摄影机运动、UI 组件、落地页与网站效果、摄影风格等 168 个名称，支持简体中文和繁體中文。">
+<link rel="canonical" href="https://budingsm.github.io/motion-prompt-zh/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Motion Prompt">
-<meta property="og:title" content="Motion Prompt｜AIに頼むための「名前」のライブラリ">
-<meta property="og:description" content="AIを指揮するクリエイティブディレクターへ。モーショングラフィックス、カメラワーク、UIパーツ、LP・Webサイトの演出、写真の表現の名前を、動く見本つきで並べました。">
-<meta property="og:url" content="https://showheyohtaki.github.io/motion-prompt/">
-<meta property="og:image" content="https://showheyohtaki.github.io/motion-prompt/assets/og.png">
+<meta property="og:title" content="Motion Prompt 中文版｜给 AI 使用的动效名称库">
+<meta property="og:description" content="包含 168 个动效与视觉术语，支持简体中文和繁體中文，并提供动态示例、规格和参考实现。">
+<meta property="og:url" content="https://budingsm.github.io/motion-prompt-zh/">
+<meta property="og:image" content="https://budingsm.github.io/motion-prompt-zh/assets/og.png">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:locale:alternate" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:creator" content="@showheyohtaki">
-<meta name="twitter:image" content="https://showheyohtaki.github.io/motion-prompt/assets/og.png">
+<meta name="twitter:image" content="https://budingsm.github.io/motion-prompt-zh/assets/og.png">
 <meta name="color-scheme" content="light dark">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <script>
 /* Apply the saved theme and language before first paint. */
 (function () {
-  var d = document.documentElement, t = null, l = null, m = /[?&]lang=(ja|en)(?:&|$)/.exec(location.search);
+  var d = document.documentElement, t = null, l = null, m = /[?&]lang=(ja|en|zh|zh-Hant)(?:&|$)/.exec(location.search);
   try { t = localStorage.getItem('mp-theme'); l = localStorage.getItem('mp-lang'); } catch (e) {}
   if (m) l = m[1]; /* ?lang= (set when an agent opens the gallery) wins for this visit */
   if (t === 'light' || t === 'dark') d.setAttribute('data-theme', t);
-  if (l !== 'ja' && l !== 'en') l = /^ja\b/i.test(navigator.language || 'ja') ? 'ja' : 'en';
+  if (l !== 'ja' && l !== 'en' && l !== 'zh' && l !== 'zh-Hant') {
+    var browserLang = navigator.language || 'zh-CN';
+    l = /^ja\b/i.test(browserLang) ? 'ja' : /^zh-TW|zh-HK|zh-MO/i.test(browserLang) ? 'zh-Hant' : /^zh\b/i.test(browserLang) ? 'zh' : 'en';
+  }
   d.lang = l;
 })();
 </script>
@@ -41,9 +44,11 @@
     <nav class="top-nav" aria-label="サイト内" data-t-attr="aria-label:navLabel">
       <a class="top-link top-how" href="#how" data-t="navHow">使い方</a>
       <a class="top-link" href="found.html" data-t="navFound">事例</a>
-      <a class="top-link top-gh" href="https://github.com/showheyohtaki/motion-prompt" rel="noopener">GitHub</a>
+      <a class="top-link top-gh" href="https://github.com/BuDingSM/motion-prompt-zh" rel="noopener">GitHub</a>
       <div class="seg" role="group" aria-label="言語" data-t-attr="aria-label:langLabel">
-        <button type="button" class="seg-b" data-lang="ja" aria-pressed="true" aria-label="日本語">JA</button>
+        <button type="button" class="seg-b" data-lang="zh" aria-pressed="true" aria-label="简体中文">简</button>
+        <button type="button" class="seg-b" data-lang="zh-Hant" aria-pressed="false" aria-label="繁體中文">繁</button>
+        <button type="button" class="seg-b" data-lang="ja" aria-pressed="false" aria-label="日本語">JA</button>
         <button type="button" class="seg-b" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
       </div>
       <button type="button" class="icon-b" id="theme" aria-label="ダークモードに切り替える">
@@ -71,7 +76,7 @@
         <h2 class="install-h" data-t="installSkillH">スキルで導入</h2>
         <p class="install-p" data-t="installSkillP">ターミナルで実行します。入れたあとは、AIに「motion-prompt のライブラリ出して」と頼むと、このギャラリーが開きます。選んで「AIに渡す」を押すと、AIに届きます。</p>
         <div class="copyfield">
-          <code id="cmd">npx skills add showheyohtaki/motion-prompt</code>
+          <code id="cmd">npx skills add BuDingSM/motion-prompt-zh</code>
           <button type="button" class="btn btn-s" data-copy="#cmd" data-t="copy" data-t-attr="aria-label:copyCmdLabel" aria-label="導入コマンドをコピー">コピー</button>
         </div>
       </div>
@@ -79,7 +84,7 @@
         <h2 class="install-h" data-t="installPromptH">プロンプトで導入</h2>
         <p class="install-p" data-t="installPromptP">下の文を Claude Code や Codex に貼ると、AIがスキルを入れて使い方を教えてくれます。</p>
         <div class="copyfield copyfield-text">
-          <p id="install-prompt" data-t="installPrompt">https://github.com/showheyohtaki/motion-prompt を読んで、motion-prompt スキルをこの環境に入れてください。入れたら、使い方を3行で教えてください。</p>
+          <p id="install-prompt" data-t="installPrompt">https://github.com/BuDingSM/motion-prompt-zh を読んで、motion-prompt スキルをこの環境に入れてください。入れたら、使い方を3行で教えてください。</p>
           <button type="button" class="btn btn-s" data-copy="#install-prompt" data-t="copy" data-t-attr="aria-label:copyInstallLabel" aria-label="導入用のプロンプトをコピー">コピー</button>
         </div>
       </div>
@@ -139,10 +144,10 @@
       <div class="how-col">
         <h3 data-t="implH">参考実装について</h3>
         <p data-t="implP">見本はすべて Canvas 2D で書いた、時刻だけで絵が決まる関数です。外部ライブラリは使っていません。1コマずつ描けるので、動画の書き出しにも使えます。</p>
-        <p><a href="api/v1/catalog.json">catalog.json</a> · <a id="tsv-link" href="api/v1/ja/catalog.tsv">catalog.tsv</a> · <a href="https://github.com/showheyohtaki/motion-prompt" rel="noopener">GitHub</a></p>
+        <p><a href="api/v1/catalog.json">catalog.json</a> · <a id="tsv-link" href="api/v1/ja/catalog.tsv">catalog.tsv</a> · <a href="https://github.com/BuDingSM/motion-prompt-zh" rel="noopener">GitHub</a></p>
       </div>
     </div>
-    <p class="how-own"><span data-t="ownP">ここにあるのは見本です。同じような名前の見本を、自分の分野・自分の言語でも作れます。</span> <a href="https://github.com/showheyohtaki/motion-prompt/blob/main/make-your-own/README.ja.md" data-href-ja="https://github.com/showheyohtaki/motion-prompt/blob/main/make-your-own/README.ja.md" data-href-en="https://github.com/showheyohtaki/motion-prompt/tree/main/make-your-own" rel="noopener" data-t="ownLink">作り方とプロンプト（make-your-own）</a></p>
+        <p class="how-own"><span data-t="ownP">ここにあるのは見本です。同じような名前の見本を、自分の分野・自分の言語でも作れます。</span> <a href="https://github.com/BuDingSM/motion-prompt-zh/blob/main/make-your-own/README.zh.md" data-href-zh="https://github.com/BuDingSM/motion-prompt-zh/blob/main/make-your-own/README.zh.md" data-href-zh-Hant="https://github.com/BuDingSM/motion-prompt-zh/blob/main/make-your-own/README.zh-Hant.md" data-href-ja="https://github.com/BuDingSM/motion-prompt-zh/blob/main/make-your-own/README.ja.md" data-href-en="https://github.com/BuDingSM/motion-prompt-zh/tree/main/make-your-own" rel="noopener" data-t="ownLink">作り方とプロンプト（make-your-own）</a></p>
   </section>
 </main>
 
@@ -150,12 +155,12 @@
   <div class="wrap foot-in">
     <p><strong>Motion Prompt</strong> · MIT License · <span data-t="author">作者</span> <span data-t="authorName">大滝昇平</span>（<a href="https://x.com/showheyohtaki" rel="noopener">@showheyohtaki</a>）</p>
     <p class="foot-links">
-      <a href="https://github.com/showheyohtaki/motion-prompt/blob/main/README.ja.md#なぜ作ったか" data-href-ja="https://github.com/showheyohtaki/motion-prompt/blob/main/README.ja.md#なぜ作ったか" data-href-en="https://github.com/showheyohtaki/motion-prompt#why-i-made-this" rel="noopener" data-t="whyLink">なぜ作ったか</a>
-      <a href="https://github.com/showheyohtaki/motion-prompt/tree/main/packs" data-href-ja="https://github.com/showheyohtaki/motion-prompt/tree/main/packs" data-href-en="https://github.com/showheyohtaki/motion-prompt/tree/main/packs" rel="noopener" data-t="listLink">名前の一覧（GitHub）</a>
-      <a href="https://github.com/showheyohtaki/motion-prompt/blob/main/make-your-own/README.ja.md" data-href-ja="https://github.com/showheyohtaki/motion-prompt/blob/main/make-your-own/README.ja.md" data-href-en="https://github.com/showheyohtaki/motion-prompt/tree/main/make-your-own" rel="noopener" data-t="makeLink">自分の分野・自分の言語で作る</a>
-      <a href="https://github.com/showheyohtaki/motion-prompt/blob/main/CONTRIBUTING.ja.md" data-href-ja="https://github.com/showheyohtaki/motion-prompt/blob/main/CONTRIBUTING.ja.md" data-href-en="https://github.com/showheyohtaki/motion-prompt/blob/main/CONTRIBUTING.md" rel="noopener" data-t="addLink">あなたの分野の名前を足す</a>
+      <a href="https://github.com/BuDingSM/motion-prompt-zh/blob/main/README.md" data-href-zh="https://github.com/BuDingSM/motion-prompt-zh/blob/main/README.md" data-href-zh-Hant="https://github.com/BuDingSM/motion-prompt-zh/blob/main/README.zh-Hant.md" data-href-ja="https://github.com/BuDingSM/motion-prompt-zh/blob/main/README.ja.md#なぜ作ったか" data-href-en="https://github.com/BuDingSM/motion-prompt-zh/blob/main/README.en.md#why-i-made-this" rel="noopener" data-t="whyLink">なぜ作ったか</a>
+      <a href="https://github.com/BuDingSM/motion-prompt-zh/tree/main/packs" data-href-ja="https://github.com/BuDingSM/motion-prompt-zh/tree/main/packs" data-href-en="https://github.com/BuDingSM/motion-prompt-zh/tree/main/packs" rel="noopener" data-t="listLink">名前の一覧（GitHub）</a>
+      <a href="https://github.com/BuDingSM/motion-prompt-zh/blob/main/make-your-own/README.ja.md" data-href-ja="https://github.com/BuDingSM/motion-prompt-zh/blob/main/make-your-own/README.ja.md" data-href-en="https://github.com/BuDingSM/motion-prompt-zh/tree/main/make-your-own" rel="noopener" data-t="makeLink">自分の分野・自分の言語で作る</a>
+      <a href="https://github.com/BuDingSM/motion-prompt-zh/blob/main/CONTRIBUTING.ja.md" data-href-ja="https://github.com/BuDingSM/motion-prompt-zh/blob/main/CONTRIBUTING.ja.md" data-href-en="https://github.com/BuDingSM/motion-prompt-zh/blob/main/CONTRIBUTING.md" rel="noopener" data-t="addLink">あなたの分野の名前を足す</a>
     </p>
-    <p class="foot-remove"><span data-t="removeP1">掲載の削除・訂正は</span><a href="https://github.com/showheyohtaki/motion-prompt/issues/new?template=3-removal.yml" rel="noopener" data-t="removeLink">GitHub の Issue のフォーム</a><span data-t="removeP2">から依頼できます。確認後、すみやかに対応します。</span></p>
+    <p class="foot-remove"><span data-t="removeP1">掲載の削除・訂正は</span><a href="https://github.com/BuDingSM/motion-prompt-zh/issues/new?template=3-removal.yml" rel="noopener" data-t="removeLink">GitHub の Issue のフォーム</a><span data-t="removeP2">から依頼できます。確認後、すみやかに対応します。</span></p>
     <p class="foot-thanks"><span data-t="thanks1">動く見本を並べて、プロンプトをコピーして使う形は</span> <a href="https://lucianlabs.dev/uxui-prompt/" rel="noopener">Lucian UX/UI Prompt</a> <span data-t="thanks2">から着想を得ました。ありがとうございます。</span></p>
   </div>
 </footer>

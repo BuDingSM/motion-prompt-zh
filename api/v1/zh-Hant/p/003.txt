@@ -1,0 +1,17 @@
+請使用「Burst」，它是「動態圖形動效」中的一個名稱。
+Motion Prompt #003
+
+它是什麼：出現時線條與粒子向外迸開
+範例展示：A like heart fills in, and a ring, lines and dots burst outward at the same moment.
+規格：
+- One burst per 2.35 s. A heart (size 46, 7 px outline) sits in the centre.
+- Anticipation: 0.3–0.5 s, scale 1→0.7 (quadratic ease-in-out).
+- Trigger at 0.5 s: the heart fills with coral and scale returns 0.7→1 with spring 1 − e^(−6.5t)·cos(16t).
+- Ring: yellow, radius 44→90 while line width goes 16→0, over 0.6 s with quintic ease-out.
+- 10 radial lines (yellow/mint alternating, width 9): outer end radius 64→130 (y scaled 0.82); length 36 shrinks to 0 between 0.22 and 0.7 s after the trigger.
+- 10 dots (coral/blue alternating, radius 8→4.8): radius 58→150 on an ellipse (x ×1.45, y ×0.78), fading out 0.3–0.72 s after the trigger. The heart fill fades at 1.92–2.2 s.
+適用情境：Use it to mark the instant something is triggered or achieved, such as a like, a success or a correct answer.
+
+參考實作（Canvas 2D，畫面只由時間決定的函式）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh-Hant/e/003.txt
+共用輔助程式碼：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/motion.js
+請保留參考實作的形狀、時間安排與緩動數值，只替換文字、色彩和素材，以符合目前製作的內容。

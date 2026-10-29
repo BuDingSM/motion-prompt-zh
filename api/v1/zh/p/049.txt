@@ -1,0 +1,16 @@
+请使用“Modal（Modal dialog）”，它是“UI 组件名称”中的一个名称。
+Motion Prompt #049
+
+它是什么：画面变暗，中央跳出一个视窗
+示例展示：Clicking "Open" dims the whole page and a small window scales up slightly into the centre; clicking × closes it.
+规格：
+- 4.5 s cycle on a 542×191 card. The cursor reaches the "Open" button (120×36, lower left) at 0.95 s and clicks at 1.0 s.
+- Open amount a: 0→1 over 1.0–1.32 s with easeOutCubic. A full-card scrim rgba(18,20,28) at opacity 0.42·a.
+- Window: white 280×140, radius 12, centred at (271, 97), shadow blur 24, offset y 8, alpha 0.25. Scale 0.9 + 0.1·a, opacity a.
+- Inside: a bold title bar, two text lines, a blue 88×30 button at lower right and × at top right.
+- Close: the cursor moves to × by 3.0 s and clicks at 3.3 s; a is multiplied by (1 − easeInOutCubic over 3.3–3.58 s).
+适用场景：Use it when the user must stop and deal with one thing, such as a confirmation or a short form.
+
+参考实现（Canvas 2D，画面只由时间决定的函数）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh/e/049.txt
+共享辅助代码：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/ui.js
+请保留参考实现的形状、时间安排和缓动数值，只替换文字、颜色和素材，以适配当前制作的内容。

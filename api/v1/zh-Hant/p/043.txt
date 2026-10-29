@@ -1,0 +1,17 @@
+請使用「甩鏡（Whip pan）」，它是「攝影機運動與轉場」中的一個名稱。
+Motion Prompt #043
+
+它是什麼：快速橫搖，在動態模糊中接到下一個鏡頭
+範例展示：The camera swings sideways very fast and the next scene is swapped in during the streaked blur.
+規格：
+- Join: 0.8 s, from 1.7 s to 2.5 s; in the first 0.4 s the outgoing shot swings away, in the last 0.4 s the incoming shot swings in and settles
+- First half: outgoing yaw 0 → +0.45 rad (about 26°), quadratic ease-in-out; second half: incoming yaw -0.45 rad → 0, same easing
+- Swap: a straight replacement at the 50% point, hidden because the blur is at its strongest
+- Blur: 9 renders spread over ±1.6 frames (at 30 fps) are averaged
+- Camera: height 1.4 m, fixed except during the swing; the subjects (a person in A, a car and city in B) do not move
+- Alternates A→B and B→A every 4.7 s (9.4 s for the round trip); top-right readout shows "A → B" / "B → A"
+適用情境：To change location or topic while keeping the energy up.
+
+參考實作（Canvas 2D，畫面只由時間決定的函式）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh-Hant/e/043.txt
+共用輔助程式碼：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/camera.js
+請保留參考實作的形狀、時間安排與緩動數值，只替換文字、色彩和素材，以符合目前製作的內容。

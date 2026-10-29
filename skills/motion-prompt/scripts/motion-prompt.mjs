@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/* Motion Prompt skill CLI · MIT License (c) 2026 Shohei Ohtaki · https://github.com/showheyohtaki/motion-prompt */
+/* Motion Prompt skill CLI · MIT License (c) 2026 Shohei Ohtaki · https://github.com/BuDingSM/motion-prompt-zh */
 // Node 18+, no dependencies. Reads the static Motion Prompt API (api/v1) and prints what an agent needs.
 import fs from 'node:fs';
 import os from 'node:os';
@@ -10,10 +10,10 @@ import { spawn } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
 const VERSION = '0.1.0';
-const SITE = 'https://showheyohtaki.github.io/motion-prompt/';
+const SITE = 'https://budingsm.github.io/motion-prompt-zh/';
 const REMOTES = [
-  'https://showheyohtaki.github.io/motion-prompt/api/v1',
-  'https://raw.githubusercontent.com/showheyohtaki/motion-prompt/main/api/v1',
+  'https://budingsm.github.io/motion-prompt-zh/api/v1',
+  'https://raw.githubusercontent.com/BuDingSM/motion-prompt-zh/main/api/v1',
 ];
 const MAX_GET = 8;
 const EXIT = { OK: 0, NOT_FOUND: 1, USAGE: 2, NETWORK: 3, TIMEOUT: 4 };
@@ -57,7 +57,7 @@ Usage: node motion-prompt.mjs <command> [options]
 
   pick                  open the gallery so the user can pick; prints what they picked   [--pack <pack>]
                         [--timeout <seconds, default ${PICK_TIMEOUT}>] [--no-open] [--local]
-  search <words...>     best matches (English or Japanese words)   [--pack <pack>] [--limit N]
+  search <words...>     best matches (English, Chinese or Japanese words)   [--pack <pack>] [--limit N]
   list                  packs, categories and counts
   list --pack <pack>    every element in one pack
   get <id> [<id>...]    code + spec for up to ${MAX_GET} elements (accepts 12, 012, #012 or a demo URL)
@@ -66,7 +66,7 @@ Usage: node motion-prompt.mjs <command> [options]
   info                  data source, counts, version, cache folder
 
 Options:
-  --lang ja|en          language of names and text (default en; Japanese search words switch to ja)
+  --lang ja|en|zh|zh-Hant language of names and text (default en; search words can switch language)
   --out <dir>           write files into <dir> instead of printing (get, prompt, kit)
   --refresh             ignore the disk cache
   --no-open             pick: print the gallery URL instead of opening a browser
@@ -222,7 +222,7 @@ class Store {
       this.failures.length && this.failures.every((f) => f.endsWith('HTTP 404'))
         ? 'The sources answered, but none of them has this file. The data may not be published at these addresses yet.\nSet MOTION_PROMPT_BASE to a local copy of api/v1 if you have one.'
         : this.remote
-        ? 'This command needs HTTPS access to showheyohtaki.github.io or raw.githubusercontent.com.\nAllow network access for this command and run it again, or set MOTION_PROMPT_BASE to a local copy of api/v1.'
+        ? 'This command needs HTTPS access to budingsm.github.io or raw.githubusercontent.com.\nAllow network access for this command and run it again, or set MOTION_PROMPT_BASE to a local copy of api/v1.'
         : 'Check that MOTION_PROMPT_BASE points at a folder that contains catalog.json.',
     ];
     return new CliError(EXIT.NETWORK, lines.join('\n'));
@@ -231,9 +231,10 @@ class Store {
 
 // ---------- catalog helpers ----------
 
-const HAS_JA = /[぀-ヿ㐀-鿿ｦ-ﾟ]/;
-const tx = (v, lang) => (v == null ? '' : typeof v === 'string' ? v : Array.isArray(v) ? v.join(' ') : String(v[lang] ?? v.en ?? v.ja ?? ''));
-const both = (v) => (v == null ? '' : typeof v === 'string' ? v : Array.isArray(v) ? v.join(' ') : `${tx(v.ja, 'ja')} ${tx(v.en, 'en')}`);
+const HAS_JA = /[ぁ-ゖァ-ヺｦ-ﾟ]/;
+const HAS_ZH = /[一-鿿]/;
+const tx = (v, lang) => (v == null ? '' : typeof v === 'string' ? v : Array.isArray(v) ? v.join(' ') : String(v[lang] ?? v.zh ?? v['zh-Hant'] ?? v.en ?? v.ja ?? ''));
+const both = (v) => (v == null ? '' : typeof v === 'string' ? v : Array.isArray(v) ? v.join(' ') : `${tx(v.ja, 'ja')} ${tx(v.en, 'en')} ${tx(v.zh, 'zh')} ${tx(v['zh-Hant'], 'zh-Hant')}`);
 const packKey = (p) => String(p.pack ?? p.id ?? p.slug ?? p.name ?? '');
 const pad = (n) => String(n).padStart(3, '0');
 const demoUrl = (id) => `${SITE}#${id}`;
@@ -249,7 +250,7 @@ function categoryLabel(cat, e, lang) {
   const p = packsOf(cat).find((x) => packKey(x) === e.pack);
   const c = p && Array.isArray(p.categories) ? p.categories.find((x) => x.slug === e.category) : null;
   if (!c) return { label: e.category || '', haystack: e.category || '' };
-  return { label: tx(c, lang) || c.slug, haystack: `${c.slug} ${c.ja ?? ''} ${c.en ?? ''}` };
+  return { label: tx(c, lang) || c.slug, haystack: `${c.slug} ${c.ja ?? ''} ${c.en ?? ''} ${c.zh ?? ''} ${c['zh-Hant'] ?? ''}` };
 }
 
 function requirePack(cat, name) {
@@ -289,7 +290,7 @@ function line(cat, e, lang) {
 
 function score(cat, e, tokens) {
   const name = both(e.name).toLowerCase();
-  const names = [tx(e.name, 'ja'), tx(e.name, 'en')].map((s) => s.toLowerCase());
+  const names = [tx(e.name, 'ja'), tx(e.name, 'en'), tx(e.name, 'zh'), tx(e.name, 'zh-Hant')].map((s) => s.toLowerCase());
   const tags = (e.tags || []).map((t) => String(t).toLowerCase());
   const slug = String(e.slug || '').toLowerCase();
   const catHay = `${categoryLabel(cat, e, 'en').haystack} ${e.pack} ${both((packsOf(cat).find((p) => packKey(p) === e.pack) || {}).title)}`.toLowerCase();
@@ -512,6 +513,20 @@ const PICK_TEXT = {
     none: 'None of the picked numbers is in the catalog', other: 'This address belongs to another request',
     otherBody: 'Send your picks with "Send to AI" in the gallery that your AI opened.',
   },
+  zh: {
+    done: '已发送给 AI', close: '可以关闭此页面了。回到 AI 对话，告诉它如何使用你选择的动效。',
+    ignored: '目录中没有以下编号，因此未发送：', bad: '无法读取选择结果',
+    badBody: '请返回画廊，再次点击“发送给 AI”。你的 AI 仍在等待。',
+    none: '选择的编号不在目录中', other: '此地址属于另一项请求',
+    otherBody: '请在 AI 打开的画廊中点击“发送给 AI”来提交选择。',
+  },
+  'zh-Hant': {
+    done: '已傳送給 AI', close: '可以關閉此頁面了。回到 AI 對話，告訴它如何使用你選擇的動效。',
+    ignored: '目錄中沒有以下編號，因此未傳送：', bad: '無法讀取選擇結果',
+    badBody: '請返回圖庫，再次點擊「傳送給 AI」。你的 AI 仍在等待。',
+    none: '選擇的編號不在目錄中', other: '此地址屬於另一項請求',
+    otherBody: '請在 AI 開啟的圖庫中點擊「傳送給 AI」來提交選擇。',
+  },
 };
 
 function waitForPick(server, { port, token, root, cat, flags, timeoutSec }) {
@@ -537,7 +552,8 @@ function waitForPick(server, { port, token, root, cat, flags, timeoutSec }) {
       try { url = new URL(req.url, origin); } catch { return send(res, 400, 'Bad request'); }
       const q = url.searchParams;
       if (url.pathname === '/' && q.has('t')) {
-        const lang = flags.lang || (q.get('lang') === 'ja' ? 'ja' : q.get('lang') === 'en' ? 'en' : 'en');
+        const requestedLang = q.get('lang');
+        const lang = flags.lang || (['ja', 'en', 'zh', 'zh-Hant'].includes(requestedLang) ? requestedLang : 'en');
         const T = PICK_TEXT[lang];
         const given = Buffer.from(String(q.get('t')));
         const want = Buffer.from(token);
@@ -575,7 +591,7 @@ function waitForPick(server, { port, token, root, cat, flags, timeoutSec }) {
 }
 
 function printPick(cat, { ids, unknown, note, lang }) {
-  const other = lang === 'ja' ? 'en' : 'ja';
+  const other = lang === 'ja' ? 'en' : lang === 'en' ? 'ja' : 'en';
   const out = [`The user picked ${ids.length} element${ids.length === 1 ? '' : 's'} in the Motion Prompt gallery, in this order.`];
   out.push(note ? `Note from the user: ${note}` : 'Note from the user: (none)');
   out.push('');
@@ -598,7 +614,7 @@ function printPick(cat, { ids, unknown, note, lang }) {
 }
 
 async function cmdPick(store, args, flags) {
-  if (args.length) throw new CliError(EXIT.USAGE, 'pick takes no ids or words. Options: --pack <pack> --lang ja|en --timeout <seconds> --no-open --local');
+  if (args.length) throw new CliError(EXIT.USAGE, 'pick takes no ids or words. Options: --pack <pack> --lang ja|en|zh|zh-Hant --timeout <seconds> --no-open --local');
   const timeoutSec = flags.timeout === undefined ? PICK_TIMEOUT : Number(flags.timeout);
   if (!Number.isFinite(timeoutSec) || timeoutSec < 1 || timeoutSec > 86400) throw new CliError(EXIT.USAGE, '--timeout must be a number of seconds between 1 and 86400.');
   const root = flags.local ? repoRoot() : null;
@@ -632,8 +648,8 @@ async function main() {
   const { flags, command, args } = parseArgs(process.argv.slice(2));
   if (flags.version) { console.log(VERSION); return; }
   if (flags.help || !command || command === 'help') { console.log(HELP); return; }
-  if (flags.lang && !['ja', 'en'].includes(flags.lang)) throw new CliError(EXIT.USAGE, '--lang must be ja or en.');
-  const lang = flags.lang || (command === 'search' && HAS_JA.test(args.join(' ')) ? 'ja' : 'en');
+  if (flags.lang && !['ja', 'en', 'zh', 'zh-Hant'].includes(flags.lang)) throw new CliError(EXIT.USAGE, '--lang must be ja, en, zh or zh-Hant.');
+  const lang = flags.lang || (command === 'search' && HAS_JA.test(args.join(' ')) ? 'ja' : command === 'search' && HAS_ZH.test(args.join(' ')) ? 'zh' : 'en');
   const store = new Store({ refresh: flags.refresh });
   switch (command) {
     case 'search': return cmdSearch(store, args, flags, lang);

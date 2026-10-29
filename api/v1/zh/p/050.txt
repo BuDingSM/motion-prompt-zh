@@ -1,0 +1,16 @@
+请使用“Drawer（Drawer (Off-canvas)）”，它是“UI 组件名称”中的一个名称。
+Motion Prompt #050
+
+它是什么：从侧边滑出选单面板
+示例展示：Clicking "Menu" slides a tall panel in from the left; clicking outside slides it back.
+规格：
+- 4.5 s cycle on a 542×191 card. The cursor clicks the "Menu" button (110×34, top left) at 1.0 s.
+- Open amount a: 0→1 over 1.0–1.38 s with easeOutCubic. Full-card scrim rgba(18,20,28) at opacity 0.36·a.
+- Panel: white, 210 wide, full card height, x = −210 + 210·a so it slides in from the left edge. Shadow blur 22, alpha 0.25.
+- Inside: an avatar (radius 14) and name at the top, then four menu rows 32 px apart; the first row is selected with a light-blue band.
+- Close: the cursor clicks outside at (420, 120) at 3.3 s; a is multiplied by (1 − easeInOutCubic over 3.3–3.65 s) and the panel slides back.
+适用场景：Use it to keep navigation or filters off screen until needed, especially on mobile.
+
+参考实现（Canvas 2D，画面只由时间决定的函数）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh/e/050.txt
+共享辅助代码：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/ui.js
+请保留参考实现的形状、时间安排和缓动数值，只替换文字、颜色和素材，以适配当前制作的内容。

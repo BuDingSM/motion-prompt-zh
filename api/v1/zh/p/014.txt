@@ -1,0 +1,16 @@
+请使用“动态残影（Motion trail）”，它是“动态图形动效”中的一个名称。
+Motion Prompt #014
+
+它是什么：移动的物体后方拖著渐淡的残影
+示例展示：A ball moving in a figure eight leaves a fading trail of copies behind it.
+规格：
+- A ball (coral, radius 25, white centre radius 11) traces a figure eight once per 4.7 s: x = 196·sin(a), y = 62·sin(2a), with a advancing at constant speed.
+- 15 copies, each placed 0.105 rad (about 0.079 s) further back along the path.
+- Copy radius goes 22→6 and opacity is 0.9 × (1 − i/15) + 0.05, so older copies are smaller and fainter.
+- Copy colour runs coral → yellow → blue from newest to oldest.
+- Draw the oldest copy first and the ball itself last.
+适用场景：Use it to show speed or a path: flying objects, cursors, points of light.
+
+参考实现（Canvas 2D，画面只由时间决定的函数）：https://budingsm.github.io/motion-prompt-zh/api/v1/zh/e/014.txt
+共享辅助代码：https://budingsm.github.io/motion-prompt-zh/api/v1/kit/motion.js
+请保留参考实现的形状、时间安排和缓动数值，只替换文字、颜色和素材，以适配当前制作的内容。
